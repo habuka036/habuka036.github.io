@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/aws/</link>
+    <description>Recent content in Aws on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sat, 19 Dec 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.osamu.habuka.jp/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SkyDNSのバックエンドにDynamoDBを使ってみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-19-aws-advent-calendar-2015-day18/</link>
+      <pubDate>Sat, 19 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-19-aws-advent-calendar-2015-day18/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://qiita.com/advent-calendar/2015/aws&#34;&gt;AWS Advent Calendar 2015&lt;/a&gt; の 18 日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;今日は SkyDNS のバックエンドに etcd でなく DyamoDBを使ってみようという話です。&lt;/p&gt;
+
+&lt;p&gt;皆さん大好き SkyDNS ですが、これを AWS の EC2 上で構築したときに必ず以下の課題に遭遇すると思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;冗長性を担保するために複数台構成にしよう&lt;/li&gt;
+&lt;li&gt;耐故障性を上げためにマルチ AZ 構成にしよう&lt;/li&gt;
+&lt;li&gt;あれ？ AZ 1つが丸々落ちても過半数を割らないようにするためには奇数にして…&lt;/li&gt;
+&lt;li&gt;うーん、マジョリティ側の AZ が落ちたらアウトだ…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そーすると耐故障性を上げるどころの話じゃなくなってしまい、楽をするために導入しようとした SkyDNS が足枷になったりします。&lt;/p&gt;
+
+&lt;p&gt;でも思い出してみてください、AWS には DynamoDB という素敵なサービスがあります。SkyDNS にとっての etcd を単なるデータストアと割り切って見た場合、etcd の代用として DynamoDB が使えると思いませんか？いや、むしろ「代用」なんかじゃなく、SkyDNS を AWS で動かす場合には無くてはならない存在だと言えます。&lt;/p&gt;
+
+&lt;p&gt;じゃー SkyDNS は DynamoDB をデータストアとして使うことできるのか？と言うと、残念ながらそのままでは SkyDNS は DynamoDB をデータストアとして使うことができません。&lt;/p&gt;
+
+&lt;p&gt;しかし、我らが SkyDNS、ちゃんと &lt;a href=&#34;https://github.com/skynetservices/skydns/tree/master/backends&#34;&gt;etcd の部分を pluggable&lt;/a&gt; にしてあります。&lt;/p&gt;
+
+&lt;p&gt;ということで、etcd の代わりに DynamoDB を利用するコードを backend/ 配下に書いてみます。&lt;/p&gt;
+
+&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

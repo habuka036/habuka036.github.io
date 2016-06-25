@@ -1,0 +1,1884 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on hablog</title>
+    <link>http://blog.osamu.habuka.jp/post/</link>
+    <description>Recent content in Posts on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 26 Jun 2016 04:43:38 +0900</lastBuildDate>
+    <atom:link href="http://blog.osamu.habuka.jp/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ハッピーセットの旭山動物園号の電池交換</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-06-26-happyset/</link>
+      <pubDate>Sun, 26 Jun 2016 04:43:38 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-06-26-happyset/</guid>
+      <description>&lt;p&gt;マクドナルドのハッピーセットで貰った「旭山動物園号」、こいつには LED が搭載されていてスイッチを入れるとヘッドライトが光るというギミックがついてます。今日はそんな旭山動物園号の電池を交換するお話です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-00.jpg&#34; alt=&#34;旭山動物園号&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;裏を見るとネジが3つありますが、このネジを外すのが一番の難関です。というのもこのネジ穴の形状が三角で、一般家庭にはこのネジ穴に対応するドライバーが無いと思います。もちろん我が家にもありません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-01.jpg&#34; alt=&#34;三角穴&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;なので、2.5mm程度のマイナスドライバーを三角の辺のひとつに合わせて回すと、ネジを外すことができます。写真だとよく見えませんが、以下のような感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-02.jpg&#34; alt=&#34;三角穴とドライバー&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ネジを外して電車の外装を外すと頭の部分にちょこんと LED ライトと黒いカバーが見えますが、電池はこの黒いカバーの中に収納されてます。&lt;/p&gt;
+
+&lt;p&gt;この黒いカバーもネジで止められていますが、このネジはプラスドライバーで外すことができます。サイズは PH0 でいいと思います。ちなみに穴の形状は十字穴のH型なので PH0 で問題ないはずですが、ポジドライバー(PZ0)のほうがよりしっくりとマッチしている感じがしました、気のせいかもしれませんが…。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-03.jpg&#34; alt=&#34;電池カバー&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;電池カバーを外すと以下のようにボタン電池が3つ収納されているのが確認できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-04.jpg&#34; alt=&#34;ボタン電池&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このボタン電池は LR41 という型番で、&lt;a href=&#34;https://www.amazon.co.jp/dp/B005JR7ZH0&#34;&gt;Amazon であれば10個入り1シートが100円ちょっと&lt;/a&gt;で販売されてます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-05.jpg&#34; alt=&#34;SUNCOM LR41&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ボタン電池はぎっちりと入っていて指で取りづらいため、以下のようにマイナスドライバを隙間から差し込んでやると簡単に取ることができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-06.jpg&#34; alt=&#34;ボタン電池の取り外し&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ボタン電池を入れる際には以下のように傾けて入れていくと楽かもしれません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-07.jpg&#34; alt=&#34;ボタン電池の装着&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとはカバーや外装を元に戻してやれば完了です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-08.jpg&#34; alt=&#34;点灯&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの電車のネジですが、部品のコストを削減するためなのか材質が脆く、ネジを回す際にネジ頭がバカになるかもしれません。1度や2度の電池交換ぐらいは耐えられるかもしれませんが…。&lt;/p&gt;
+
+&lt;p&gt;一応「いつかネジをちゃんとしたものに交換しよう」と思い、各ネジの寸法を測ってみました。が、我が家にあるノギスはおもちゃのような作りなので、もしかすると0.1単位で誤差があるかもしれません。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ネジ種&lt;/th&gt;
+&lt;th&gt;径&lt;/th&gt;
+&lt;th&gt;長さ&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;三角穴&lt;/td&gt;
+&lt;td&gt;3.0mm&lt;/td&gt;
+&lt;td&gt;7.5mm&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;十字穴&lt;/td&gt;
+&lt;td&gt;1.6mm&lt;/td&gt;
+&lt;td&gt;5.0mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SkyDNSのバックエンドにDynamoDBを使ってみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-19-aws-advent-calendar-2015-day18/</link>
+      <pubDate>Sat, 19 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-19-aws-advent-calendar-2015-day18/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://qiita.com/advent-calendar/2015/aws&#34;&gt;AWS Advent Calendar 2015&lt;/a&gt; の 18 日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;今日は SkyDNS のバックエンドに etcd でなく DyamoDBを使ってみようという話です。&lt;/p&gt;
+
+&lt;p&gt;皆さん大好き SkyDNS ですが、これを AWS の EC2 上で構築したときに必ず以下の課題に遭遇すると思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;冗長性を担保するために複数台構成にしよう&lt;/li&gt;
+&lt;li&gt;耐故障性を上げためにマルチ AZ 構成にしよう&lt;/li&gt;
+&lt;li&gt;あれ？ AZ 1つが丸々落ちても過半数を割らないようにするためには奇数にして…&lt;/li&gt;
+&lt;li&gt;うーん、マジョリティ側の AZ が落ちたらアウトだ…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そーすると耐故障性を上げるどころの話じゃなくなってしまい、楽をするために導入しようとした SkyDNS が足枷になったりします。&lt;/p&gt;
+
+&lt;p&gt;でも思い出してみてください、AWS には DynamoDB という素敵なサービスがあります。SkyDNS にとっての etcd を単なるデータストアと割り切って見た場合、etcd の代用として DynamoDB が使えると思いませんか？いや、むしろ「代用」なんかじゃなく、SkyDNS を AWS で動かす場合には無くてはならない存在だと言えます。&lt;/p&gt;
+
+&lt;p&gt;じゃー SkyDNS は DynamoDB をデータストアとして使うことできるのか？と言うと、残念ながらそのままでは SkyDNS は DynamoDB をデータストアとして使うことができません。&lt;/p&gt;
+
+&lt;p&gt;しかし、我らが SkyDNS、ちゃんと &lt;a href=&#34;https://github.com/skynetservices/skydns/tree/master/backends&#34;&gt;etcd の部分を pluggable&lt;/a&gt; にしてあります。&lt;/p&gt;
+
+&lt;p&gt;ということで、etcd の代わりに DynamoDB を利用するコードを backend/ 配下に書いてみます。&lt;/p&gt;
+
+&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SkyDNSのプチ性能調査</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-17-dns-advent-calendar-2015-day16/</link>
+      <pubDate>Thu, 17 Dec 2015 04:49:39 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-17-dns-advent-calendar-2015-day16/</guid>
+      <description>&lt;p&gt;DNS 大好き娘の皆さん今晩は。これは DNS Advent Calendar 2015 の 16 日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;16日目のエントリなのに 16 日に公開できなくてごめんなさい…orz&lt;/p&gt;
+
+&lt;p&gt;このエントリでは SkyDNS の簡単な性能調査をしてみようと思います。&lt;/p&gt;
+
+&lt;p&gt;性能計測パターンは1台と3台の2構成で計測してみます。(本当はもっと台数を線形に増やしてみたいんですが、ちょっと時間的に辛いので、日和って3台までで…)&lt;/p&gt;
+
+&lt;p&gt;以下、簡単な環境情報です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AMI: Amazon Linux AMI 2015.09.1 (HVM), SSD Volume Type - ami-383c1956&lt;/li&gt;
+&lt;li&gt;SkyDNS の Instance Type: t2.micro&lt;/li&gt;
+&lt;li&gt;負荷をかける側の Instance Type: t2.medium&lt;/li&gt;
+&lt;li&gt;SkyDNS:&lt;/li&gt;
+&lt;li&gt;etcd:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1台構成時も3台構成時も1台のインスタンスに etcd と SkyDNS がそれぞれ配置されます。図にすると以下のような構成になります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/DNS.adventcalendar.2015.1216-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;賢明な諸兄は「え？この構成なら何台構成になっても同じじゃね？」と気付いたと思いますが、まぁ何事もやってみないとわからないってことで、まずは1台構成から測定してみます。測定環境はこんな感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/DNS.adventcalendar.2015.1216-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;蛇足かもしれませんが、Amazon Linux 上に SkyDNS 環境を構築する手順が以下になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum install git
+# cd /usr/local/src/
+# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
+# tar -xzf go1.5.2.linux-amd64.tar.gz 
+# mv go /opt/
+# export GOPATH=/usr/local/go
+# export GOROOT=/opt/go
+# export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+# mkdir -p $GOPATH
+# go get github.com/coreos/etcd
+# cd $GOPATH/src/github.com/coreos/etcd/etcdctl
+# go install
+# go get github.com/skynetservices/skydns
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一方、Amazon Linux 上に dnsperf をインストールする手順は以下です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum --enablerepo=epel install dnsperf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;では早速 SkyDNS を起動させます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# etcd &amp;amp;
+# skydns -addr 0.0.0.0:53 &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次に SkyDNS に今回の性能調査のためのデータを以下のように手抜きで投入します。(SkyDNS が起動しているホストで実行)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# for i in `seq 1 10000`; do echo $i | md5sum | sed -e &amp;quot;s|\([0-9a-f]*\)\s.*$|etcdctl set /skydns/local/skydns/\1 `printf &amp;quot;&#39;{\\&amp;quot;host\\&amp;quot;:\\&amp;quot;192.168.%d.%d\\&amp;quot;}&#39;&amp;quot; $(( ($i &amp;gt;&amp;gt; 8) &amp;amp; 0xff )) $(( $i &amp;amp; 0xff ))`|&amp;quot; | sh; done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次に投入したデータを dnsperf で索くためのクエリを以下のように作成します。(dnsperf をインストールしたホストで実行)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# for i in `seq 1 10000`; do echo $i | md5sum | sed -e &amp;quot;s|\([0-9a-f]*\)\s.*$|\1.local.\tA|&amp;quot;; done &amp;gt; /tmp/queryfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちゃんと索けるかどうかを確認します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# dig @172.30.2.34 a `head -n 1 /tmp/queryfile`
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ConoHaに作るWakame-vdc LiveDVD CI 環境</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-16-conoha-advent-calendar-2015-day16/</link>
+      <pubDate>Wed, 16 Dec 2015 06:15:38 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-16-conoha-advent-calendar-2015-day16/</guid>
+      <description>&lt;p&gt;ConoHa ユーザの皆さま &amp;amp; ConoHa タンこんばんは。これは ConoHa Advent Calendar 2015 の 16 日目のエントリです。16 日目のエントリなのに 16 日を過ぎてからの掲載でごめんなさい。&lt;/p&gt;
+
+&lt;p&gt;今日のエントリでは何をやるかというと、Wakame-vdc LiveDVD のビルドとテストを自動化したいという欲求が以前からあり、折角なので Advent Calendar のネタにしようという話です。&lt;/p&gt;
+
+&lt;p&gt;(が、思いっきり失敗談です…orz)&lt;/p&gt;
+
+&lt;p&gt;で、どんなものを作ろうとしているかをまず先に説明します。ざっと粗く書くと以下のような感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-00.png&#34; alt=&#34;2015.1216-00&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まずリポジトリは github 上にあるので OK で、LiveDVD Build Macine も既に ConoHa 上に存在し、ConoHa VM は事前に準備するものがないため、残る Drone の準備だけとなります。&lt;/p&gt;
+
+&lt;p&gt;drone.io のサービスを利用する方法とローカルに Drone を構築する方法がありますが、今回は ConoHa で起動したサーバ上で動かしてみます。&lt;/p&gt;
+
+&lt;p&gt;Drone のドキュメントを読むと手軽に環境を作る方法として Drone が配布している docker のイメージを利用する方法がありますので、まずは ConoHa で起動したサーバに docker をインストールするところから始めます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum install epel-release.noarch
+# yum install docker-io
+# service docker start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;相変わらずの簡単さですね。続いて Drone のイメージを準備します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# docker pull drone/drone:0.4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で続いて docker run をするんですが、その前に Drone の設定ファイルを準備します。公式ドキュメントには「dronerc ファイルを用意しろ」って書いてあるだけで具体的な設定例がドキュメント中には見当たらないため、ソースコード中に存在していた &lt;a href=&#34;https://github.com/drone/drone/blob/master/contrib/debian/drone/etc/drone/dronerc&#34;&gt;Debian 用の設定サンプル&lt;/a&gt; を参考に以下のような設定にしました。一部、github の固有情報はボヤかしてあります f^^;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+# server configuration
+
+#SERVER_ADDR=&amp;quot;:80&amp;quot;
+#SERVER_CERT=&amp;quot;&amp;quot;
+#SERVER_KEY=&amp;quot;&amp;quot;
+
+# database configuration
+
+DATABASE_DRIVER=&amp;quot;sqlite3&amp;quot;
+DATABASE_CONFIG=&amp;quot;/var/lib/drone/drone.sqlite&amp;quot;
+
+# remote configuration
+
+CLIENT=&amp;quot;xxxxxxxxxxxxxxxxxxxx&amp;quot; # oauth2 client. REQUIRED
+SECRET=&amp;quot;yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy&amp;quot; # oauth2 secret. REQUIRED
+
+REMOTE_DRIVER=&amp;quot;github&amp;quot;
+REMOTE_CONFIG=&amp;quot;https://github.com?client_id=$CLIENT&amp;amp;client_secret=$SECRET&amp;quot;
+
+# docker configuration
+
+DOCKER_HOST=&amp;quot;unix:///var/run/docker.sock&amp;quot;
+#DOCKER_CERT=&amp;quot;&amp;quot;
+#DOCKER_KEY=&amp;quot;&amp;quot;
+#DOCKER_CA=&amp;quot;&amp;quot;
+
+# plugin configuration
+
+PLUGIN_FILTER=&amp;quot;plugins/*&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、この内容を /etc/drone/dronerc としたら以下のように docker run します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run \
+--volume /var/lib/drone:/var/lib/drone \
+--volume /var/run/docker.sock:/var/run/docker.sock \
+--env-file /etc/drone/dronerc \
+--restart=always \
+--publish=80:8000 \
+--detach=true \
+--name=drone \
+drone/drone:0.4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、無事コンテナが起動したら、ブラウザでアクセスします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、とてもシンプルな画面が表示されました。続いて LOGIN をクリックすると github のアプリケーション認証画面に飛ばされ…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あれ？404だ…何故だ…？と思って URL をよく見ると…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://github.com/login/oauth/authorize?client_id=%24CLIENT&amp;amp;redirect_uri=.....(略)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？ client_id が dronerc に設定した値じゃなく変数名がそのまま入ってる…&lt;/p&gt;
+
+&lt;p&gt;しょうがないので URL の %24CLIENT の部分に github から払出された値を入れて手で URL を叩いてみると…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;おぉ、なんとか表示されました。なので [Authorize application] をクリックすると…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;パスワード入力画面に遷移するので、パスワードを入力すると…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-05.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;う…ん、何故でしょう？うまくいきません。&lt;/p&gt;
+
+&lt;p&gt;で調べてみたところ、$CLIENT が設定値に置き換えられずにそのまま渡されるのはどうやら &lt;a href=&#34;https://github.com/drone/drone/pull/1369&#34;&gt;0.4 のバグ&lt;/a&gt; っぽいです。&lt;/p&gt;
+
+&lt;p&gt;っていうことで、仕方ないので docker イメージは諦めて自分でビルドしてみることにします。&lt;/p&gt;
+
+&lt;p&gt;まず drone のコードを入手します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# export PATH=/opt/go/bin/:$PATH
+# export GOROOT=/opt/go
+# export GOPATH=/usr/local/go
+# cd /usr/local/go/src/github.com/
+# mkdir -p drone
+# cd drone/
+# git clone https://github.com/drone/drone.git
+# cd drone/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここまでやっておきながらアレですが、素直に go get github.com/drone/drone すりゃぁよかったんじゃないかと…。気にせずに次続けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# make deps gen
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;エラーになり、PuerkitoBio と gopkg.in/yaml.v2 がゲットできないと言ってコケます。なのでとりあえず手動で入れます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cd /usr/local/go/src/github.com/PuerkitoBio/
+# git clone https://github.com/PuerkitoBio/purell.git
+# go get gopkg.in/yaml.v2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;gopkg.in/yaml.v2 が返ってこなくなります。で、調べたところ&lt;a href=&#34;http://qiita.com/wappy100/items/05364b5c095e4bdc860b&#34;&gt;どうやら git のバージョンが古いせい&lt;/a&gt;らしいです。なので、git を新しくします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum remove git
+# yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
+# cd /usr/local/src/
+# wget https://www.kernel.org/pub/software/scm/git/git-2.6.2.tar.gz
+# tar -xzvf git-2.6.2.tar.gz 
+# cd git-2.6.2
+# make prefix=/usr/local all
+# make prefix=/usr/local install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で再度 yaml.v2 をゲットします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# go get gopkg.in/yaml.v2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;続いて依存するのもをインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cd /usr/local/go/src/github.com/drone/drone/
+# ./contrib/setup-sqlite.sh 
+# ./contrib/setup-sassc.sh 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うーん、GCC のバージョンが 4.6 以上じゃないと駄目と怒られます… CentOS 6 で GCC を 4.6 以上にするには…&lt;a href=&#34;https://github.com/FezVrasta/ark-server-tools/wiki/Install-of-required-versions-of-glibc-and-gcc-on-RHEL-CentOS&#34;&gt;ここ&lt;/a&gt;を読むと方法が書いてありますが、16日はタイムアップとなりました…。&lt;/p&gt;
+
+&lt;p&gt;中途半端な失敗談で申し訳ないですが、進展があったら継続してこのページを更新することにします。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>花咲け！Packer〜ん</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-14-wakame-vdc-advent-calendar-2015-day13/</link>
+      <pubDate>Mon, 14 Dec 2015 03:19:27 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-14-wakame-vdc-advent-calendar-2015-day13/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の13日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;Advent Calendar も半分を過ぎましたが、順調に一日遅れの更新から脱却できない今日この頃、皆様如何おすごしですか？&lt;/p&gt;
+
+&lt;p&gt;12日目のエントリでコンテナ内に /dev/tty が無くて上手く ssh 接続できないのを何とか解決してみようと試みました。本日はちょっと視点を変えて「先日公開されたばかりの Wakame-vdc の packer プラグインを使ってみたらどうよ？」をやってみたいと思います。(いつもどおり成功するか否かは不明です)&lt;/p&gt;
+
+&lt;p&gt;で、結果だけ書くとあっという間に終わってしまうので、折角なので一から書いてみます。&lt;/p&gt;
+
+&lt;p&gt;まずは packer をインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mkdir -p /opt/packer
+# cd /opt/packer
+# wget https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_linux_amd64.zip
+# unzip packer_0.8.6_linux_amd64.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;packer のプラグイン用のディレクトリを掘ります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mkdir -p /root/.packer/plugins
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;プラグインをビルドするために go をインストールします。Wakame-vdc のために golang をインストールする時代が来るとは…面白い。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cd /opt
+# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
+# tar -xzvf go1.5.2.linux-amd64.tar.gz
+# export PATH=/opt/go/bin/:$PATH
+# export GOROOT=/opt/go
+# export GOPATH=/usr/local/go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Packer の Wakame-vdc プラグインをビルドします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mkdir -p /usr/local/go/src/github.com/axsh
+# cd /usr/local/go/src/github.com/axsh
+# git clone https://github.com/axsh/wakame-vdc.git
+# cd wakame-vdc/
+# git checkout packer-builder
+# cd client/packer-builder-wakamevdc/
+# go get
+# go build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ビルドが成功すると以下のようにプラグインのバイナリが生成されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# ls -al
+合計 16128
+drwxr-xr-x 3 root root     4096 12月 14 03:40 2015 .
+drwxr-xr-x 7 root root     4096 12月 14 03:27 2015 ..
+-rw-r--r-- 1 root root     1533 12月 14 03:27 2015 README.md
+-rw-r--r-- 1 root root      288 12月 14 03:27 2015 main.go
+-rwxr-xr-x 1 root root 16487528 12月 14 03:40 2015 packer-builder-wakamevdc
+-rw-r--r-- 1 root root      535 12月 14 03:27 2015 test.json
+drwxr-xr-x 2 root root     4096 12月 14 03:27 2015 wakamevdc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このバイナリをプラグイン用ディレクトリに置きます。(っていうか、packer と同じ場所に置いちゃ駄目なのかしら？)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mv packer-builder-wakamevdc /root/.packer/plugins/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次にイメージを生成するための json ファイルを以下のように書きました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cat lxc-image.json
+{
+  &amp;quot;builders&amp;quot;: [
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;wakamevdc&amp;quot;,
+      &amp;quot;api_endpoint&amp;quot;: &amp;quot;http://133.130.109.122:9001/api/12.03/&amp;quot;,
+      &amp;quot;image_id&amp;quot;: &amp;quot;wmi-centos1d64&amp;quot;,
+      &amp;quot;hypervisor&amp;quot;: &amp;quot;lxc&amp;quot;,
+      &amp;quot;cpu_cores&amp;quot;: 1,
+      &amp;quot;memory_size&amp;quot;: 1024,
+      &amp;quot;network_id&amp;quot;: &amp;quot;nw-demo1&amp;quot;,
+      &amp;quot;ssh_username&amp;quot;: &amp;quot;root&amp;quot;,
+      &amp;quot;ssh_timeout&amp;quot;: &amp;quot;60m&amp;quot;
+    }
+  ],
+  &amp;quot;provisioners&amp;quot;: [
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+      &amp;quot;inline&amp;quot;: [
+        &amp;quot;echo RUN Provisioner.&amp;quot;,
+        &amp;quot;echo \&amp;quot;nameserver 8.8.8.8\&amp;quot; &amp;gt;&amp;gt; /etc/resolve.conf&amp;quot;,
+        &amp;quot;yum install -y httpd&amp;quot;
+      ]
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;じゃーイメージをビルドしてみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# packer build lxc-image.json 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うーん、実行したのはいいがコマンドが全然返ってきません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# ls -al
+合計 28
+drwxr-xr-x 3 root root 4096 12月 14 04:05 2015 .
+drwxr-xr-x 7 root root 4096 12月 14 03:27 2015 ..
+-rw-r--r-- 1 root root 1533 12月 14 03:27 2015 README.md
+-rw-r--r-- 1 root root    0 12月 14 04:05 2015 build.hwm
+-rw-r--r-- 1 root root    0 12月 14 04:05 2015 build.pwd
+-rw-r--r-- 1 root root    0 12月 14 04:05 2015 build.pwi
+-rw-r--r-- 1 root root  538 12月 14 04:04 2015 lxc-image.json
+-rw-r--r-- 1 root root  288 12月 14 03:27 2015 main.go
+-rw-r--r-- 1 root root  535 12月 14 03:27 2015 test.json
+drwxr-xr-x 2 root root 4096 12月 14 03:27 2015 wakamevdc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実行したディレクトリに build.hwm、build.pwd、build.pwi という3つのファイルが出きてます…何だこれ？
+packer を初めて叩くのがバレバレですね…f^^;&lt;/p&gt;
+
+&lt;p&gt;ふと「あれ？ packer を /opt/packer に配置したけど PATH を通した覚えがないのに何でコマンドが実行できるんだ？と思い確認しますと…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# which packer
+/usr/sbin/packer
+# ls -al /usr/sbin/packer
+lrwxrwxrwx. 1 root root 15  8月 21 10:41 2015 /usr/sbin/packer -&amp;gt; cracklib-packer
+# rpm -qf /usr/sbin/packer
+cracklib-dicts-2.8.16-4.el6.x86_64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？他人の空似だった…。&lt;/p&gt;
+
+&lt;p&gt;気を取り直してもう一度実行します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# /opt/packer/packer build lxc-image.json 
+Failed to initialize build &#39;wakamevdc&#39;: builder type not found: wakamevdc
+wakamevdc output will be in this color.
+
+
+==&amp;gt; Builds finished but no artifacts were created.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？ wakamevdc が builder type として認識されていない…。面倒なのでプラグインを packer のディレクトリに移動して再度実行してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mv /root/.packer/plugins/packer-builder-wakamevdc /opt/packer/
+# /opt/packer/packer build lxc-image.json 
+wakamevdc output will be in this color.
+
+==&amp;gt; wakamevdc: Creating SSH Key...
+==&amp;gt; wakamevdc: New SSH Key: ssh-ct81jnos
+==&amp;gt; wakamevdc: Creating Security Group...
+==&amp;gt; wakamevdc: New Security Group: sg-o0q0dfjn
+==&amp;gt; wakamevdc: Creating instance...
+==&amp;gt; wakamevdc: Error creating instance: API Error: Type: Dcmgr::Endpoints::Errors::InvalidImageID, Code: 137, Message: Dcmgr::Endpoints::Errors::InvalidImageID, (HTTP 400)
+==&amp;gt; wakamevdc: Deleting temporary ssh key...
+==&amp;gt; wakamevdc: Deleting temporary security group...
+Build &#39;wakamevdc&#39; errored: Error creating instance: API Error: Type: Dcmgr::Endpoints::Errors::InvalidImageID, Code: 137, Message: Dcmgr::Endpoints::Errors::InvalidImageID, (HTTP 400)
+
+==&amp;gt; Some builds didn&#39;t complete successfully and had errors:
+--&amp;gt; wakamevdc: Error creating instance: API Error: Type: Dcmgr::Endpoints::Errors::InvalidImageID, Code: 137, Message: Dcmgr::Endpoints::Errors::InvalidImageID, (HTTP 400)
+
+==&amp;gt; Builds finished but no artifacts were created.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あぁ…っ、ひどい勘違いをしていたことに気付きました…。もしかしてこの packer プラグインはベースとなるイメージから作るものなのかな？って。ちょっと Wakame-vdc の中の人に聞いてみることにします。&lt;/p&gt;
+
+&lt;p&gt;一応 image_id に Wakame-vdc LiveDVD に登録されている image_id を指定して再実行してみます。(が、12日目のエントリに書いたように ssh 接続できないから無理だと思いますが…)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# /opt/packer/packer build lxc-image.json 
+wakamevdc output will be in this color.
+
+==&amp;gt; wakamevdc: Creating SSH Key...
+==&amp;gt; wakamevdc: New SSH Key: ssh-uvqidt9o
+==&amp;gt; wakamevdc: Creating Security Group...
+==&amp;gt; wakamevdc: New Security Group: sg-2z9mjrrj
+==&amp;gt; wakamevdc: Creating instance...
+==&amp;gt; wakamevdc: Waiting for instance to become running......
+==&amp;gt; wakamevdc: Waiting for SSH to become available...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;はい、このまま数十分待っても返ってきません。やっぱりログインできるマシンイメージを用意することが最重要なので、これも Wakame-vdc の中の人に質問することにします。&lt;/p&gt;
+
+&lt;p&gt;今日はこれまで。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>コンテナのこえ</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-13-wakame-vdc-advent-calendar-2015-day12/</link>
+      <pubDate>Sun, 13 Dec 2015 04:31:48 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-13-wakame-vdc-advent-calendar-2015-day12/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の12日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;11日目のエントリにて lxc のコンテナが起動できるようにすることができたので、本当はもう少しちゃんとしたパッチを書きたいところですが、その前に11日目のエントリで充分か否かを先に検証したいので、本日は起動したコンテナに接続できるかどうかを確認したいと思います。&lt;/p&gt;
+
+&lt;p&gt;起動したコンテナに早速 ssh で接続…11日目のエントリでは「ssh で接続するもいつまで待ってもログインプロンプトが返ってこない」という現象や「エンターキーを押す毎にプロンプトの表示がホストマシンのものとコンテナのものとがサイクリックに切り替わる」という不思議満点な状況でした。(動画にでも撮っておけばよかった…)&lt;/p&gt;
+
+&lt;p&gt;で今日の環境は手作業修正によるものではなく、パッチを当てた LiveDVD から起動してみましたが、やはり「ssh で接続するもいつまで待ってもログインプロンプトが返ってこない」という状況でした。&lt;/p&gt;
+
+&lt;p&gt;なのでまずは現状の確認を行ないます。まず、コンテナの lxc 設定ですが、以下のようになっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# cat /var/lib/wakame-vdc/instances/i-kg0uuloj/lxc.conf 
+lxc.utsname = i-kg0uuloj
+
+lxc.network.type = veth
+lxc.network.link = br0
+
+lxc.network.veth.pair = vif-3kd9fd4z
+lxc.network.hwaddr = 52:54:00:c3:2f:4f
+lxc.network.flags = up
+lxc.tty = 4
+lxc.pts = 1024
+lxc.rootfs = /var/lib/wakame-vdc/instances/i-kg0uuloj/rootfs
+lxc.rootfs.mount = /var/lib/wakame-vdc/instances/i-kg0uuloj/rootfs
+lxc.mount.entry = proc        /proc                   proc    defaults        0 0
+lxc.mount.entry = sysfs       /sys                    sysfs   defaults        0 0
+#lxc.mount = /var/lib/wakame-vdc/instances/i-kg0uuloj/fstab
+#lxc.cap.drop = mac_admin sys_boot
+lxc.cgroup.devices.deny = a
+# /dev/null and zero
+lxc.cgroup.devices.allow = c 1:3 rwm
+lxc.cgroup.devices.allow = c 1:5 rwm
+# consoles
+lxc.cgroup.devices.allow = c 5:0 rwm
+lxc.cgroup.devices.allow = c 5:1 rwm
+lxc.cgroup.devices.allow = c 4:0 rwm
+lxc.cgroup.devices.allow = c 4:1 rwm
+# /dev/{,u}random&amp;quot;
+lxc.cgroup.devices.allow = c 1:9 rwm
+lxc.cgroup.devices.allow = c 1:8 rwm
+lxc.cgroup.devices.allow = c 136:* rwm
+lxc.cgroup.devices.allow = c 5:2 rwm
+# /dev/rtc
+lxc.cgroup.devices.allow = c 254:0 rwm
+# /dev/kvm
+#lxc.cgroup.devices.allow = c 10:232 rwm
+#lxc.cgroup.devices.allow = c 10:200 rwm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;う〜ん、特に変な設定は見当たらないですね…。次にコンテナの内部を見てみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# lxc-ls 
+i-kg0uuloj
+
+[root@host-133-130-109-122 wakame]# lxc-attach --name=i-kg0uuloj
+
+[root@kg0uuloj /]# ip a
+4: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 52:54:00:c3:2f:4f brd ff:ff:ff:ff:ff:ff
+    inet 192.0.2.20/24 brd 192.0.2.255 scope global eth0
+    inet6 fe80::5054:ff:fec3:2f4f/64 scope link 
+       valid_lft forever preferred_lft forever
+6: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+[root@kg0uuloj /]# ps auxwww|grep ssh
+root       407  0.0  0.0  66688  1220 ?        Ss   01:59   0:00 /usr/sbin/sshd
+root       540  0.0  0.0  94252  4296 ?        Ss   02:02   0:00 sshd: root@pts/0 
+root       561  0.0  0.0  94252  4296 ?        Ss   02:10   0:00 sshd: root@pts/1 
+root       716  0.0  0.0 107456   932 pts/8    S+   12:47   0:00 grep ssh
+
+
+
+[root@kg0uuloj /]# /etc/init.d/sshd status
+openssh-daemon (pid  407) を実行中...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;はい、ちゃんと NIC に IP が振られ、ssh もちゃんと起動しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@kg0uuloj /]# ls -al /home/
+合計 12
+drwxr-xr-x  3 root       root       4096  4月 19 17:29 2015 .
+dr-xr-xr-x 23 root       root       4096 12月 10 01:59 2015 ..
+drwx------  2 wakame-vdc wakame-vdc 4096  4月 19 17:29 2015 wakame-vdc
+
+# getent shadow wakame-vdc
+wakame-vdc:$6$o0NRcBn2YU/D00L$ZfpDzmFviu/YNwJDgI/QNZuLdE.JibVMBEhIs45P2C/GQnZ71bnDofck8U.hk61CvqlgcZfg0vxFLLRes5Pw2/:16544:0:99999:7:::
+
+[root@kg0uuloj /]# ls -al /home/wakame-vdc/
+合計 20
+drwx------ 2 wakame-vdc wakame-vdc 4096  4月 19 17:29 2015 .
+drwxr-xr-x 3 root       root       4096  4月 19 17:29 2015 ..
+-rw-r--r-- 1 wakame-vdc wakame-vdc   18 10月 16 22:56 2014 .bash_logout
+-rw-r--r-- 1 wakame-vdc wakame-vdc  176 10月 16 22:56 2014 .bash_profile
+-rw-r--r-- 1 wakame-vdc wakame-vdc  134  4月 19 17:29 2015 .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;wakame-vdc というユーザが作成されており、何らかのパスワードが設定されてはいますが、ssh の鍵は設定されていないようです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@kg0uuloj /]# ls -al /root/
+合計 32
+dr-xr-x---  3 root root 4096 12月 10 01:59 2015 .
+dr-xr-xr-x 23 root root 4096 12月 10 01:59 2015 ..
+-rw-r--r--  1 root root   18  5月 20 19:45 2009 .bash_logout
+-rw-r--r--  1 root root  176  5月 20 19:45 2009 .bash_profile
+-rw-r--r--  1 root root  176  9月 23 12:59 2004 .bashrc
+-rw-r--r--  1 root root  100  9月 23 12:59 2004 .cshrc
+drwx------  2 root root 4096 12月 10 01:59 2015 .ssh
+-rw-r--r--  1 root root  129 12月  4 06:42 2004 .tcshrc
+[root@kg0uuloj /]# ls -al /root/.ssh/
+合計 12
+drwx------ 2 root root 4096 12月 10 01:59 2015 .
+dr-xr-x--- 3 root root 4096 12月 10 01:59 2015 ..
+-rw------- 1 root root  396 12月 10 01:59 2015 authorized_keys
+
+[root@kg0uuloj /]# cat /root/.ssh/authorized_keys 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZhAOcHSe4aY8GwwLCJ4Et3qUBcyVPokFoCyCrtTZJVUU++B9554ahiVcrQCbfuDlaXV2ZCfIND+5N1UEk5umMoQG1aPBw9Nz9wspMpWiTKGOAm99yR9aZeNbUi8zAfyYnjrpuRUKCH1UPmh6EDaryFNDsxInmaZZ6701PgT++cZ3Vy/r1bmb93YvpV+hfaL/FmY3Cu8n+WJSoJQZ4eCMJ+4Pw/pkxjfuLUw3mFl40RVAlwlTuf1I4bB/m1mjlmirBEU6+CWLGYUNWDKaFBpJcGB6sXoQDS4FvlV92tUAEKIBWG5ma0EXBdJQBi1XxSCU2p7XMX8DhS7Gj/TSu7011 wakame-vdc.pem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一方で root ユーザには ssh 鍵が設定されていました。中身を見ると起動時に指定した LiveDVD のデモ用の ssh 鍵でした。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@kg0uuloj /]# grep -v ^# /etc/ssh/sshd_config |grep -v ^$
+Protocol 2
+SyslogFacility AUTHPRIV
+PermitRootLogin yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no
+GSSAPICleanupCredentials yes
+UsePAM yes
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+X11Forwarding yes
+UseDNS no
+Subsystem   sftp    /usr/libexec/openssh/sftp-server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sshd の設定を見ると、root ユーザのログインは許可されておりますが、PasswordAuthentication も ChallengeResponseAuthentication も no になっているため、既定で設定されている wakame-vdc にはログインできなさそうです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# ssh -l wakame-vdc 192.0.2.20
+Permission denied (publickey).
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ね、ほら。&lt;/p&gt;
+
+&lt;p&gt;では、root ユーザでログインしたときはコンテナにそもそもちゃんとアクセスできているのか…？ですが、/var/log/secure を見ると以下のようなログが残っていました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Dec 10 15:39:23 kg0uuloj sshd[835]: Accepted publickey for root from 192.0.2.1 port 43501 ssh2
+Dec 10 15:39:23 kg0uuloj sshd[835]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 10 15:39:23 kg0uuloj sshd[837]: error: ioctl(TIOCSCTTY): Operation not permitted
+Dec 10 15:39:23 kg0uuloj sshd[837]: error: open /dev/tty failed - could not set controlling tty: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tty が無いって言ってますね…。そりゃぁログインができないわけです…。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@hongo0u5 /]# ls -al /dev/|grep tty
+crw-------  1 root tty  136, 4 12月 12 20:21 2015 console
+crw-------  1 root root 136, 0 12月 12 20:21 2015 tty1
+crw-------  1 root root 136, 1 12月 12 20:21 2015 tty2
+crw-------  1 root root 136, 2 12月 12 20:21 2015 tty3
+crw-------  1 root root 136, 3 12月 12 20:21 2015 tty4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに Wakame-vdc と関係なく lxc-create -t centos で作成したコンテナの中身を見てみると…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@centos /]# ls -al /dev/|grep tty
+crw-rw-rw-  1 root root 5, 0 12月 10 05:49 2015 tty
+crw-rw-rw-  1 root root 4, 0 12月 10 05:49 2015 tty0
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty1 -&amp;gt; lxc/tty1
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty2 -&amp;gt; lxc/tty2
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty3 -&amp;gt; lxc/tty3
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty4 -&amp;gt; lxc/tty4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;はい、ちゃんと /dev/tty が存在しています。あと気になるのが、tty1〜tty4 に違いがあることとか…&lt;/p&gt;
+
+&lt;p&gt;tty1〜tty4 の違いは別として、とりあえず tty と tty0 を作ってみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@hongo0u5 /]# mknod -m 666 /dev/tty c 5 0
+[root@hongo0u5 /]# mknod -m 666 /dev/tty0 c 4 0
+[root@hongo0u5 /]# ls -al /dev/|grep tty
+crw-------  1 root tty  136, 4 12月 12 20:21 2015 console
+crw-rw-rw-  1 root root   5, 0 12月 12 20:38 2015 tty
+crw-rw-rw-  1 root root   4, 0 12月 12 20:38 2015 tty0
+crw-------  1 root root 136, 0 12月 12 20:21 2015 tty1
+crw-------  1 root root 136, 1 12月 12 20:21 2015 tty2
+crw-------  1 root root 136, 2 12月 12 20:21 2015 tty3
+crw-------  1 root root 136, 3 12月 12 20:21 2015 tty4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、再度コンテナに ssh してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Dec 12 20:44:37 hongo0u5 sshd[570]: Accepted publickey for root from 192.0.2.1 port 43663 ssh2
+Dec 12 20:44:37 hongo0u5 sshd[570]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 12 20:44:37 hongo0u5 sshd[572]: error: ioctl(TIOCSCTTY): Operation not permitted
+Dec 12 20:44:37 hongo0u5 sshd[572]: error: open /dev/tty failed - could not set controlling tty: No such device or address
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;う〜ん、やっぱりログインできません…。が、エラーが「No such file or directory」から「No such device or address」に変化しています。&lt;/p&gt;
+
+&lt;p&gt;うむむぅ…。続きはまた明日…。(「また明日」って、既にこのエントリを書いている時点で13日に入ってしまいましたが…f^^;)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>振り返れば RabbitMQ</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-10-wakame-vdc-advent-calendar-2015-day11/</link>
+      <pubDate>Thu, 10 Dec 2015 01:20:28 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-10-wakame-vdc-advent-calendar-2015-day11/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の11日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;「学習能力ないのか！」とか「何で予測できないんだ！」とか「ねぇ？ワザとやってる？ねぇ？」とか言われそうな LiveDVD 作成奮闘記。&lt;/p&gt;
+
+&lt;p&gt;インスタンスを起動したときに isono がタイムアウトになるのって度々遭遇していたことをすっかり忘れていました。そう&lt;a href=&#34;https://github.com/axsh/iso-no-wakame/issues/11&#34;&gt;このチケット&lt;/a&gt;で。&lt;/p&gt;
+
+&lt;p&gt;RabbitMQ のデフォルト値では disk_free_limit が 1GB なんですよね。なので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# df -h
+Filesystem           Size  Used Avail Use% Mounted on
+rootfs               4.0G  3.0G  960M  76% /
+devtmpfs             3.9G  196K  3.9G   1% /dev
+tmpfs                4.0G   76K  4.0G   1% /dev/shm
+/dev/sr0             1.2G  1.2G     0 100% /dev/.initramfs/live
+/dev/mapper/live-rw  4.0G  3.0G  960M  76% /
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;起動した直後で既に 1GB を下回っているので、いつリソース不足になって上記の件が再現してもおかしくない状況でした。事実、インスタンスを起動すると当然ながらディスクの空き容量は減っていき…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# df -h
+Filesystem           Size  Used Avail Use% Mounted on
+rootfs               4.0G  3.6G  334M  92% /
+devtmpfs             3.9G  196K  3.9G   1% /dev
+tmpfs                4.0G   76K  4.0G   1% /dev/shm
+/dev/sr0             1.2G  1.2G     0 100% /dev/.initramfs/live
+/dev/mapper/live-rw  4.0G  3.6G  334M  92% /
+
+[root@host-133-130-109-122 wakame]# rabbitmqctl list_connections
+Listing connections ...
+guest   127.0.0.1   33257   blocked
+guest   127.0.0.1   33260   blocked
+guest   127.0.0.1   33277   blocking
+...done.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ってな感じで blocked になってしまってました。&lt;/p&gt;
+
+&lt;p&gt;なので、以下を /etc/rabbitmq/rabbitmq.config として保存し、RabbitMQ を再起動します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[
+  {rabbit, [{disk_free_limit, 100000000}]}
+].
+
+# service rabbitmq-server restart
+Restarting rabbitmq-server: SUCCESS
+rabbitmq-server.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;忘れずに cgroup もマウントします&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mkdir -p /lxc/cgroup
+# mount -t cgroup lxc /lxc/cgroup
+# mount
+rootfs on / type rootfs (rw)
+proc on /proc type proc (rw,relatime)
+sysfs on /sys type sysfs (rw,relatime)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=4085268k,nr_inodes=1021317,mode=755)
+devpts on /dev/pts type devpts (rw,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /dev/shm type tmpfs (rw,relatime)
+/dev/sr0 on /dev/.initramfs/live type iso9660 (ro,relatime)
+/dev/mapper/live-rw on / type ext3 (rw,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered)
+/proc/bus/usb on /proc/bus/usb type usbfs (rw,relatime)
+none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,relatime)
+lxc on /lxc/cgroup type cgroup (rw,relatime,net_prio,perf_event,blkio,net_cls,freezer,devices,memory,cpuacct,cpu,ns,cpuset)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、インスタンスを起動してみました…が起動はまたもや失敗しました。以下がそのログ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2015-12-09 17:17:27 JobContext thr=LocalStore[0/2] [INFO]: Job start 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 (Local ID: 2175efba40f1f3db3a16d06422e38587931e32bd)[ run_local_store ]
+I, [2015-12-09T17:17:27.080397 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Booting i-ahmv9hlu: phase 1
+I, [2015-12-09T17:17:27.161798 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Creating volume vol-fx5ipori from bo-centos66.
+I, [2015-12-09T17:17:27.187042 #4706]  INFO -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-ahmv9hlu/vol-fx5ipori
+I, [2015-12-09T17:17:27.187352 #4706]  INFO -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-ahmv9hlu/vol-fx5ipori
+D, [2015-12-09T17:17:52.871466 #4706] DEBUG -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 4802
+##STDERR=&amp;gt;
+[=====================================================================] 100000%
+2015-12-09 17:17:52 JobContext thr=LocalStore[0/2] [INFO]: Job complete 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 (Local ID: 2175efba40f1f3db3a16d06422e38587931e32bd)[ run_local_store ]: 25.803586863 sec
+2015-12-09 17:17:52 JobContext thr=JobWorker[0/1] [INFO]: Job start 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 (Local ID: ce60e0faf6159d41fa1c1dfbe7bf29e481dae4f9)[ run_local_store ]
+I, [2015-12-09T17:17:52.886761 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Booting instance
+I, [2015-12-09T17:17:52.923605 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: lxc-version: 1.0.8
+I, [2015-12-09T17:17:52.924086 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Setting up metadata drive image:i-ahmv9hlu
+I, [2015-12-09T17:17:52.924258 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: /usr/bin/truncate -s 10m &#39;/var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img&#39;
+D, [2015-12-09T17:17:52.929614 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 4832
+I, [2015-12-09T17:17:52.929811 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: parted /var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img &amp;lt; /opt/axsh/wakame-vdc/dcmgr/templates/linux/metadata.parted
+D, [2015-12-09T17:17:52.942831 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 4833
+##STDOUT=&amp;gt;
+GNU Parted 2.1
+Using /var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img
+Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands.
+(parted) mklabel msdos                                                    
+(parted) mkpart primary fat32 1 10m                                       
+(parted) quit                                                             
+I, [2015-12-09T17:17:52.942999 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: kpartx -av /var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img
+D, [2015-12-09T17:17:52.991573 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 4835
+##STDOUT=&amp;gt;
+add map loop5p1 (253:4): 0 18432 linear /dev/loop5 2048
+I, [2015-12-09T17:17:52.991727 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: udevadm settle
+D, [2015-12-09T17:17:53.050253 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5098
+I, [2015-12-09T17:17:53.050422 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: mkfs -t vfat -n METADATA /dev/mapper/loop5p1
+D, [2015-12-09T17:17:53.059890 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5229
+##STDOUT=&amp;gt;
+mkfs.vfat 3.0.9 (31 Jan 2010)
+unable to get drive geometry, using default 255/63
+I, [2015-12-09T17:17:53.060104 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: /bin/mount -t vfat /dev/mapper/loop5p1 &#39;/var/lib/wakame-vdc/instances/i-ahmv9hlu/tmp&#39;
+D, [2015-12-09T17:17:53.085562 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5231
+I, [2015-12-09T17:17:53.087868 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: /bin/umount -l /var/lib/wakame-vdc/instances/i-ahmv9hlu/tmp
+D, [2015-12-09T17:17:53.097684 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5239
+I, [2015-12-09T17:17:53.100518 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: dmsetup info /dev/mapper/loop5p1
+D, [2015-12-09T17:17:53.106061 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5243
+##STDOUT=&amp;gt;
+Name:              loop5p1
+State:             ACTIVE
+Read Ahead:        256
+Tables present:    LIVE
+Open count:        0
+Event number:      0
+Major, minor:      253, 4
+Number of targets: 1
+UUID: part1-loop5
+I, [2015-12-09T17:17:53.106330 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: dmsetup remove /dev/mapper/loop5p1
+D, [2015-12-09T17:17:53.130505 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5245
+I, [2015-12-09T17:17:53.130607 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Detached partition from devmapper: /dev/mapper/loop5p1
+I, [2015-12-09T17:17:53.130694 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: udevadm settle
+D, [2015-12-09T17:17:53.136577 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5249
+I, [2015-12-09T17:17:53.136757 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: losetup -d /dev/loop5
+D, [2015-12-09T17:17:53.141609 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5251
+I, [2015-12-09T17:17:53.141725 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Detached from loop device: /dev/loop5
+I, [2015-12-09T17:17:54.166413 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
+D, [2015-12-09T17:17:54.172032 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: fail (exit code=1)
+Command PID: 5307
+##STDERR=&amp;gt;
+A template must be specified.
+Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
+E, [2015-12-09T17:17:54.172207 #4706] ERROR -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Dcmgr::Helpers::CliHelper::ShellRunner::CommandError Unexpected exit code=1: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
+Command PID: 5307
+##STDERR=&amp;gt;
+A template must be specified.
+Use &amp;quot;none&amp;quot; if you really want a container without a rootfs. from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
+2015-12-09 17:17:54 JobContext thr=JobWorker[0/1] [ERROR]: Job failed 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 [ run_local_store ]: Unexpected exit code=1: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
+Command PID: 5307
+##STDERR=&amp;gt;
+A template must be specified.
+Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
+2015-12-09 17:17:54 JobContext thr=JobWorker[0/1] [ERROR]: Caught Dcmgr::Helpers::CliHelper::ShellRunner::CommandError: Unexpected exit code=1: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
+Command PID: 5307
+##STDERR=&amp;gt;
+A template must be specified.
+Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:189:in `tap&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:189:in `run!&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:106:in `sh&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:65:in `run_instance&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:178:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:178:in `invoke!&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:249:in `invoke&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:323:in `block in &amp;lt;class:HvaHandler&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
+I, [2015-12-09T17:17:54.173472 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: teminating instance
+I, [2015-12-09T17:17:54.173666 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: lxc-stop -n i-ahmv9hlu
+D, [2015-12-09T17:17:54.198187 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: fail (exit code=2)
+Command PID: 5308
+##STDERR=&amp;gt;
+i-ahmv9hlu is not running
+I, [2015-12-09T17:17:54.198349 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: lxc-wait -n i-ahmv9hlu -s STOPPED
+D, [2015-12-09T17:17:54.208155 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5310
+I, [2015-12-09T17:17:54.208413 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: umount /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata
+D, [2015-12-09T17:17:54.212985 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: fail (exit code=1)
+Command PID: 5314
+##STDERR=&amp;gt;
+umount: /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata: not found
+E, [2015-12-09T17:17:54.213209 #4706] ERROR -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Dcmgr::Helpers::CliHelper::ShellRunner::CommandError Unexpected exit code=1: umount /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata
+Command PID: 5314
+##STDERR=&amp;gt;
+umount: /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata: not found from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
+E, [2015-12-09T17:17:54.213340 #4706] ERROR -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Ignoring error: Dcmgr::Helpers::CliHelper::ShellRunner::CommandError Unexpected exit code=1: umount /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata
+Command PID: 5314
+##STDERR=&amp;gt;
+umount: /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata: not found from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
+I, [2015-12-09T17:17:54.220496 #4706]  INFO -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-ahmv9hlu/vol-fx5ipori&#39;
+D, [2015-12-09T17:17:54.334738 #4706] DEBUG -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
+Command PID: 5315
+D, [2015-12-09T17:17:54.345632 #4706] DEBUG -- ServiceNetfilter: event caught: hva.nodeca2c0d6acf66/vnic_destroyed: vif-z5cywgjf
+D, [2015-12-09T17:17:54.345747 #4706] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-z5cywgjf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うん、長いですね。&lt;/p&gt;
+
+&lt;p&gt;lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu を実行したのに対して、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;A template must be specified.
+Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だそうです。いやいや、rootfs 無しなコンテナを作りたいんじゃないんですけどね。で、どうやらメッセージによると template は must be specified らしいので、lxc-create 自体を改造しなきゃならないのかしら〜？って途方に暮れかけてたところ、&lt;a href=&#34;http://stackoverflow.com/questions/26442257/how-to-create-a-lxc-container-without-rootfs&#34;&gt;「-t /bin/true で試してみろよ」っていう男気溢れる回答があった&lt;/a&gt; ので、&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb#L65&#34;&gt;hva の lxc.rb&lt;/a&gt; をイジって、無理矢理「-t /bin/true」を付けてみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1211-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、UI 上は起動したように見えます。では ssh で接続してみましょう。 えーと、結論だけ言うと、ホスト側の環境が変な挙動をするようになってしまいました f^^;&lt;/p&gt;
+
+&lt;p&gt;明日はこれらの変更点を LiveDVD に反映させてみます。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ten てこまい</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-09-wakame-vdc-advent-calendar-2015-day10/</link>
+      <pubDate>Wed, 09 Dec 2015 04:52:51 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-09-wakame-vdc-advent-calendar-2015-day10/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の10日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;むぅ…先日とは違うけど、やっぱりタイムアウトになって起動できず…。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cat /var/log/wakame-vdc/hva.log
+D, [2015-12-08T18:36:00.942307 #3501] DEBUG -- ServiceNetfilter: Subscribing to: hva.node2ebd61a1c668/vnic_created
+D, [2015-12-08T18:36:00.942558 #3501] DEBUG -- ServiceNetfilter: Subscribing to: hva.node2ebd61a1c668/vnic_destroyed
+D, [2015-12-08T18:36:00.942689 #3501] DEBUG -- ServiceNetfilter: Subscribing to: broadcast/debug/vnet
+2015-12-08 18:36:00 Node thr=#&amp;lt;Thread:0x007f400c993d58&amp;gt; [INFO]: Started : AMQP Server=amqp://127.0.0.1/, ID=hva.node2ebd61a1c668, token=4a2c3
+I, [2015-12-08T18:36:00.943946 #3501]  INFO -- NetfilterCache: updating cache from database
+2015-12-08 18:38:53 JobContext thr=LocalStore[1/2] [INFO]: Job start 38e342ad524c2ced688c86964e8986b89d418c37 (Local ID: 34c12b506bed8ad02241dae5d432ba5754c82a04)[ run_local_store ]
+I, [2015-12-08T18:38:53.751621 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Booting i-idhvphne: phase 1
+I, [2015-12-08T18:38:53.811237 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Creating volume vol-834kwo5p from bo-centos66.
+I, [2015-12-08T18:38:53.840009 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
+I, [2015-12-08T18:38:53.840360 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
+D, [2015-12-08T18:39:21.558943 #3501] DEBUG -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Command Result: success (exit code=0)
+Command PID: 4370
+##STDERR=&amp;gt;
+[=====================================================================] 100000%
+2015-12-08 18:42:10 ThreadPool thr=InstanceMonitor[0/1] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:31:in `check_instance&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:12:in `block (3 levels) in &amp;lt;class:InstanceMonitor&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
+2015-12-08 18:42:30 JobContext thr=LocalStore[1/2] [ERROR]: Job failed 38e342ad524c2ced688c86964e8986b89d418c37 [ run_local_store ]: timeout
+2015-12-08 18:42:30 JobContext thr=LocalStore[1/2] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:168:in `update_volume_state&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:49:in `deploy_local_volume&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:109:in `block (2 levels) in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `block in each_all_local_volumes&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each_all_local_volumes&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:108:in `block in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
+I, [2015-12-08T18:42:30.097961 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Cleaning volume vol-834kwo5p
+I, [2015-12-08T18:42:30.098506 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p&#39;
+D, [2015-12-08T18:42:30.252159 #3501] DEBUG -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Command Result: success (exit code=0)
+Command PID: 4491
+2015-12-08 18:42:36 JobContext thr=LocalStore[0/2] [INFO]: Job start 4899f11c00630167af8a89f641432b9fd0017db6 (Local ID: 4899f11c00630167af8a89f641432b9fd0017db6)[ delete_volume ]
+D, [2015-12-08T18:42:36.611734 #3501] DEBUG -- ServiceNetfilter: event caught: hva.node2ebd61a1c668/vnic_destroyed: vif-ac9mzzo0
+D, [2015-12-08T18:42:36.611876 #3501] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-ac9mzzo0
+W, [2015-12-08T18:42:36.667704 #3501]  WARN -- HvaHandler: Session ID: 4899f11c00630167af8a89f641432b9fd0017db6: Instance UUID: i-idhvphne: Unexpected state deleted of vol-834kwo5p. But try to delete.
+W, [2015-12-08T18:42:36.668136 #3501]  WARN -- HvaHandler: Session ID: 4899f11c00630167af8a89f641432b9fd0017db6: Instance UUID: i-idhvphne: Failed to delete non-existing file: /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
+2015-12-08 18:42:36 JobContext thr=LocalStore[0/2] [INFO]: Job complete 4899f11c00630167af8a89f641432b9fd0017db6 (Local ID: 4899f11c00630167af8a89f641432b9fd0017db6)[ delete_volume ]: 0.069073835 sec
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;っことで、ログ的に問題が発生する直前から何が起きているかを追っていく旅に出ます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I, [2015-12-08T18:38:53.840360 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
+D, [2015-12-08T18:39:21.558943 #3501] DEBUG -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Command Result: success (exit code=0)
+Command PID: 4370
+##STDERR=&amp;gt;
+[=====================================================================] 100000%
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これがコードのどの部分かをまず探します。LinuxLocalStore って出てるので、おそらくコード的にはここら辺だと思います。&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb&#34;&gt;/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;見ていくと&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb#L89-L93&#34;&gt;curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp &amp;ndash;sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p&lt;/a&gt; は無事に実行できているので、手動でもちゃんと動くか試してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
+[============================================================================================] 100000%
+
+# file /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p 
+/var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p: x86 boot sector; partition 1: ID=0x83, starthead 1, startsector 63, 8386498 sectors, code offset 0xb8
+[root@host-133-130-109-122 wakame]# fdisk -l /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
+You must set cylinders.
+You can do this from the extra functions menu.
+
+Disk /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p: 0 MB, 0 bytes
+4 heads, 32 sectors/track, 0 cylinders
+Units = cylinders of 128 * 512 = 65536 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000e34e5
+
+                                                Device Boot      Start         End      Blocks   Id  System
+/var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p1               1       65521     4193249   83  Linux
+Partition 1 has different physical/logical endings:
+ phys=(1023, 3, 32) logical=(65520, 0, 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ファイル的にも問題なさそうに見えます。で、処理はこのあとこの deploy_volume() を抜けて deploy_image() に戻り、そこも抜けるので、LinuxLocalStore::deploy_image() を呼んでいるところを探します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# grep deploy_image -r /opt/axsh/
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store.rb:      def deploy_image(inst,ctx)
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/dummy_local_store.rb:      def deploy_image(inst,ctx)
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/esxi_local_store.rb:      def deploy_image(inst,ctx)
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:      def deploy_image(inst, ctx)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？誰も呼んでない…？
+じゃ、じゃぁ LinuxLocalStore::deploy_volume() が直接呼ばれてる？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# grep deploy_volume -r /opt/axsh/wakame-vdc/dcmgr/
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store.rb:      def deploy_volume(hva_ctx, volume, backup_object, opts={})
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        # Basically, deploy_volume() deals with image file as:
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        def deploy_volume_from_backup_object(sta_ctx, local_backup_path=nil)
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        deploy_volume_from_backup_object(ctx, backup_real_path(@backup_object[:object_key]))
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        deploy_volume_from_backup_object(ctx)
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:            deploy_volume_from_backup_object(ctx, backup_real_path(backup_key))
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:            deploy_volume_from_backup_object(ctx)
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/dummy_local_store.rb:      def deploy_volume(hva_ctx, volume, backup_object, opts={})
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:      def deploy_volume(hva_ctx, volume, backup_object, opts={:cache=&amp;gt;false})
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:            deploy_volume(@ctx, v, inst[:image][:backup_object], {:cache=&amp;gt;inst[:image][:is_cacheable]})
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:            deploy_volume(@ctx, v, v[:backup_object])
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:                              :deploy_volume, [@hva_ctx, v, v[:backup_object], opts])
+/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:      job :deploy_volume_and_attach, proc {
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ってことで、&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb&#34;&gt;/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb&lt;/a&gt; を追います。&lt;/p&gt;
+
+&lt;p&gt;ログで LinuxLocalStore を呼ぶ前が HvaHandler で &amp;ldquo;Creating volume&amp;rdquo; と言っているので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I, [2015-12-08T18:38:53.811237 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Creating volume vol-834kwo5p from bo-centos66.
+I, [2015-12-08T18:38:53.840009 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;コードの&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb#L41-L42&#34;&gt;この場所&lt;/a&gt; が deploy_volume を呼んでいるところになります。&lt;/p&gt;
+
+&lt;p&gt;なのでそこの処理が抜けると次は&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb#L49&#34;&gt;ここ&lt;/a&gt; に入って、&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/hva_handler.rb#L166-L184&#34;&gt;ここ&lt;/a&gt; が呼ばれています。&lt;/p&gt;
+
+&lt;p&gt;でそこを抜けると戻って &lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb#L66&#34;&gt;ここ&lt;/a&gt; が叩かれて…&lt;/p&gt;
+
+&lt;p&gt;とちょっと追う様を解説していくのが辛くなってきました。本日のところはこれまで。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>特命係長 只野 LXC</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-08-wakame-vdc-advent-calendar-2015-day9/</link>
+      <pubDate>Tue, 08 Dec 2015 21:24:09 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-08-wakame-vdc-advent-calendar-2015-day9/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の9日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;7日目のエントリで「参考になる情報として、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんが書いた &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; の &lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-category-29.html&#34;&gt;&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; 分のエント&amp;gt;リ&lt;/a&gt; があるので、ますそれを一読します。」とか書いておきながら、全然それに沿わずにやってたので、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんがやったように、lxc 単体でちゃんと動くかを今日は確認してみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;ってことで、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの実施したことをトレースします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum install lxc-templates.x86_64
+# ls /usr/share/lxc/templates/
+lxc-alpine     lxc-busybox  lxc-debian    lxc-gentoo        lxc-oracle  lxc-ubuntu
+lxc-altlinux   lxc-centos   lxc-download  lxc-openmandriva  lxc-plamo   lxc-ubuntu-cloud
+lxc-archlinux  lxc-cirros   lxc-fedora    lxc-opensuse      lxc-sshd
+
+# lxc-create -t centos -n testvm01
+Host CPE ID from /etc/system-release-cpe: cpe:/o:centos:linux:6:GA
+dnsdomainname: 不明なホスト
+Checking cache download in /var/cache/lxc/centos/x86_64/6/rootfs ... 
+Downloading centos minimal ...
+読み込んだプラグイン:fastestmirror, security
+インストール処理の設定をしています
+base                                                                            | 3.7 kB     00:00     
+base/primary_db                                                                 | 4.6 MB     00:00     
+updates                                                                         | 3.4 kB     00:00     
+updates/primary_db                                                              | 2.6 MB     00:00     
+依存性の解決をしています
+--&amp;gt; トランザクションの確認を実行しています。
+---&amp;gt; Package chkconfig.x86_64 0:1.3.49.3-5.el6 will be インストール
+--&amp;gt; 依存性の処理をしています: rtld(GNU_HASH) のパッケージ: chkconfig-1.3.49.3-5.el6.x86_64
+
+(中略)
+
+完了しました!
+Download complete.
+Copy /var/cache/lxc/centos/x86_64/6/rootfs to /var/lib/lxc/testvm01/rootfs ... 
+Copying rootfs to /var/lib/lxc/testvm01/rootfs ...
+Storing root password in &#39;/var/lib/lxc/testvm01/tmp_root_pass&#39;
+Expiring password for user root.
+passwd: 成功
+
+Container rootfs and config have been created.
+Edit the config file to check/enable networking setup.
+
+The temporary root password is stored in:
+
+        &#39;/var/lib/lxc/testvm01/tmp_root_pass&#39;
+
+
+The root password is set up as expired and will require it to be changed
+at first login, which you should do as soon as possible.  If you lose the
+root password or wish to change it without starting the container, you
+can change it from the host by running the following command (which will
+also reset the expired flag):
+
+        chroot /var/lib/lxc/testvm01/rootfs passwd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;成功しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# lxc-ls 
+testvm01
+# chroot /var/lib/lxc/testvm01/rootfs passwd
+# lxc-start -n testvm01
+lxc-start: conf.c: instantiate_veth: 3105 failed to attach &#39;veth8QPHXV&#39; to the bridge &#39;virbr0&#39;: No such device
+lxc-start: conf.c: lxc_create_network: 3388 failed to create netdev
+lxc-start: start.c: lxc_spawn: 841 failed to create the network
+lxc-start: start.c: __lxc_start: 1100 failed to spawn &#39;testvm01&#39;
+lxc-start: lxc_start.c: main: 341 The container failed to start.
+lxc-start: lxc_start.c: main: 345 Additional information can be obtained by setting the --logfile and --logpriority options.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ…？ virbr0 って…あ、そうか&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cat /etc/lxc/default.conf 
+lxc.network.type = veth
+lxc.network.link = virbr0
+lxc.network.flags = up
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;既定値が virbr0 でした。
+で、それを元にして生成された testvm01 の設定も virbr0 になっているので、/var/lib/lxc/testvm01/config の lxc.network.link の値を virbr0 を br0 に変更して、もう一度起動してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# lxc-start -n testvm01
+lxc-start: cgfs.c: cgfs_init: 2246 cgroupfs failed to detect cgroup metadata
+lxc-start: start.c: lxc_spawn: 869 failed initializing cgroup support
+lxc-start: start.c: __lxc_start: 1100 failed to spawn &#39;testvm01&#39;
+lxc-start: lxc_start.c: main: 341 The container failed to start.
+lxc-start: lxc_start.c: main: 345 Additional information can be obtained by setting the --logfile and --logpriority options.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？やっぱり駄目です。で、メッセージにはさっきから &amp;ndash;logfile オプションのことを教えてくれているので、このオプションを利用してログを取ります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# lxc-start -n testvm01 --logfile /tmp/lxc.log
+lxc-start: cgfs.c: cgfs_init: 2246 cgroupfs failed to detect cgroup metadata
+lxc-start: start.c: lxc_spawn: 869 failed initializing cgroup support
+lxc-start: start.c: __lxc_start: 1100 failed to spawn &#39;testvm01&#39;
+lxc-start: lxc_start.c: main: 341 The container failed to start.
+lxc-start: lxc_start.c: main: 345 Additional information can be obtained by setting the --logfile and --logpriority options.
+# cat /tmp/lxc.log 
+      lxc-start 1449578879.006 ERROR    lxc_cgfs - cgfs.c:cgfs_init:2246 - cgroupfs failed to detect cgroup metadata
+      lxc-start 1449578879.006 ERROR    lxc_start - start.c:lxc_spawn:869 - failed initializing cgroup support
+      lxc-start 1449578879.056 ERROR    lxc_start - start.c:__lxc_start:1100 - failed to spawn &#39;testvm01&#39;
+      lxc-start 1449578879.056 ERROR    lxc_start_ui - lxc_start.c:main:341 - The container failed to start.
+      lxc-start 1449578879.056 ERROR    lxc_start_ui - lxc_start.c:main:345 - Additional information can be obtained by setting the --logfile and --logpriority options.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そーいや昨日のエラーも「cgroup filesystem is not mounted.」で、今日のエラーも「cgroupfs failed to detect cgroup metadata」で、なんか cgroupfs で設定が足りてないのかもしれません。&lt;/p&gt;
+
+&lt;p&gt;ふと…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mount
+/dev/mapper/VolGroup-lv_root on / type ext4 (rw)
+proc on /proc type proc (rw)
+sysfs on /sys type sysfs (rw)
+devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+tmpfs on /dev/shm type tmpfs (rw)
+/dev/vda1 on /boot type ext4 (rw)
+none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？何か足りてないような気が…、確か中井さんのブログで…&lt;a href=&#34;http://enakai00.hatenablog.com/entry/20110529/1306658627&#34;&gt;LXC が利用するための /lxc/cgroup ディレクトリをマウント&lt;/a&gt; って書いてありました。なのでそれをやります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mkdir -p /lxc/cgroup
+# mount -t cgroup lxc /lxc/cgroup
+# mount
+/dev/mapper/VolGroup-lv_root on / type ext4 (rw)
+proc on /proc type proc (rw)
+sysfs on /sys type sysfs (rw)
+devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+tmpfs on /dev/shm type tmpfs (rw)
+/dev/vda1 on /boot type ext4 (rw)
+none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
+lxc on /lxc/cgroup type cgroup (rw)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでもう一度起動してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# lxc-start -n testvm01 --logfile /tmp/lxc.log
+(中略)
+Bringing up loopback interface:                            [  OK  ]
+Bringing up interface eth0:  
+Determining IP information for eth0... failed.
+                                                           [FAILED]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あぁ、はい、確かにそうです、br0 の先には DHCP サーバが居ないので当然ながら IP を取得できませんが、まぁでもこれは起動したと言っていいでしょう。&lt;/p&gt;
+
+&lt;p&gt;では、改めて先日の Wakame-vdc の LiveDVD でもう一度挑戦してみたいと思いますが、それはまた明日。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>8にちめ</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-07-wakame-vdc-advent-calendar-2015-day8/</link>
+      <pubDate>Mon, 07 Dec 2015 17:43:14 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-07-wakame-vdc-advent-calendar-2015-day8/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の8日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;今日は昨日の続きで、マシンイメージを CentOS かつ lxc 版なものに変更してインスタンスを起動してみます。&lt;/p&gt;
+
+&lt;p&gt;先日、メーリングリストで「lxc 用のイメージってどこぉ？」って質問をしたら Potter さんがリンクを教えてくれたので、まずそれをダウンロードします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# wget http://dlc2.wakame.axsh.jp/demo/1box/vmimage/centos-6.6.x86_64.lxc.md.raw.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、ダウンロードしたらマシンイメージの情報を得るため、以下を実行します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# tar -xzvf centos-6.6.x86_64.lxc.md.raw.tar.gz 
+centos-6.6.x86_64.lxc.md.raw
+# LANG=C ls -kl centos-6.6.x86_64.lxc.md.raw.tar.gz centos-6.6.x86_64.lxc.md.raw
+-rw-r--r-- 1 root root 4194304 Apr 19  2015 centos-6.6.x86_64.lxc.md.raw
+-rw-r--r-- 1 root root  317193 Apr 19  2015 centos-6.6.x86_64.lxc.md.raw.tar.gz
+# md5sum centos-6.6.x86_64.lxc.md.raw.tar.gz
+45e35271d4b45e274b4952240799d9d4  centos-6.6.x86_64.lxc.md.raw.tar.gz
+# kpartx -v -a centos-6.6.x86_64.lxc.md.raw
+add map loop0p1 (253:2): 0 8386498 linear /dev/loop0 63
+# blkid | grep loop0p1
+/dev/mapper/loop0p1: LABEL=&amp;quot;root&amp;quot; UUID=&amp;quot;eb69a6cf-fc3f-42cd-9b21-c70ad78f6d9e&amp;quot; TYPE=&amp;quot;ext4&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、ダウンロードしたマシンイメージを登録します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# /opt/axsh/wakame-vdc/dcmgr/bin/vdc-manage backupobject add \
+&amp;gt; --uuid bo-centos66 --display-name &amp;quot;CentOS 6.6 x86_64 root partition&amp;quot; \
+&amp;gt; --storage-id bkst-local --object-key centos-6.6.x86_64.lxc.md.raw.tar.gz \
+&amp;gt; --size 317193 --allocation-size 4194304 --container-format gz \
+&amp;gt; --checksum  45e35271d4b45e274b4952240799d9d4
+bo-centos66
+
+# /opt/axsh/wakame-vdc/dcmgr/bin/vdc-manage image add local bo-centos66 \
+&amp;gt; --account-id a-shpoolxx --uuid wmi-centos66 \
+&amp;gt; --root-device uuid:eb69a6cf-fc3f-42cd-9b21-c70ad78f6d9e \
+&amp;gt; --display-name &amp;quot;CentOS 6.6 x86_64&amp;quot;
+wmi-centos66
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;backupobject add の「&amp;ndash;size」には centos-6.6.x86_64.lxc.md.raw.tar.gz のサイズ(KB)の値を、「&amp;ndash;allocation-size」には tar玉を展開したファイル「centos-6.6.x86_64.lxc.md.raw」のサイズ(KB)の値を、「&amp;ndash;checksum」にはtar玉の md5sum の値を入れます。たぶん。&lt;/p&gt;
+
+&lt;p&gt;image add local の「&amp;ndash;root-device」には blkid で確認した UUID を指定します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1208-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;こんな感じで登録されました。
+で、早速起動できるかを試してみましたが、速攻で terminated になってました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I, [2015-12-08T02:23:54.192699 #2918]  INFO -- LinuxLocalStore: Session ID: 1b8debb3740a08af60b9e02dfb0c43ed8b80a4b6: Executing command: cat /var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz| gunzip | pv -W -f -p -s 317193 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-ysmhdpjf/vol-8a0wk702
+D, [2015-12-08T02:23:54.209337 #2918] DEBUG -- LinuxLocalStore: Session ID: 1b8debb3740a08af60b9e02dfb0c43ed8b80a4b6: Command Result: success (exit code=0)
+Command PID: 3230
+##STDERR=&amp;gt;
+cat: /var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz: No such file or directory 
+gzip: stdin: unexpected end of file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ん？登録した tar 玉がない？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# ls -l /var/lib/wakame-vdc/images/
+total 305212
+-rw-r--r-- 1 root root 312530604 Dec  7 05:41 ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うん、確かにない……あ！あぁっ！そうでした、Eucalyptus や OpenStack に毒されてすっかり忘れてましたが、Wakame-vdc での backupobject add や image add はマシンイメージの情報を登録するだけで、実体のファイルは自分でストレージの種類に合わせてアップロードする必要があります。たぶん。&lt;/p&gt;
+
+&lt;p&gt;ってことで、/var/lib/wakame-vdc/images/ 配下に tar 玉を置きます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# mv centos-6.6.x86_64.lxc.md.raw.tar.gz /var/lib/wakame-vdc/images/
+# ls -l /var/lib/wakame-vdc/images/
+total 622412
+-rw-r--r-- 1 root root 324805362 Apr 19  2015 centos-6.6.x86_64.lxc.md.raw.tar.gz
+-rw-r--r-- 1 root root 312530604 Dec  7 05:41 ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;さて、もう一度起動してみます。&lt;/p&gt;
+
+&lt;p&gt;……また terminated になりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I, [2015-12-08T03:34:19.002068 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Booting i-9nm5c1tx: phase 1
+I, [2015-12-08T03:34:19.043404 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Creating volume vol-44wrtwwu from bo-centos66.
+I, [2015-12-08T03:34:19.044296 #2918]  INFO -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Deploying image: wmi-centos66 from file:///var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz to /var/lib/wakame-vdc/instances/i-9nm5c1tx/vol-44wrtwwu
+I, [2015-12-08T03:34:19.045121 #2918]  INFO -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Executing command: cat /var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz| gunzip | pv -W -f -p -s 317193 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-9nm5c1tx/vol-44wrtwwu
+D, [2015-12-08T03:34:25.204525 #2918] DEBUG -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Command Result: success (exit code=0)
+Command PID: 4172
+##STDERR=&amp;gt;
+[=====================================================================] 100000%
+2015-12-08 03:34:25 JobContext thr=LocalStore[1/2] [INFO]: Job complete aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c (Local ID: 84c5aa808ca2c8e5716491cfc3abe77fcadb2710)[ run_local_store ]: 6.211798189 sec
+2015-12-08 03:34:25 JobContext thr=JobWorker[0/1] [INFO]: Job start aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c (Local ID: fc17b9446d7201916f03da8f2859a006515e3065)[ run_local_store ]
+I, [2015-12-08T03:34:25.218415 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Booting instance
+I, [2015-12-08T03:34:25.255464 #2918]  INFO -- Lxc: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: lxc-version: 1.0.8
+2015-12-08 03:34:25 JobContext thr=JobWorker[0/1] [ERROR]: Job failed aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c [ run_local_store ]: cgroup filesystem is not mounted.
+2015-12-08 03:34:25 JobContext thr=JobWorker[0/1] [ERROR]: Caught RuntimeError: cgroup filesystem is not mounted.
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `new&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `block in &amp;lt;class:Lxc&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `new_task_class&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:243:in `invoke&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:212:in `setup_metadata_drive&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:315:in `block in &amp;lt;class:HvaHandler&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
+I, [2015-12-08T03:34:25.256199 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: teminating instance
+I, [2015-12-08T03:34:25.262402 #2918]  INFO -- Lxc: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: lxc-version: 1.0.8
+E, [2015-12-08T03:34:25.262739 #2918] ERROR -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Ignoring error: RuntimeError cgroup filesystem is not mounted. from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
+I, [2015-12-08T03:34:25.270003 #2918]  INFO -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-9nm5c1tx/vol-44wrtwwu&#39;
+D, [2015-12-08T03:34:25.398113 #2918] DEBUG -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Command Result: success (exit code=0)
+Command PID: 4184
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;う〜ん、「cgroup filesystem is not mounted」って言ってますが、続きはまた明日。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wakame-vdc と LXC と LXC の恋</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-07-wakame-vdc-advent-calendar-2015-day7/</link>
+      <pubDate>Mon, 07 Dec 2015 05:19:32 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-07-wakame-vdc-advent-calendar-2015-day7/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の7日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;今日は LiveDVD から一旦離れて「そもそも普通の Wakame-vdc で hva の利用するハイパーバイザを lxc として動かすには？」をやってみます。&lt;/p&gt;
+
+&lt;p&gt;参考になる情報として、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんが書いた &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; の &lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-category-29.html&#34;&gt;&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; 分のエントリ&lt;/a&gt; があるので、ますそれを一読します。&lt;/p&gt;
+
+&lt;p&gt;で、インストール手順自体は Wakame-vdc の&lt;a href=&#34;http://wakame-vdc.org/installation/&#34;&gt;インストールガイド&lt;/a&gt; を参考に進めてみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんのエントリですと、Wakame-vdc のデモイメージでは lxc のバージョンは CentOS 側の最新ではなく、0.8.0 を使用しているようですが、とりあえず CentOS 6.7 が提供する 1.0.8 で進めてみます。&lt;/p&gt;
+
+&lt;p&gt;で、手抜き描写ですみませんがセットアップは以下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo curl -o /etc/yum.repos.d/wakame-vdc-stable.repo -R https://raw.githubusercontent.com/axsh/wakame-vdc/master/rpmbuild/yum_repositories/wakame-vdc-stable.repo
+sudo yum install -y epel-release
+sudo yum install -y wakame-vdc-dcmgr-vmapp-config
+sudo yum install -y wakame-vdc-hva-lxc-vmapp-config
+sudo yum install -y wakame-vdc-webui-vmapp-config
+cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-br0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ifcfg-br0 の記述は以下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DEVICE=br0
+TYPE=Bridge
+ONBOOT=yes
+NM_CONTROLLED=no
+BOOTPROTO=dhcp
+DHCPV6C=no 
+IPV6INIT=no 
+IPV6_AUTOCONF=no
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ifcfg-eth0 の記述は以下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DEVICE=eth0
+ONBOOT=yes
+BRIDGE=br0
+NM_CONTROLLED=no
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、引き続きセットアップ&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service network restart
+wget http://wakame-vdc.org/scripts/install_guide_demo_data.sh
+sed -i -e &amp;quot;s/openvz/lxc/g&amp;quot; install_guide_demo_data.sh
+chmod +x install_guide_demo_data.sh 
+NETWORK=&#39;10.0.0.0&#39; PREFIX=&#39;8&#39; DHCP_RANGE_START=&#39;10.0.0.100&#39; DHCP_RANGE_END=&#39;10.0.0.200&#39; ./install_guide_demo_data.sh
+sudo service rabbitmq-server start
+sudo service mysqld start
+sudo start vdc-dcmgr
+sudo start vdc-collector
+sudo start vdc-hva
+sudo start vdc-webui
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、このあとブラウザで WebUI に接続し、セキュリティグループとキーペアを設定し、install_guide_demo_data.sh で登録された Ubuntu のイメージを指定して起動してみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1207-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、起動に失敗したようです。
+「そもそもホストが CentOS なのに何で Ubuntu イメージ(それも OpenVZ なデモイメージ用の…)を使うんだよ？もしかしてエラー出るようにワザとやってない？」ってツッコまれそうですが…そ、そんなことないです…たぶん、もしそうだとしても天然です。&lt;/p&gt;
+
+&lt;p&gt;で、じゃぁ、hva のログは…というと以下な感じ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2015-12-07 05:52:38 JobContext thr=LocalStore[0/2] [INFO]: Job start afe0d78dacb3bafa8b8f8141dffed72510d61fa6 (Local ID: 450b54eeb176f67426defc0407d91c1177e6da51)[ run_local_store ]
+I, [2015-12-07T05:52:38.554305 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Booting i-7ujh4q24: phase 1
+I, [2015-12-07T05:52:38.620281 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Creating volume vol-atfog2nw from bo-ubuntu14043ple.
+I, [2015-12-07T05:52:38.687657 #7987]  INFO -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Deploying image: wmi-ubuntu14043ple from file:///var/lib/wakame-vdc/images/ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz to /var/lib/wakame-vdc/instances/i-7ujh4q24/vol-atfog2nw
+I, [2015-12-07T05:52:38.688701 #7987]  INFO -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Executing command: cat /var/lib/wakame-vdc/images/ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz| pv -W -f -p -s 312530432 | tar -zxS -C /var/lib/wakame-vdc/instances/i-7ujh4q24/d20151207-7987-999etl
+D, [2015-12-07T05:52:48.575228 #7987] DEBUG -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Command Result: success (exit code=0)
+Command PID: 8168
+##STDERR=&amp;gt;
+[=======================================================================&amp;gt;] 100%
+2015-12-07 05:52:48 JobContext thr=LocalStore[0/2] [INFO]: Job complete afe0d78dacb3bafa8b8f8141dffed72510d61fa6 (Local ID: 450b54eeb176f67426defc0407d91c1177e6da51)[ run_local_store ]: 10.0355809 sec
+2015-12-07 05:52:48 JobContext thr=JobWorker[0/1] [INFO]: Job start afe0d78dacb3bafa8b8f8141dffed72510d61fa6 (Local ID: 24d2bbd8bc0913354622224e4e179ead2be00f9d)[ run_local_store ]
+I, [2015-12-07T05:52:48.593029 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Booting instance
+I, [2015-12-07T05:52:48.715200 #7987]  INFO -- Lxc: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: lxc-version: 1.0.8
+2015-12-07 05:52:48 JobContext thr=JobWorker[0/1] [ERROR]: Job failed afe0d78dacb3bafa8b8f8141dffed72510d61fa6 [ run_local_store ]: cgroup filesystem is not mounted.
+2015-12-07 05:52:48 JobContext thr=JobWorker[0/1] [ERROR]: Caught RuntimeError: cgroup filesystem is not mounted.
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `new&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `block in &amp;lt;class:Lxc&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `new_task_class&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:243:in `invoke&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:212:in `setup_metadata_drive&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:315:in `block in &amp;lt;class:HvaHandler&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
+I, [2015-12-07T05:52:48.716150 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: teminating instance
+I, [2015-12-07T05:52:48.723362 #7987]  INFO -- Lxc: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: lxc-version: 1.0.8
+E, [2015-12-07T05:52:48.724572 #7987] ERROR -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Ignoring error: RuntimeError cgroup filesystem is not mounted. from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
+I, [2015-12-07T05:52:48.731985 #7987]  INFO -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-7ujh4q24/vol-atfog2nw&#39;
+D, [2015-12-07T05:52:48.885889 #7987] DEBUG -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Command Result: success (exit code=0)
+Command PID: 8182
+D, [2015-12-07T05:52:48.900115 #7987] DEBUG -- ServiceNetfilter: event caught: hva.demo1/vnic_destroyed: vif-jumhvsv6
+D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-jumhvsv6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ってことで明日はメーリングリストで教えてもらった CentOS のイメージを使って試してみます。きっと同じようなエラーが出ると信じたい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ホストめう</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day6/</link>
+      <pubDate>Sun, 06 Dec 2015 06:27:27 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day6/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の6日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;順調に「日々更新ができなくなってきている」状態ですが、細かいことは気にせずマイペースで行きたいと思います。&lt;/p&gt;
+
+&lt;p&gt;今日も小粒なネタで、「Wakame-vdc LiveDVD を起動したときにホストにグローバル IP が付いてると Xfce4 のログイン画面で確認のダイアログが出てログインが止まるんですけどぉ？」っていう話です。&lt;/p&gt;
+
+&lt;p&gt;何を言っているかというと、これです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1206-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まー、たいしたこと言ってるわけじゃなく確認事項なので普段なら「Continue anyway をクリックしてね」で済むんですが、先々 CI 環境を作ってテストを回そうとしたときに邪魔になりますよね、間違いなく。(もちろん、LiveDVD の CI で GUI 側をテストしなきゃいいっていう話もありますが、できれば GUI 側もテストしたいじゃないですか？)&lt;/p&gt;
+
+&lt;p&gt;ってことで、これに対処するために LiveDVD の /etc/rc.local に以下を追記しました。(実際は以下を実行するスクリプトを書いて、/etc/rc.local で起動する形に)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hostname -s | awk &#39;BEGIN {FS=&amp;quot;-&amp;quot;;OFS=&amp;quot;.&amp;quot;} {print $2,$3,$4,$5&amp;quot; &amp;quot;$0}&#39; &amp;gt;&amp;gt; /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もっと良い方法があるとは思うんですが、まぁこれでやってみます。(まぁ、当然ながらホスト名の形式が host-GL-OB-AL-IP な場合にしか通用しないので、このままだと酷いですが、とりあえず今だけ)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1206-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ん？「&amp;hellip; localhost」？あぁ、これはホスト名が設定される前に /etc/rc.local が叩かれているからか…。&lt;/p&gt;
+
+&lt;p&gt;ということで、/etc/rc.local の最後のほうで呼ぶようにしたらちゃんと上手くいきました。&lt;/p&gt;
+
+&lt;p&gt;明日は LiveDVD じゃない普通の Wakame-vdc を lxc で動かしてみる話です。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LXC と情熱のあいだ</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day5/</link>
+      <pubDate>Sun, 06 Dec 2015 05:23:52 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day5/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の5日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;順調に「日々更新ができなくなってきている」状態ですが、細かいことは気にせずマイペースで行きたいと思います。&lt;/p&gt;
+
+&lt;p&gt;今日も小粒なネタです。3日目の続きを。&lt;/p&gt;
+
+&lt;p&gt;Wakame-vdc LiveDVD の設定を KVM から lxc に作り変え、イメージも lxc 用を登録してみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I, [2015-12-05T21:16:58.697938 #3499]  INFO -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc
+I, [2015-12-05T21:16:58.698242 #3499]  INFO -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc
+D, [2015-12-05T21:17:24.326757 #3499] DEBUG -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Command Result: success (exit code=0)
+Command PID: 4462
+##STDERR=&amp;gt;
+[=====================================================================] 100000%
+2015-12-05 21:20:11 ThreadPool thr=InstanceMonitor[0/1] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:31:in `check_instance&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:12:in `block (3 levels) in &amp;lt;class:InstanceMonitor&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
+2015-12-05 21:20:31 JobContext thr=LocalStore[0/2] [ERROR]: Job failed 5b9118b596ebe1a208ba74e569fed366b96e21a8 [ run_local_store ]: timeout
+2015-12-05 21:20:31 JobContext thr=LocalStore[0/2] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:168:in `update_volume_state&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:49:in `deploy_local_volume&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:109:in `block (2 levels) in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `block in each_all_local_volumes&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each_all_local_volumes&#39;
+    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:108:in `block in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
+    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
+I, [2015-12-05T21:20:31.544538 #3499]  INFO -- HvaHandler: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Instance UUID: i-ungzbmvf: Cleaning volume vol-iz4ojoqc
+I, [2015-12-05T21:20:31.544769 #3499]  INFO -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc&#39;
+D, [2015-12-05T21:20:31.668489 #3499] DEBUG -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Command Result: success (exit code=0)
+Command PID: 4559
+D, [2015-12-05T21:20:38.593790 #3499] DEBUG -- ServiceNetfilter: event caught: hva.node16aff8e215e1/vnic_destroyed: vif-8glbtzu1
+D, [2015-12-05T21:20:38.593938 #3499] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-8glbtzu1
+2015-12-05 21:20:38 JobContext thr=LocalStore[1/2] [INFO]: Job start c39a19a2b883928928b7fe6df7345c3b6c86c678 (Local ID: c39a19a2b883928928b7fe6df7345c3b6c86c678)[ delete_volume ]
+W, [2015-12-05T21:20:38.660525 #3499]  WARN -- HvaHandler: Session ID: c39a19a2b883928928b7fe6df7345c3b6c86c678: Instance UUID: i-ungzbmvf: Unexpected state deleted of vol-iz4ojoqc. But try to delete.
+W, [2015-12-05T21:20:38.660895 #3499]  WARN -- HvaHandler: Session ID: c39a19a2b883928928b7fe6df7345c3b6c86c678: Instance UUID: i-ungzbmvf: Failed to delete non-existing file: /var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc
+2015-12-05 21:20:38 JobContext thr=LocalStore[1/2] [INFO]: Job complete c39a19a2b883928928b7fe6df7345c3b6c86c678 (Local ID: c39a19a2b883928928b7fe6df7345c3b6c86c678)[ delete_volume ]: 0.072499295 sec
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うぅ〜ん？起動失敗です…。一旦 LiveDVD じゃなく普通の Wakame-vdc 環境を作ってそこで lxc を試さないといけないですね…。また明日。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus LiveDVD を作ってみる 3日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-05-japan-eucalyptus-advent-calendar-2015-day-3/</link>
+      <pubDate>Sat, 05 Dec 2015 05:05:37 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-05-japan-eucalyptus-advent-calendar-2015-day-3/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の3日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;え？更新が途切れた？そんなバカな…。2日目の続きをやりまぁす。&lt;/p&gt;
+
+&lt;p&gt;2日目のログをもう少し遡ると以下のように変なところで umount が走ってコケてます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Installing: comps-extras                 ##################### [456/456]warning: %posttrans(nfs-uti
+-1:1.2.3-64.el6.x86_64) scriptlet failed, exit status 6
+error reading information on service NetworkManager: No such file or directory
+error reading information on service sshd: No such file or directory
++ echo RUN_FIRSTBOOT=NO
++ sed -i -e &#39;s/^Defaults    requiretty/#Defaults    requiretty/&#39; /etc/sudoers
++ /usr/sbin/useradd -c &#39;LiveMedia default user&#39; eucalyquitous
++ /usr/bin/passwd -d eucalyquitous
++ echo &#39;eucalyquitous     ALL=(ALL)     NOPASSWD: ALL&#39;
++ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin eucalyquitous \2|&#39; /etc/init/tty.c
+f
+umount: /mnt/livecd/tmp/imgcreate-6F78B4/install_root/proc: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+umount: /mnt/livecd/tmp/imgcreate-6F78B4/install_root: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+loop: can&#39;t delete device /dev/loop0: Device or resource busy
+e2fsck 1.41.12 (17-May-2010)
+_Eucalyquitous: recovering journal
+Pass 1: Checking inodes, blocks, and sizes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;んじゃー、ビルドが成功している Wakame-vdc の LiveDVD ではここはどうなっているのかと言うと、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Installing: gnome-backgrounds            ##################### [907/907]error reading information
+ on service NetworkManager: No such file or directory
+cp: cannot stat `/etc/resolv.conf&#39;: No such file or directory
++ echo RUN_FIRSTBOOT=NO
++ sed -i -e &#39;s/^Defaults    requiretty/#Defaults    requiretty/&#39; /etc/sudoers
++ /usr/sbin/useradd -c &#39;LiveMedia default user&#39; wakame
++ /usr/bin/passwd -d wakame
++ echo &#39;wakame     ALL=(ALL)     NOPASSWD: ALL&#39;
++ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin wakame \2|&#39; /etc/init/tty.conf
++ sed -i -e &#39;s/\[daemon\]/[daemon]\nTimedLoginEnable=true\nTimedLogin=wakame\nTimedLoginDelay=10/&#39; /etc/gdm/custom.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;やはり変な umount は発生していないようです。&lt;/p&gt;
+
+&lt;p&gt;違う点と言えば Wakame-vdc LiveDVD のほうでは他にも処理を入れていることと、%post &amp;ndash;nochroot のセクションもあるという点です。なのでバッドノウハウな気もしますが、以下の処理を追加で kickstart に入れて再度ビルドしてみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%post --nochroot
+
+cat &amp;gt; /root/postnochroot-install &amp;lt;&amp;lt; EOF_postnochroot
+#!/bin/bash
+
+rm -rf ${INSTALL_ROOT}/usr/share/{doc,man,info}
+
+EOF_postnochroot
+
+/bin/bash -x /root/postnochroot-install 2&amp;gt;&amp;amp;1 | tee /root/postnochroot-install.log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うーん、やっぱり以下のように失敗します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-O60XR_/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-O60XR_
+/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-O60XR_/install_root/usr/share/info
+umount: /mnt/livecd/tmp/imgcreate-O60XR_/install_root/proc: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+umount: /mnt/livecd/tmp/imgcreate-O60XR_/install_root: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+loop: can&#39;t delete device /dev/loop1: Device or resource busy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fuser で見てみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-lWxyO0
+/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/usr/share/info
++ /sbin/fuser -vm /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc/
+                     USER        PID ACCESS COMMAND
+/mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc/:
+                     root       1355 f.... rsyslogd
+                     root       1445 f.... acpid
+                     haldaemon   1457 f.... hald
+                     root       3440 F.... libvirtd
+                     root       7273 F.... libvirtd
+                     root      13917 F.... libvirtd
+                     root      14660 F.... libvirtd
+                     root      19529 F.... libvirtd
+                     root      28104 F.... libvirtd
+umount: /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+umount: /mnt/livecd/tmp/imgcreate-lWxyO0/install_root: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+loop: can&#39;t delete device /dev/loop5: Device or resource busy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;libvirtd&amp;hellip;.？あぁ！もしかして！と思い Eucalyptus に関するパッケージのインストール指定を外してビルドしてみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-tERkpC/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-tERkpC
+/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-tERkpC/install_root/usr/share/info
++ /sbin/fuser -vm /mnt/livecd/tmp/imgcreate-tERkpC/install_root/proc/
+                     USER        PID ACCESS COMMAND
+/mnt/livecd/tmp/imgcreate-tERkpC/install_root/proc/:
+                     root       1355 f.... rsyslogd
+                     root       1445 f.... acpid
+                     haldaemon   1457 f.... hald
+                     root       3440 F.... libvirtd
+                     root       7273 F.... libvirtd
+                     root      13917 F.... libvirtd
+                     root      14660 F.... libvirtd
+                     root      19529 F.... libvirtd
+                     root      28104 F.... libvirtd
+e2fsck 1.41.12 (17-May-2010)
+Pass 1: Checking inodes, blocks, and sizes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？半分勘違い。てっきり libvirtd はインストールした Eucalyptus のパッケージに動かされたのかと思いましたが、どうやら表示されているのはビルド環境のホスト側の情報だったみたいです。が、一方で umount のエラーが消えたのはやはり Eucalyptus のパッケージが関係しているようです。&lt;/p&gt;
+
+&lt;p&gt;ということで、Eucalyptus のパッケージをインストールすると何が起きるのかを見てみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;まずインストールされるパッケージは以下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# grep &amp;quot;Installing: euca&amp;quot; 20151203-4.eucaly.log
+  Installing: eucalyptus                   ##################### [251/456] 
+  Installing: eucalyptus-blockdev-utils    ##################### [259/456]/var/tmp/rpm-tmp.EoxuZE: line 2: /sbin/service: No such file or directory
+  Installing: eucalyptus-axis2c-common     ##################### [377/456] 
+  Installing: euca2ools                    ##################### [379/456] 
+  Installing: eucalyptus-admin-tools       ##################### [380/456] 
+  Installing: eucalyptus-imaging-toolkit   ##################### [389/456] 
+  Installing: eucanetd                     ##################### [418/456] 
+  Installing: eucalyptus-common-java-libs  ##################### [423/456] 
+  Installing: eucalyptus-common-java       ##################### [424/456] 
+  Installing: eucalyptus-nc                ##################### [442/456]Stopping libvirtd daemon: [FAILED]
+  Installing: eucalyptus-sc                ##################### [444/456]Starting SCSI target daemon: [  OK  ]
+  Installing: eucalyptus-cloud             ##################### [445/456] 
+  Installing: eucalyptus-walrus            ##################### [446/456] 
+  Installing: eucalyptus-cc                ##################### [447/456] 
+  Installing: eucaconsole                  ##################### [449/456] 
+  Installing: eucalyptus-service-image     ##################### [450/456] 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これらのパッケージをダウンロードして何が実行されるかを見ます。で、全部をここに貼るのもアレなので原因になるものだけ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# rpm -qp --scripts eucalyptus-nc-4.2.0-0.0.24054.2.el6.x86_64.rpm 
+警告: eucalyptus-nc-4.2.0-0.0.24054.2.el6.x86_64.rpm: ヘッダ V4 RSA/SHA1 Signature, key ID c1240596: NOKEY
+postinstall scriptlet (using /bin/sh):
+if [ -e /etc/rc.d/init.d/libvirtd ]; then
+    chkconfig --add libvirtd
+    /sbin/service libvirtd restart
+fi
+chkconfig --add eucalyptus-nc
+usermod -a -G kvm eucalyptus
+exit 0
+preuninstall scriptlet (using /bin/sh):
+if [ &amp;quot;$1&amp;quot; = &amp;quot;0&amp;quot; ]; then
+    if [ -f /etc/eucalyptus/eucalyptus.conf ]; then
+        /sbin/service eucalyptus-nc stop
+    fi
+    chkconfig --del eucalyptus-nc
+fi
+exit 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あぁ、やっぱり libvirtd を起動してますね。あとは&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# rpm -qp --scripts eucalyptus-sc-4.2.0-0.0.24054.2.el6.x86_64.rpm 
+警告: eucalyptus-sc-4.2.0-0.0.24054.2.el6.x86_64.rpm: ヘッダ V4 RSA/SHA1 Signature, key ID c1240596: NOKEY
+postinstall scriptlet (using /bin/sh):
+if [ -e /etc/rc.d/init.d/tgtd ]; then
+    chkconfig --add tgtd
+    /sbin/service tgtd start
+fi
+exit 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あぁ、tgtd も起動してますね。他は無さそうですので、この2つを停止するように kickstart ファイルに書いてビルドします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin eucalyquitous \2|&#39; /etc/init/tty.c
+onf
++ /sbin/service libvirtd stop
+Stopping libvirtd daemon:                                  [  OK  ]
++ /sbin/service tgtd stop
+Stopping SCSI target daemon:                               [  OK  ]
++ rm -rf /mnt/livecd/tmp/imgcreate-ST404K/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-ST404K
+/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-ST404K/install_root/usr/share/info
+e2fsck 1.41.12 (17-May-2010)
+Pass 1: Checking inodes, blocks, and sizes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;やったー。成功です。ってことで、明日はこの作成した ISO ファイルで起動して Eucalyptus のセットアップができるかを試してみます。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>みんな!コミッターだよ!</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-04-wakame-vdc-advent-calendar-2015-day4/</link>
+      <pubDate>Fri, 04 Dec 2015 10:37:39 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-04-wakame-vdc-advent-calendar-2015-day4/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の4日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;Japan Eucalyptus Advent Calendar 2015 の1枚目も2枚目もまだ3日目分のエントリをアップしてないのに「何やってんだ？」って思われるかもしれませんが、そもそも1日にいくつも Advent Calendar のエントリを書いてる時点で「何やってんだ？」なので、生あたたかい目で見てやってください。&lt;/p&gt;
+
+&lt;p&gt;さて今日は昨日の続きをする前に、Wakame-vdc の開発に参加する方法をお話したいと思います。&lt;/p&gt;
+
+&lt;p&gt;と、わざわざエントリに書くようなことじゃないんですが、&lt;a href=&#34;https://atnd.org/events/45749&#34;&gt;Wakame Users Group Advent Calendar 2013&lt;/a&gt; の &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;25&lt;/sub&gt; のエントリ「コミッタ生活のはじめかた」が残念ながら見れない状態なので、「Wakame-vdc の開発に参加するにはどーやったらいいんだろう？」っていう人向けに簡単に説明しようと思います。&lt;/p&gt;
+
+&lt;p&gt;Wakame-vdc に対して要望やバグ報告をあげたい場合は、&lt;a href=&#34;https://github.com/axsh/wakame-vdc/issues&#34;&gt;github の issues&lt;/a&gt; に投稿するというごく一般的な方法で OK です。issues の一覧を見ると英語でのやりとりがほとんど…というかほぼ全てが英語ですが、開発者の人達が「何語でもいいよ、できれば英語か日本語がいいけど、他の言語でも喋れる人が居れば対応できるから」って言っているので、気後れせずに日本語で投稿していいと思います。&lt;/p&gt;
+
+&lt;p&gt;一方で「いきなりチケット切るのはちょっとためらう」と思うかたは&lt;a href=&#34;https://groups.google.com/forum/#!forum/wakame-ug&#34;&gt;Wakame-vdc Users Group のメーリングリスト&lt;/a&gt; に投稿するというのが良いでしょう。例えば以下のような感じで。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1204-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;「いやいや、メーリングリストに投稿するのも勇気が要る」という方は Twitter でツブやくという手もあります。以下な感じでハッシュタグ「#WakameVdc」をつけるか、もしくは発言内容に「Wakame-vdc」が含まれていると、開発者の人が見つけてくれる場合があります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1204-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そして「やっぱり開発者と直にコミュニケーションをしたい」っていう方は3ヶ月毎ぐらいの頻度で勉強会があるので、それに参加するのも手です。勉強会の告知は&lt;a href=&#34;http://wakameusersgroup.org/&#34;&gt;ユーザ会のサイト&lt;/a&gt; かメーリングリストで告知されます。&lt;/p&gt;
+
+&lt;p&gt;ってな感じで、まずは Twitter で「Wakame-vdc 使ってみたよ！」っていう魔法の言葉を唱えてみると磯野家の一員になれた気がしてきますよ。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

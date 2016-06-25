@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mcdonalds on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/mcdonalds/</link>
+    <description>Recent content in Mcdonalds on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 26 Jun 2016 04:43:38 +0900</lastBuildDate>
+    <atom:link href="http://blog.osamu.habuka.jp/tags/mcdonalds/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ハッピーセットの旭山動物園号の電池交換</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-06-26-happyset/</link>
+      <pubDate>Sun, 26 Jun 2016 04:43:38 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-06-26-happyset/</guid>
+      <description>&lt;p&gt;マクドナルドのハッピーセットで貰った「旭山動物園号」、こいつには LED が搭載されていてスイッチを入れるとヘッドライトが光るというギミックがついてます。今日はそんな旭山動物園号の電池を交換するお話です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-00.jpg&#34; alt=&#34;旭山動物園号&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;裏を見るとネジが3つありますが、このネジを外すのが一番の難関です。というのもこのネジ穴の形状が三角で、一般家庭にはこのネジ穴に対応するドライバーが無いと思います。もちろん我が家にもありません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-01.jpg&#34; alt=&#34;三角穴&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;なので、2.5mm程度のマイナスドライバーを三角の辺のひとつに合わせて回すと、ネジを外すことができます。写真だとよく見えませんが、以下のような感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-02.jpg&#34; alt=&#34;三角穴とドライバー&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ネジを外して電車の外装を外すと頭の部分にちょこんと LED ライトと黒いカバーが見えますが、電池はこの黒いカバーの中に収納されてます。&lt;/p&gt;
+
+&lt;p&gt;この黒いカバーもネジで止められていますが、このネジはプラスドライバーで外すことができます。サイズは PH0 でいいと思います。ちなみに穴の形状は十字穴のH型なので PH0 で問題ないはずですが、ポジドライバー(PZ0)のほうがよりしっくりとマッチしている感じがしました、気のせいかもしれませんが…。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-03.jpg&#34; alt=&#34;電池カバー&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;電池カバーを外すと以下のようにボタン電池が3つ収納されているのが確認できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-04.jpg&#34; alt=&#34;ボタン電池&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このボタン電池は LR41 という型番で、&lt;a href=&#34;https://www.amazon.co.jp/dp/B005JR7ZH0&#34;&gt;Amazon であれば10個入り1シートが100円ちょっと&lt;/a&gt;で販売されてます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-05.jpg&#34; alt=&#34;SUNCOM LR41&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ボタン電池はぎっちりと入っていて指で取りづらいため、以下のようにマイナスドライバを隙間から差し込んでやると簡単に取ることができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-06.jpg&#34; alt=&#34;ボタン電池の取り外し&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ボタン電池を入れる際には以下のように傾けて入れていくと楽かもしれません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-07.jpg&#34; alt=&#34;ボタン電池の装着&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとはカバーや外装を元に戻してやれば完了です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-08.jpg&#34; alt=&#34;点灯&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみにこの電車のネジですが、部品のコストを削減するためなのか材質が脆く、ネジを回す際にネジ頭がバカになるかもしれません。1度や2度の電池交換ぐらいは耐えられるかもしれませんが…。&lt;/p&gt;
+
+&lt;p&gt;一応「いつかネジをちゃんとしたものに交換しよう」と思い、各ネジの寸法を測ってみました。が、我が家にあるノギスはおもちゃのような作りなので、もしかすると0.1単位で誤差があるかもしれません。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ネジ種&lt;/th&gt;
+&lt;th&gt;径&lt;/th&gt;
+&lt;th&gt;長さ&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;三角穴&lt;/td&gt;
+&lt;td&gt;3.0mm&lt;/td&gt;
+&lt;td&gt;7.5mm&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;十字穴&lt;/td&gt;
+&lt;td&gt;1.6mm&lt;/td&gt;
+&lt;td&gt;5.0mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

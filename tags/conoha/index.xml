@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conoha on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/conoha/</link>
+    <description>Recent content in Conoha on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Wed, 16 Dec 2015 06:15:38 +0900</lastBuildDate>
+    <atom:link href="http://blog.osamu.habuka.jp/tags/conoha/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ConoHaに作るWakame-vdc LiveDVD CI 環境</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-16-conoha-advent-calendar-2015-day16/</link>
+      <pubDate>Wed, 16 Dec 2015 06:15:38 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-16-conoha-advent-calendar-2015-day16/</guid>
+      <description>&lt;p&gt;ConoHa ユーザの皆さま &amp;amp; ConoHa タンこんばんは。これは ConoHa Advent Calendar 2015 の 16 日目のエントリです。16 日目のエントリなのに 16 日を過ぎてからの掲載でごめんなさい。&lt;/p&gt;
+
+&lt;p&gt;今日のエントリでは何をやるかというと、Wakame-vdc LiveDVD のビルドとテストを自動化したいという欲求が以前からあり、折角なので Advent Calendar のネタにしようという話です。&lt;/p&gt;
+
+&lt;p&gt;(が、思いっきり失敗談です…orz)&lt;/p&gt;
+
+&lt;p&gt;で、どんなものを作ろうとしているかをまず先に説明します。ざっと粗く書くと以下のような感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-00.png&#34; alt=&#34;2015.1216-00&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まずリポジトリは github 上にあるので OK で、LiveDVD Build Macine も既に ConoHa 上に存在し、ConoHa VM は事前に準備するものがないため、残る Drone の準備だけとなります。&lt;/p&gt;
+
+&lt;p&gt;drone.io のサービスを利用する方法とローカルに Drone を構築する方法がありますが、今回は ConoHa で起動したサーバ上で動かしてみます。&lt;/p&gt;
+
+&lt;p&gt;Drone のドキュメントを読むと手軽に環境を作る方法として Drone が配布している docker のイメージを利用する方法がありますので、まずは ConoHa で起動したサーバに docker をインストールするところから始めます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum install epel-release.noarch
+# yum install docker-io
+# service docker start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;相変わらずの簡単さですね。続いて Drone のイメージを準備します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# docker pull drone/drone:0.4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で続いて docker run をするんですが、その前に Drone の設定ファイルを準備します。公式ドキュメントには「dronerc ファイルを用意しろ」って書いてあるだけで具体的な設定例がドキュメント中には見当たらないため、ソースコード中に存在していた &lt;a href=&#34;https://github.com/drone/drone/blob/master/contrib/debian/drone/etc/drone/dronerc&#34;&gt;Debian 用の設定サンプル&lt;/a&gt; を参考に以下のような設定にしました。一部、github の固有情報はボヤかしてあります f^^;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+# server configuration
+
+#SERVER_ADDR=&amp;quot;:80&amp;quot;
+#SERVER_CERT=&amp;quot;&amp;quot;
+#SERVER_KEY=&amp;quot;&amp;quot;
+
+# database configuration
+
+DATABASE_DRIVER=&amp;quot;sqlite3&amp;quot;
+DATABASE_CONFIG=&amp;quot;/var/lib/drone/drone.sqlite&amp;quot;
+
+# remote configuration
+
+CLIENT=&amp;quot;xxxxxxxxxxxxxxxxxxxx&amp;quot; # oauth2 client. REQUIRED
+SECRET=&amp;quot;yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy&amp;quot; # oauth2 secret. REQUIRED
+
+REMOTE_DRIVER=&amp;quot;github&amp;quot;
+REMOTE_CONFIG=&amp;quot;https://github.com?client_id=$CLIENT&amp;amp;client_secret=$SECRET&amp;quot;
+
+# docker configuration
+
+DOCKER_HOST=&amp;quot;unix:///var/run/docker.sock&amp;quot;
+#DOCKER_CERT=&amp;quot;&amp;quot;
+#DOCKER_KEY=&amp;quot;&amp;quot;
+#DOCKER_CA=&amp;quot;&amp;quot;
+
+# plugin configuration
+
+PLUGIN_FILTER=&amp;quot;plugins/*&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、この内容を /etc/drone/dronerc としたら以下のように docker run します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run \
+--volume /var/lib/drone:/var/lib/drone \
+--volume /var/run/docker.sock:/var/run/docker.sock \
+--env-file /etc/drone/dronerc \
+--restart=always \
+--publish=80:8000 \
+--detach=true \
+--name=drone \
+drone/drone:0.4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、無事コンテナが起動したら、ブラウザでアクセスします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、とてもシンプルな画面が表示されました。続いて LOGIN をクリックすると github のアプリケーション認証画面に飛ばされ…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あれ？404だ…何故だ…？と思って URL をよく見ると…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://github.com/login/oauth/authorize?client_id=%24CLIENT&amp;amp;redirect_uri=.....(略)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ？ client_id が dronerc に設定した値じゃなく変数名がそのまま入ってる…&lt;/p&gt;
+
+&lt;p&gt;しょうがないので URL の %24CLIENT の部分に github から払出された値を入れて手で URL を叩いてみると…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;おぉ、なんとか表示されました。なので [Authorize application] をクリックすると…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;パスワード入力画面に遷移するので、パスワードを入力すると…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-05.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;う…ん、何故でしょう？うまくいきません。&lt;/p&gt;
+
+&lt;p&gt;で調べてみたところ、$CLIENT が設定値に置き換えられずにそのまま渡されるのはどうやら &lt;a href=&#34;https://github.com/drone/drone/pull/1369&#34;&gt;0.4 のバグ&lt;/a&gt; っぽいです。&lt;/p&gt;
+
+&lt;p&gt;っていうことで、仕方ないので docker イメージは諦めて自分でビルドしてみることにします。&lt;/p&gt;
+
+&lt;p&gt;まず drone のコードを入手します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# export PATH=/opt/go/bin/:$PATH
+# export GOROOT=/opt/go
+# export GOPATH=/usr/local/go
+# cd /usr/local/go/src/github.com/
+# mkdir -p drone
+# cd drone/
+# git clone https://github.com/drone/drone.git
+# cd drone/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここまでやっておきながらアレですが、素直に go get github.com/drone/drone すりゃぁよかったんじゃないかと…。気にせずに次続けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# make deps gen
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;エラーになり、PuerkitoBio と gopkg.in/yaml.v2 がゲットできないと言ってコケます。なのでとりあえず手動で入れます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cd /usr/local/go/src/github.com/PuerkitoBio/
+# git clone https://github.com/PuerkitoBio/purell.git
+# go get gopkg.in/yaml.v2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;gopkg.in/yaml.v2 が返ってこなくなります。で、調べたところ&lt;a href=&#34;http://qiita.com/wappy100/items/05364b5c095e4bdc860b&#34;&gt;どうやら git のバージョンが古いせい&lt;/a&gt;らしいです。なので、git を新しくします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum remove git
+# yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
+# cd /usr/local/src/
+# wget https://www.kernel.org/pub/software/scm/git/git-2.6.2.tar.gz
+# tar -xzvf git-2.6.2.tar.gz 
+# cd git-2.6.2
+# make prefix=/usr/local all
+# make prefix=/usr/local install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で再度 yaml.v2 をゲットします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# go get gopkg.in/yaml.v2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;続いて依存するのもをインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# cd /usr/local/go/src/github.com/drone/drone/
+# ./contrib/setup-sqlite.sh 
+# ./contrib/setup-sassc.sh 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うーん、GCC のバージョンが 4.6 以上じゃないと駄目と怒られます… CentOS 6 で GCC を 4.6 以上にするには…&lt;a href=&#34;https://github.com/FezVrasta/ark-server-tools/wiki/Install-of-required-versions-of-glibc-and-gcc-on-RHEL-CentOS&#34;&gt;ここ&lt;/a&gt;を読むと方法が書いてありますが、16日はタイムアップとなりました…。&lt;/p&gt;
+
+&lt;p&gt;中途半端な失敗談で申し訳ないですが、進展があったら継続してこのページを更新することにします。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
