@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="ja-jp">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:title" content=" empire で PaaS デビューしてみたい！ &middot;  hablog" />
+        <meta property="og:site_name" content="hablog" />
+        <meta property="og:url" content="http://blog.osamu.habuka.jp/post/2015-12-02-open-paas-advent-calendar-2015-day-3/" />
+
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time" content="2015-12-02T23:21:20&#43;09:00" />
+        <meta property="og:article:tag" content="PaaS" />
+        <meta property="og:article:tag" content="AdventCalendar" />
+        <meta property="og:article:tag" content="empire" />
+        
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@" />
+        <meta name="twitter:title" content="empire で PaaS デビューしてみたい！" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:url" content="http://blog.osamu.habuka.jp/post/2015-12-02-open-paas-advent-calendar-2015-day-3/" />
+    
+
+        <title> empire で PaaS デビューしてみたい！ &middot;  hablog</title>
+
+    
+        <meta name="description" content="" />
+    
+
+        <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+    
+        <link href="http://blog.osamu.habuka.jp/index.xml" rel="alternate" type="application/rss+xml" title="hablog" />
+    
+
+    
+        <link rel="canonical" href="http://blog.osamu.habuka.jp/post/2015-12-02-open-paas-advent-calendar-2015-day-3/" />
+
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "empire で PaaS デビューしてみたい！",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/?rel=author"
+        },
+        "datePublished": "2015-12-02",
+        "description": "",
+        "wordCount":  411 
+    }
+
+    </script>
+
+    <script type="text/javascript">
+    
+    
+
+    </script>
+    
+
+    <style>
+@charset "UTF-8";article,header,img,main,nav,section{display:block}blockquote,p,pre,ul{margin:2em auto}#wrapper,pre{width:100%;box-sizing:border-box}#nav,#wrapper,code{position:relative}#nav,body{background:#fff}#menu,blockquote,pre code{background:0 0}#menu,#menu .menu-header,#menu .menu-list,#wrapper,.post-nav .post-nav-item .post-nav-teaser .post-nav-info,blockquote,pre{box-sizing:border-box}img{border:0;max-width:100%;height:auto;margin:2.5em auto}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}code,pre{font-family:monospace,monospace;font-size:1em}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:300;src:local("Merriweather Sans Light"),local("MerriweatherSans-Light"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowY_zIojJi0m4a5Z6tRh6itY.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:400;src:local("Merriweather Sans Regular"),local("MerriweatherSans-Regular"),url(//fonts.gstatic.com/s/merriweathersans/v5/AKu1CjQ4qnV8MUltkAX3sL2aU247V0zTzydO4RoO9Ok.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:700;src:local("Merriweather Sans Bold"),local("MerriweatherSans-Bold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowQfd-b-I5PxxcmB4_-MNcqw.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:800;src:local("Merriweather Sans ExtraBold"),local("MerriweatherSans-ExtraBold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowWT7sFQ1Iz1BbpcuCPlgc9Q.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:300;src:local("Merriweather Sans Light Italic"),local("MerriweatherSans-LightItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVX9UU5BmOJGkLxUCVv5VXdc.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:400;src:local("Merriweather Sans Italic"),local("MerriweatherSans-Italic"),url(//fonts.gstatic.com/s/merriweathersans/v5/3Mz4hOHzs2npRMG3B1ascf0KIgDhPIHb_R-SWdtqte8.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:700;src:local("Merriweather Sans Bold Italic"),local("MerriweatherSans-BoldItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVYM8pfYvjMoOxygpzLVILAs.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:400;src:local("Inconsolata"),url(//fonts.gstatic.com/s/inconsolata/v12/BjAYBlHtW3CJxDcjzrnZCIbN6UDyHWBl620a-IRfuBk.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:700;src:local("Inconsolata Bold"),local("Inconsolata-Bold"),url(//fonts.gstatic.com/s/inconsolata/v12/AIed271kqQlcIRSOnQH0yTqR_3kx9_hJXbbyU8S6IN0.woff) format("woff")}@font-face{font-family:icons;src:url(/fonts/icons.eot?9273991);src:url(/fonts/icons.eot?9273991#iefix) format("embedded-opentype"),url(/fonts/icons.woff?9273991) format("woff"),url(/fonts/icons.ttf?9273991) format("truetype"),url(/fonts/icons.svg?9273991#icons) format("svg");font-weight:400;font-style:normal}[class^=icon-]:before{font-family:icons;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-arrow-left:before{content:'\e804'}.icon-arrow-right:before{content:'\e807'}.icon-rss:before{content:'\e808'}.icon-menu:before{content:'\e809'}body{margin:0;font:300 1em/1.5em 'Merriweather Sans',sans-serif;color:#595B66}blockquote,i{font-style:italic}code,pre{font-family:Inconsolata,monospace}a,blockquote,code,i{font-weight:400}::-moz-selection{color:#222;background:#D6EDFF;text-shadow:none}::-moz-selection,::selection{color:#222;background:#D6EDFF;text-shadow:none}a{background-color:transparent;color:inherit;text-decoration:none;transition:all ease-out .2s}.post-content a{border-bottom:2px solid #36D995}h1,h4{text-rendering:optimizeLegibility;color:#1F2026}h1{font-size:2em;line-height:1em;margin:2em 0 -.5em}h4{font-size:1.25em;line-height:1.2em;margin:2.4em 0 -.8em}ul{list-style:none;padding-left:3em}blockquote{padding:0 1em;border-left:.25em solid #D4D5D9;color:#595B66}blockquote *{margin:1em auto}blockquote :first-child{margin-top:0}blockquote :last-child{margin-bottom:0}i{color:#363740}code{display:inline-block;top:-1px;padding:3px 6px;margin:-1px 2px;font-size:.875em;line-height:1.143em;background:#E1E2E6;color:#000;border-radius:2px}pre{padding:1em;white-space:pre;overflow:auto;background:#9D9FA6;color:#fff}pre code{position:static;top:auto;font-size:1em;line-height:1.5em;white-space:-moz-pre-wrap;white-space:pre-wrap;vertical-align:inherit;border:none;padding:0}#menu .menu-header:before,.post .post-title:before{border-bottom:4px solid #36D995;content:''}.inner{max-width:48em;margin:0 auto;padding:0 1em}#wrapper{min-height:100vh;padding-bottom:6em;background:#F2F3F5}#push{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav{z-index:70;transition:all ease-out .4s;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav:after{clear:both;content:'';display:table}#nav .nav-logo{float:left;height:2em;padding:1em;max-width:50%}#nav .nav-logo img{width:auto;max-width:none;height:2em;margin:0}#nav .nav-menu{float:right}#nav .nav-menu:after{clear:both;content:'';display:table}#nav .nav-menu a{display:block;width:1em;height:1em;line-height:1em;padding:1.5em;text-align:center;float:left;cursor:pointer}#nav .nav-menu a i:before{margin:auto}#menu{display:none;position:fixed;left:50%;top:5%;width:30em;height:90%;margin-left:-15em;padding:3em 0 0;overflow:hidden;transition:all ease-out .3s;-webkit-transform:translate3d(0,2em,0);transform:translate3d(0,2em,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:0;z-index:100}@media only screen and (max-width:50em){#menu{width:90%;left:5%;margin-left:auto}}#menu .menu-header{position:absolute;left:0;top:0;width:100%;height:3.5em;padding:1em 1.5em .5em;margin-bottom:1em;line-height:2em;z-index:110;background:#fff}#menu .menu-header:before{position:absolute;left:-5%;bottom:-1em;width:110%;height:2em;background:#fff;box-shadow:0 .125em .125em rgba(0,0,0,.1);-webkit-transform:rotate(2.5deg);transform:rotate(2.5deg);transition:all ease-out .2s;z-index:115}#menu .menu-header:after{clear:both;content:'';display:table}#menu .menu-header .menu-label{position:relative;display:block;float:left;z-index:120}#menu .menu-header .menu-close{position:relative;display:block;float:right;width:2em;height:2em;padding:1em;margin:-1em -1.5em -1em 0;cursor:pointer;z-index:125}#menu .menu-header .menu-close:after,#menu .menu-header .menu-close:before{content:'';position:absolute;left:50%;top:50%;background:#9D9FA6;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.overlay,.overlay:before{top:0;width:100%;height:100%}#menu .menu-header .menu-close:after{width:2px;height:1em;margin:-.5em 0 0 -1px}#menu .menu-header .menu-close:before{width:1em;height:2px;margin:-1px 0 0 -.5em}#menu .menu-list{position:relative;list-style:none;margin:0;padding:2em 0;height:100%;overflow-x:hidden;overflow-y:scroll;background:#fff}.overlay{position:fixed;left:0;z-index:80;display:none}.overlay:before{content:'';position:absolute;left:0;background:#1F2026;opacity:0;transition:all ease-out .3s;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.post{position:relative;z-index:20}.post .post-meta{display:block;font-size:.75em;line-height:1.334em;font-weight:400;margin-bottom:1.334em}.post .post-title{position:relative;color:#000;font-size:2em;line-height:1.375em;font-weight:800;text-indent:-1px;margin:.25em 0 .75em}.post .post-title:before{position:absolute;left:0;bottom:-.334em;width:1em;margin-bottom:-2px}.post .post-header{padding:4em 0 0;margin-bottom:3em}.post-footer .post-share a span{display:none}.post-nav .post-nav-item{position:fixed;top:50%;display:block;margin-top:-4em;overflow:hidden;border-radius:10em;transition:none}@media only screen and (max-width:70em){.post-nav .post-nav-item{position:absolute;top:auto;margin:auto;max-width:50%}}.post-nav .post-nav-item.post-nav-next{left:0;text-align:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon{float:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon i{left:-.05em}.post-nav .post-nav-item.post-nav-next .post-nav-info{padding-left:6em}.post-nav .post-nav-item.post-nav-prev{right:0;text-align:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon{float:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon i{right:-.05em}.post-nav .post-nav-item.post-nav-prev .post-nav-info{padding-right:6em}.post-nav .post-nav-item .post-nav-teaser{display:block;padding:1em;transition:all ease-out .2s;max-width:25em;overflow:visible}.post-nav .post-nav-item .post-nav-teaser:after{clear:both;content:'';display:table}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{display:block;width:5em;height:5em;line-height:5em;text-align:center;box-sizing:border-box;border-radius:10em;border:1px solid #36D995;box-shadow:0 0 0 0 transparent;transition:all ease-out .1s;background:#F2F3F5}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{position:relative;font-size:2em}@media only screen and (max-width:30em){.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{width:4em;height:4em;line-height:4em}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{font-size:1.5em}}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i:before{margin:auto}.post-nav .post-nav-item .post-nav-teaser .post-nav-info{display:none;width:100%;transition:all ease-out .2s}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-title{display:block;max-height:1.25em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:1.25em 0 .25em;font-size:1em;line-height:1.25em;font-weight:700;color:#363740}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-excerpt{display:block;max-height:1.334em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:0;font-size:.75em;line-height:1.334em;font-weight:400;color:#9D9FA6}
+</style>
+
+
+    </head>
+    <body class="home-template" style="display: none;">
+      <section id="wrapper">
+        <div id="ajax-container">
+          <nav id="nav" class="nav">
+            <div class="nav-logo">
+              <a href="http://blog.osamu.habuka.jp/">
+      			  	
+      			  	
+      			  	<img src="/images/puta-su.png" alt="Logo"/>
+      			  	
+              </a>
+			  	    
+            </div>
+            <div class="nav-menu">
+              <a class="rss" href="">
+                <i class="icon-rss"></i>
+              </a>
+                
+                <a class="menu" data-action="toc" data-target="toc"><i class="icon-location"></i></a>
+                
+                
+            </div>
+          </nav>
+
+
+<main class="content" role="main">
+	<article class="post">
+		<div class="inner">
+
+			<div id="push">
+
+  			<header class="post-header">
+  				<span class="post-meta">
+						<span class="post-date">2 Dec 2015</span> <span class="reading-time">| <span class="estimated-reading-time">2 min.</span> (<span class="word-count">411</span> words)</span></span>
+  				</span>
+  				<div class="clear"></div>
+  				<h1 class="post-title">empire で PaaS デビューしてみたい！</h1>
+  			</header>
+
+  			<section class="post-content">
+  				<p>PaaS 大好きっ娘の皆さんこんばんわ。IaaS しか触ったことのないおちぶれ技術者の羽深です。</p>
+
+<p>今日はそんな PaaS 素人が、empire っていう名前の PaaS 基盤ソフトウェアをインストールしてみて触ってみようという無謀なことを <a href="http://www.adventar.org/calendars/803">Open PaaS Advent Calendar 2015</a> の <sup>12</sup>&frasl;<sub>3</sub> 分のエントリでやらかそうと思います。</p>
+
+<p>で、「empire って何よ？」っていうかたも居ると思います。README には</p>
+
+<blockquote>
+<p>Empire is a control layer on top of Amazon EC2 Container Service (ECS) that provides a Heroku like workflow.</p>
+</blockquote>
+
+<p>って書いてあります。うん、どうしよう、僕 Heroku 触ったことないや…。でもまぁ、<a href="http://empire.readthedocs.org/en/latest/quickstart_installing/">quickstart install ガイド</a> でも見ながらやってみようかと思います。</p>
+
+<p>ちなみに日本語情報ないかなぁ？って検索してみたら、半年も前に、とっくにクラスメソッドさんが<a href="http://dev.classmethod.jp/cloud/ecs-with-empire/">ブログ</a> に書いてました。クラスメソッドさんすげぇよ。っていうかあれ？このクラスメソッドさんのブログを見たら僕の出る幕なんかないんじゃないかしら？ってジワジワと思えてきました。</p>
+
+<p>とは言っても今更他の PaaS を探して触るのも僕にとっては辛いため、恥も外聞もかなぐり捨てて、クラスメソッドさんのブログと同じことをやってみようと思います。あぁ、我乍ら酷い…。</p>
+
+<p>awscli 入れたり環境を整えたりして、一番最初の手順を実行します。</p>
+
+<pre><code>$ ./bin/bootstrap 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This script produces an insecure demo or dev environment and is   !!
+!! not meant to be ran in production. As well it is exposed to the   !!
+!! internet and as such should not be left running without further   !!
+!! locking down of the security groups.                              !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Do you want to continue? (y/N)y
+./bin/bootstrap: line 48: /usr/sbin/md5sum: No such file or directory
+</code></pre>
+
+<p>ふぅむ。which md5sum によると当方の環境は /usr/sbin/md5sum `ではなく /usr/bin/md5sum っぽいので、スクリプトを修正しま…あれ？</p>
+
+<pre><code># This variable will be used as the cloudformation stack name and the associated
+# ECS cluster.
+SUFFIX=&quot;&quot;
+[ -x /sbin/md5 ] &amp;&amp; SUFFIX=$(date | /sbin/md5 | head -c 8)
+[ -x /usr/bin/md5sum ] &amp;&amp; SUFFIX=$(date | /usr/sbin/md5sum | head -c 8)
+if [ -z ${SUFFIX} ]
+then
+</code></pre>
+
+<p>うん、そりゃぁ駄目だね、/usr/bin/md5sum の存在を確認しておきながら、実行側はタイポだ…</p>
+
+<p>で、パスを修正して再度実行します。</p>
+
+<pre><code>$ ./bin/bootstrap 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This script produces an insecure demo or dev environment and is   !!
+!! not meant to be ran in production. As well it is exposed to the   !!
+!! internet and as such should not be left running without further   !!
+!! locking down of the security groups.                              !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Do you want to continue? (y/N)y
+AWS SSH KeyName: empire-20151203
+Do you have a docker account &amp; want to use it for private repo access? [y/N] N
+==&gt; Launching empire in AZs: us-east-1a us-east-1b, Cloudformation Stack empire-28cc3b96
+==&gt; Waiting for stack to complete
+==&gt; Status: CREATE_IN_PROGRESS
+==&gt; Stack empire-28cc3b96 complete.
+==&gt; Now run the following commands - when asked for a username, enter 'fake'. The password is blank:
+$ export EMPIRE_API_URL=http://empire-28-LoadBala-XXXXXXXXXXXX-XXXXXXXXXX.us-east-1.elb.amazonaws.com/
+$ emp login
+</code></pre>
+
+<p>って、綺麗に成功したように書きますが、実はここまでに以下の失敗をしています。</p>
+
+<ul>
+<li>docs/cloudformation.json 内で定義されている AMI ID を最新の ami-5449393e に変更してなくてコケる</li>
+<li>IAM ユーザの権限が限定的すぎて CloudFormation で権限不足でコケる</li>
+<li>作成した鍵が東京リージョンだったため、指定した鍵が存在しなくてコケる</li>
+</ul>
+
+<p>で、次に出力にあるように emp コマンドでログインします。</p>
+
+<pre><code>$ ./emp login
+Enter email: fake
+Enter password: 
+Logged in.
+$ ./emp deploy remind101/acme-inc:latest
+latest: Pulling from remind101/acme-inc
+8dd8107abd2e: Pull complete 
+6f71594c9578: Pull complete 
+164cae5cf718: Pull complete 
+0cfc281bff60: Pull complete 
+79b9dd3dde72: Pull complete 
+2f07490e4ceb: Pull complete 
+563123d53314: Pull complete 
+Digest: sha256:7949da90576b184e6358af8b041ca4ae96cc5f45ddf9d1b546861c6c7f77bde9
+Status: Downloaded newer image for remind101/acme-inc:latest
+Status: Created new release v1 for acme-inc
+$ ./emp apps
+acme-inc      Dec  3 05:09
+$ ./emp ps -a acme-inc
+v1.web.be294837-0398-47ae-820b-417f57993866  1X  RUNNING  50s  &quot;acme-inc server&quot;
+</code></pre>
+
+<p>ってな感じで上手く出来たようなんですが、この作成された acme-inc にどうやってアクセスすりゃいいんだろう…？別途手動で Public Hosted Zone を Route53 に作成してあげないと駄目なんですかね…ちょっと調査不足 &amp; 時間不足でした。</p>
+
+<p>機会があれば引き続き試したいところですが、本日のところはタイムアップです。</p>
+
+  			</section>
+
+  			<footer class="post-footer">
+  				<div class="post-tags">
+            
+            
+                <a href="http://blog.osamu.habuka.jp//tags/paas/">PaaS</a>
+            
+                <a href="http://blog.osamu.habuka.jp//tags/adventcalendar/">AdventCalendar</a>
+            
+                <a href="http://blog.osamu.habuka.jp//tags/empire/">empire</a>
+            
+            
+  				</div>
+  				<div class="post-share">
+  					<a class="icon-twitter" href="https://twitter.com/share?text=empire%20%e3%81%a7%20PaaS%20%e3%83%87%e3%83%93%e3%83%a5%e3%83%bc%e3%81%97%e3%81%a6%e3%81%bf%e3%81%9f%e3%81%84%ef%bc%81&url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2015-12-02-open-paas-advent-calendar-2015-day-3%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  						<span>Twitter</span>
+  					</a>
+  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2015-12-02-open-paas-advent-calendar-2015-day-3%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  						<span>Facebook</span>
+  					</a>
+  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2015-12-02-open-paas-advent-calendar-2015-day-3%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+  						<span>Google+</span>
+  					</a>
+  				</div>
+  			</footer>
+
+  			<aside class="post-comments">
+    
+    
+    
+</aside>
+
+
+			</div>
+
+			<nav class="post-nav">
+				
+					<a class="post-nav-item post-nav-next" href="http://blog.osamu.habuka.jp/post/2015-12-03-wakame-vdc-advent-calendar-2015-day3/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">おれは KVM をやめるぞ！ジョジョーーッ！</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				
+					<a class="post-nav-item post-nav-prev" href="http://blog.osamu.habuka.jp/post/2015-12-02-wakame-vdc-advent-calendar-2015-day2/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">Wakame-vdc LiveDVD 16.1 を作る 2日目</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				<div class="clear"></div>
+			</nav>
+
+		</div>
+	</article>
+</main>
+
+				<div id="body-class" style="display: none;"></div>
+				<footer id="footer">
+					<section class="credits">
+						<span class="credits-theme">Theme <a href="https://github.com/zenithar/hugo-theme-bleak" target="_blank" rel="nofollow">Bleak</a> by <a href="http://zutrinken.com" target="_blank" rel="nofollow">zutrinken</a></span>
+						<span class="credits-software">Published with <a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a></span>
+					</section>
+				</footer>
+				
+				
+<div id="tocMenu" data-target="toc">
+    <div class="menu-header">
+        <span class="menu-label">Menu</span>
+        <a class="menu-close" data-action="toc" data-target="toc"></a>
+    </div>
+    <div id="toc" class="menu-list">
+        
+    </div>
+</div>
+
+
+				<div class="overlay"></div>
+			</div>
+		</section>
+
+    <script>
+      (function(c,f){asyncLoader=function(i,h){i.foreach(function(k,j){e(j,d(j),h)});if(typeof h.callback=="function"){var g=setInterval(function(){if(f.readyState==="complete"){clearInterval(g);h.callback()}},10)}};var d=function(g){var h=g.split(".");return h[h.length-1]},e=function(h,i,g){switch(i){case"js":a(h,g);break;case"css":b(h);break;default:break}},a=function(i,h){var g=document.createElement("script");g.type="text/javascript";g.async=true;g.src=i;document.getElementsByTagName("head")[0].appendChild(g)},b=function(g){var h=document.createElement("link");h.type="text/css";h.rel="stylesheet";h.href=g;document.getElementsByTagName("head")[0].appendChild(h)};Array.prototype.foreach=function(h){for(var g=0;g<this.length;g++){h(g,this[g])}}})(this,document);
+
+      asyncLoader([
+				"/js/dependencies.js",
+				"/css/dependencies.css"
+      ],{
+        callback:function(){
+					asyncLoader([
+						"/css/style.css",
+						"/js/script.js"
+					], {
+						callback: function() {
+							$('body').fadeIn( 800 );
+						}
+					});
+        }
+      });
+
+</script>
+
+
+
+</body>
+</html>
+
