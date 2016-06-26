@@ -1014,6 +1014,213 @@ case class RunInstancesRequest(imageId: String, min: Int = 1, max: Int = 1)
     </item>
     
     <item>
+      <title>Eucalyptus Advent Calendar 2013 5日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-05.AdventCalendar-day-5/</link>
+      <pubDate>Thu, 05 Dec 2013 01:11:41 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-05.AdventCalendar-day-5/</guid>
+      <description>
+
+&lt;h1 id=&#34;緑&#34;&gt;緑&lt;/h1&gt;
+
+&lt;p&gt;さて、今日はとうとう「緑」に関する名前で誕生日な人を見つけることができませんでした。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;なので、苦肉の策？として、「緑」という言葉に関して、ちょっぴりググってしまいました。というのも、これだけ好きな色なのに、語源を知らなかったからです。&lt;/p&gt;
+
+&lt;p&gt;「みどり」という言葉が登場するのは平安時代になってからだそうです。へー。では、それまでは緑色のことを何て呼んでたんでしょうかね？ちょっと僕の浅い検索力では調べられませんでした。&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;だから時間切れになってしまい、本日のエントリを12/5中に公開することができませんでした(；´Д`A
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2013 JP 4日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-04.AdventCalendar-day-4/</link>
+      <pubDate>Wed, 04 Dec 2013 01:11:29 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-04.AdventCalendar-day-4/</guid>
+      <description>
+
+&lt;h1 id=&#34;菅緑&#34;&gt;菅緑&lt;/h1&gt;
+
+&lt;p&gt;皆さん、遊園地とかの絶叫系マシンは好きですか？私は大嫌いです。何で金を出して怖い目にあわないといけないんでしょうかね？ちっとも理解できません。ちなみに私の妻は絶叫系マシンが大好きなので、遊園地に行くときはいつも寿命が年単位で縮んでいます。だぶんこのままだと私の戒名は緑毒草子守熊絶叫居士とかになりそうです。&lt;/p&gt;
+
+&lt;p&gt;はい、どうでもいい個人的な話から始めてしまいました今日12/4は熊本出身で第2日本テレビの元アナウンサー&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E8%8F%85%E7%B7%91&#34;&gt;菅緑&lt;/a&gt;さんの誕生日です。全く存じあげない人(をお祝いするというのは、かなり変な行為だということは重々承知のうえ)ですが、お誕生日おめでとうございます。&lt;/p&gt;
+
+&lt;h1 id=&#34;eucalyptus-1-6-2-で-clc-がなかなか起動しないことがあったという話&#34;&gt;Eucalyptus 1.6.2 で CLC がなかなか起動しないことがあったという話&lt;/h1&gt;
+
+&lt;p&gt;えーと、本題です。普段仕事で使うプライベートクラウドに Eucalyptus 1.6.2 相当のものを使っているのですが、今日触っていたらどうも様子が変だということでログを見ていました。&lt;/p&gt;
+
+&lt;p&gt;そしたら定期的にスタックトレースを吐いている様子で、ちょっと原因追求する暇も余力もないから、やってはいけないと思いつつ、背に腹はかえられぬということで、エイヤッと CLC を再起動しました。&lt;/p&gt;
+
+&lt;p&gt;するとですね、cloud-debug.log に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2013/12/03 21:58:35  WARN [GroovyUtil:GroovyUtil:loadConfig:91:main] javax.script.ScriptException: javax.script.ScriptException: java.lang.N
+ullPointerException
+javax.script.ScriptException: javax.script.ScriptException: java.lang.NullPointerException
+        at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:119)
+        at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:264)
+        at com.eucalyptus.util.GroovyUtil.loadConfig(GroovyUtil.java:89)
+(中略)
+        at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:113)
+        ... 76 more
+Caused by: java.lang.NullPointerException
+        at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:253)
+        ... 77 more
+2013/12/03 21:58:48  WARN [Environment:Environment:verifyProperties:532:main] Property [hibernate.cglib.use_reflection_optimizer] has been renamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ってな感じのログが吐かれて、そのままピタっとログ出力が止まったまま、起動処理が進まなくなる現象が発生しました。自分しか使ってない環境なら、まぁそんなに慌てないんですが、Eucalyptus 1.6.2 です、そりゃぁもう使ってきた歴史がそれなりに長いわけでして、みんなこの環境に頼りまくりです。&lt;/p&gt;
+
+&lt;p&gt;もうね同僚のみなさんが「OpenStack すげーイカしてるー、しびれるわー」とか言ってても、何だかんだで Eucalyptus 1.6.2 のインスタンス上で動く Redmine でバグ管理とかしているんですよ、もう私は心の中でニヤリなわけでして…って何の話だ？&lt;/p&gt;
+
+&lt;p&gt;ということで、このままだと OpenStacker な同僚から「ちっ、羽深だけじゃなくて Eucalyptus も使えねーなー」とか蔑まれちゃうこと間違いなしですよ。もうね、焦って焦って色々と見ます。下手したら焦りすぎてテンパりだして、別環境を構築して手動マイグレーションしちゃおうかとか考えだす始末です。&lt;/p&gt;
+
+&lt;p&gt;いくら &lt;font size=&#34;5&#34;&gt;Eucalyptus が「環境を構築し易い」&lt;/font&gt;とは言え、トラブル対応放っておいて環境構築をやっちゃ駄目ですよね。&lt;/p&gt;
+
+&lt;p&gt;で、基本として /etc/eucalyptus/, /var/lib/eucalyptus/, /var/log/eucalyptus/ 配下をチェックしていくんですが、ふと違和感を感じました。/var/lib/eucalyptus/db/ 配下を見ると…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-rw-r--r--  1 root       root         20G Dec  3 21:58 eucalyptus_general.log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とかってデカいのが居るわけですよ。普段このファイルがそんなに大きくなっているのを見てないので、ちょっとビビります。で、このファイル、そんなに肥大化すんだっけ？と思ってバグチケットに何か情報ないかと検索してみたところ…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gyazo.com/636b0cdfa998f0e7a6ead1406174a1b9&#34;&gt;http://gyazo.com/636b0cdfa998f0e7a6ead1406174a1b9&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;あれ？さすがにもう 1.6.2 の情報なんて世の中から消えさってしまったの？と不安を抱きながら漫画を読みながら、試行錯誤しているうちに、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-rw-r--r--  1 root       root        154K Dec  3 23:06 eucalyptus_general.log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あらやだ、ファイルが小さくなってる…&lt;/p&gt;
+
+&lt;p&gt;で、再び cloud-debug.log を見てみると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2013/12/03 22:11:43  WARN [Environment:Environment:verifyProperties:532:main] Property [hibernate.cglib.use_reflection_optimizer] has been r
+enamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately
+2013/12/03 22:56:12  INFO [DatabaseUtil:DatabaseUtil:registerPersistenceContext:45:main] -&amp;gt; Setting up persistence context for : eucalyptus_
+general
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なんと、ログ出力が再開しているじゃないですか。えー、つまりですよ、CLC 君は hsqldb を起動してレスポンスが返ってくるのを待ち続けていただけという、つまりそーゆーこと？&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;font size=&#34;5&#34; color=&#34;#ee2222&#34;&gt;クリスマスまであと21日です✌(́◓q◔`)✌&lt;/font&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2013 JP 2日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-02.AdventCalendar-day-2/</link>
+      <pubDate>Mon, 02 Dec 2013 01:11:25 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-02.AdventCalendar-day-2/</guid>
+      <description>
+
+&lt;h1 id=&#34;山本みどり&#34;&gt;山本みどり&lt;/h1&gt;
+
+&lt;p&gt;年末の定番といえば特番の時代劇ですが、最近は時代劇を観る人があまり居ないんでしょうかね？&lt;/p&gt;
+
+&lt;p&gt;僕が幼少の頃は祖母が子守をしてくれたんですが、祖母が観る番組ってドラマか時代劇かのどちらかでした。当然、僕も幼少の頃は時代劇を観て育つんですが、今も放映されているかどうか不明ですが、子供の頃によく観(せられ)ていた時代劇と言えば「桃太郎侍」「水戸黄門」「暴れん坊将軍」「遠山の金さん」「大岡越前」「銭形平次」など&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;でした。&lt;/p&gt;
+
+&lt;p&gt;で、ふと気づいたんですが、上に挙げた時代劇全てに出演している女優さんが居ました。そう、女優の&lt;a href=&#34;http://www.sachikopro.co.jp/actress/yamamoto/yamamoto.html&#34;&gt;山本みどりさん&lt;/a&gt;です。すごいですね。&lt;/p&gt;
+
+&lt;p&gt;そして本日12/2は山本みどりさんの誕生日です。おめでとうございます。&lt;/p&gt;
+
+&lt;h1 id=&#34;walrus-をだけを使ってみる&#34;&gt;Walrus をだけを使ってみる&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://036.habuka.jp/diary/?date=20121201&#34;&gt;去年は見事なまでの醜態&lt;/a&gt;を晒してしまいましたが、今年は頑張ります。&lt;/p&gt;
+
+&lt;p&gt;さて、懇切丁寧に説明したいところですが、諸般の事情によりサクサク進めていきます。&lt;/p&gt;
+
+&lt;p&gt;まずレポジトリ情報をインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/eucalyptus-release-3.4.noarch.rpm
+[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/euca2ools/3.0/centos/6/x86_64/euca2ools-release-3.0.noarch.rpm
+[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/epel-release-6.noarch.rpm
+[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/elrepo-release-6.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして Walrus をインストールするんですが、Walrus を利用するには CloudController も必要不可欠なためインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@walrus ~]# yum install eucalyptus-cloud eucalyptus-walrus
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次にデータベースの初期化をして CloudController と Walrus を起動します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@walrus ~]# /usr/sbin/euca_conf --initialize
+Initializing a new cloud.  This may take a few minutes.
+Initialize command succeeded
+
+[root@walrus ~]# /etc/init.d/eucalyptus-cloud start
+Starting Eucalyptus services:
+************************************************************************
+  ERR-1008 2013-12-03 15:13:38Z ntp is not running
+
+   Condition: Can&#39;t find running ntp process
+       Cause: unknown
+   Initiator: eucalyptus
+    Location: ntp daemon on localhost
+  Resolution:
+        1) Install ntp
+        2) Run ntp
+
+************************************************************************
+
+done.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;無事に起動したら Walrus のコンポーネントを登録します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@walrus ~]# /usr/sbin/euca_conf --register-walrus --partition walrus --host 192.168.32.73 --component walrus0
+SERVICE walrus          walrus          walrus0         LOADED          26      http://192.168.32.74:8773/services/Walrus  arn:euca:bootstrap:walrus:walrus:walrus0/
+The authenticity of host &#39;192.168.32.73 (192.168.32.73)&#39; can&#39;t be established.
+RSA key fingerprint is 92:7c:d1:a1:49:25:ac:44:4e:c9:75:bd:ed:0b:57:95.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;192.168.32.73&#39; (RSA) to the list of known hosts.
+root@192.168.32.73&#39;s password:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Walrus を使うための情報を取得します。ついでにダウンロードした情報を環境変数に取り込みます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@walrus ~]# mkdir -p .euca/admin/
+[root@walrus ~]# cd .euca/admin/
+[root@walrus admin]# euca_conf --get-credentials euca2-admin-x509.zip
+[root@walrus admin]# unzip euca2-admin-x509.zip
+Archive:  euca2-admin-x509.zip
+To setup the environment run: source /path/to/eucarc
+  inflating: eucarc
+  inflating: iamrc
+  inflating: cloud-cert.pem
+  inflating: jssecacerts
+  inflating: euca2-admin-d69abbe4-pk.pem
+  inflating: euca2-admin-d69abbe4-cert.pem
+[root@walrus admin]# source eucarc
+WARN: Load Balancing service URL is not configured.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、ここで Cyberduck を使ってさくっと Walrus にバケットを作ってオブジェクトをアップロードする様をスクリーンショットを交えながら、ここで紹介しようとしたのですが、実はこの日記は設定を失敗してて画像をアップロードできないんです…orz&lt;/p&gt;
+
+&lt;p&gt;というこで、別の方法で Walrus だけ使えることを紹介しようと思い、OpenStack の Glance の代わりに Walrus を使ってみようと思いますが、それはまた別の日に。&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;もちろん思い出せないだけで、他にも観てた時代劇があったと思います
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Eucalyptus Advent Calendar 2012 JP 十三日目</title>
       <link>http://blog.osamu.habuka.jp/post/2014-12-09-eucalyptus-advent-calendar-2012-jp-13th/</link>
       <pubDate>Thu, 13 Dec 2012 01:43:14 +0900</pubDate>

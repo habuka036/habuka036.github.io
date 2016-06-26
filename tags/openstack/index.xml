@@ -216,5 +216,317 @@ def do_baremetal_node_delete(cs, args):
 </description>
     </item>
     
+    <item>
+      <title>OpenStack Advent Calendar 2013 JP 8日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/</link>
+      <pubDate>Sun, 08 Dec 2013 01:11:57 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/</guid>
+      <description>
+
+&lt;h1 id=&#34;碧川涼&#34;&gt;碧川涼&lt;/h1&gt;
+
+&lt;p&gt;さて、今日も名前に緑色のつく人を見つけられませんでした。が、よくよく考えたら「碧」っていう字も、青だったり緑だったりするじゃないですか、ってことで、今日はゲーム『NOëL 〜La neige〜』に登場するキャラクターの「&lt;a href=&#34;http://ja.wikipedia.org/wiki/NOeL#NO.C3.ABL_.E3.80.9CLa_neige.E3.80.9C_.2F_NO.C3.ABL_.E3.80.9CLa_neige.E3.80.9C_Special&#34;&gt;碧川涼&lt;/a&gt;」さんの誕生日だそうです。お誕生日おめでとうございます。えーと、恋愛シミュレーションゲームだそうです。すみません、残念ながらやったことないので、存じあげておりませんでした。&lt;/p&gt;
+
+&lt;p&gt;それと、この碧川涼というキャラクターの声を演じているのは&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E6%A0%B9%E8%B0%B7%E7%BE%8E%E6%99%BA%E5%AD%90&#34;&gt;根谷美智子&lt;/a&gt;さんなんですが、根谷さんの親友の&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E8%8F%85%E5%8E%9F%E7%A5%A5%E5%AD%90&#34;&gt;菅原祥子&lt;/a&gt;さんは12月12日が誕生日だそうです。おめでとうございます。&lt;/p&gt;
+
+&lt;h1 id=&#34;glance-のかわりに-walrus-を使ってみる&#34;&gt;Glance のかわりに Walrus を使ってみる&lt;/h1&gt;
+
+&lt;p&gt;まず最初に、&lt;a href=&#34;https://twitter.com/ishikawa84g&#34;&gt;我らが愛する石川&lt;/a&gt; さんがこんなことをツブやいてまして&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;OpenStack Advent Calendar 2013、誰も記事内で AdventCalendarの何日目という宣言をしてないの良くない。&lt;/p&gt;&amp;mdash; 石川@驚きの白々しさ (@ishikawa84g) &lt;a href=&#34;https://twitter.com/ishikawa84g/status/408833430890115072&#34;&gt;2013年12月6日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;これは、やばい、このままだと enforcing されちゃう…(((( ；ﾟДﾟ)))…ってことで、今日は OpenStack Advent Calendar 2013 JP の 8 日目です。&lt;/p&gt;
+
+&lt;p&gt;ところで、&lt;a href=&#34;http://036.habuka.jp/diary/?date=20121203#p04&#34;&gt;去年の OpenStack Advent Calendar 2012 JP の僕のエントリー&lt;/a&gt;は惨々な結果でした…。今年は反省しちゃんとやりきりたいと思いますが、どうやら僕は OpenStack 界隈では「負け犬」「噛ませ犬」のポジションらしく「今年も&lt;font size=&#34;5&#34;&gt;惨々な内容&lt;/font&gt;でひとつよろしく頼むよキミぃ」とか言われてます…(｡´Д⊂)&lt;/p&gt;
+
+&lt;h2 id=&#34;openstack-環境の設定&#34;&gt;OpenStack 環境の設定&lt;/h2&gt;
+
+&lt;p&gt;えー、僕は OpenStack 初心者&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;なので、いま流行りの &lt;a href=&#34;http://openstack.redhat.com/Quickstart&#34;&gt;RDO? Packstack?&lt;/a&gt; を使って構築しました。まぁ、Packstack を用いた構築方法についてはきっと誰かが今回の Advent Calendar で書いてくれるでしょうから、ここでは割愛します。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、ここで使う Walrus は先日の &lt;a href=&#34;http://www.adventar.org/calendars/202&#34;&gt;Eucalyptus Advent Calendar 2013&lt;/a&gt; のエントリ「&lt;a href=&#34;http://036.habuka.jp/diary/?date=20131202&#34;&gt;Walrus をだけを使ってみる&lt;/a&gt;」で作った環境を使います。&lt;/p&gt;
+
+&lt;p&gt;まず、glance のサービスを止めます。だって使わないんだもんだもん。止めちゃいますよー。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-glance-api stop
+Stopping openstack-glance-api:                             [  OK  ]
+[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-glance-registry stop
+Stopping openstack-glance-registry:                        [  OK  ]
+[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-glance-scrubber stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、nova が glance じゃなくて Walrus を使うように設定します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@rdo ~(keystone_admin)]# diff -u /etc/nova/nova.conf.glance /etc/nova/nova.conf
+--- /etc/nova/nova.conf.glance  2013-12-03 14:46:31.314000061 +0900
++++ /etc/nova/nova.conf 2013-12-03 17:29:31.213000032 +0900
+@@ -939,7 +939,7 @@
+ # with https:// for ssl-based glance api servers.
+ # ([hostname|ip]:port) (list value)
+ #glance_api_servers=$glance_host:$glance_port
+-glance_api_servers=192.168.32.74:9292
++#glance_api_servers=192.168.32.74:9292
+
+ # Allow to perform insecure SSL (https) requests to glance
+ # (boolean value)
+@@ -965,16 +965,16 @@
+
+ # hostname or ip for OpenStack to use when accessing the s3
+ # api (string value)
+-#s3_host=$my_ip
++s3_host=192.168.32.73
+
+ # port used when accessing the s3 api (integer value)
+-#s3_port=3333
++s3_port=8773
+
+ # access key to use for s3 server for images (string value)
+-#s3_access_key=notchecked
++s3_access_key=AKIAMNYEAUG5ZJBN9KPH
+
+ # secret key to use for s3 server for images (string value)
+-#s3_secret_key=notchecked
++s3_secret_key=WlsMz8d6LdZKOmSQo07LmtujRqN6OVKw4NoKe02V
+
+ # whether to use ssl when talking to s3 (boolean value)
+ #s3_use_ssl=false
+@@ -2595,7 +2595,7 @@
+ qpid_reconnect=True
+ sql_connection=mysql://nova:db56f39a7e064ccc@192.168.32.74/nova
+ qpid_reconnect_timeout=0
+-image_service=nova.image.glance.GlanceImageService
++image_service=nova.image.s3.S3ImageService
+ logdir=/var/log/nova
+ qpid_reconnect_interval_max=0
+ qpid_reconnect_limit=0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;えーと、ここまで設定して、ふと気付いたんですよ。Walrus のエンドポイントって http://ホスト:8773/services/Walrus っていう形式なんすよねー。えぇ、その値を設定するパラメータって s3_host と s3_port じゃ書ききれないよねぇ…。&lt;/p&gt;
+
+&lt;p&gt;で、nova/image/s3.py を書き換えようと思ったんですが、@ishikawa84g さんと @shida1234 さんが「それ、keystone に登録しちゃえばいいんじゃない？」と助け船を出してくれまして、以下のように登録してみました。あ、もちろん keystone service-delete で glance のサービスとエンドポイント情報を削除してから実施してます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@rdo ~(keystone_admin)]# keystone service-create --name walrus --type image --description &amp;quot;Eucalyptus Image Service&amp;quot;
++-------------+----------------------------------+
+|   Property  |              Value               |
++-------------+----------------------------------+
+| description |     Eucalyptus Image Service     |
+|      id     | af7ba823c7ab4f58917af6a0fad81006 |
+|     name    |              walrus              |
+|     type    |              image               |
++-------------+----------------------------------+
+
+[root@rdo ~(keystone_admin)]# keystone endpoint-create --service af7ba823c7ab4f58917af6a0fad81006 --publicurl http://192.168.32.73:8773/services/Walrus --adminurl http://192.168.32.73:8773/services/Walrus --internalurl http://192.168.32.73:8773/services/Walrus
++-------------+-------------------------------------------+
+|   Property  |                   Value                   |
++-------------+-------------------------------------------+
+|   adminurl  | http://192.168.32.73:8773/services/Walrus |
+|      id     |      fa3de0db20ae4903a429c35beabeed37     |
+| internalurl | http://192.168.32.73:8773/services/Walrus |
+|  publicurl  | http://192.168.32.73:8773/services/Walrus |
+|    region   |                 regionOne                 |
+|  service_id |      af7ba823c7ab4f58917af6a0fad81006     |
++-------------+-------------------------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あ、一応 glance っていうか、Image Store とおしゃべりするであろう nova-api と nova-compute は再起動させます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-nova-api restart
+Stopping openstack-nova-api:                               [  OK  ]
+Starting openstack-nova-api:                               [  OK  ]
+[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-nova-compute restart
+Stopping openstack-nova-compute:                           [  OK  ]
+Starting openstack-nova-compute:                           [  OK  ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、ちゃんと接続できるかなーっと nova image-list (カチャカチャカチャ…ッターン！)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@rdo ~(keystone_admin)]# nova image-list
+ERROR: The server has either erred or is incapable of performing the requested operation. (HTTP 500) (Request-ID: req-ca8b1ed6-7ff0-4863-a05e-f88598a31469)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あ、あれー？何だろう？と思って nova-api のログを見ると…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py&amp;quot;, line 203, in detail
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     **page_params)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/nova/image/glance.py&amp;quot;, line 264, in detail
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     for image in images:
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/glanceclient/v1/images.py&amp;quot;, line 174, in paginate
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     images = self._list(url, &amp;quot;images&amp;quot;)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/glanceclient/common/base.py&amp;quot;, line 53, in _list
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     resp, body = self.api.json_request(&#39;GET&#39;, url)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/glanceclient/common/http.py&amp;quot;, line 266, in json_request
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     resp, body_iter = self._http_request(url, method, **kwargs)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/glanceclient/common/http.py&amp;quot;, line 235, in _http_request
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     raise exc.CommunicationError(message=message)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack CommunicationError: Error communicating with http://192.168.32.74:9292 [Errno 111] ECONNREFUSED
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あらやだ、この子、Glance 見に行ってんじゃないの…。っていうか、何で nova/image/glance.py が呼ばれてるのさ…。ということでコード nova/api/openstack/compute/images.py を確認すると…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import nova.image.glance
+from nova.openstack.common.gettextutils import _
+import nova.utils
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あぁ…、思いっきり import nova.image.glance してるじゃん…、じゃぁ誰が「image_service=nova.image.s3.S3ImageService」の設定を見てくれるの？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@rdo ~(keystone_admin)]# grep -i CONF.image_service -r /usr/lib/python2.6/site-packages/nova/
+[root@rdo ~(keystone_admin)]# grep &amp;quot;&#39;image_service&#39;&amp;quot; -r /usr/lib/python2.6/site-packages/nova/
+[root@rdo ~(keystone_admin)]#
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちょっと待て、本来なら今頃、OpenStack から Walrus を使ってインスタンスを起動して&lt;font size=&#34;5&#34;&gt;感無量～人´ω｀*)&lt;/font&gt;とかやってるはずなのに、何？あれ？誰も nova.conf の image_service を見てないんじゃないの？ちょっと！どーゆーこと？何この&lt;font size=&#34;5&#34;&gt;無力感…(:.;´;Д;ﾟ;.:)&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;Advent Calendar のエントリに「Glance のかわりに Walrus を使う(キリッ」とか書いたのに、このままではまた去年と同様に&lt;font size=&#34;5&#34;&gt;「m9(^Д^)プギャー」&lt;/font&gt;ですよ。もうね、どんだけ僕は成功しちゃいけない星のもとに生まれたんすか？&lt;/p&gt;
+
+&lt;p&gt;ってことで、足掻いてみます。そりゃーもう必死に足掻いてみます。アラフォー男児が本気で足掻いたら、きっと nova だって「おっぉ、わかったぉ、Glance やめて S3 喋ってみるよ」って折れてくれるはず、nova 懐深い子、きっと僕も包んでくれるはず。&lt;/p&gt;
+
+&lt;p&gt;まず、手始めに nova/image/glance.py を呼び出している nova/api/openstack/compute/images.py を見てみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Controller(wsgi.Controller):
+    &amp;quot;&amp;quot;&amp;quot;Base controller for retrieving/displaying images.&amp;quot;&amp;quot;&amp;quot;
+
+    _view_builder_class = views_images.ViewBuilder
+
+    def __init__(self, image_service=None, **kwargs):
+        &amp;quot;&amp;quot;&amp;quot;Initialize new `ImageController`.
+
+        :param image_service: `nova.image.glance:GlanceImageService`
+
+        &amp;quot;&amp;quot;&amp;quot;
+        super(Controller, self).__init__(**kwargs)
+        self._image_service = (image_service or
+                               nova.image.glance.get_default_image_service())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うん、あら？、ほう、image_service image_service が None じゃなければ glance.get_default_image_service は呼ばれないのか。そうかそうか、んじゃー、glance.py に get_default_image_service があるってことは、s3.py にもあるのかな？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[root@rdo ~]# grep &amp;quot;def get_default_image_service&amp;quot; -r /usr/lib/python2.6/site-packages/nova/image/s3.py | wc -l
+0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;うん、無いね、全く無いね、容赦なく無いね。&lt;/p&gt;
+
+&lt;p&gt;よし、おいちゃん覚悟した、Pythonian じゃないうえに Python 書けないけど、頑張る。nova/api/openstack/compute/images.py を書き換えるよ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--- /usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py.orig  2013-12-07 05:19:23.774000083 +0900
++++ /usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py       2013-12-07 05:14:58.438000084 +0900
+@@ -21,6 +21,7 @@
+ from nova.api.openstack import xmlutil
+ from nova import exception
+ import nova.image.glance
++import nova.image.s3
+ from nova.openstack.common.gettextutils import _
+ import nova.utils
+
+@@ -96,6 +97,7 @@
+
+         &amp;quot;&amp;quot;&amp;quot;
+         super(Controller, self).__init__(**kwargs)
++        image_service = nova.image.s3.S3ImageService()
+         self._image_service = (image_service or
+                                nova.image.glance.get_default_image_service())
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、nova-api を再起動して、nova image-list (カチャカチャカチャ…ッターン！)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py&amp;quot;, line 205, in detail
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     **page_params)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/nova/image/s3.py&amp;quot;, line 168, in detail
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     images = self.service.detail(context, **kwargs)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/nova/image/glance.py&amp;quot;, line 264, in detail
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     for image in images:
+(中略)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &amp;quot;/usr/lib/python2.6/site-packages/glanceclient/common/http.py&amp;quot;, line 235, in _http_request
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     raise exc.CommunicationError(message=message)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack CommunicationError: Error communicating with http://192.168.32.74:9292 [Errno 111] ECONNREFUSED
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ば、馬鹿な…。glance を叩きに行ってるだと？&lt;/p&gt;
+
+&lt;p&gt;詳しく追うの面倒なので、ざっと確認すると、S3ImageService.detail -&amp;gt; self.service.detail で、んじゃー self.service は何かしら？って言うと、S3ImageService の __init__ で以下の定義がありまして&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    def __init__(self, service=None, *args, **kwargs):
+        self.cert_rpcapi = nova.cert.rpcapi.CertAPI()
+        self.service = service or glance.get_default_image_service()
+        self.service.__init__(*args, **kwargs)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;service が None のときは glance.get_default_image_service() を呼ぶから、結果 self.service には GlanceImageService が入るというわけでして、&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;font size=&#34;5&#34;&gt;(＃ﾟДﾟ)&lt;/font&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;いやもう駄目じゃん、これ、何があっても glance 呼ばれるじゃん。だって service = S3ImageService やっても循環するだけでしょ？いやいやいや、やってみたよ、無駄だとわかってもやってみたよ、修造よろしくリスペクトな気持ちでやってみたよ、そしたらね、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2013-12-06 16:39:41.592 12145 DEBUG nova.wsgi [-] Loading app ec2 from /etc/nova/api-paste.ini load_app /usr/lib/python2.6/site-packages/nova/wsgi.py:
+484
+2013-12-06 16:39:41.680 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+2013-12-06 16:39:41.681 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+(中略)
+2013-12-06 16:39:41.728 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+2013-12-06 16:39:41.728 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+2013-12-06 16:39:41.729 12145 CRITICAL nova [-] &#39;module&#39; object has no attribute &#39;tracebacklimit&#39;
+2013-12-06 16:39:41.729 12145 TRACE nova Traceback (most recent call last):
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/bin/nova-api&amp;quot;, line 10, in &amp;lt;module&amp;gt;
+2013-12-06 16:39:41.729 12145 TRACE nova     sys.exit(main())
+(中略)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib/python2.6/site-packages/nova/api/ec2/cloud.py&amp;quot;, line 226, in __init__
+2013-12-06 16:39:41.729 12145 TRACE nova     self.image_service = s3.S3ImageService()
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib/python2.6/site-packages/nova/image/s3.py&amp;quot;, line 93, in __init__
+2013-12-06 16:39:41.729 12145 TRACE nova     self.service = S3ImageService()
+(中略)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib/python2.6/site-packages/nova/image/s3.py&amp;quot;, line 91, in __init__
+2013-12-06 16:39:41.729 12145 TRACE nova     LOG.debug(&amp;quot;s3.py serivce is %s&amp;quot;, service)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 1305, in debug
+2013-12-06 16:39:41.729 12145 TRACE nova     self.logger.debug(msg, *args, **kwargs)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 1044, in debug
+2013-12-06 16:39:41.729 12145 TRACE nova     self._log(DEBUG, msg, args, **kwargs)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 1173, in _log
+2013-12-06 16:39:41.729 12145 TRACE nova     self.handle(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 1183, in handle
+2013-12-06 16:39:41.729 12145 TRACE nova     self.callHandlers(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 1220, in callHandlers
+2013-12-06 16:39:41.729 12145 TRACE nova     hdlr.handle(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 679, in handle
+2013-12-06 16:39:41.729 12145 TRACE nova     self.emit(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/handlers.py&amp;quot;, line 405, in emit
+2013-12-06 16:39:41.729 12145 TRACE nova     logging.FileHandler.emit(self, record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 860, in emit
+2013-12-06 16:39:41.729 12145 TRACE nova     StreamHandler.emit(self, record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 804, in emit
+2013-12-06 16:39:41.729 12145 TRACE nova     self.handleError(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/logging/__init__.py&amp;quot;, line 733, in handleError
+2013-12-06 16:39:41.729 12145 TRACE nova     traceback.print_exception(ei[0], ei[1], ei[2], None, sys.stderr)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/traceback.py&amp;quot;, line 125, in print_exception
+2013-12-06 16:39:41.729 12145 TRACE nova     print_tb(tb, limit, file)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &amp;quot;/usr/lib64/python2.6/traceback.py&amp;quot;, line 57, in print_tb
+2013-12-06 16:39:41.729 12145 TRACE nova     if hasattr(sys, &#39;tracebacklimit&#39;):
+2013-12-06 16:39:41.729 12145 TRACE nova AttributeError: &#39;module&#39; object has no attribute &#39;tracebacklimit&#39;
+2013-12-06 16:39:41.729 12145 TRACE nova
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tracebacklimit …そりゃそうだ、だってループしてんだもん、そりゃそうだ。&lt;/p&gt;
+
+&lt;p&gt;あーあ、終りましたよ、また今年も失敗で終りですよ。何だよ、タイトルを「Glance のかわりに Walrus を使ってみる」じゃなくて「Glance のバックエンドに Walrus を使ってみる」って書いてたら今頃きっと成功ですよ。もうね、世の OpenStacker が「ぐぐー、やっぱ Glance より Walrus かー、ちきしょー」っていう姿を夢見て走ってみたのに、気付いたら明後日の方向にスロットル全開ですよ。&lt;/p&gt;
+
+&lt;p&gt;ちっきしょー、s3.py なんて名前でファイルを置いとくから淡い期待を抱いちゃうじゃん、もうね、s3.py じゃなくて ese3.py とかで置いておいてくれたらいいのに。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;font size=&#34;5&#34; color=&#34;#ee2222&#34;&gt;クリスマスまであと17日です✌(́◓q◔`)✌&lt;/font&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;ツールに頼らないと環境を作れないぐらいに初心者です
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

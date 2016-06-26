@@ -7,26 +7,26 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <meta property="og:title" content=" Eucalyptus Advent Calendar 2012 JP 十三日目 &middot;  hablog" />
+        <meta property="og:title" content=" AWS Advent Calendar 2013 14 日目 &middot;  hablog" />
         <meta property="og:site_name" content="hablog" />
-        <meta property="og:url" content="http://blog.osamu.habuka.jp/post/2014-12-09-eucalyptus-advent-calendar-2012-jp-13th/" />
+        <meta property="og:url" content="http://blog.osamu.habuka.jp/post/2013-12-14.AdventCalendar-day-14/" />
 
     
         <meta property="og:type" content="article" />
-        <meta property="og:article:published_time" content="2012-12-13T01:43:14&#43;09:00" />
-        <meta property="og:article:tag" content="Eucalyptus" />
+        <meta property="og:article:published_time" content="2013-12-14T00:00:00Z" />
+        <meta property="og:article:tag" content="AWS" />
         <meta property="og:article:tag" content="AdventCalendar" />
         
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@" />
         <meta name="twitter:creator" content="@" />
-        <meta name="twitter:title" content="Eucalyptus Advent Calendar 2012 JP 十三日目" />
+        <meta name="twitter:title" content="AWS Advent Calendar 2013 14 日目" />
         <meta name="twitter:description" content="" />
-        <meta name="twitter:url" content="http://blog.osamu.habuka.jp/post/2014-12-09-eucalyptus-advent-calendar-2012-jp-13th/" />
+        <meta name="twitter:url" content="http://blog.osamu.habuka.jp/post/2013-12-14.AdventCalendar-day-14/" />
     
 
-        <title> Eucalyptus Advent Calendar 2012 JP 十三日目 &middot;  hablog</title>
+        <title> AWS Advent Calendar 2013 14 日目 &middot;  hablog</title>
 
     
         <meta name="description" content="" />
@@ -45,21 +45,21 @@
     
 
     
-        <link rel="canonical" href="http://blog.osamu.habuka.jp/post/2014-12-09-eucalyptus-advent-calendar-2012-jp-13th/" />
+        <link rel="canonical" href="http://blog.osamu.habuka.jp/post/2013-12-14.AdventCalendar-day-14/" />
 
     
     <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "Eucalyptus Advent Calendar 2012 JP 十三日目",
+        "headline": "AWS Advent Calendar 2013 14 日目",
         "author": {
             "@type": "Person",
             "name": "http://profiles.google.com/?rel=author"
         },
-        "datePublished": "2012-12-13",
+        "datePublished": "2013-12-14",
         "description": "",
-        "wordCount":  112 
+        "wordCount":  210 
     }
 
     </script>
@@ -110,65 +110,142 @@
 
   			<header class="post-header">
   				<span class="post-meta">
-						<span class="post-date">13 Dec 2012</span> <span class="reading-time">| <span class="estimated-reading-time">1 min.</span> (<span class="word-count">112</span> words)</span></span>
+						<span class="post-date">14 Dec 2013</span> <span class="reading-time">| <span class="estimated-reading-time">1 min.</span> (<span class="word-count">210</span> words)</span></span>
   				</span>
   				<div class="clear"></div>
-  				<h1 class="post-title">Eucalyptus Advent Calendar 2012 JP 十三日目</h1>
+  				<h1 class="post-title">AWS Advent Calendar 2013 14 日目</h1>
   			</header>
 
   			<section class="post-content">
   				
 
-<h3 id="見た目大事">見た目大事</h3>
+<h1 id="今日の緑">今日の緑…</h1>
 
-<p>13日目です。去年まで「Advent Calendar なんて他の国のリア充どもがやってんだろうなぁ～」ってぐらいしか思ってなかったんですが、まさか自分が当事者になるとは思いませんでした。まぁ、「1人1ネタぐらいで持ち寄って皆でワイワイやったら楽しいなぁ～ほわわぁぁん」とか思ってたのは <sup>11</sup>&frasl;<sub>30</sub> までで、いざ始まってみると結構マゾいんすね Advent Calendar って。そんなマゾい Advent Calendar をやっている聖なる紳士淑女の皆さん元気ですか？こんばんは。</p>
+<p>緑色に関するネタが見つかりません。</p>
 
-<p>で、Advent Calendar って 10 分で考えて 5 分で書くということを<a href="http://d.hatena.ne.jp/yukutomi/20121211/1355185510">先日知った</a>んですが、僕の場合は 10 秒ぐらいしか考えずに、やりながら書いているので、ここを <sup>12</sup>&frasl;<sub>01</sub> から読んでいる皆さんは僕がどんだけ毎回ドタバタしながら失敗しているかよくわかっていると思いますけど、まぁ、その今日もほとんど考えなしに走ります。</p>
+<h1 id="eucalyptusのuiでec2を利用してみる">EucalyptusのUIでEC2を利用してみる</h1>
 
-<!-- more -->
+<p>Japan Eucalyptus Users Group の羽深です。さて、今日は AWS Advent Calendar 2013 の 14 日目のエントリになります。</p>
 
-<h3 id="とりあえずイジってみる">とりあえずイジってみる</h3>
+<p>他の方々のエントリとは違い、私が今日書く内容は少し異色な内容となってます。題して「EucalyptusのUIでEC2を利用してみる」。</p>
 
-<p>さて、あまり話題にしたことなかったんですが、今日は Eucalyptus の Web 管理画面の見た目を変更してみる話です。え～、Eucalyptus の Web 管理画面は /var/lib/eucalyptus/webapps/root.war というファイルにまとめられていて、/var/run/eucalyptus/webapp/ に展開されています。で、画面自体は GWT (Google Web Toolkit) で作られているようです。まぁ、僕がちゃんとしていたらここで颯爽と eclipse を立ち上げて華麗にイジり方などを解説するところですが、残念ながらちゃんとしていないので、そんな高等なことできません。</p>
+<p>このエントリを見にきてくださった皆さんは「AWS が何だ」「EC2 が何だ」という説明は不要だと思いますので割愛しますが、一方で「Eucalyptus って何？」と思う方は少なからず居ると思います。むしろ知っている人のほうが少ないかもしれません。</p>
 
-<p>じゃー今日のネタは何すんのさー？と思われたそこの旦那さま、何も難しいことありません、/var/lib/eucalyptus/webapp/root.war をイジイジして /etc/init.d/eucalyptus-cloud を restart するだけで、あら不思議、Web 管理画面の見た目が簡単に変わりましたよ的な結果が得られます。やっぱずぅ～っとインフラやってると、たまには陽の光があたる暖い場所へ出てみたくなりますよね？なりませんか？</p>
+<p>Eucalyptus を簡単に一言で表現すると、「AWS の EC2 API 互換なプライベートクラウド基盤」となります。</p>
 
-<p>で、まず以下を実行して、元ファイルを展開します。</p>
+<p>「なんだよ、紛い物か」「臆面もなくよくもまぁ本流の Advent Calendar に参加できたもんだなぁ」「恥を知れい」「可愛いぞ」などなどの色々な意見があるかと思いますが、たまには異色なエントリもいいのではないかと思います。</p>
 
-<pre><code># cd /var/lib/eucalyptus/webapp/
-# mv root.war root.war.orig
-# mkdir -p root
-# cd root
-# unzip ../root.war.orig
+<p>さて、つい AWS の Advent Calendar だと意識すると言葉遣いが固くなってしまっていけません。ここは、いつもどおりに「砕けすぎてよくわからない」言葉遣いにします。</p>
+
+<p>えー、Eucalyptus には開発が開始してから約4年近く「利用者のためのユーザコンソール」が存在しませんでした。しかし、バージョン 3.2 頃から利用者のための WebUI が付属するようになり、バージョン 3.4 からは Eucalyptus 用のユーザコンソールで Amazon EC2 も利用できるようになりました。</p>
+
+<p>まぁ「利用できるようになった」とは言え、普段 EC2 を利用するときは API や CUI などから利用するか、もしくは GUI として Amazon の Management Console を利用するほうが多いため、わざわざ Eucalyptus の WebUI から AWS EC2 を利用してみたことがありませんでしたが、ちょうど「<a href="http://www.zusaar.com/event/1117005">AWS Advent Calendar 2013</a>」 が開催されるということで、このようにエントリすることになりました。</p>
+
+<h2 id="eucalyptus-コンソールのインストール">Eucalyptus コンソールのインストール</h2>
+
+<p>まずは Eucalyptus コンソールをインストールしなければ話は始まりませんので、以下をカチャカチャカチャ…ッターン！と実行してインストールします。</p>
+
+<pre><code>yum update
+yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/eucalyptus-release-3.4.noarch.rpm
+yum install http://downloads.eucalyptus.com/software/euca2ools/3.0/centos/6/x86_64/euca2ools-release-3.0.noarch.rpm
+yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/epel-release-6.noarch.rpm
+yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/elrepo-release-6.noarch.rpm
+yum install eucalyptus-console
 </code></pre>
 
-<p>で、展開されたファイルを適宜変更します。例えば今回は themes/{active,eucalyptus}/ 配下にある logo.png と logo-small.png を変更し、global.css の background-color を #EEE から #fdec95 に変更しました。</p>
+<p>インストールしたら /etc/eucalyptus-console/console.ini を編集します。変更点は以下。</p>
 
-<p>変更したら以下を実行します。</p>
+<pre><code>--- /etc/eucalyptus-console/console.ini.orig    2013-11-06 05:48:58.000000000 +0900
++++ /etc/eucalyptus-console/console.ini 2013-12-14 01:23:00.276376944 +0900
+@@ -60,13 +60,13 @@
+ enable.aws=True
 
-<pre><code># zip -r ../root.war ./
-# /etc/init.d/eucalyptus-cloud restart
+ # set this to define a default region for aws login
+-default.region=us-west-1
++default.region=ap-northeast-1
+
+ [locale]
+ # Available languages.
+ # UI messages and help files: en_US, zh_CN
+ # UI messages only: ko_KR, ru_RU, ja_JP, fi_FI
+-language=en_US
++language=ja_JP
+
+ # help page
+ help.url=https://engage.eucalyptus.com?r=euca-
+@@ -96,7 +96,7 @@
+ keys=eucaformat
+
+ [logger_root]
+-level=INFO
++level=DEBUG
+ handlers=eucahandler
+
+ [handler_eucahandler_dev]
 </code></pre>
 
-<p>で、以下がビフォーアフターです。</p>
+<p>設定を変更したら以下を実行して Eucalyptus コンソールを起動します。</p>
 
-<ul>
-<li>ビフォー</li>
-</ul>
+<pre><code>/etc/init.d/eucalyptus-console start
+</code></pre>
 
-<p><img src="/images/20121213_0.png" alt="" /></p>
+<p>!!Eucalyptus コンソールを利用する</p>
 
-<ul>
-<li>アフター</li>
-</ul>
+<p><img src="/images/20131214_0.png" alt="Eucalyptus コンソールのログイン画面" /></p>
 
-<p><img src="/images/20121213_2.png" alt="" /></p>
+<p><a href="https://EucalyptusコンソールのIP:8888/">https://EucalyptusコンソールのIP:8888/</a> にアクセスすると、右のようなログイン画面が表示されます。</p>
 
-<p>まぁ、今回は「ほら簡単に変更できるよ？」と言いたいだけなので、GWT を使わずに手で変更しましたが、もしちゃんと見た目をカスタマイズしたい場合は GWT を使わないとやってらんないと思います。(いや使うよね？)</p>
+<p><img src="/images/20131214_2.png" alt="Eucalyptus コンソールのダッシュボード" /></p>
 
-<p>ちなみに今回は(いつも？)ご覧のとおり随分と手を抜いた内容なので、冒頭に延べた「10 分で考えて 5 分で書く」は守れないものの「10 秒程度しか考えられず 50 分ちょっとで書く」ことができました。え？どこに 50 分かかってるの？と思われるかもしれませんが、Web 管理画面の左上のロゴを作るのに 30 分ぐらいかかってます。(ぉぃ</p>
+<p>アクセスキーとシークレットキーを入力して「Log in to AWS」をクリックすると右のようなダッシュボード画面に遷移します。</p>
 
-<p>クリスマスまであと12日です ✌(՞ਊ ՞)✌</p>
+<p><img src="/images/20131214_4.png" alt="リージョン情報" /></p>
+
+<p>おや？おやおやおや？設定ファイルでデフォルトのリージョンを ap-northeast-1 にしたのに、表示されているリージョン情報がシンガポールになってますねー。</p>
+
+<p>ソースを確認すると、/usr/share/eucalyptus-console/static/custom/Messages.properties に以下のように定義されてました。</p>
+
+<pre><code>region_ap_northeast_1_name=Asia Pacific
+region_ap_northeast_1_loc=Singapore
+region_ap_southeast_1_name=Asia Pacific
+region_ap_southeast_1_loc=Tokyo
+</code></pre>
+
+<p>まぁ、カリフォルニアから見たら、東京とシンガポールなんて磯野家と伊佐坂家みたいなもんでしょうから、間違えても仕方ないですね。まー直してもいいんですけど、表示上の話なので、今回は放置しますね。</p>
+
+<p><img src="/images/20131214_5.png" alt="マシンイメージ一覧" /></p>
+
+<p>画面上部のメニューにある「イメージ」をクリックすると AWS 上のマシンイメージの一覧が表示されます。イメージ情報を取得しにいっているため、ちょっと反応が遅いですが、待っているとそのうち表示されます。</p>
+
+<p><img src="/images/20131214_7.png" alt="ボリュームの管理" /></p>
+
+<p>「ストレージ」の中ではボリュームの一覧と情報も見れます。もちろんスナップショットも同じく見れます。</p>
+
+<p><img src="/images/20131214_9.png" alt="インスタンスの作成" /></p>
+
+<p>インスタンスを起動する場合は、ダッシュボードからもイメージの一覧からも起動できます。</p>
+
+<p><img src="/images/20131214_11.png" alt="インスタンスの作成" /></p>
+
+<p>インスタンスの起動ウィザードでは、イメージの選択やインスタンスタイプの選択やセキュリティグループの指定などを行ないます。</p>
+
+<p><img src="/images/20131214_17.png" alt="インスタンスタイプの値" /></p>
+
+<p>あれ？あれあれあれ？インスタンスタイプのスペック値は AWS の値ではなく Eucalyptus 側のスペック値が使われてます。これだとちょっと「あれ？ AWS のリソースが少なくなっちゃった」って勘違いされちゃいますね。</p>
+
+<p><img src="/images/20131214_13.png" alt="インスタンスの起動失敗" /></p>
+
+<p>うーん、何が悪いのか、インスタンスが起動できませんでした…orz</p>
+
+<p><img src="/images/20131214_15.png" alt="インスタンスの一覧" /></p>
+
+<p>Stop 状態のインスタンスを起動するのは問題なく行なえました。</p>
+
+<p>ってな感じで、私の使い方が悪いのか、はたまた設定が悪いのか、EC2 の基本機能ですら使えない場面もありましたが、概ね<font size="5">問題ない</font>と言えます。ですので、「へへっ、ノーマルのマネジメントコンソールなんて卒業だぜ、俺はコイツでライバルとの差を引き離してやる」的な進研○ミのような展開を夢見る少年少女は <font size="5">Eucalyptus のコンソールを使って</font>みるのは如何でしょうか？</p>
+
+<p><br/><br/><font size="5" color="#ee2222">クリスマスまであと11日です✌(́◓q◔`)✌</font></p>
+
+<p>.</p>
 
   			</section>
 
@@ -176,20 +253,20 @@
   				<div class="post-tags">
             
             
-                <a href="http://blog.osamu.habuka.jp//tags/eucalyptus/">Eucalyptus</a>
+                <a href="http://blog.osamu.habuka.jp//tags/aws/">AWS</a>
             
                 <a href="http://blog.osamu.habuka.jp//tags/adventcalendar/">AdventCalendar</a>
             
             
   				</div>
   				<div class="post-share">
-  					<a class="icon-twitter" href="https://twitter.com/share?text=Eucalyptus%20Advent%20Calendar%202012%20JP%20%e5%8d%81%e4%b8%89%e6%97%a5%e7%9b%ae&url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2014-12-09-eucalyptus-advent-calendar-2012-jp-13th%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  					<a class="icon-twitter" href="https://twitter.com/share?text=AWS%20Advent%20Calendar%202013%2014%20%e6%97%a5%e7%9b%ae&url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2013-12-14.AdventCalendar-day-14%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
   						<span>Twitter</span>
   					</a>
-  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2014-12-09-eucalyptus-advent-calendar-2012-jp-13th%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2013-12-14.AdventCalendar-day-14%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
   						<span>Facebook</span>
   					</a>
-  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2014-12-09-eucalyptus-advent-calendar-2012-jp-13th%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2013-12-14.AdventCalendar-day-14%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
   						<span>Google+</span>
   					</a>
   				</div>
@@ -206,16 +283,26 @@
 
 			<nav class="post-nav">
 				
-					<a class="post-nav-item post-nav-next" href="http://blog.osamu.habuka.jp/post/2013-12-01.AdventCalendar-day-1/">
+					<a class="post-nav-item post-nav-next" href="http://blog.osamu.habuka.jp/post/2014-04-23.do-ceph-with-gentoo/">
 						<section class="post-nav-teaser">
 							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
 							<span class="post-nav-info">
-								<h4 class="post-nav-title">Wakame Users Group Advent Calendar 2013 1日目</h4>
+								<h4 class="post-nav-title">Gentoo で Ceph れ！</h4>
 								<p class="post-nav-excerpt">&hellip;</p>
 							</span>
 						</section>
 					</a>
 				
+				
+					<a class="post-nav-item post-nav-prev" href="http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">OpenStack Advent Calendar 2013 JP 8日目</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
 				
 				<div class="clear"></div>
 			</nav>
@@ -241,13 +328,10 @@
     <div id="toc" class="menu-list">
         <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#今日の緑">今日の緑…</a></li>
+<li><a href="#eucalyptusのuiでec2を利用してみる">EucalyptusのUIでEC2を利用してみる</a>
 <ul>
-<li>
-<ul>
-<li><a href="#見た目大事">見た目大事</a></li>
-<li><a href="#とりあえずイジってみる">とりあえずイジってみる</a></li>
-</ul></li>
+<li><a href="#eucalyptus-コンソールのインストール">Eucalyptus コンソールのインストール</a></li>
 </ul></li>
 </ul>
 </nav>

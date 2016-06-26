@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="ja-jp">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:title" content=" OpenStack Advent Calendar 2013 JP 8日目 &middot;  hablog" />
+        <meta property="og:site_name" content="hablog" />
+        <meta property="og:url" content="http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/" />
+
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time" content="2013-12-08T01:11:57&#43;09:00" />
+        <meta property="og:article:tag" content="OpenStack" />
+        <meta property="og:article:tag" content="AdventCalendar" />
+        
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@" />
+        <meta name="twitter:title" content="OpenStack Advent Calendar 2013 JP 8日目" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:url" content="http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/" />
+    
+
+        <title> OpenStack Advent Calendar 2013 JP 8日目 &middot;  hablog</title>
+
+    
+        <meta name="description" content="" />
+    
+
+        <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+    
+        <link href="http://blog.osamu.habuka.jp/index.xml" rel="alternate" type="application/rss+xml" title="hablog" />
+    
+
+    
+        <link rel="canonical" href="http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/" />
+
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "OpenStack Advent Calendar 2013 JP 8日目",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/?rel=author"
+        },
+        "datePublished": "2013-12-08",
+        "description": "",
+        "wordCount":  1256 
+    }
+
+    </script>
+
+    <script type="text/javascript">
+    
+    
+
+    </script>
+    
+
+    <style>
+@charset "UTF-8";article,header,img,main,nav,section{display:block}blockquote,p,pre,ul{margin:2em auto}#wrapper,pre{width:100%;box-sizing:border-box}#nav,#wrapper,code{position:relative}#nav,body{background:#fff}#menu,blockquote,pre code{background:0 0}#menu,#menu .menu-header,#menu .menu-list,#wrapper,.post-nav .post-nav-item .post-nav-teaser .post-nav-info,blockquote,pre{box-sizing:border-box}img{border:0;max-width:100%;height:auto;margin:2.5em auto}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}code,pre{font-family:monospace,monospace;font-size:1em}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:300;src:local("Merriweather Sans Light"),local("MerriweatherSans-Light"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowY_zIojJi0m4a5Z6tRh6itY.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:400;src:local("Merriweather Sans Regular"),local("MerriweatherSans-Regular"),url(//fonts.gstatic.com/s/merriweathersans/v5/AKu1CjQ4qnV8MUltkAX3sL2aU247V0zTzydO4RoO9Ok.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:700;src:local("Merriweather Sans Bold"),local("MerriweatherSans-Bold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowQfd-b-I5PxxcmB4_-MNcqw.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:800;src:local("Merriweather Sans ExtraBold"),local("MerriweatherSans-ExtraBold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowWT7sFQ1Iz1BbpcuCPlgc9Q.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:300;src:local("Merriweather Sans Light Italic"),local("MerriweatherSans-LightItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVX9UU5BmOJGkLxUCVv5VXdc.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:400;src:local("Merriweather Sans Italic"),local("MerriweatherSans-Italic"),url(//fonts.gstatic.com/s/merriweathersans/v5/3Mz4hOHzs2npRMG3B1ascf0KIgDhPIHb_R-SWdtqte8.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:700;src:local("Merriweather Sans Bold Italic"),local("MerriweatherSans-BoldItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVYM8pfYvjMoOxygpzLVILAs.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:400;src:local("Inconsolata"),url(//fonts.gstatic.com/s/inconsolata/v12/BjAYBlHtW3CJxDcjzrnZCIbN6UDyHWBl620a-IRfuBk.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:700;src:local("Inconsolata Bold"),local("Inconsolata-Bold"),url(//fonts.gstatic.com/s/inconsolata/v12/AIed271kqQlcIRSOnQH0yTqR_3kx9_hJXbbyU8S6IN0.woff) format("woff")}@font-face{font-family:icons;src:url(/fonts/icons.eot?9273991);src:url(/fonts/icons.eot?9273991#iefix) format("embedded-opentype"),url(/fonts/icons.woff?9273991) format("woff"),url(/fonts/icons.ttf?9273991) format("truetype"),url(/fonts/icons.svg?9273991#icons) format("svg");font-weight:400;font-style:normal}[class^=icon-]:before{font-family:icons;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-arrow-left:before{content:'\e804'}.icon-arrow-right:before{content:'\e807'}.icon-rss:before{content:'\e808'}.icon-menu:before{content:'\e809'}body{margin:0;font:300 1em/1.5em 'Merriweather Sans',sans-serif;color:#595B66}blockquote,i{font-style:italic}code,pre{font-family:Inconsolata,monospace}a,blockquote,code,i{font-weight:400}::-moz-selection{color:#222;background:#D6EDFF;text-shadow:none}::-moz-selection,::selection{color:#222;background:#D6EDFF;text-shadow:none}a{background-color:transparent;color:inherit;text-decoration:none;transition:all ease-out .2s}.post-content a{border-bottom:2px solid #36D995}h1,h4{text-rendering:optimizeLegibility;color:#1F2026}h1{font-size:2em;line-height:1em;margin:2em 0 -.5em}h4{font-size:1.25em;line-height:1.2em;margin:2.4em 0 -.8em}ul{list-style:none;padding-left:3em}blockquote{padding:0 1em;border-left:.25em solid #D4D5D9;color:#595B66}blockquote *{margin:1em auto}blockquote :first-child{margin-top:0}blockquote :last-child{margin-bottom:0}i{color:#363740}code{display:inline-block;top:-1px;padding:3px 6px;margin:-1px 2px;font-size:.875em;line-height:1.143em;background:#E1E2E6;color:#000;border-radius:2px}pre{padding:1em;white-space:pre;overflow:auto;background:#9D9FA6;color:#fff}pre code{position:static;top:auto;font-size:1em;line-height:1.5em;white-space:-moz-pre-wrap;white-space:pre-wrap;vertical-align:inherit;border:none;padding:0}#menu .menu-header:before,.post .post-title:before{border-bottom:4px solid #36D995;content:''}.inner{max-width:48em;margin:0 auto;padding:0 1em}#wrapper{min-height:100vh;padding-bottom:6em;background:#F2F3F5}#push{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav{z-index:70;transition:all ease-out .4s;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav:after{clear:both;content:'';display:table}#nav .nav-logo{float:left;height:2em;padding:1em;max-width:50%}#nav .nav-logo img{width:auto;max-width:none;height:2em;margin:0}#nav .nav-menu{float:right}#nav .nav-menu:after{clear:both;content:'';display:table}#nav .nav-menu a{display:block;width:1em;height:1em;line-height:1em;padding:1.5em;text-align:center;float:left;cursor:pointer}#nav .nav-menu a i:before{margin:auto}#menu{display:none;position:fixed;left:50%;top:5%;width:30em;height:90%;margin-left:-15em;padding:3em 0 0;overflow:hidden;transition:all ease-out .3s;-webkit-transform:translate3d(0,2em,0);transform:translate3d(0,2em,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:0;z-index:100}@media only screen and (max-width:50em){#menu{width:90%;left:5%;margin-left:auto}}#menu .menu-header{position:absolute;left:0;top:0;width:100%;height:3.5em;padding:1em 1.5em .5em;margin-bottom:1em;line-height:2em;z-index:110;background:#fff}#menu .menu-header:before{position:absolute;left:-5%;bottom:-1em;width:110%;height:2em;background:#fff;box-shadow:0 .125em .125em rgba(0,0,0,.1);-webkit-transform:rotate(2.5deg);transform:rotate(2.5deg);transition:all ease-out .2s;z-index:115}#menu .menu-header:after{clear:both;content:'';display:table}#menu .menu-header .menu-label{position:relative;display:block;float:left;z-index:120}#menu .menu-header .menu-close{position:relative;display:block;float:right;width:2em;height:2em;padding:1em;margin:-1em -1.5em -1em 0;cursor:pointer;z-index:125}#menu .menu-header .menu-close:after,#menu .menu-header .menu-close:before{content:'';position:absolute;left:50%;top:50%;background:#9D9FA6;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.overlay,.overlay:before{top:0;width:100%;height:100%}#menu .menu-header .menu-close:after{width:2px;height:1em;margin:-.5em 0 0 -1px}#menu .menu-header .menu-close:before{width:1em;height:2px;margin:-1px 0 0 -.5em}#menu .menu-list{position:relative;list-style:none;margin:0;padding:2em 0;height:100%;overflow-x:hidden;overflow-y:scroll;background:#fff}.overlay{position:fixed;left:0;z-index:80;display:none}.overlay:before{content:'';position:absolute;left:0;background:#1F2026;opacity:0;transition:all ease-out .3s;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.post{position:relative;z-index:20}.post .post-meta{display:block;font-size:.75em;line-height:1.334em;font-weight:400;margin-bottom:1.334em}.post .post-title{position:relative;color:#000;font-size:2em;line-height:1.375em;font-weight:800;text-indent:-1px;margin:.25em 0 .75em}.post .post-title:before{position:absolute;left:0;bottom:-.334em;width:1em;margin-bottom:-2px}.post .post-header{padding:4em 0 0;margin-bottom:3em}.post-footer .post-share a span{display:none}.post-nav .post-nav-item{position:fixed;top:50%;display:block;margin-top:-4em;overflow:hidden;border-radius:10em;transition:none}@media only screen and (max-width:70em){.post-nav .post-nav-item{position:absolute;top:auto;margin:auto;max-width:50%}}.post-nav .post-nav-item.post-nav-next{left:0;text-align:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon{float:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon i{left:-.05em}.post-nav .post-nav-item.post-nav-next .post-nav-info{padding-left:6em}.post-nav .post-nav-item.post-nav-prev{right:0;text-align:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon{float:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon i{right:-.05em}.post-nav .post-nav-item.post-nav-prev .post-nav-info{padding-right:6em}.post-nav .post-nav-item .post-nav-teaser{display:block;padding:1em;transition:all ease-out .2s;max-width:25em;overflow:visible}.post-nav .post-nav-item .post-nav-teaser:after{clear:both;content:'';display:table}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{display:block;width:5em;height:5em;line-height:5em;text-align:center;box-sizing:border-box;border-radius:10em;border:1px solid #36D995;box-shadow:0 0 0 0 transparent;transition:all ease-out .1s;background:#F2F3F5}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{position:relative;font-size:2em}@media only screen and (max-width:30em){.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{width:4em;height:4em;line-height:4em}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{font-size:1.5em}}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i:before{margin:auto}.post-nav .post-nav-item .post-nav-teaser .post-nav-info{display:none;width:100%;transition:all ease-out .2s}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-title{display:block;max-height:1.25em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:1.25em 0 .25em;font-size:1em;line-height:1.25em;font-weight:700;color:#363740}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-excerpt{display:block;max-height:1.334em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:0;font-size:.75em;line-height:1.334em;font-weight:400;color:#9D9FA6}
+</style>
+
+
+    </head>
+    <body class="home-template" style="display: none;">
+      <section id="wrapper">
+        <div id="ajax-container">
+          <nav id="nav" class="nav">
+            <div class="nav-logo">
+              <a href="http://blog.osamu.habuka.jp/">
+      			  	
+      			  	
+      			  	<img src="/images/puta-su.png" alt="Logo"/>
+      			  	
+              </a>
+			  	    
+            </div>
+            <div class="nav-menu">
+              <a class="rss" href="">
+                <i class="icon-rss"></i>
+              </a>
+                
+                <a class="menu" data-action="toc" data-target="toc"><i class="icon-location"></i></a>
+                
+                
+            </div>
+          </nav>
+
+
+<main class="content" role="main">
+	<article class="post">
+		<div class="inner">
+
+			<div id="push">
+
+  			<header class="post-header">
+  				<span class="post-meta">
+						<span class="post-date">8 Dec 2013</span> <span class="reading-time">| <span class="estimated-reading-time">6 min.</span> (<span class="word-count">1256</span> words)</span></span>
+  				</span>
+  				<div class="clear"></div>
+  				<h1 class="post-title">OpenStack Advent Calendar 2013 JP 8日目</h1>
+  			</header>
+
+  			<section class="post-content">
+  				
+
+<h1 id="碧川涼">碧川涼</h1>
+
+<p>さて、今日も名前に緑色のつく人を見つけられませんでした。が、よくよく考えたら「碧」っていう字も、青だったり緑だったりするじゃないですか、ってことで、今日はゲーム『NOëL 〜La neige〜』に登場するキャラクターの「<a href="http://ja.wikipedia.org/wiki/NOeL#NO.C3.ABL_.E3.80.9CLa_neige.E3.80.9C_.2F_NO.C3.ABL_.E3.80.9CLa_neige.E3.80.9C_Special">碧川涼</a>」さんの誕生日だそうです。お誕生日おめでとうございます。えーと、恋愛シミュレーションゲームだそうです。すみません、残念ながらやったことないので、存じあげておりませんでした。</p>
+
+<p>それと、この碧川涼というキャラクターの声を演じているのは<a href="http://ja.wikipedia.org/wiki/%E6%A0%B9%E8%B0%B7%E7%BE%8E%E6%99%BA%E5%AD%90">根谷美智子</a>さんなんですが、根谷さんの親友の<a href="http://ja.wikipedia.org/wiki/%E8%8F%85%E5%8E%9F%E7%A5%A5%E5%AD%90">菅原祥子</a>さんは12月12日が誕生日だそうです。おめでとうございます。</p>
+
+<h1 id="glance-のかわりに-walrus-を使ってみる">Glance のかわりに Walrus を使ってみる</h1>
+
+<p>まず最初に、<a href="https://twitter.com/ishikawa84g">我らが愛する石川</a> さんがこんなことをツブやいてまして</p>
+
+<p><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">OpenStack Advent Calendar 2013、誰も記事内で AdventCalendarの何日目という宣言をしてないの良くない。</p>&mdash; 石川@驚きの白々しさ (@ishikawa84g) <a href="https://twitter.com/ishikawa84g/status/408833430890115072">2013年12月6日</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>これは、やばい、このままだと enforcing されちゃう…(((( ；ﾟДﾟ)))…ってことで、今日は OpenStack Advent Calendar 2013 JP の 8 日目です。</p>
+
+<p>ところで、<a href="http://036.habuka.jp/diary/?date=20121203#p04">去年の OpenStack Advent Calendar 2012 JP の僕のエントリー</a>は惨々な結果でした…。今年は反省しちゃんとやりきりたいと思いますが、どうやら僕は OpenStack 界隈では「負け犬」「噛ませ犬」のポジションらしく「今年も<font size="5">惨々な内容</font>でひとつよろしく頼むよキミぃ」とか言われてます…(｡´Д⊂)</p>
+
+<h2 id="openstack-環境の設定">OpenStack 環境の設定</h2>
+
+<p>えー、僕は OpenStack 初心者<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>なので、いま流行りの <a href="http://openstack.redhat.com/Quickstart">RDO? Packstack?</a> を使って構築しました。まぁ、Packstack を用いた構築方法についてはきっと誰かが今回の Advent Calendar で書いてくれるでしょうから、ここでは割愛します。</p>
+
+<p>ちなみに、ここで使う Walrus は先日の <a href="http://www.adventar.org/calendars/202">Eucalyptus Advent Calendar 2013</a> のエントリ「<a href="http://036.habuka.jp/diary/?date=20131202">Walrus をだけを使ってみる</a>」で作った環境を使います。</p>
+
+<p>まず、glance のサービスを止めます。だって使わないんだもんだもん。止めちゃいますよー。</p>
+
+<pre><code>[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-glance-api stop
+Stopping openstack-glance-api:                             [  OK  ]
+[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-glance-registry stop
+Stopping openstack-glance-registry:                        [  OK  ]
+[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-glance-scrubber stop
+</code></pre>
+
+<p>で、nova が glance じゃなくて Walrus を使うように設定します。</p>
+
+<pre><code>[root@rdo ~(keystone_admin)]# diff -u /etc/nova/nova.conf.glance /etc/nova/nova.conf
+--- /etc/nova/nova.conf.glance  2013-12-03 14:46:31.314000061 +0900
++++ /etc/nova/nova.conf 2013-12-03 17:29:31.213000032 +0900
+@@ -939,7 +939,7 @@
+ # with https:// for ssl-based glance api servers.
+ # ([hostname|ip]:port) (list value)
+ #glance_api_servers=$glance_host:$glance_port
+-glance_api_servers=192.168.32.74:9292
++#glance_api_servers=192.168.32.74:9292
+
+ # Allow to perform insecure SSL (https) requests to glance
+ # (boolean value)
+@@ -965,16 +965,16 @@
+
+ # hostname or ip for OpenStack to use when accessing the s3
+ # api (string value)
+-#s3_host=$my_ip
++s3_host=192.168.32.73
+
+ # port used when accessing the s3 api (integer value)
+-#s3_port=3333
++s3_port=8773
+
+ # access key to use for s3 server for images (string value)
+-#s3_access_key=notchecked
++s3_access_key=AKIAMNYEAUG5ZJBN9KPH
+
+ # secret key to use for s3 server for images (string value)
+-#s3_secret_key=notchecked
++s3_secret_key=WlsMz8d6LdZKOmSQo07LmtujRqN6OVKw4NoKe02V
+
+ # whether to use ssl when talking to s3 (boolean value)
+ #s3_use_ssl=false
+@@ -2595,7 +2595,7 @@
+ qpid_reconnect=True
+ sql_connection=mysql://nova:db56f39a7e064ccc@192.168.32.74/nova
+ qpid_reconnect_timeout=0
+-image_service=nova.image.glance.GlanceImageService
++image_service=nova.image.s3.S3ImageService
+ logdir=/var/log/nova
+ qpid_reconnect_interval_max=0
+ qpid_reconnect_limit=0
+</code></pre>
+
+<p>えーと、ここまで設定して、ふと気付いたんですよ。Walrus のエンドポイントって http://ホスト:8773/services/Walrus っていう形式なんすよねー。えぇ、その値を設定するパラメータって s3_host と s3_port じゃ書ききれないよねぇ…。</p>
+
+<p>で、nova/image/s3.py を書き換えようと思ったんですが、@ishikawa84g さんと @shida1234 さんが「それ、keystone に登録しちゃえばいいんじゃない？」と助け船を出してくれまして、以下のように登録してみました。あ、もちろん keystone service-delete で glance のサービスとエンドポイント情報を削除してから実施してます。</p>
+
+<pre><code>[root@rdo ~(keystone_admin)]# keystone service-create --name walrus --type image --description &quot;Eucalyptus Image Service&quot;
++-------------+----------------------------------+
+|   Property  |              Value               |
++-------------+----------------------------------+
+| description |     Eucalyptus Image Service     |
+|      id     | af7ba823c7ab4f58917af6a0fad81006 |
+|     name    |              walrus              |
+|     type    |              image               |
++-------------+----------------------------------+
+
+[root@rdo ~(keystone_admin)]# keystone endpoint-create --service af7ba823c7ab4f58917af6a0fad81006 --publicurl http://192.168.32.73:8773/services/Walrus --adminurl http://192.168.32.73:8773/services/Walrus --internalurl http://192.168.32.73:8773/services/Walrus
++-------------+-------------------------------------------+
+|   Property  |                   Value                   |
++-------------+-------------------------------------------+
+|   adminurl  | http://192.168.32.73:8773/services/Walrus |
+|      id     |      fa3de0db20ae4903a429c35beabeed37     |
+| internalurl | http://192.168.32.73:8773/services/Walrus |
+|  publicurl  | http://192.168.32.73:8773/services/Walrus |
+|    region   |                 regionOne                 |
+|  service_id |      af7ba823c7ab4f58917af6a0fad81006     |
++-------------+-------------------------------------------+
+</code></pre>
+
+<p>あ、一応 glance っていうか、Image Store とおしゃべりするであろう nova-api と nova-compute は再起動させます。</p>
+
+<pre><code>[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-nova-api restart
+Stopping openstack-nova-api:                               [  OK  ]
+Starting openstack-nova-api:                               [  OK  ]
+[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-nova-compute restart
+Stopping openstack-nova-compute:                           [  OK  ]
+Starting openstack-nova-compute:                           [  OK  ]
+</code></pre>
+
+<p>で、ちゃんと接続できるかなーっと nova image-list (カチャカチャカチャ…ッターン！)</p>
+
+<pre><code>[root@rdo ~(keystone_admin)]# nova image-list
+ERROR: The server has either erred or is incapable of performing the requested operation. (HTTP 500) (Request-ID: req-ca8b1ed6-7ff0-4863-a05e-f88598a31469)
+</code></pre>
+
+<p>あ、あれー？何だろう？と思って nova-api のログを見ると…</p>
+
+<pre><code>2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py&quot;, line 203, in detail
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     **page_params)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/nova/image/glance.py&quot;, line 264, in detail
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     for image in images:
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/glanceclient/v1/images.py&quot;, line 174, in paginate
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     images = self._list(url, &quot;images&quot;)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/glanceclient/common/base.py&quot;, line 53, in _list
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     resp, body = self.api.json_request('GET', url)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/glanceclient/common/http.py&quot;, line 266, in json_request
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     resp, body_iter = self._http_request(url, method, **kwargs)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/glanceclient/common/http.py&quot;, line 235, in _http_request
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack     raise exc.CommunicationError(message=message)
+2013-12-03 18:30:05.838 25016 TRACE nova.api.openstack CommunicationError: Error communicating with http://192.168.32.74:9292 [Errno 111] ECONNREFUSED
+</code></pre>
+
+<p>あらやだ、この子、Glance 見に行ってんじゃないの…。っていうか、何で nova/image/glance.py が呼ばれてるのさ…。ということでコード nova/api/openstack/compute/images.py を確認すると…</p>
+
+<pre><code>import nova.image.glance
+from nova.openstack.common.gettextutils import _
+import nova.utils
+</code></pre>
+
+<p>あぁ…、思いっきり import nova.image.glance してるじゃん…、じゃぁ誰が「image_service=nova.image.s3.S3ImageService」の設定を見てくれるの？</p>
+
+<pre><code>[root@rdo ~(keystone_admin)]# grep -i CONF.image_service -r /usr/lib/python2.6/site-packages/nova/
+[root@rdo ~(keystone_admin)]# grep &quot;'image_service'&quot; -r /usr/lib/python2.6/site-packages/nova/
+[root@rdo ~(keystone_admin)]#
+</code></pre>
+
+<p>ちょっと待て、本来なら今頃、OpenStack から Walrus を使ってインスタンスを起動して<font size="5">感無量～人´ω｀*)</font>とかやってるはずなのに、何？あれ？誰も nova.conf の image_service を見てないんじゃないの？ちょっと！どーゆーこと？何この<font size="5">無力感…(:.;´;Д;ﾟ;.:)</font></p>
+
+<p>Advent Calendar のエントリに「Glance のかわりに Walrus を使う(キリッ」とか書いたのに、このままではまた去年と同様に<font size="5">「m9(^Д^)プギャー」</font>ですよ。もうね、どんだけ僕は成功しちゃいけない星のもとに生まれたんすか？</p>
+
+<p>ってことで、足掻いてみます。そりゃーもう必死に足掻いてみます。アラフォー男児が本気で足掻いたら、きっと nova だって「おっぉ、わかったぉ、Glance やめて S3 喋ってみるよ」って折れてくれるはず、nova 懐深い子、きっと僕も包んでくれるはず。</p>
+
+<p>まず、手始めに nova/image/glance.py を呼び出している nova/api/openstack/compute/images.py を見てみます。</p>
+
+<pre><code>class Controller(wsgi.Controller):
+    &quot;&quot;&quot;Base controller for retrieving/displaying images.&quot;&quot;&quot;
+
+    _view_builder_class = views_images.ViewBuilder
+
+    def __init__(self, image_service=None, **kwargs):
+        &quot;&quot;&quot;Initialize new `ImageController`.
+
+        :param image_service: `nova.image.glance:GlanceImageService`
+
+        &quot;&quot;&quot;
+        super(Controller, self).__init__(**kwargs)
+        self._image_service = (image_service or
+                               nova.image.glance.get_default_image_service())
+</code></pre>
+
+<p>うん、あら？、ほう、image_service image_service が None じゃなければ glance.get_default_image_service は呼ばれないのか。そうかそうか、んじゃー、glance.py に get_default_image_service があるってことは、s3.py にもあるのかな？</p>
+
+<pre><code>[root@rdo ~]# grep &quot;def get_default_image_service&quot; -r /usr/lib/python2.6/site-packages/nova/image/s3.py | wc -l
+0
+</code></pre>
+
+<p>うん、無いね、全く無いね、容赦なく無いね。</p>
+
+<p>よし、おいちゃん覚悟した、Pythonian じゃないうえに Python 書けないけど、頑張る。nova/api/openstack/compute/images.py を書き換えるよ。</p>
+
+<pre><code>--- /usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py.orig  2013-12-07 05:19:23.774000083 +0900
++++ /usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py       2013-12-07 05:14:58.438000084 +0900
+@@ -21,6 +21,7 @@
+ from nova.api.openstack import xmlutil
+ from nova import exception
+ import nova.image.glance
++import nova.image.s3
+ from nova.openstack.common.gettextutils import _
+ import nova.utils
+
+@@ -96,6 +97,7 @@
+
+         &quot;&quot;&quot;
+         super(Controller, self).__init__(**kwargs)
++        image_service = nova.image.s3.S3ImageService()
+         self._image_service = (image_service or
+                                nova.image.glance.get_default_image_service())
+
+</code></pre>
+
+<p>で、nova-api を再起動して、nova image-list (カチャカチャカチャ…ッターン！)</p>
+
+<pre><code>2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/nova/api/openstack/compute/images.py&quot;, line 205, in detail
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     **page_params)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/nova/image/s3.py&quot;, line 168, in detail
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     images = self.service.detail(context, **kwargs)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/nova/image/glance.py&quot;, line 264, in detail
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     for image in images:
+(中略)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack   File &quot;/usr/lib/python2.6/site-packages/glanceclient/common/http.py&quot;, line 235, in _http_request
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack     raise exc.CommunicationError(message=message)
+2013-12-07 05:15:24.699 10379 TRACE nova.api.openstack CommunicationError: Error communicating with http://192.168.32.74:9292 [Errno 111] ECONNREFUSED
+</code></pre>
+
+<p>ば、馬鹿な…。glance を叩きに行ってるだと？</p>
+
+<p>詳しく追うの面倒なので、ざっと確認すると、S3ImageService.detail -&gt; self.service.detail で、んじゃー self.service は何かしら？って言うと、S3ImageService の __init__ で以下の定義がありまして</p>
+
+<pre><code>    def __init__(self, service=None, *args, **kwargs):
+        self.cert_rpcapi = nova.cert.rpcapi.CertAPI()
+        self.service = service or glance.get_default_image_service()
+        self.service.__init__(*args, **kwargs)
+</code></pre>
+
+<p>service が None のときは glance.get_default_image_service() を呼ぶから、結果 self.service には GlanceImageService が入るというわけでして、</p>
+
+<p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<font size="5">(＃ﾟДﾟ)</font>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+
+<p>いやもう駄目じゃん、これ、何があっても glance 呼ばれるじゃん。だって service = S3ImageService やっても循環するだけでしょ？いやいやいや、やってみたよ、無駄だとわかってもやってみたよ、修造よろしくリスペクトな気持ちでやってみたよ、そしたらね、</p>
+
+<pre><code>2013-12-06 16:39:41.592 12145 DEBUG nova.wsgi [-] Loading app ec2 from /etc/nova/api-paste.ini load_app /usr/lib/python2.6/site-packages/nova/wsgi.py:
+484
+2013-12-06 16:39:41.680 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+2013-12-06 16:39:41.681 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+(中略)
+2013-12-06 16:39:41.728 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+2013-12-06 16:39:41.728 12145 DEBUG nova.image.s3 [-] s3.py serivce is None __init__ /usr/lib/python2.6/site-packages/nova/image/s3.py:91
+2013-12-06 16:39:41.729 12145 CRITICAL nova [-] 'module' object has no attribute 'tracebacklimit'
+2013-12-06 16:39:41.729 12145 TRACE nova Traceback (most recent call last):
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/bin/nova-api&quot;, line 10, in &lt;module&gt;
+2013-12-06 16:39:41.729 12145 TRACE nova     sys.exit(main())
+(中略)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib/python2.6/site-packages/nova/api/ec2/cloud.py&quot;, line 226, in __init__
+2013-12-06 16:39:41.729 12145 TRACE nova     self.image_service = s3.S3ImageService()
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib/python2.6/site-packages/nova/image/s3.py&quot;, line 93, in __init__
+2013-12-06 16:39:41.729 12145 TRACE nova     self.service = S3ImageService()
+(中略)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib/python2.6/site-packages/nova/image/s3.py&quot;, line 91, in __init__
+2013-12-06 16:39:41.729 12145 TRACE nova     LOG.debug(&quot;s3.py serivce is %s&quot;, service)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 1305, in debug
+2013-12-06 16:39:41.729 12145 TRACE nova     self.logger.debug(msg, *args, **kwargs)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 1044, in debug
+2013-12-06 16:39:41.729 12145 TRACE nova     self._log(DEBUG, msg, args, **kwargs)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 1173, in _log
+2013-12-06 16:39:41.729 12145 TRACE nova     self.handle(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 1183, in handle
+2013-12-06 16:39:41.729 12145 TRACE nova     self.callHandlers(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 1220, in callHandlers
+2013-12-06 16:39:41.729 12145 TRACE nova     hdlr.handle(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 679, in handle
+2013-12-06 16:39:41.729 12145 TRACE nova     self.emit(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/handlers.py&quot;, line 405, in emit
+2013-12-06 16:39:41.729 12145 TRACE nova     logging.FileHandler.emit(self, record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 860, in emit
+2013-12-06 16:39:41.729 12145 TRACE nova     StreamHandler.emit(self, record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 804, in emit
+2013-12-06 16:39:41.729 12145 TRACE nova     self.handleError(record)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/logging/__init__.py&quot;, line 733, in handleError
+2013-12-06 16:39:41.729 12145 TRACE nova     traceback.print_exception(ei[0], ei[1], ei[2], None, sys.stderr)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/traceback.py&quot;, line 125, in print_exception
+2013-12-06 16:39:41.729 12145 TRACE nova     print_tb(tb, limit, file)
+2013-12-06 16:39:41.729 12145 TRACE nova   File &quot;/usr/lib64/python2.6/traceback.py&quot;, line 57, in print_tb
+2013-12-06 16:39:41.729 12145 TRACE nova     if hasattr(sys, 'tracebacklimit'):
+2013-12-06 16:39:41.729 12145 TRACE nova AttributeError: 'module' object has no attribute 'tracebacklimit'
+2013-12-06 16:39:41.729 12145 TRACE nova
+</code></pre>
+
+<p>tracebacklimit …そりゃそうだ、だってループしてんだもん、そりゃそうだ。</p>
+
+<p>あーあ、終りましたよ、また今年も失敗で終りですよ。何だよ、タイトルを「Glance のかわりに Walrus を使ってみる」じゃなくて「Glance のバックエンドに Walrus を使ってみる」って書いてたら今頃きっと成功ですよ。もうね、世の OpenStacker が「ぐぐー、やっぱ Glance より Walrus かー、ちきしょー」っていう姿を夢見て走ってみたのに、気付いたら明後日の方向にスロットル全開ですよ。</p>
+
+<p>ちっきしょー、s3.py なんて名前でファイルを置いとくから淡い期待を抱いちゃうじゃん、もうね、s3.py じゃなくて ese3.py とかで置いておいてくれたらいいのに。</p>
+
+<p><br/><br/><font size="5" color="#ee2222">クリスマスまであと17日です✌(́◓q◔`)✌</font></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">ツールに頼らないと環境を作れないぐらいに初心者です
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+  			</section>
+
+  			<footer class="post-footer">
+  				<div class="post-tags">
+            
+            
+                <a href="http://blog.osamu.habuka.jp//tags/openstack/">OpenStack</a>
+            
+                <a href="http://blog.osamu.habuka.jp//tags/adventcalendar/">AdventCalendar</a>
+            
+            
+  				</div>
+  				<div class="post-share">
+  					<a class="icon-twitter" href="https://twitter.com/share?text=OpenStack%20Advent%20Calendar%202013%20JP%208%e6%97%a5%e7%9b%ae&url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2013-12-08.AdventCalendar-day-8%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  						<span>Twitter</span>
+  					</a>
+  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2013-12-08.AdventCalendar-day-8%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  						<span>Facebook</span>
+  					</a>
+  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2013-12-08.AdventCalendar-day-8%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+  						<span>Google+</span>
+  					</a>
+  				</div>
+  			</footer>
+
+  			<aside class="post-comments">
+    
+    
+    
+</aside>
+
+
+			</div>
+
+			<nav class="post-nav">
+				
+					<a class="post-nav-item post-nav-next" href="http://blog.osamu.habuka.jp/post/2013-12-14.AdventCalendar-day-14/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">AWS Advent Calendar 2013 14 日目</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				
+					<a class="post-nav-item post-nav-prev" href="http://blog.osamu.habuka.jp/post/2013-12-07.AdventCalendar-day-7/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">Wakame Users Group Advent Calendar 2013 7日目</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				<div class="clear"></div>
+			</nav>
+
+		</div>
+	</article>
+</main>
+
+				<div id="body-class" style="display: none;"></div>
+				<footer id="footer">
+					<section class="credits">
+						<span class="credits-theme">Theme <a href="https://github.com/zenithar/hugo-theme-bleak" target="_blank" rel="nofollow">Bleak</a> by <a href="http://zutrinken.com" target="_blank" rel="nofollow">zutrinken</a></span>
+						<span class="credits-software">Published with <a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a></span>
+					</section>
+				</footer>
+				
+				
+<div id="tocMenu" data-target="toc">
+    <div class="menu-header">
+        <span class="menu-label">Menu</span>
+        <a class="menu-close" data-action="toc" data-target="toc"></a>
+    </div>
+    <div id="toc" class="menu-list">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#碧川涼">碧川涼</a></li>
+<li><a href="#glance-のかわりに-walrus-を使ってみる">Glance のかわりに Walrus を使ってみる</a>
+<ul>
+<li><a href="#openstack-環境の設定">OpenStack 環境の設定</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+
+				<div class="overlay"></div>
+			</div>
+		</section>
+
+    <script>
+      (function(c,f){asyncLoader=function(i,h){i.foreach(function(k,j){e(j,d(j),h)});if(typeof h.callback=="function"){var g=setInterval(function(){if(f.readyState==="complete"){clearInterval(g);h.callback()}},10)}};var d=function(g){var h=g.split(".");return h[h.length-1]},e=function(h,i,g){switch(i){case"js":a(h,g);break;case"css":b(h);break;default:break}},a=function(i,h){var g=document.createElement("script");g.type="text/javascript";g.async=true;g.src=i;document.getElementsByTagName("head")[0].appendChild(g)},b=function(g){var h=document.createElement("link");h.type="text/css";h.rel="stylesheet";h.href=g;document.getElementsByTagName("head")[0].appendChild(h)};Array.prototype.foreach=function(h){for(var g=0;g<this.length;g++){h(g,this[g])}}})(this,document);
+
+      asyncLoader([
+				"/js/dependencies.js",
+				"/css/dependencies.css"
+      ],{
+        callback:function(){
+					asyncLoader([
+						"/css/style.css",
+						"/js/script.js"
+					], {
+						callback: function() {
+							$('body').fadeIn( 800 );
+						}
+					});
+        }
+      });
+
+</script>
+
+
+
+</body>
+</html>
+
