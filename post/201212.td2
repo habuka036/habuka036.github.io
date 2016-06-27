@@ -1,0 +1,1950 @@
+TDIARY2.01.00
+Date: 20121201
+Title: Eucalyptus Advent Calendar 2012 JP 一日目
+Last-Modified: 1372805807
+Visible: true
+Format: Wiki
+
+Walrus だけ使ってみたよ
+
+Eucalyptus Advent Calendar 2012 JP の一日目なので、内容はライトでキャワワな方向で行きます。
+
+いきなり初日からこいつぁ Geek 臭プンプン匂うぜぇ的な内容だと読む人も参加する人もドン引きでしょうから、「Eucalyptus 3.2 の nightly ビルドを入れて Walrus だけ使ってみたぜぇ？」って感じの内容にします。
+
+! 前説
+
+Eucalyptus には AWS の S3 互換機能を提供する Walrus という名のコンポーネントがあります。この Walrus くん、辞書で索くとセイウチのことだそうです。EC2 互換機能およびソフトウェア名が Eucalyptus なのに何でここでいきなり海の生き物なんですかね？全然関連性がないですよね？
+
+「全然関係ない」と言えば、AWS の API 操作ライブラリの boto、この boto ですが、[[Wikipedia|http://en.wikipedia.org/wiki/Boto]] によるとアマゾンカワイルカの別名らしいです。まぁ、ホント全然関係ないですけどね。(ﾉ´*ω*｀)ﾉ
+
+で、この Walrus、S3 互換なので「大規模分散オブジェクトストア」じゃないけど一応「オブジェクトストア」の末席に居まして、ってことは「S3 っぽく使っていいんじゃね？」とムクムクとスケベ心が出てくるわけですよ。やったねホーリーナイト！
+ってことで、「Walrus だけ使ってみるの巻」です。
+
+! パッケージのインストール
+
+じゃーさっそく Walrus のインストール。本当は難しいこと全然ないし、Advent Calendar 向けのポストなので細かいことは省いてサクサク書くつもりだったんですが、ちょいちょいハマる可能性があるので、聖なる紳士淑女のために一応実行したコマンドも書きますね。(あ、ntp のインストールと設定は省きますね)
+
+ ## まずはレポジトリ情報をぶち込みます
+ # rpm -Uvh http://downloads.eucalyptus.com/software/euca2ools/2.1/centos/5/x86_64/euca2ools-release-2.1.noarch.rpm
+ # rpm -Uvh http://downloads.eucalyptus.com/software/eucalyptus/nightly/3.2/centos/5/x86_64/eucalyptus-release-3.2.0.noarch.rpm
+ # rpm -Uvh http://downloads.eucalyptus.com/software/eucalyptus/nightly/3.2/centos/5/x86_64/epel-release-5.noarch.rpm
+ ## で Walrus のパッケージをインストールします。やったねたえちゃん！
+ # yum install eucalyptus-walrus
+ Loaded plugins: fastestmirror, security
+ Loading mirror speeds from cached hostfile
+  * base: ftp.iij.ad.jp
+  * epel: ftp.tsukuba.wide.ad.jp
+  * extras: ftp.iij.ad.jp
+  * updates: ftp.iij.ad.jp
+ http://ftp.tsukuba.wide.ad.jp/Linux/fedora/epel/5/x86_64/repodata/163f5e50189c637abd889887c90b8af108cf2ad1-primary.sqlite.bz2: [Errno 14] HTTP Error 404: Not Found
+ Trying other mirror.
+ http://mirrors.ustc.edu.cn/fedora/epel/5/x86_64/repodata/163f5e50189c637abd889887c90b8af108cf2ad1-primary.sqlite.bz2: [Errno 14] HTTP Error 404: Not Found
+ Trying other mirror.
+ http://mirrors.ispros.com.bd/fedora-epel/5/x86_64/repodata/163f5e50189c637abd889887c90b8af108cf2ad1-primary.sqlite.bz2: [Errno 14] HTTP Error 404: Not Found
+ Trying other mirror.
+ Error: failure: repodata/163f5e50189c637abd889887c90b8af108cf2ad1-primary.sqlite.bz2 from epel: [Errno 256] No more mirrors to try.
+
+はい、いきなりエラーですよ。さすがにこれは予想 GUY！ まぁ、でもこれはエラーが示すとおり epel の問題です。そう、Eucalyptus は悪くない、Eucalyptus はいつだって味方だった。悪いのは大人達～♪
+
+まぁ、ミラーが伝播されていないので直接指定するしかないよね？ってことで、/etc/yum.repos.d/epel.repo の [epel] をちょいちょいと以下のように直します。
+ [epel]
+ name=Extra Packages for Enterprise Linux 5 - $basearch
+ baseurl=http://ftp.osuosl.org/pub/fedora-epel/5/$basearch
+ #mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-5&arch=$basearch
+ failovermethod=priority
+ enabled=1
+ gpgcheck=1
+ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+そして再アターック！ 
+
+再アタックは問題なく進んでツマらんので経過は割愛…と思ったら Eucalyptus のサイトが激重なのか途中で
+ (53/53): eucalyptus-common-java-libs-3.2.0-0 (64%)  5% [=-                                ] 4.1 kB/s | 3.1 MB    208:02 ETA
+ってな素敵な遅さです。'''(☍﹏⁰) ふぇぇ…こんな調子じゃ 12/1 が終っちゃうよぉぉぉ…'''
+
+で本当に Eucalyptus のサイトの所為なのか？と思って別環境で上記のファイルをダウンロードしたら10分ぐらいで落せました。どうやら Eucalyptus のサイトが重いだけじゃないみたい。ということで、別環境で落したこのファイルを /var/cache/yum/eucalyptus-release/packages/eucalyptus-common-java-libs-3.2.0-0.0.370.20121201gita8d7a120.el5.x86_64.rpm に配置して最後の一投。(今度こそ割愛)
+
+で、yum install eucalyptus-walrus でインストールされた主な Eucalyptus パッケージは以下です。
+ eucalyptus-common-java-3.2.0
+ eucalyptus-common-java-libs-3.2.0
+ eucalyptus-admin-tools-3.2.0
+ eucalyptus-walrus-3.2.0
+ eucalyptus-3.2.0
+ python26-eucadmin-3.2.0
+
+あぁ…そうか euca2ools は別に必須じゃないのね。まぁ、使うこともないのでわざわざ入れる必要もないか。ﾊﾅｸｿ( ﾟ┌･･ ﾟ) ﾎｼﾞﾎｼﾞ♪
+
+! DB の初期化
+
+eucalyptus.conf は Walrus 的には不要な(はずな)ので設定せず、おもむろに Walrus の登録をしたいのですが、その前に DB の初期化を行ないます。
+ ## DB の初期化
+ # euca_conf --initialize
+ Initializing a new cloud.  This may take a few minutes.
+
+………
+
+………
+
+………
+
+返ってこない…orz
+
+で、何が起きているのか見てみたく、--debug オプションを指定してみます。
+
+ # euca_conf --debug --initialize
+ Initializing a new cloud.  This may take a few minutes.
+
+…… --debug オプション△…orz
+
+仕方がないので euca_conf --initialize の本丸である /usr/lib/python2.6/site-packages/eucadmin/initialize.py の 74 行目付近を以下のように変更し cmd_string の中身を出力させます。
+         print 'Initializing a new cloud.  This may take a few minutes.'
+         print 'Command: %s' % cmd_string
+         cmd = Command(cmd_string)
+そんで実行すると以下のように実行しているコマンドが出力されます。
+ # euca_conf --debug --initialize
+ Initializing a new cloud.  This may take a few minutes.
+ Command: //usr/sbin/eucalyptus-cloud -u eucalyptus -h / --initialize --log-level=EXTREME -L console
+じゃー、このコマンドを手動で実行してみます。(あぁ、なんか内容がちょっとライトじゃなくなってきた…？)
+
+ # /usr/sbin/eucalyptus-cloud -u eucalyptus -h / --initialize --log-level=EXTREME -L console
+ [error:0300]
+ ulimit: resource=7 soft=1024 hard=1024
+ ulimit: resource=7 soft=65535 hard=65535
+ ulimit: resource=6 soft=16383 hard=16383
+ ulimit: resource=6 soft=-1 hard=-1
+ 2012-12-01 17:43:42  INFO 000000001 SystemBootstrapper       SystemBootstrapper.java:116       | Creating Bootstrapper instance.
+ 2012-12-01 17:43:43  INFO 000000001 root                     Logs.java:184                     | --------------------------------------------------------------------------------
+                                                                                                | Starting system with debugging set as: EXTREME
+                                                                                                | --------------------------------------------------------------------------------
+ 2012-12-01 17:43:43  INFO 000000001 Internets                Internets.java:122                | Trying to determine local bind address based on cli (--bind-addr)...
+ 2012-12-01 17:43:43  INFO 000000001 Internets                Internets.java:127                | Trying to determine local bind address based on the default route...
+ 2012-12-01 17:43:44  INFO 000000001 Internets                Internets.java:134                | ==> Decided to use local bind address: /180.235.254.76
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] HOME:/
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] VAR://var/lib/eucalyptus
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] CONF://etc/eucalyptus/cloud.d
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] LIB://usr/share/eucalyptus
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] LOG://var/log/eucalyptus
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] RUN://var/run/eucalyptus
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] LIBEXEC://usr/lib/eucalyptus
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] STATE://var/lib/eucalyptus
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] JNI://usr/lib/eucalyptus
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] SYSFAULTS://usr/share/eucalyptus/faults
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/common.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1002.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1001.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1004.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/2002.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1010.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1005.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1008.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1003.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/1009.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/2001.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US/2000.xml': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults/en_US': Operation not permitted
+ chown: changing ownership of `//usr/share/eucalyptus/faults': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/common.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1002.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1001.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1004.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/2002.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1010.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1005.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1008.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1003.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/1009.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/2001.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US/2000.xml': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults/en_US': Operation not permitted
+ chgrp: changing group of `//usr/share/eucalyptus/faults': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/common.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1002.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1001.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1004.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/2002.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1010.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1005.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1008.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1003.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/1009.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/2001.xml': Operation not permitted
+ chmod: changing permissions of `//usr/share/eucalyptus/faults/en_US/2000.xml': Operation not permitted
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] CUSTOMFAULTS:///etc/eucalyptus/faults
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] DB://var/lib/eucalyptus/db
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] BACKUPS://var/lib/eucalyptus/backups
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] TX://var/run/eucalyptus//tx
+ 2012-12-01 17:43:46  INFO 000000001 DirectoryBootstrapper    BaseRecord.java:173               | bootstrap  SYSTEM_DIR_CHECK :   [NativeMethodAccessorImpl.invoke0.-2] CLASSCACHE://var/run/eucalyptus//classcache
+
+うーん、chown,chgrp,chmod が失敗している部分は本筋に関係なさそうだけど、コンソールにはこの先の出力が流れない…。
+
+ # ps auxwww | grep -i [e]uca
+ root      5085  0.0  0.0  10168   764 pts/0    S+   17:43   0:00 eucalyptus-cloud -u eucalyptus -h / --initialize --log-level=EXTREME -L console
+ 101       5088  2.1  4.9 1590584 101688 pts/0  Sl   17:43   0:05 eucalyptus-cloud -u eucalyptus -h / --initialize --log-level=EXTREME -L console
+ 101       5140  0.0  0.0  61112   884 pts/0    S    17:43   0:00 chown -R eucalyptus //var/run/eucalyptus//classcache
+
+chown -R eucalyptus //var/run/eucalyptus//classcache がそんなに時間のかかる処理に思えないんだけど…何で返ってこないんだろう？不思議。っていうか /var/run/eucalyptus/classcache/ 配下の所有権が root:root なんだけど、/usr/lib/eucalyptus/euca_rootwrap 使わずに chown とかしても駄目じゃん…orz 
+もうこれ Walrus がどうのこうのっていう話じゃないよなぁ…。
+
+で考えるのが嫌んなっちゃうので、とりあえず手動で (ぉぃ
+ # chown -R eucalyptus //var/run/eucalyptus//classcache
+ # euca_conf --initialize
+ Initializing a new cloud.  This may take a few minutes.
+ Command: //usr/sbin/eucalyptus-cloud -u eucalyptus -h / --initialize
+ Initialize command failed
+はい、もう嫌… T^T
+
+ちょっと出力が長すぎるので省略するけど、つまりは pg_ctl が無いって言ってます。
+
+ 2012-12-01 18:13:48 DEBUG 000000001 Groovyness               Groovyness.java:161               | javax.script.ScriptException: javax.script.ScriptException: java.io.IOException: Cannot run program "/usr/pgsql-9.1/bin/pg_ctl": java.io.IOException: error=2, No such file or directory
+ javax.script.ScriptException: javax.script.ScriptException: java.io.IOException: Cannot run program "/usr/pgsql-9.1/bin/pg_ctl": java.io.IOException: error=2, No such file or directory
+
+うーん、やっぱ eucalyptus-cloud をインストールしないと色々とハマるんだなぁ…。でも、ここで日和って eucalyptus-cloud をインストールしたんじゃぁご先祖様に申し訳ねぇ…ってことで pg_ctl を入れます。(妻が「ねぇ、晩御飯いつになったら行けるの？」って言ってますけど、きっと「あなた頑張って(はぁと)」っていう意味だと思います)
+
+で、よくよく確認したら postgresql-server が入ってなかったのでインストールします。(はぁと)
+ # yum install postgresql91-server
+
+そしてもう一度 euca_conf --initialize を実行。実行……したけど終らない…。終らなすぎて、妻が先にご飯を食べて風呂を沸かして入っちゃうという事案が発生。|壁|ヽ(;*´ω｀)ゞ 
+
+まぁ、しょうがないのでログを見ますよハイハイ。
+ # tail -F /var/log/eucalyptus/cloud-debug.log |grep -i error
+ Sat Dec 1 19:01:00 2012 ERROR [ComponentDiscovery:main] [com.eucalyptus.component.ComponentDiscovery.processClass(ComponentDiscovery.java):83] java.lang.reflect.UndeclaredThrowableException
+ Sat Dec 1 19:01:00 2012  INFO [ComponentDiscovery:main] [com.eucalyptus.component.ComponentDiscovery.processClass(ComponentDiscovery.java):84] Error occurred while trying to register ComponentId of type: null
+ Sat Dec 1 19:01:05 2012 ERROR [setup_db:main] [sun.reflect.NativeMethodAccessorImpl.invoke0(?):?] Insufficient operating system resources! The available number of semaphore identifiers is too low (semmni < 1536)
+ Sat Dec 1 19:01:17 2012 ERROR [setup_db:main] [sun.reflect.NativeMethodAccessorImpl.invoke0(?):?] java.lang.Exception: Unable to start the postgres database
+ Sat Dec 1 19:01:17 2012 ERROR [Databases:main] [com.eucalyptus.bootstrap.Databases$ScriptedDbBootstrapper.init(Databases.java):988] java.lang.Exception: Unable to start the postgres database
+ Sat Dec 1 19:01:36 2012 ERROR [Bootstrap:main] [sun.reflect.NativeMethodAccessorImpl.invoke0(?):?] javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+ Sat Dec 1 19:01:47 2012 ERROR [ComponentDiscovery:main] [com.eucalyptus.component.ComponentDiscovery.processClass(ComponentDiscovery.java):83] java.lang.reflect.UndeclaredThrowableException
+ Sat Dec 1 19:01:47 2012  INFO [ComponentDiscovery:main] [com.eucalyptus.component.ComponentDiscovery.processClass(ComponentDiscovery.java):84] Error occurred while trying to register ComponentId of type: null
+ Sat Dec 1 19:01:50 2012 ERROR [setup_db:main] [sun.reflect.NativeMethodAccessorImpl.invoke0(?):?] Insufficient operating system resources! The available number of semaphore identifiers is too low (semmni < 1536)
+ Sat Dec 1 19:01:51 2012 ERROR [setup_db:main] [sun.reflect.NativeMethodAccessorImpl.invoke0(?):?] java.lang.Exception: Unable to initialize the postgres database
+ Sat Dec 1 19:01:51 2012 ERROR [Databases:main] [com.eucalyptus.bootstrap.Databases$ScriptedDbBootstrapper.init(Databases.java):988] java.lang.Exception: Unable to initialize the postgres database
+ Sat Dec 1 19:02:08 2012 ERROR [Bootstrap:main] [sun.reflect.NativeMethodAccessorImpl.invoke0(?):?] javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Cannot open connection
+え………、エラーで処理がループしてますやん…。;゜・(ﾟεﾟ【壁
+
+でエラー見たら '''The available number of semaphore identifiers is too low (semmni < 1536)''' ……あぁ、ごめん、確かにリソースのこと確認し忘れてた。だって 2.0.3 まではメモリ 2GB な環境でも動いてたんだもんだもん…T&T
+
+本当はここはサラっと通りすぎて、このあとは以下のような手順でこの日記を進める予定でした
+# Walrus のサービスを service eucalyptus-cloud start で起動
+# Walrus を登録 (euca_conf --register-walrus) しようとするけどそもそも CLC が居ないので登録先がない…orz
+# (やっぱり eucalyptus-cloud のインストールは必要) eucalyptus-cloud のインストール
+# あらためて euca_conf --register-walrus を実行
+# ユーザ登録とかをして完成 (｀・д・´)ゝ
+
+が、残念ながら私が環境要件の確認を怠ったせいでそれ以前でコケました…。
+
+{{'<font size="5em">'}}教訓: Eucalyptus を動かすための最低限のスペックは確認してね☆（๑ゝω・๑）vキャピ{{'</font>'}}
+
+""Each machine in your network needs a minimum of 4 GB RAM. However, we recommend more RAM for improved caching.
+
+参考つ [[Storage and Memory Requirements|http://www.eucalyptus.com/docs/3.1/ig/system_requirements.html]]
+
+.
+Date: 20121203
+Title: Eucalyptus Advent Calendar 2012 JP 三日目
+Last-Modified: 1376386011
+Visible: true
+Format: Wiki
+
+Euca Monkey を使ってみたよ？
+
+さて、Eucalyptus Advent Calendar 2012 JP の三日目です。初日がどうやら一部で「うわっ飛ばしすぎじゃね？」とか心配されたようなので、3日目は大人し目にいきたいと思います。
+
+で、「大人し目って何だ？」って考えてみたんですが、大人しい == ドタバタしない系だと思い、つまり何か仕掛けたら放置プレイでいいんじゃね？となるようなものをターゲットにしようってことになり、協議の結果 [[Euca Monkey|https://github.com/eucalyptus/euca-monkey]] を扱おうという結論に達しました。で、この Euca Monkey ってのは Eucalyptus のストレステストツールでして、README とかを読んでると [[Eutester|https://github.com/eucalyptus/eutester]] っていうテストフレームワークを使うそうです。でもここでいきなりこのテストフレームワークの使い方を説明しだすと、また皆さんを置いてけぼりな展開になるので、ここはぐっと我慢して Euca Monkey を使う方法に徹します。
+
+ちなみに Euca Monkey の作者は Eucalyptus 社のソフトウェアデザイナ の Kyo Lee さんで、詳しくは[[彼のブログ|http://eucatest.wordpress.com/2012/11/07/10-steps-to-euca-monkey/]]で紹介されています。
+
+! 環境の準備
+
+で、何はともあれ Eucalyptus の環境を作らないと話ははじまらないんですが、[[初日のときみたい|http://036.habuka.jp/?date=20121201]]に nightly build に手をだして本筋から外れるのも何なので、今回は日和って Eucalyptus 3.1 の環境でやります。ステーブルサイコー！
+
+ちなみに Eucalyptus 3.1 の環境の作り方は OSPN Press の[[「オープンソース」を使ってみよう (第26回 dodai-deploy編)|http://www.ospn.jp/press/20121108no29-1-useit-oss.html]]を参考にしてください。
+
+あぁ、一応聖なる紳士淑女のために説明をしますが、ちゃんとメモリを 16GB も積んだマシン2台構成で1台はフロントエンド (CLC/CC) で、もう1台はノードとしました。で、CLC/CC の eucalyptus.conf は以下のように変更しています。
+
+<<<
+# diff -u eucalyptus.conf.orig eucalyptus.conf
+--- eucalyptus.conf.orig        2012-09-27 08:17:29.000000000 +0900
++++ eucalyptus.conf     2012-12-03 02:12:05.000000000 +0900
+@@ -154,13 +154,13 @@
+ # The networking mode in which to run.  The same mode must be specified
+ # on all CCs and NCs in the entire cloud.  Valid values include SYSTEM,
+ # STATIC, MANAGED, and MANAGED-NOVLAN.
+-VNET_MODE="SYSTEM"
++VNET_MODE="MANAGED"
+
+ # The name of the network interface that is on the same network as
+ # the NCs.  In Managed and Managed (No VLAN) modes this may need to be
+ # a bridge.  The default is "eth0".
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-VNET_PRIVINTERFACE="eth0"
++VNET_PRIVINTERFACE="eth1"
+
+ # On a CC, this is the name of the network interface that is connected
+ # to the "public" network.  The default is "eth0".
+@@ -188,22 +188,22 @@
+ # A space-separated list of individual and/or hyphenated ranges of public
+ # IP addresses to assign to instances.
+ # Networking modes: Managed, Managed (No VLAN)
+-#VNET_PUBLICIPS="your-free-public-ip-1 your-free-public-ip-2 ..."
++VNET_PUBLICIPS="192.168.33.110-192.168.33.250"
+
+ # The address and network mask of the network the cloud should use for
+ # instances' private IP addresses.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-#VNET_SUBNET="192.168.0.0"
+-#VNET_NETMASK="255.255.0.0"
++VNET_SUBNET="10.0.0.0"
++VNET_NETMASK="255.0.0.0"
+
+ # The number of IP addresses to allocate to each security group.
+ # Specify a power of 2 between 16 and 2048.
+ # Networking modes: Managed, Managed (No VLAN)
+-#VNET_ADDRSPERNET="32"
++VNET_ADDRSPERNET="2048"
+
+ # The address of the DNS server to supply to instances in DHCP responses.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-#VNET_DNS="your-dns-server-ip"
++VNET_DNS="192.168.32.21"
+
+ # The network broadcast address and default gateway to supply to instances
+ # in DHCP responses.
+>>>
+
+で、NC の eucalyptus.conf は以下のように変更しました。
+<<<
+# diff -u eucalyptus.conf.orig eucalyptus.conf
+--- eucalyptus.conf.orig        2012-09-27 08:17:29.000000000 +0900
++++ eucalyptus.conf     2012-12-03 02:12:24.000000000 +0900
+@@ -88,10 +88,10 @@
+ # KVM hypervisor.
+
+ # If "1", use Virtio for the root file system
+-USE_VIRTIO_ROOT="0"
++USE_VIRTIO_ROOT="1"
+
+ # If "1", use Virtio for dynamic block volumes
+-USE_VIRTIO_DISK="0"
++USE_VIRTIO_DISK="1"
+
+ # If "1", use Virtio for the network card
+ USE_VIRTIO_NET="0"
+@@ -154,7 +154,7 @@
+ # The networking mode in which to run.  The same mode must be specified
+ # on all CCs and NCs in the entire cloud.  Valid values include SYSTEM,
+ # STATIC, MANAGED, and MANAGED-NOVLAN.
+-VNET_MODE="SYSTEM"
++VNET_MODE="MANAGED"
+
+ # The name of the network interface that is on the same network as
+ # the NCs.  In Managed and Managed (No VLAN) modes this may need to be
+@@ -171,13 +171,13 @@
+ # configuration, this may be a bridge or a physical interface that is
+ # attached to the bridge.  The default is "eth0".
+ # Networking modes: Managed
+-VNET_PUBINTERFACE="eth0"
++VNET_PUBINTERFACE="eth1"
+
+ # On an NC, this is the name of the bridge interface to which instances'
+ # network interfaces should attach.  A physical interface that can reach
+ # the CC must be attached to this bridge.
+ # Networking modes: System, Static, Managed (No VLAN)
+-VNET_BRIDGE="br0"
++VNET_BRIDGE="br1"
+
+ # A map of MAC addresses to IP addresses that Eucalyptus should allocate
+ # to instances when running in Static mode.  Separate MAC addresses and
+>>>
+
+!! マシンイメージの準備
+
+Euca Monkey を動かすには何故か CentOS 6.3 の環境が必要だそうです。ちなみに物理でも仮想でもいいようなので、インスタンス上でやろうと思うんですが、マシンイメージを用意するのがメンドーだなーっていうあなたのために
+
+{{'<font size="5">'}}「ハイ、http://emis.eucalyptus.com/ 」。{{'</font>'}}
+
+え？そこはマシンイメージ工房じゃないの？って思われるかもしれませんが、残念ながら CentOS 6.3 のイメージは用意してませんので、Eucalyptus 社が配布しているイメージを使います。
+
+で、マシンイメージの取得は、
+# eustore-describe-images コマンドで一覧を取得し
+# eustore-install-image コマンドでインストールする
+という簡単なコマンドと手順で実現できるため、まずは eustore-describe-images コマンドを叩きます。(カチャカチャカチャ…ッターン！)
+
+<<<
+# eustore-describe-images
+Traceback (most recent call last):
+  File "/usr/bin/eustore-describe-images", line 36, in <module>
+    import euca2ools.commands.eustore.describeimages
+ImportError: No module named eustore.describeimages
+>>>
+
+さぁ、はじまりました。これだから使い慣れないディストリビューションで Eucalyptus 動かすの嫌なんだよなー。(完全に責任転嫁)
+
+でとりあえず euca2ools のバージョンを確認です。
+<<<
+# dpkg -l | grep euca2ools
+ii  euca2ools                             2.0.0~bzr516-0ubuntu3          managing cloud instances for Eucalyptus
+>>>
+
+あー、これは無理だわー、eustore-describe-images コマンドは euca2ools 2.1 からだわー。しょーがないから便利コマンドは諦めて [[CentOS 6.3 のイメージファイル|http://emis.eucalyptus.com/starter-emis/euca-centos6.3-2012.11.07-x86_64.tgz]]を直接取得して手動で登録します。
+
+で、取得したら以下の''ように''登録します。
+<<<
+# tar -xzf euca-centos6.3-2012.11.07-x86_64.tgz
+# cd centos-6.3-x86_64/
+# euca-bundle-image --kernel true -i kvm-kernel/vmlinuz-2.6.32-279.14.1.el6.x86_64
+# euca-upload-bundle -b kernel.001 -m /tmp/vmlinuz-2.6.32-279.14.1.el6.x86_64.manifest.xml
+# euca-register -a x86_64 kernel.001/vmlinuz-2.6.32-279.14.1.el6.x86_64.manifest.xml
+IMAGE   eki-945F390D
+
+# euca-bundle-image --ramdisk true -i kvm-kernel/initrd-2.6.32-279.14.1.el6.x86_64.img
+# euca-upload-bundle -b ramdisk.001 -m /tmp/initrd-2.6.32-279.14.1.el6.x86_64.img.manifest.xml
+# euca-register -a x86_64 ramdisk.001/initrd-2.6.32-279.14.1.el6.x86_64.img.manifest.xml
+IMAGE   eri-31F837E3
+
+# euca-bundle-image --kernel eki-945F390D --ramdisk eri-31F837E3 -i centos-6.3-x86_64.img
+# euca-upload-bundle -b machine.001 -m /tmp/centos-6.3-x86_64.img.manifest.xml
+# euca-register -a x86_64 machine.001/centos-6.3-x86_64.img.manifest.xml
+IMAGE   emi-69183D43
+>>>
+でテキトーに起動してログインします。
+
+! Euca Monkey のインストール
+
+Kyo Lee さんのブログや README によれば「10ステップでインストールできるぜ」と言ってますので、以下の10ステップを実行します。
+
+!!ステップ 1
+
+git のインストール
+
+<<<
+# yum -y install git
+>>>
+
+!!ステップ 2
+
+github から euca-monkey のソースを取得
+
+<<<
+git clone https://github.com/eucalyptus/euca-monkey.git
+>>>
+
+!!ステップ 3
+
+ディレクトリ euca-monkey/ 配下に移動
+
+<<<
+cd ./euca-monkey
+>>>
+
+!!ステップ 4
+
+cloud-resource-populator のインストーラを実行
+
+<<<
+../installer-cloud-resource-populator.py
+>>>
+
+で、スクリプトの実行が終ると4ステップの手順が示されるけどガン無視して次に進みます。
+
+!!ステップ 5
+
+euca-monkey-webservice のインストーラを実行 (いまさらだけど、HTTP proxy 配下の環境で実行している人は yum にちゃんと proxy の設定してネ)。
+
+<<<
+../installer-euca-monkey-webservice.py
+>>>
+
+!!ステップ 6
+
+{{image 0, 'Euca Monkey の初期画面', 2, [309,190]}}
+
+
+Euca Monkey のページ (http://インスタンスのIP/euca-monkey.php) にブラウザでアクセスして、ちゃんと動いているか確認
+
+あ、ちなみに事前にセキュリティグループの 80/tcp は開けといてね。あとインスタンス上でファイアウォールが有効になっている場合は system-config-firewall-tui コマンドとかで適宜 80/tcp を開けてね。
+
+!!ステップ 7
+
+ディレクトリ launch_euca_monkey/ 配下に移動
+
+cd ./launch_euca_monkey/
+
+!!ステップ 8
+
+../conf/ ディレクトリ配下にある Euca Monkey の設定ファイル 2b_tested.lst と generator.ini を適宜変更します。
+
+私の環境では以下の内容
+
+* ./conf/2b_tested.lst
+<<<
+192.168.33.102  UBUNTU  12.04   64      REPO    [UI CC00 CLC SC00 WS]
+192.168.33.101  UBUNTU  12.04   64      REPO    [NC00]
+>>>
+
+* ./conf/generator.ini
+<<<
+### RESOURCE GENERATOR PARAMETERS
+
+[USER INFO]
+account: cloud-user-test-acct-00
+user: cloud-user-00
+password: mypassword00
+
+[RESOURCES]
+running instances: 2
+volumes:  2
+snapshots: 1
+security groups: 3
+keypairs: 5
+ip addresses: 2
+
+[ITERATIONS]
+iterations: 10
+>>>
+
+本当は RESOURCES や ITERATIONS の値を大きくしたいんですが、このあと OpenStack Advent Calendar のネタも書かなきゃならないので、日和って小さくしました。(この時点で 12/03 19:10 ...\(^o^)/)
+
+!!ステップ 9
+
+Euca Monkey を起動
+
+<<<
+../launch-euca-monkey.py
+>>>
+
+実行すると画面にポロポロっと下拵えの様子が出力されて、準備が完了すると
+
+<<<
+===== LAUNCH EUCA MONKEY : DONE =====
+>>>
+
+って出力されます。あとは裏でバリバリっと動くのです。
+
+!!ステップ 10
+
+{{image 1, '期待のグラフががががが…？', 3, [355,244]}}
+
+で、コンソールを眺めてても何も起きません。そりゃそうです、実行結果はブラウザでステップ 6 でアクセスした場所を表示し、画面上部の [Refresh] ボタンをクリックして画面を更新します。するとモリモリ………って、あれ？画面左側の INPUT GRAPH しか描画されないお…(´・ω・`)
+
+
+Euca Monkey のテストのログを見ると INPUT 側のログには
+<<<
+2012-12-03:20:07:20     cloud-user-test-acct-00 admin   intellilink     2       2       1       3       5       2
+2012-12-03:20:07:25     cloud-user-test-acct-00 admin   intellilink     0       0       0       0       0       0
+(省略)
+>>>
+って吐かれてるのに、一方の結果のログには
+<<<
+2012-12-03:20:07:23     cloud-user-test-acct-00 admin   intellilink     -1      -1      -1      -1      -1      -1
+2012-12-03:20:07:27     cloud-user-test-acct-00 admin   intellilink     -1      -1      -1      -1      -1      -1
+>>>
+って吐かれてる…。どうみてもこれ失敗してるよなぁ。。。
+
+で、ここで今更気付くのが羽深クオリティなんですが、そーいや Kyo Lee さんのブログのポスト見ると Eucalyptus 3.2 で実装されてる UI が写ってる…。もしかして Euca Monkey って 3.1 じゃ動かない？ (そんな記述は見当たらないんだけどなぁ。。。)
+
+ということで、Kyo Lee さんに質問し、今日はここまで。(12/01 のエントリに引き続き、こんなんばっか… T^T)
+
+----
+
+! OpenStack を徹底的にイジメ抜く、許さない、絶対
+
+Euca Monkey で消化不良な結末を迎えたので、思わず OpenStack Advent Calendar のことを忘れて今日を終えるところでした…。
+
+さて、気持ちを切り替えて頑張ります。
+
+えーと、タイトルは強気ですが、ぶっちゃけアタクシ OpenStack 初心者なのです (一部の人達には誤解されていますが…)。なので、初心者は初心者らしく、[[dodai-deploy を使って環境を作成|http://www.ospn.jp/press/20121108no29-1-useit-oss.html]]します。
+
+そしてこれは「ネタ」なので、書いてあることに対してスルー力が必要です。むしろこの日記自体をスルーしてくれると個人的には助かります。( ´_ゝ｀)
+
+… … …
+
+… … …
+
+… … …
+
+(…3時間経過…)
+
+… … …
+
+… … …
+
+… … …
+
+OpenStack を泣かす前に自分が泣きそうな状況になりましたよ。ツールに頼ってばかりではいけませんね… T&T
+
+{{'<font size="5">'}}教訓： (またこのパターンかよ…) OpenStack ぐらい手動で構築できるようにならないとダメです。{{'</font>'}}
+
+! glance を泣かしてみる
+
+何度も言いますが本当に OpenStack 初心者なので、OpenStacker 的には当然なことも僕にはワカラナイので「オイオイ、そんな使い方はねーだろーよ？」ってことをやっちゃってるかもしれません。
+
+Eucalyptus だろうが OpenStack だろうが、まずはマシンイメージを登録しないことには始まりません。なので華麗にマシンイメージを登録してみたいと思います。
+
+ちなみに、世の中的には glance にマシンイメージを追加するときは glance コマンドを使うようですが、僕は Eucalyptoid なので glance コマンドの使い方を知りません。なので意地でも euca2ools でイメージを登録してます。で、Horizon さんは素敵な方なので EC2 認証情報の zip ファイルをダウンロードさせてくれるのですが、その中にある ec2rc.sh の中には S3_URL に関する記述がないんです、何でだろう？僕の設定が悪いんですよねきっと、はい。
+
+まぁ、なので毎回以下のように環境にあわせて設定してます。
+
+<<<
+S3_URL=http://192.168.33.101:3333
+>>>
+
+で、早速、おまちかねのイメージ登録です。ただし、普通に登録したのではツマラナイので、以下のスクリプトを用意し、1つのイメージを並列で登録してみました。
+
+<<<
+#!/bin/bash -x
+
+WD=$(basename `pwd`)
+KERNEL_IMG=`ls kernel-*`
+RAMDISK_IMG=`ls initramfs-*`
+MACHINE_IMG=`ls ${WD}.img`
+BUCKET=`date +'%Y%m%d-%H%M%S'`
+
+echo ${KERNEL_IMG}
+echo ${RAMDISK_IMG}
+echo ${MACHINE_IMG}
+
+mkdir -p /mnt/tmp-${BUCKET}
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${KERNEL_IMG} --kernel true
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${KERNEL_IMG}.manifest.xml
+EKI=`euca-register ${BUCKET}/${KERNEL_IMG}.manifest.xml | gawk '{print $2}'`
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${RAMDISK_IMG} --ramdisk true
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${RAMDISK_IMG}.manifest.xml
+ERI=`euca-register ${BUCKET}/${RAMDISK_IMG}.manifest.xml | gawk '{print $2}'`
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${MACHINE_IMG} --kernel ${EKI} --ramdisk ${ERI}
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${MACHINE_IMG}.manifest.xml
+euca-register --architecture x86_64 ${BUCKET}/${MACHINE_IMG}.manifest.xml
+>>>
+
+で、このスクリプトを6並列実行したところで、えーと、何ていいましょう、まぁ、普通ありえないとは思うのですが、私の環境はちょっと特殊でして、まぁ、以下を見てください。
+
+<<<
+# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       9.2G  3.5G  5.3G  40% /
+udev            7.8G  4.0K  7.8G   1% /dev
+tmpfs           3.2G  280K  3.2G   1% /run
+none            5.0M     0  5.0M   0% /run/lock
+none            7.8G     0  7.8G   0% /run/shm
+cgroup          7.8G     0  7.8G   0% /sys/fs/cgroup
+/dev/sda5       445G   13G  410G   4% /mnt
+>>>
+
+まぁ、聡明な OpenStacker の皆さんならばきっとこれを見て '''m9(^Д^)''' ってなっていると思います。そう、実は /dev/sda5 にはいくつかディレクトリを用意しておいて、それらを /var/lib/glance/ や /tmp/ に bind マウントして今回のスクリプトを実行して
+
+{{'<font size="4">'}}'''いえ～ぃ、glance{{fn "同僚から「節子、何叩いとるんや！これ nova-objectstore やろ。glance ちゃうやんか！！」とツッコまれました(；´Д`A"}} ジャイアントロック～www'''{{'</font>'}}
+
+って笑う予定でした。ところがそのマウント行為をすっかり忘れてしまい、当然ながらディスクフルを起してしまい、glance も nova-objectsoter も動作がおかしくなり、おまけに「やべー、12/03 の Advent Calendarに穴あけちゃうよー」って思って慌てて環境を掃除して再起動してみましたが、刻すでに遅し
+
+/var/log/nova-api.log を見ると
+
+<<<
+2012-12-03 23:10:42 ERROR nova.api.openstack [req-7f54c557-1f6c-42f2-aa74-dd6ff5fd26b9 aac09b12b22d4f1b85bd8339d6688a43 f045
+25346fd94c19a2a098212b93c5e6] Caught error: (OperationalError) (2003, "Can't connect to MySQL server on '192.168.33.101' (11
+1)") None None
+>>>
+
+なんて素敵なエラーが吐かれています。mysql の DB が壊れてしまったんでしょうか？もうこの時点で 12/03 の終りが目前なのでそろそろオチを探さないとイケないのですが、まぁ、Twitter で事前にツブやいていたように
+
+{{'<font size="5" color="#ff2222">'}}OpenStack に徹底的にイジメられる、許して、マジで{{'</font>'}}
+
+という結果になりました。ホント OpenStack コワイです。はい。
+
+終り。
+
+(ちなみに glance に euca2ools で同時にイメージを登録するとジャイアントロックされるのって diablo までですかね？もうとっくに並列処理可能になってます？)
+
+.
+Date: 20121204
+Title: Eucalyptus Advent Calendar 2012 JP 四日目
+Last-Modified: 1369076729
+Visible: true
+Format: Wiki
+
+また枯らしちゃった
+
+えーと、Eucalyptus Advent Calendar 2012 JP 4日目です。今日は我が家の Eucalyptus の話です。
+
+とは言っても、我が家は現在 hp compaq t5000 という i686 なシンクライアントを無理矢理ファイルサーバとして使っているだけの寂しい環境になってしまい、Eucalyptus をインストールできるマシンは冬眠中なのです。
+
+なので、植物の Eucalyptus についてです。(決してネタが尽きたわけじゃないんです、どうしても今日じゃないとこの話が活きないのです…T&T)
+
+! 初代グニー
+
+えーと、うちの妻が戸越銀座や武蔵小山でお買い物していたときに Eucalyptus Gunnii の小鉢を発見し、買ってきてくれました。この子が我が家に来るほんのちょっと前に──写真の背景にも写っていますが──ぷたとす～が羽深妻画伯の手によって産まれました。
+
+で、この Gunnii ですが、結構強いと聞いたのですが我が家の放置プレイ気味な育て方が駄目だったらしく、途中で元気が無くなったりうどん粉病っぽい感じで葉っぱが白く粉を吹いた状態になり、最終的には葉が硬くなり枯れてしまいました。
+
+{{image 0, '画像の説明', 2, [240,320]}}
+
+! 二代目グニー
+
+で、しばらくしてから今年の夏にまた Gunnii に巡り会うことができ、妻に買ってきてもらって再挑戦したのですが、現在、また葉っぱが硬くなり、どうやら枯れてきてしまいました…。ということで、導入するのは簡単なのですが、ちゃんと運用しようとすると面倒を観ないと駄目なのはクラウドも植物も同じようです…。ごめんね、グニー ｡ﾟ(ﾟ´Д｀ﾟ)゜｡ 
+
+{{image 1, '画像の説明', 3, [240,320]}}
+
+.
+Date: 20121209
+Title: Eucalyptus Advent Calendar 2012 JP 九日目
+Last-Modified: 1372851075
+Visible: true
+Format: Wiki
+
+ヨウ化銀？違うよ silvereye だよ
+
+え～と「何の話さ？」と思われるかもしれませんが、今日は [[silvereye|https://github.com/eucalyptus/silvereye]] というプロジェクトおよびツール？について紹介します。
+
+! 無駄話的な前説
+
+で、野鳥友の会のかたならばご存知かと思いますが、この silvereye は日本語ではハイムネメジロという名前の鳥のことを示します。写真で見るとカワイイ眼をしてますが、残念ながら私は直接見たことも撮影したこともないので、ここでは写真をお見せできませんので、皆さん各自でググってください。で、このハイムネメジロちゃんはオーストラリアとニュージーランドにおられるようですが、日本名があるってことは日本にも在住しているのかな？かな？
+
+本題に戻しますね。この silvereye は物理マシンに Eucalyptus をインストールするインストーラです。iso ファイルをダウンロードして DVD に焼くか、もしくはスクリプト「iso-to-usb.sh」を使って USB メモリに焼いて、物理マシンをそこから起動すると CentOS 6.3 のインストーラをカスタマイズした silvereye インストーラが起動します。
+CentOS ラブっ子ならば 90% は何も考えずに使えるという優れものです。CentOS に詳しくない人でも RHEL ラブっ子ならば 89% は何も考えずに使えます。もちろん、CentOS や RHEL に詳しくなくても Scientific Linux ラブっ…ごめんなさい、しつこいですね。
+
+まぁ、僕の駄文なんて読みたくも嗅ぎたくもないっていう紳士淑女はさっさと [[silvereye の ISO ファイル|http://downloads.eucalyptus.com/software/faststart/3.2-testing/silvereye-3.2-beta-20121205.iso]] をダウンロードして DVD なり USB メモリにバーニングして起動してみたらいいんじゃないでしょうか？ あぁ、そうそう、この日記を書いている時点ではまだβ版なので覚悟してね。ふふふっ。
+
+さぁ、以下はとてもとても退屈なスクリーンショットによる懇切丁寧極まりない愚直な説明です。目ん玉見開いて見開きすぎてこぼれ落ちて silvereye どころじゃなくなるほど刮目しちゃってくださいよ。ちなみに以下は1つのマシンに全てのコンポーネントをインストールする場合の説明です。それ意外のインストールパターンはクラウド Watch での私の連載「ユーカリプタス入門」で扱う予定です。え？あぁ、そうですね、大人ってそーゆーもんですよ。うんうん。
+
+! silvereye を使ったインストール
+
+!!起動画面
+{{image_right 0, '起動画面をパチリ', 1, [320,255]}}
+
+DVD なり USB メモリで起動したら grub の画面が表示されるので「Install CentOS 6 with Eucalyptus Cloud-in-a-box」を選択します。「Install a minimal CentOS 6 without Eucalyptus」は選んでもいいですが、Eucalyptus はインストールされません。どうしてもそれを選びたい人は CentOS 6 のインストーラを使ったらいいよ。っていうか、そんな人はこんな日記読んでいる場合じゃないですよ？大丈夫？心配になっちゃうよ。
+
+{{'<br/><br/><br/><br/><br/><br/><br/>'}}
+
+!! メディアチェック
+{{image_right 2, 'メディアチェック選択画面をパチリ', 3, [320,255]}}
+
+で、起動するとオキマリのメディアのチェックをするか否かのダイアログが出ます。デフォルトで選択肢 [OK] にフォーカスがあたってて、若干殺意が芽生えることこのうえないですが、そこは華麗に [Skip] を選択します。いや、まぁ、[OK] を選択してもいいですが、僕はそんなあなたを待っていられるほど人間が出来ていないので、置いていきますよ？
+
+{{'<br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!インストーラ初期画面
+{{image_right 4, 'インストーラ初期画面をパチリ', 5, [320,252]}}
+
+そーすると画面にグラフィカルなインストーラが起動します。"Ag I" とか書いてあるので何かと思ってググったら「ヨウ化銀」なんですね、ヨウ化銀？何それ？って思った知リタガリーノな諸兄に説明しますが、どうやら写真の感光剤や人工降雨に使われるらしいです。( ´_ゝ`) フーン。ちなみに、おそらくヨウ化銀は関係なくてもしかして "silvereye == Silver I" とかけた駄洒落なんじゃないでしょうかね？ぷぷぷっ。
+
+{{'<br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!インストーラの言語選択
+{{image_right 6, 'インストーラの言語選択画面をパチリ', 7, [320,241]}}
+
+好きな言語を選んでくださいね。僕は今回英語を選びましたが、決して英語が読めるわけではありません。見栄をはらずに日本語を選んだほうがよかった…orz
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!これはベータ版だよ？的な？
+{{image_right 8, 'β版における注意画面をパチリ', 9, [320,257]}}
+
+「俺は警告するぜ、これは最終版じゃねーし、製品レベルのもんでもねぇぜ」的なことを言われますが、人柱たるものひるんではいけません、迷わず行けよ、行けばわかるさ。
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!NIC の設定
+{{image_right 10, 'NIC の設定画面をパチリ', 11, [320,256]}}
+このマシンと他者が通信するための NIC の設定をします。スクリーンショットに見えるように「p1p1」とか表示されてても、あ、あわ、慌てないこと。ちなみに「どの NIC がどのポートかわかんねぇよヽ(`Д´)ノ」と叫んでいるあなた、[Alt] + [F2] を押してコンソールを表示し、おもむろにマシンから LAN ケーブルを抜いて ethtool コマンドで Link 状態を確認してくださいね。インストーラの画面に戻るには [F1] を押してください。
+
+{{'<br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!Eucalyptus のネットワークに関する設定
+{{image_right 12, 'Eucalyptus のネットワークに関する設定画面をパチリ', 13, [320,259]}}
+
+一つ一つのパラメータについて説明したいところですが、面倒なので画面右側に出ているヘルプを読むとかしてください。「英語読めねーよ」っていうかたは、私の連載「[[ユーカリプタス入門 第6回：Eucalyptusの設定値について|http://cloud.watch.impress.co.jp/docs/column/eucalyptus/20101203_411244.html]]」を読むか書籍「[[Eucalyptusではじめるプライベートクラウド構築|http://www.amazon.co.jp/Eucalyptus%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E6%A7%8B%E7%AF%89-%E7%BE%BD%E6%B7%B1-%E4%BF%AE/dp/484433025X%3FSubscriptionId%3DAKIAJCKXRISJS6UE36NQ%26tag%3Dyushen-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D484433025X]]」を買って読むか、空気読んでください。
+
+{{'<br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!ハードディスクをどう初期化してどう使うかを問われる画面
+{{image_right 14, 'ハードディスクの初期化画面をパチリ', 15, [320,254]}}
+
+好きなのを選んでね。(はぁと)
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!マジでやっちゃうぜ？的な
+{{image_right 16, '最終確認画面をパチリ', 17, [320,256]}}
+本当にディスクに書き込んじゃうけどいいの～？って聞いてくるので、やっちまってください。ちなみに本当にディスクに書き込みをするので、実はインストールする気がないけど、とりあえず画面を見たくて普段使っているマシンとかで起動してみただけで、マシン上にあるデータが消えちゃうと困る人は思いとどまってください。マシン上にあるデータがどんなに大切であろうとも、それが元カレ or 元カノからの幸せだった頃に受け取ったメールが入っているマシンであろうとも、家族との行楽行事の記録の写真や動画だろうが、情け容赦なく削除しちゃいます、つまりここがターニングポイントです。
+
+{{'<br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!ついでに EMI を作っちゃうね、あ、いいのいいの寝てて
+{{image_right 18, 'EMI作成進捗画面をパチリ', 19, [320,190]}}
+インストールがドコドコと進んでいくんですが、そのうち Creating EMI というダイアログが表示され、CentOS な EMI が作成されるという素敵っぷりです。惚れてまうやろ～
+
+{{'<br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!もう俺には用はないはずだぜマドモアゼル
+{{image_right 20, '再起動実行画面をパチリ', 21, [320,252]}}
+インストールが終ったら私のことなんか忘れて再起動しちゃえばいいのよ、フンだフーン。でも、また私のことが忘れられなくなったら呼べばいいわ、どうせ都合のいい存在なんでしょ？
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+
+!!ウェルかめ
+{{image_right 22, 'ようこそここへ～', 23, [320,264]}}
+再起動すると初期設定の画面になります。ところで知らずに書きましたが「ウェルかめ」って某国営放送の連続テレビ小説のタイトルだったんですね。
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!ライセンス情報
+{{image_right 24, 'ライセンス情報画面をパチリ', 25, [320,252]}}
+CentOS 6 EULA に対して agree か否かを聞いてきます。まぁ、ここで not agree を選んだあなたはワイルドですね？
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!You! 一般ユーザ作っちゃいな Yo!
+{{image_right 26, '一般ユーザ作成画面をパチリ', 27, [320,250]}}
+好きな名前でユーザを作ります。でも間違っても片思いのあの子の名前を入れちゃ駄目ですよ。友達が遊びに来たときにすげぇきまずい空気になりますから。成増から。ナリマースカーラー!
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!時刻設定
+{{image_right 28, '時刻設定画面をパチリ', 29, [320,264]}}
+今回は1つのマシンに全コンポーネントをインストールしているのであまり気にしなくても大丈夫ですが、基本的には各コンポーネントおよびクライアントとは時刻同期しておきましょう。
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!ログイン画面
+{{image_right 30, 'ログイン画面をパチリ', 31, [320,256]}}
+さっき作った一般ユーザでログインします。
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!デスクトップ
+{{image_right 32, 'デスクトップをパチリ', 33, [320,260]}}
+ログインすると何も変哲のない普通の CentOS 6 のデスクトップが表示されます。
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!アイコン
+{{image_right 34, 'デスクトップの左上をパチリ', 35, [226,320]}}
+デスクトップの左上を見ると Eucalyptus の管理 UI とユーザ UI とドキュメントに関するアイコンがあります。例えば Eucalyptus User Console を開きます。
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+!!User Console は日本語も出せるよ
+{{image_right 36, 'User Console をパチリ', 37, [320,240]}}
+インストーラで日本語を選んだら User Console も日本語になるのかしら？冒頭で書いたように私は言語設定で英語を選んでますので、そこら辺は不明です。まぁ、もし言語を日本語にしても User UI が英語だったら、/etc/eucalyptus-consoole/console.ini の中に定義されている lang の設定を変更して、 /etc/init.d/eucalyptus-console restartを実行して eucalyptus-console を再起動してください。
+
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+----
+
+以上が Silvereye を使ってインストールしてみた際のメモです。他の人の Advent Calendar を見ていると最後に「クリスマスまであと○日」とか書いてありますので僕も書いてみたいと思います。
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}クリスマスまであと16日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121211
+Title: Eucalyptus Advent Calendar 2012 JP 十一日目
+Last-Modified: 1377292869
+Visible: true
+Format: Wiki
+
+クッキー
+
+'''11日目'''です。
+
+えーと、画像ネタに植物ネタと他の IaaS 系 AdventCalendar とは違って、マジメっぷりが全然ないネタばかりで申し訳ないのですが、今日は食べ物ネタです。
+
+ちなみに'''今日'''は本当は CloudStack Advent Calendar の 12/11 も担当していたのですが、力不足により @opt_Hohenheim さんに交代してもらいました。この場をお借りして……ってここ俺の日記だった。
+
+おまけに Eucalyptus Adevent Calendar のほうはネタが二転三転し、結局こうなりました。{{fn "更にこれ書いている途中で自宅のネットワークが重くなり、4Kbps という素敵な回線速度です…"}}
+
+「で、これ何ですか？」っていう話ですが、日本Eucalyptusユーザ会のマスコットキャラクター「ぷたとす～」の「ぷた」と私の顔{{fn "ご存じだとは思いすが、当人の顔は「松竹梅」で言うと「灰」レベルの酷さです"}}のクッキーでして、妻の力作？になります。
+
+{{image 0, 'クッキー', 1, [240,320]}}
+
+.
+Date: 20121212
+Title: Eucalyptus Advent Calendar 2012 JP 十二日目
+Last-Modified: 1376843723
+Visible: true
+Format: Wiki
+
+JEUG 版 LiveDVD の作り方
+
+今日は 2012/12/12 です。「いぇ～い、ゾロ目～」とかって言いながら非公営ギャンブルに勤しんでいるクズい紳士淑女の皆さんこんばんは、人生是博打な羽深です。スマイルしてますか～？今日は JEUG 版 LiveDVD の作り方をネタにします。
+
+「JEUG 版 LiveDVD って何かしら？」と思ったそこのあなた、「Eucalyptus LiveDVD」と検索したらいいですよ。見つかるかどうかは知りませんけどね。
+
+で、需要がないのは重々承知で、知っている稀有な方にのみ送ります。あぁ、CentOS 5.x な環境を用意してくださいね。本当はこれ Gentoo な LiveDVD を目指していたんですが、ちょっと色々と色気を出しすぎてまだ完成していないので、未だに「簡単に LiveDVD を作れる CentOS」となっています。CentOS 万歳♪ RHEL 万歳♪
+
+ちなみに参考情報として [[CentOS の LiveCD の作り方|https://projects.centos.org/trac/livecd/]] を読んでおくと幸せになれます。
+
+まず、以下の内容で「/etc/yum.repos.d/centos-livecd.repo」というファイルを作ります。
+<<<
+[livecd]
+name = CentOS $releasever - LiveCD
+baseurl = http://www.nanotechnologies.qc.ca/propos/linux/centos-live/$basearch/live
+enabled=1
+protect=0
+gpgkey = http://www.nanotechnologies.qc.ca/propos/linux/RPM-GPG-KEY-PGuay2010
+>>>
+
+次に、以下を実行して LiveDVD を作る環境を整えます
+<<<
+# yum install livecd-tools syslinux anaconda-runtime
+>>>
+
+そして、github から JEUG 版 LiveDVD に必要なファイル類をゲットします。
+<<<
+# wget --no-check-certificate -O eucalyquitous.zip "https://github.com/habuka036/eucalyquitous/archive/master.zip"
+# unzip eucalyquitous.zip
+# cd eucalyquitous-master/
+>>>
+
+加えて、以下を実行して ttylinux なイメージをダウンロードします (つい数ヶ月前まで Eucalyptus 社のサイトからダウンロードできたはずなんですが、何故かアクセスできないので、勝手に自分のサーバにコピりました)。
+<<<
+# wget http://eucalyptus.machine-image.com/downloads/ttylinux.tar.bz2
+# cd centos/x86_64/
+# tar -xjpf ../../ttylinux.tar.bz2
+>>>
+
+ここ重要なんですが、ダウンロードしたファイルの中に eucalyquitous.ja.ks というファイルがあって、ここにほとんどのことが書かれているんですが、冒頭の行8～11にある「repo --name=a-○×」の baseurl を適宜環境にあわせて設定してください。私は手元に CentOS パッケージのミラーを置いているのですが、そうじゃない人は自前でミラーを作るか、もしくは CentOS のインストールメディアを指定するようにしてください。
+
+最後に以下を実行します。
+<<<
+# livecd-creator --config=eucalyquitous.ja.ks --fslabel=eucalyquitous.ja-12.12.12
+>>>
+
+そうするとあら不思議、--fslabelに指定した文字列.iso という名前で ISO ファイルが完成ですので、適宜メディアにバーニングしやがってください、お願いします。
+
+ちなみに kickstart ファイルの中身を見るとかなりガチャガチャと書かれていてとても汚いので、適宜エレガントな記述に直してください。 kickstart ファイルの中身については--面倒なので--僕ごときが説明できるわけがないので、色々な資料を参照して勉強してください。
+
+! JEUG 版 LiveDVD の使い方
+
+あぅ、すみません、作っただけで満足して終ってしまうところでした。大丈夫です、僕はそんなサイテー野郎じゃないですよ、作ったら最後、ちゃんと認知しますよ。(何の話だ？)
+
+起動するとデスクトップが表示されます。そしたらターミナルを開いて以下を実行してください。
+<<<
+$ sudo -s
+# euca_setup
+>>>
+
+そうするとグリグリと何か処理がはじまり、数分もしくは十数分すると終ります。そしたらおもむろに Firefox を起動して http://127.0.0.1:8888/ に接続します。すると一般ユーザ用の WebUI が表示されるので、アカウント: eucalyptus、ユーザ: admin、パスワード: admin でログインしてください。素敵な世界の扉が開かれますよ。
+
+……、で、この kickstart ファイルで LiveDVD を作ってインスタンスを起動したら kernel さんに
+<<<
+journal commit I/O error
+>>>
+って言われて落ちました…orz
+
+{{'<font size="5" color="#ee2222">'}}クリスマスまであと13日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121213
+Title: Eucalyptus Advent Calendar 2012 JP 十三日目
+Last-Modified: 1361454331
+Visible: true
+Format: Wiki
+
+見た目大事
+
+13日目です。去年まで「Advent Calendar なんて他の国のリア充どもがやってんだろうなぁ～」ってぐらいしか思ってなかったんですが、まさか自分が当事者になるとは思いませんでした。まぁ、「1人1ネタぐらいで持ち寄って皆でワイワイやったら楽しいなぁ～ほわわぁぁん」とか思ってたのは 11/30 までで、いざ始まってみると結構マゾいんすね Advent Calendar って。そんなマゾい Advent Calendar をやっている聖なる紳士淑女の皆さん元気ですか？こんばんは。
+
+で、Advent Calendar って 10 分で考えて 5 分で書くということを[[先日知った|http://d.hatena.ne.jp/yukutomi/20121211/1355185510]]んですが、僕の場合は 10 秒ぐらいしか考えずに、やりながら書いているので、ここを 12/01 から読んでいる皆さんは僕がどんだけ毎回ドタバタしながら失敗しているかよくわかっていると思いますけど、まぁ、その今日もほとんど考えなしに走ります。
+
+! とりあえずイジってみる
+
+さて、あまり話題にしたことなかったんですが、今日は Eucalyptus の Web 管理画面の見た目を変更してみる話です。え～、Eucalyptus の Web 管理画面は /var/lib/eucalyptus/webapps/root.war というファイルにまとめられていて、/var/run/eucalyptus/webapp/ に展開されています。で、画面自体は GWT (Google Web Toolkit) で作られているようです。まぁ、僕がちゃんとしていたらここで颯爽と eclipse を立ち上げて華麗にイジり方などを解説するところですが、残念ながらちゃんとしていないので、そんな高等なことできません。
+
+じゃー今日のネタは何すんのさー？と思われたそこの旦那さま、何も難しいことありません、/var/lib/eucalyptus/webapp/root.war をイジイジして /etc/init.d/eucalyptus-cloud を restart するだけで、あら不思議、Web 管理画面の見た目が簡単に変わりましたよ的な結果が得られます。やっぱずぅ～っとインフラやってると、たまには陽の光があたる暖い場所へ出てみたくなりますよね？なりませんか？
+
+で、まず以下を実行して、元ファイルを展開します。
+
+<<<
+# cd /var/lib/eucalyptus/webapp/
+# mv root.war root.war.orig
+# mkdir -p root
+# cd root
+# unzip ../root.war.orig
+>>>
+
+で、展開されたファイルを適宜変更します。例えば今回は themes/{active,eucalyptus}/ 配下にある logo.png と logo-small.png を変更し、global.css の background-color を #EEE から #fdec95 に変更しました。
+
+変更したら以下を実行します。
+
+<<<
+# zip -r ../root.war ./
+# /etc/init.d/eucalyptus-cloud restart
+>>>
+
+で、以下がビフォーアフターです。
+
+{{image_left 0, 'ビフォー', 1, [320,163]}}
+
+{{'<br /><br /><br /><br /><br /><br /><br /><br /><br />'}}
+
+{{image_left 2, 'アフター', 3, [320,163]}}
+
+{{'<br /><br /><br /><br /><br /><br /><br /><br /><br />'}}
+
+
+まぁ、今回は「ほら簡単に変更できるよ？」と言いたいだけなので、GWT を使わずに手で変更しましたが、もしちゃんと見た目をカスタマイズしたい場合は GWT を使わないとやってらんないと思います。(いや使うよね？)
+
+ちなみに今回は(いつも？)ご覧のとおり随分と手を抜いた内容なので、冒頭に延べた「10 分で考えて 5 分で書く」は守れないものの「10 秒程度しか考えられず 50 分ちょっとで書く」ことができました。え？どこに 50 分かかってるの？と思われるかもしれませんが、Web 管理画面の左上のロゴを作るのに 30 分ぐらいかかってます。(ぉぃ
+
+
+{{'<font size="5" color="#ee2222">'}}クリスマスまであと12日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121214
+Title: Eucalyptus Advent Calendar 2012 JP 十四日目
+Last-Modified: 1361124618
+Visible: true
+Format: Wiki
+
+ネットワークモードと構成に関する勘違い
+
+花金をエンジョイしている聖なる紳士淑女の皆さんこんばんは。世の中悲しいことがたくさん降りかかってきますが、あなたが辛いときは誰かが幸せだったり、逆にあなたが幸せなときは他の誰かが辛かったり、つまり何が言いたいかっていうと、分かち合えるのは幸せな気分だけでなく、辛いときも分かち合えるので、幸せなときも辛いときも他人に報告するといいんじゃないかと思います。まぁなので今日{{fn "もちろん「今日」とは12/14のことですよ"}}は僕は皆さんの幸せを祈ります。
+
+って言ってもこの Advent Calendar は辛さを独りで分かち合うという不思議体験ミラクルゾーンです。(嘘です、皆さんの協力に感謝してます。
+
+! silvereye の腹ん中
+
+えー、先日紹介した [[silvereye|http://036.habuka.jp/?date=20121209]] について、ちょっと気になったことを確認する回です。「手抜き」とか言ってはいけません、簡単にヘコむ子です。
+
+何かと言うと私は常々「マシン1台で Eucalyptus を動かすなら Eucalyptus のネットワークモードは SYSTEM か STATIC じゃないと駄目です」と豪語していました。が、先日紹介した silvereye は 1台のマシンにインストールして動かしたら MANAGED-NOVLAN でした。設定は以下な感じなんです。
+
+<<<
+EUCALYPTUS="/"
+EUCA_USER="eucalyptus"
+CLOUD_OPTS=""
+CREATE_SC_LOOP_DEVICES="256"
+NC_PORT="8775"
+CC_PORT="8774"
+SCHEDPOLICY="ROUNDROBIN"
+NODES="172.31.252.1"
+NC_SERVICE="axis2/services/EucalyptusNC"
+HYPERVISOR="kvm"
+USE_VIRTIO_ROOT="1"
+USE_VIRTIO_DISK="1"
+USE_VIRTIO_NET="0"
+INSTANCE_PATH="/var/lib/eucalyptus/instances"
+VNET_MODE="MANAGED-NOVLAN"
+VNET_PRIVINTERFACE="br0"
+VNET_PUBINTERFACE="eth1"
+VNET_BRIDGE="br0"
+VNET_PUBLICIPS="192.168.33.100-192.168.33.200"
+VNET_SUBNET="10.0.0.0"
+VNET_NETMASK="255.0.0.0"
+VNET_ADDRSPERNET="256"
+VNET_DNS="192.168.32.21"
+VNET_DHCPDAEMON="/usr/sbin/dhcpd41"
+>>>
+
+で、前回のスクリーンショットは画像が荒くて設定値までは読み取れないと思いますが、「NC Bridge Network」っていう項目に 172.31.252.1 を指定しました。(デフォルト値がそうだったので)
+
+そんで ip コマンドで自分自身の IP を確認すると確かに NC Bridge Network で指定した値が設定されています。
+
+<<<
+# ip addr show br0
+7: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN
+    link/ether fe:0d:d6:e2:40:82 brd ff:ff:ff:ff:ff:ff
+    inet 169.254.169.254/32 scope link br0
+    inet 172.31.252.1/32 brd 172.31.252.1 scope global br0
+    inet 10.8.41.1/24 brd 10.8.41.255 scope global br0
+    inet6 fe80::58fd:82ff:fe04:5ecb/64 scope link
+       valid_lft forever preferred_lft forever
+>>>
+
+まぁ、これ以上の説明は皆さんには不要だと思いますが、そう、仮想ブリッジを作ってその IP を NC として登録してやれば 1 台構成でも MANAGED_NOVLAN が使えるようです。「JEUG のシャーマン」とか言われてチヤホヤされて良い気になってましたが、僕なんてこんなモンですよ。(・ω<) てへぺろ
+
+
+{{'<br /><br /><font size="5" color="#ee2222">'}}クリスマスまであと11日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121215
+Title: Eucalyptus Advent Calendar 2012 JP 十五日目
+Last-Modified: 1361128819
+Visible: true
+Format: Wiki
+
+前説
+
+さて、明日はいよいよ[[オープンソースカンファレンス 2012.Cloud|http://www.ospn.jp/osc2012.cloud/]] ですね。皆さん準備は進んでますか～？僕はまだ 1mm もできてませんよ～。やっほ～。
+
+以前、海外の論文だかで「子供のときに計画的に──例えば夏休みの宿題などを片付けられなかった人は、大人になっても計画的に物事を進めたり、物事をやりきることができない人になる」っていう発表があったらしく、論文とか小難しいものを読まないアーパーな僕でもすごく納得した気がします。まぁ、そんな計画的に物事を進められる聖なる紳士淑女の皆さんにはきっと僕のようなカツオ・のび太型人間の苦悩を計り知ることは難しいかもしれませんが、これを書いている今、我が家のお犬様が僕の臭い足をペロペロと舐めてお掃除してくれていて、僕の苦悩って何だっけ？と忘れちゃうぐらいどうでもよい悩みだということがわりました。
+
+! インスタンスに VNC 接続
+
+さて、インスタンスに VNC 接続する方法ですが、NC の /etc/eucalyptus/libvirt.xsl を見ると 290 行目に以下のように記述がありますが、
+<<<
+   287:                      <console type="pty"/>
+   288:                  </xsl:when>
+   289:          </xsl:choose>
+   290:                  <!-- <graphics type='vnc' port='-1' autoport='yes' keymap='en-us' listen='0.0.0.0'/> -->
+   291:              </devices>
+   292:          </domain>
+   293:      </xsl:template>
+>>>
+これを以下のように <!-- /--> を外してインスタンス起動すると、
+<<<
+   287:                      <console type="pty"/>
+   288:                  </xsl:when>
+   289:          </xsl:choose>
+   290:                  <graphics type='vnc' port='-1' autoport='yes' keymap='en-us' listen='0.0.0.0'/>
+   291:              </devices>
+   292:          </domain>
+   293:      </xsl:template>
+>>>
+NC の TCP ポート 5900 以降が使われます。
+<<<
+# lsof -i:5900
+COMMAND   PID USER   FD   TYPE    DEVICE SIZE/OFF NODE NAME
+qemu-kvm 3775 qemu   13u  IPv4 499053048      0t0  TCP *:vnc-server (LISTEN)
+>>>
+
+ただし現状の Eucayptus ではユーザ用の WebUI には VNC を利用する機能が無かったりするので、これを利用するのはシステム管理者に限定されてしまいますが… (；´Д`A
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}クリスマスまであと10日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121216
+Title: Eucalyptus Advent Calendar 2012 JP 十六日目
+Last-Modified: 1367773384
+Visible: true
+Format: Wiki
+
+祝って頂きありがとうございます。
+
+はい、誕生日です。ありがとうございます。誕生日なのですが前日は夫婦共に DVD 100枚を焼き焼き刷り刷りし、当日は妻を家に置いて OSC 2012.Cloud に参加して2つ発表し、DVD 100枚を配布するという、恐らく一般的な平民としては終っているような人間ですが、オープンソース教の信者なのでごめんなさい。パトラッシュ{{fn '紛らわしい書き方をしましたが「眠気が襲ってくる」という意味で使いました。我が家のお犬様の名前は「プーチン」です'}}が尻尾を振り振りヨダレだらだらで駆けよってきてますが、Advent Calendar の更新を頑張ります。{{fn '「頑張ります」って、自分で好きでやってんだから「頑張る」のは当然ですね (；´Д`A'}}
+
+いつもはちょっと自虐的だったり自暴自棄的な書きっぷりですが、今日はさすがに皆さんへの感謝が溢れ出ているので、読んだ結果ジンマシンが出ても責任は取れません。あしからず。
+
+! OSC 2012.Cloud の報告
+
+そう、今日 12/16 は OSC 2012.Cloud でした。OSC 初のクラウドに特化したイベントです。[[来場者の合計は 300 名だそうです|https://twitter.com/OSC_official/status/280261460179963905]]。へー、すごいですね。
+
+冒頭でも書きましたが、この日に配布するために Silvereye 3.2 β2 の DVD を 100 枚焼いて持っていきました。
+
+{{image_right 0, 'Silvereye の DVD 100枚', 1, [320,240]}}
+
+{{'<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />'}}
+
+
+で、10:00 ～のセッション「オープンソースで作るプライベートクラウド環境」で Silvereye について約 10 分ほど紹介をしました。日曜の朝 10:00 からのセッションにもかかわらず、実に 80 名以上の人が聞きにきてくださいました。
+
+{{image_right 2, 'クリエーションラインの山添さん発表中', 3, [320,240]}}
+
+{{'<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />'}}
+
+
+
+そしてそのセッションの終了後に配布したり、展示スペースで配布したりで、結果 96 枚が配布できました。配布に積極的に協力して頂いた前佛さんと日本 OpenStack ユーザ会とその女子部の皆さん、どうもありがとうございました。僕独りではうまく配布できないところを、皆さんがガンガン配布してくれたおかげで、来場者の実に三分の一の人達の手に渡ったことになります。すごい。感激です。皆さんの協力が何よりの誕生日プレゼントになりました。本当にありがとうです。
+
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}クリスマスまであと9日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121217
+Title: Eucalyptus Advent Calendar 2012 JP 十七日目
+Last-Modified: 1361249738
+Visible: true
+Format: Wiki
+
+手抜きじゃないよ？省力化だよ？
+
+同僚から「最近の Advent Calendar の内容薄くなってね？」とツッコまれました内気な少年の羽深です。ほんと危うく思い詰めるところでしたよ。取り扱い注意なガラスの心なんですよ、まったく。
+
+! Eucalyptus を fog に巻く
+
+巷では Ruby によるクラウドサービスライブラリの「[[fog|http://fog.io/1.8.0/]]」が流行っているようなので、「EC2/S3/IAM API 互換」と言っている Eucalyptus でも使えるんじゃね？ということで fog で Eucalyptus を利用してみました。
+
+まぁ、「fog に巻く」っていうタイトルにした割には内容が薄くて全然巻けていなくて、さすがのブライトさんも怒れないレベルの薄さですよ、どうせ。
+
+ちなみに参考にしたドキュメント類は、fog のドキュメントとソースコードと以下のブログです。ありがとうございます。
+
+* [[abe4tawa8さんのブログ|http://d.hatena.ne.jp/abe4tawa8/20110701/p1]]
+* [[dkavanaghさんのブログ|http://coderslike.us/2011/10/19/using-the-ruby-fog-library-to-connect-with-eucalyptus/]]
+
+インストール方法ですが、以下のとおりです。うん簡単。
+<<<
+gem install fog
+>>>
+
+で、簡単なサンプルとして以下のようなコードを書いてみました。
+
+<<<
+#!/usr/bin/ruby
+
+require 'rubygems'
+require 'fog'
+
+compute = Fog::Compute.new({
+   :provider                 => 'AWS',
+   :aws_access_key_id        => 'WKy3rMzOWPouVOxK1p3Ar1C2uRBwa2FBXnCw',
+   :aws_secret_access_key    => 'yxXm3RXPl97GPRSpWrHJduejS323WqZL0Mw',
+   :endpoint                 => 'http://172.16.34.10:8773/services/Eucalyptus',
+   :region                   => 'Eucalyptus',
+})
+
+puts compute.servers.inspect
+>>>
+
+で、これを実行すると以下のような結果がびろびろ～んと出てきます。
+<<<
+  <Fog::Compute::AWS::Servers
+    filters={}
+    [
+      <Fog::Compute::AWS::Server
+        id="i-4997090C",
+        ami_launch_index=0,
+        availability_zone="amesha-spenta",
+        block_device_mapping=[],
+        network_interfaces=[],
+        client_token=nil,
+        dns_name="172.16.34.37",
+        ebs_optimized=nil,
+        groups=[],
+        flavor_id="c1.medium",
+        iam_instance_profile={},
+        image_id="emi-92D1136B",
+        kernel_id="eki-246C15D8",
+        key_name="mammoth",
+        created_at=Mon Dec 03 07:51:10 UTC 2012,
+        monitoring=false,
+        placement_group=nil,
+        platform=nil,
+        product_codes=[],
+        private_dns_name="10.168.2.9",
+        private_ip_address=nil,
+        public_ip_address=nil,
+        ramdisk_id="eri-84BE1735",
+        reason=nil,
+        root_device_name=nil,
+        root_device_type=nil,
+        security_group_ids=[],
+        state="running",
+        state_reason={},
+        subnet_id=nil,
+        tenancy=nil,
+        tags={},
+        user_data=nil,
+        vpc_id=nil
+      >,
+(中略)
+    ]
+  >
+>>>
+
+ちなみに Fog::Compute::AWS#servers ではなく Fog::Compute::AWS#flavors を取得すると
+<<<
+[  <Fog::Compute::AWS::Flavor
+    id="t1.micro",
+    bits=0,
+    cores=2,
+    disk=0,
+    name="Micro Instance",
+    ram=613
+  >,
+(省略)
+>>>
+って感じの…あれあれ？存在しない VM Type が返ってくる…。でコード(fog-1.8.0/lib/fog/aws/models/compute/flavors.rb)を確認すると、
+<<<
+module Fog
+  module Compute
+    class AWS
+
+      FLAVORS = [
+        { :bits => 0,  :cores =>   2,  :disk => 0,    :id =>  't1.micro',   :name => 'Micro Instance',       :ram => 613},
+
+        { :bits => 32, :cores =>   1,  :disk => 160,  :id =>  'm1.small',   :name => 'Small Instance',       :ram => 1740.8},
+        { :bits => 32, :cores =>   2,  :disk => 400,  :id =>  'm1.medium',  :name => 'Medium Instance',      :ram => 3750},
+        { :bits => 64, :cores =>   4,  :disk => 850,  :id =>  'm1.large',   :name => 'Large Instance',       :ram => 7680},
+        { :bits => 64, :cores =>   8,  :disk => 1690, :id =>  'm1.xlarge',  :name => 'Extra Large Instance', :ram => 15360},
+
+        { :bits => 32, :cores =>   5,  :disk => 350,  :id =>  'c1.medium',  :name => 'High-CPU Medium',      :ram => 1740.8},
+        { :bits => 64, :cores =>  20,  :disk => 1690, :id =>  'c1.xlarge',  :name => 'High-CPU Extra Large', :ram => 7168},
+(省略)
+>>>
+あぁ、そうか、EC2 API には flavor 情報を取得する API が無い{{fn '「無い」っていうか、値が変わらないんだから API で取得する必要がないと言うのが正しいですかね'}}んだから、定数にしちゃえば OK なのか。Eucalyptus の場合は DescribeAvailabilityZones の verbose オプション指定時の結果を利用するような provider を書けばいいんですが、折角「API 互換」と謳っているのに、専用に provider を書いたら負けな気がするので、今日はこれまで。
+
+あ、ちなみに上記のサンプルでは :endpoint に http でエンドポイント URL を書いてますが、https にすると証明書のバリデーションが失敗して
+<<<
+/usr/lib64/ruby/gems/1.8/gems/excon-0.16.10/lib/excon/ssl_socket.rb:60:in `connect': Unable to verify certificate, please set `Exs[:ssl_ca_path] = path_to_certs`, `Excon.defaults[:ssl_ca_file] = path_to_file`, or `Excon.defaults[:ssl_verify_peer] = false` (l. (Excon::Errors::SocketError)
+        from /usr/lib64/ruby/gems/1.8/gems/excon-0.16.10/lib/excon/ssl_socket.rb:60:in `initialize'
+        from /usr/lib64/ruby/gems/1.8/gems/excon-0.16.10/lib/excon/connection.rb:364:in `new'
+        from /usr/lib64/ruby/gems/1.8/gems/excon-0.16.10/lib/excon/connection.rb:364:in `socket'
+        from /usr/lib64/ruby/gems/1.8/gems/excon-0.16.10/lib/excon/connection.rb:192:in `request_kernel'
+        from /usr/lib64/ruby/gems/1.8/gems/excon-0.16.10/lib/excon/connection.rb:103:in `request'
+        from /usr/lib64/ruby/gems/1.8/gems/fog-1.8.0/lib/fog/core/connection.rb:21:in `request'
+        from /usr/lib64/ruby/gems/1.8/gems/fog-1.8.0/lib/fog/aws/compute.rb:383:in `_request'
+        from /usr/lib64/ruby/gems/1.8/gems/fog-1.8.0/lib/fog/aws/compute.rb:378:in `request'
+        from /usr/lib64/ruby/gems/1.8/gems/fog-1.8.0/lib/fog/aws/requests/compute/describe_instances.rb:76:in `describe_instances
+        from /usr/lib64/ruby/gems/1.8/gems/fog-1.8.0/lib/fog/aws/models/compute/servers.rb:64:in `all'
+        from /usr/lib64/ruby/gems/1.8/gems/fog-1.8.0/lib/fog/core/collection.rb:130:in `lazy_load'
+        from /usr/lib64/ruby/gems/1.8/gems/fog-1.8.0/lib/fog/core/collection.rb:11:in `each'
+        from /usr/lib64/ruby/1.8/pp.rb:195:in `__send__'
+        from /usr/lib64/ruby/1.8/pp.rb:195:in `seplist'
+        from /usr/lib64/ruby/1.8/pp.rb:303:in `pretty_print'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:201:in `group'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:227:in `nest'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:200:in `group'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:212:in `group_sub'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:199:in `group'
+        from /usr/lib64/ruby/1.8/pp.rb:302:in `pretty_print'
+        from /usr/lib64/ruby/1.8/pp.rb:140:in `pp'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:201:in `group'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:227:in `nest'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:200:in `group'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:212:in `group_sub'
+        from /usr/lib64/ruby/1.8/prettyprint.rb:199:in `group'
+        from /usr/lib64/ruby/1.8/pp.rb:140:in `pp'
+        from /usr/lib64/ruby/1.8/pp.rb:77:in `pp'
+        from /usr/lib64/ruby/1.8/pp.rb:119:in `guard_inspect_key'
+        from /usr/lib64/ruby/1.8/pp.rb:77:in `pp'
+        from /usr/lib64/ruby/1.8/pp.rb:60:in `pp'
+        from /usr/lib64/ruby/1.8/pp.rb:59:in `each'
+        from /usr/lib64/ruby/1.8/pp.rb:59:in `pp'
+        from fog-test1.rb:15
+>>>
+
+なんて素敵なエラーが吐かれますのでご注意を。
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}クリスマスまであと8日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121218
+Title: Eucalyptus Advent Calendar 2012 JP 十八日目
+Last-Modified: 1376593328
+Visible: true
+Format: Wiki
+
+今日のネタは演説ものです
+
+これを書いている今日は 12/19 という説もありますが、断じで本日は 12/18 です。自分でも「何言ってんだコイツ？」と思います。
+
+さて、世間では徴兵制度がうんたらかんたらと論じられているようですが、僕は残念ながら知識が乏しいので想像でしか物を言えぬ愚かものですが、何で「徴兵制度 = 戦闘員の増加」と短絡思考するんでしょうかね？一方で、何で「強い日本 = 徴兵制度の復活」と短絡思考するんでしょうかね？兵士になる気がない人を徴兵で集めても意味ないですし、兵士さえ居れば軍事力が増す訳でもないですよね。徴兵制度を復活させようとしている人達の意図はどこにあるんでしょう？反対する人達でも自分の家族は護りたいとか思ってますよね？ちょっと自分、新聞読まなすぎですね。
+
+妻とも話をしてたんですが、まずは前回の震災時のように自衛隊の隊員が休息を満足に取れない状況を回避するところから努力するべきじゃないかと思います。国民が理解できるように国も国民も双方が努力しないと駄目ですよね？徴兵制度って言うから反発くらうんだろうから、予備自衛官の制度をちゃんと正しく伝えるところから着手してはどうかしら？と思います。
+
+ということで、僕みたいなアーパーな人間が考えることは穴だらけでどうしようもないと思いますが、企業が(希望する)社員に予備自衛官への応募を支援したら、最初の一歩としてはいいんじゃないかと。まぁ、ボランティア活動をしていない僕が言うのはおかしいですけども。
+
+で、今日の Eucalyptus ネタは演説ネタです。技術ネタじゃなくてごめんなさい。帰宅してから書くにはあまりにも時間が無さすぎました。なので非技術ネタにしたんですが、技術ネタを書くより時間がかかったかもしんない…。ガンダム観てない人はごめんなさい、今日は諦めてください。ちなみに書いた自分が言うのも何ですが、さっぱり意味がわかりません。もしこれを書いたのが僕の家族なら、迷わず病院に連れて行くレベルです。
+
+! クワトロ・ハブーカのユーカリの演説
+
+私は、元千葉県民のクワトロ・ハブーカである。秋田県出身である。そして、今は、東京都品川区の住民である。我々の Eucalyptus を使いたいと思っている人々は、オンプレミス上にも、クラウドにも多いはずだ。オープンソースが主流であるプライベートクラウド業界ならば、私の発言を止められるはずはない！
+
+{{'<br/>'}}
+
+私がこの場を借りて、Eucalyptusの意思を代弁するものとして語るのは、リソース枯渇の危険性が、現在、極めて重要な問題になってきたからに他ならない。これはかつてのオンプレミスでの問題である。いや、プライベートクラウドが抱えるこの問題は、オンプレミス以上に深刻である。
+
+{{'<br/>'}}
+
+プライベートクラウドの名を借りて、パブリッククラウドの単なる模倣で満足しようとしている現状は、クラウドを利用しているだけなのに「クラウド型」と宣伝する企業サービス同様に悪質である。
+
+{{'<br/>'}}
+
+人がプライベートクラウドを求めたのは、なぜか、と思い出してもらいたい。クラウドの有するインフラ技術が技術者として垂涎ものだからだ。
+
+{{'<br/>'}}
+
+企業がプライベートクラウドを所有したことによって、企業そのものがクラウド技術を身につけたと誤解した。その結果が、リソース枯渇なのだ。プライベートクラウドの導入の拡大が、企業に力をつけたと誤解し、パブリッククラウドの模倣で満足だと思ったのだ。それは、過ちである。この意味は重要である。企業は、もともと、所有欲が強いという証拠である。プライベートクラウドはリソースが有限であると認識する必要がある。もう、オンプレミスでの苦悩を繰り返してはならない。
+
+{{'<br/>'}}
+
+企業がプライベートクラウドを得ることによって、手に入れられるのは、純粋にクラウドの利用を広げることができることなのである。
+
+{{'<br/>'}}
+
+プログラマブルインフラストラクチャによる新しい領域で、人のプログラミング欲求は刺激を受けて、今までプログラミングできていた対象が増加する。たとえば、物理的な操作がよりプログラミングできるようになるということだ。俗にいわれる神技とも異なる運用ができるのだ。なぜできるか？ 簡単なことだ。インフラアーキテクト以外の人がプログラミングしたい要求対象がロジカルな領域からフィジカルな領域に広がったために、インフラアーキテクト以外の人も利用可能な便利なAPIを作り出さねば、一つの技術集団として共通の会話をすることが出来ないからにすぎない。
+
+{{'<br/>'}}
+
+これまで、インフラを愛する我々の人口は、業界の50%も占めていなかったといわれる。残りの人口は、インフラが手軽に扱えるようになったときのために、神々が我々インフラアーキテクトの仲間を増やすために与えて下さった予備軍なのだ。
+
+{{'<br/>'}}
+
+オンプレミスを快適と思うあまり、物理サーバの所有に固執することが最良と思う人々は、オンプレミスに魂を引かれた者である。人のクラウド利用の拡大の可能性を否定して、人の間に所有欲を生み出すことによって、人類を堕落させようとするのが箱物売りの狙いである。
+
+{{'<br/>'}}
+
+しかし、それでは、過去から言われていたように、物理マシン単体のスペックが処理速度を飛躍させたという古い規範から、人は一歩も出ることは出来ない。
+
+{{'<br/>'}}
+
+違う！　人は、違うのだ。クラウドを使い、APIを叩き、まだ目覚めていない人のプログラミング力を高めれば、人は、所有なくして、永遠に発展し、環境を増殖し続けることができる。クラウドの可能性は、無限である。この無限という意味を考えていただきたい。
+どのような叡智をも呑み込むだけの果てしなさを持ったもの、という意味である。その果てしなさに対して、永遠に叡智を放出できるのもまた人類でしかない。その叡智とプログラミング力、そして、神技を、なぜ人は、アプリ開発にぶつけることだけで満足して死んでゆけるのか？
+
+{{'<br/>'}}
+
+それが、人に与えられた使命ではない。神は、クラウド駆ける者として人を創造されたのである。
+
+{{'<br/>'}}
+
+箱物売りは、オンプレミスの重力に魂を引かれた人々で、オンプレミスの論理だけで革命を進めようとしているのだ。しかし、それは改革ではない。オンプレミスを所有する人とクラウドを利用する人という階級だけを作り、その緊張感の中で、特定の人々だけが、利益を得る社会構造を作るだけである。
+
+{{'<br/>'}}
+
+それでは、中世である。人にプログラミングするなと言うに等しい。
+
+{{'<br/>'}}
+
+人は、長い間、このオンプレミスという揺り籠の中で戯れてきた。しかし、時は、すでに人類をオンプレミスから巣立たせているのだ。この期に及んで、なぜ、サーバルームに籠り、環境を構築しなければならないのだ？　物理マシンの操作をなるべく減らし、人類は、Eucalyptus で自立しなければ、技術力は干涸らびて使い物にならなくなる日は近いのである！
+
+{{'<br/>'}}
+
+しかし、今ならば、まだ君らのマシンはまだ動き、残す価値がある。ならば、自分の欲望を満たすためだけに、物理マシンに寄生虫のようにへばりついて、物理マシンを汚すことは、何人にも許されない。
+
+{{'<br/>'}}
+
+箱物売りは、このような時でさえも、営業を仕掛けてくるのだ。この傲慢な行為は、かつての物売りから成長した組織が、導入しない者は全て情弱と称して、掃討しようという意志を持っている証明である。これこそ情弱であり、人類を衰退させてゆくと言い切れる。
+
+{{'<br/>'}}
+
+IaaS 系 Advent Calendar をご覧になっている方々は、お分かりのはずだ！　これが彼らのやり方なのだ！　そして、冷静に事態をご覧になっていただきたい。彼らは、この Advent Calendar に自分たちの味方がいるにも拘わらず、私一人の口を封じるために忘年会に誘おうとしているのです！
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}クリスマスまであと7日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121220
+Title: Eucalyptus Advent Calendar 2012 JP 廿日目
+Last-Modified: 1373983898
+Visible: true
+Format: Wiki
+
+Eucalyptus 3.2.0 出ましたよ
+
+師走で年末進行でギッチギチなのに忘年会とか納品作業とか挨拶まわりとか世の中の聖なる紳士淑女は大変ですね？羽深です。
+
+Eucalyptus 3.2.0 がリリースされたので今日は技術ネタです。([[昨晩の CUPA Cafe|http://www.ustream.tv/channel/cupa-cafe]] で「来週ぐらいにはリリースされんじゃね？」とかテキトーなことをぬかしてごめんなさい)
+
+! Silvereye 3.2 β2 でインストールした環境を Eucalyptus 3.2.0 リリース版の環境にアップデートする
+
+えー、先日の OSC 2012.Cloud で日本 Eucalyptus ユーザ会が配布した Silvereye 3.2β2 を使って環境を構築してくれたナイスガイ(女性も含む)達は Eucalyptus 3.2.0 がリリースされて、きっとこう思っていると思います。
+
+{{'<br/><br/><font size="5">'}}何だよーもー、折角環境を作ったばっかりなのにー、ぷんすかぷん{{'</font><br/><br/>'}}
+
+でも大丈夫です、ご安心ください。簡単にその環境を Eucalyptus 3.2 にアップデートする方法をお伝え致します。
+
+まず最初に現在インストールされている nightly 用の yum レポジトリ設定をアンインストールします。
+<<<
+# rpm -e eucalyptus-release
+>>>
+次にリリース版の yum レポジトリ設定をインストールします。
+<<<
+# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.2/centos/6/x86_64/eucalyptus-release-3.2.noarch.rpm
+>>>
+えーい、面倒だから全部アップデート
+<<<
+# yum update
+>>>
+ちなみに12/20時点では以下のパッケージがアップデートされました。
+<<<
+================================================================================================================
+ Package                             Arch           Version                            Repository          Size
+================================================================================================================
+Installing:
+ kernel                              x86_64         2.6.32-279.19.1.el6                updates             25 M
+Updating:
+ device-mapper                       x86_64         1.02.74-10.el6_3.3                 updates            135 k
+ device-mapper-event                 x86_64         1.02.74-10.el6_3.3                 updates             88 k
+ device-mapper-event-libs            x86_64         1.02.74-10.el6_3.3                 updates             83 k
+ device-mapper-libs                  x86_64         1.02.74-10.el6_3.3                 updates            163 k
+ euca2ools                           noarch         2.1.2-0.58.el6                     euca2ools          314 k
+ euca2ools-release                   noarch         2.1-4.el6                          euca2ools          5.6 k
+ eucadw                              noarch         3.2.0-0.84.el6                     eucalyptus          27 k
+ eucadw-libs                         noarch         3.2.0-0.84.el6                     eucalyptus          30 M
+ eucalyptus                          x86_64         3.2.0-0.409.el6                    eucalyptus         193 k
+ eucalyptus-admin-tools              noarch         3.2.0-0.409.el6                    eucalyptus          22 k
+ eucalyptus-cc                       x86_64         3.2.0-0.409.el6                    eucalyptus         1.5 M
+ eucalyptus-cloud                    x86_64         3.2.0-0.409.el6                    eucalyptus          14 k
+ eucalyptus-common-java              x86_64         3.2.0-0.409.el6                    eucalyptus         960 k
+ eucalyptus-common-java-libs         x86_64         3.2.0-0.409.el6                    eucalyptus          53 M
+ eucalyptus-console                  noarch         3.2.0-0.409.el6                    eucalyptus         1.1 M
+ eucalyptus-gl                       x86_64         3.2.0-0.409.el6                    eucalyptus          83 k
+ eucalyptus-nc                       x86_64         3.2.0-0.409.el6                    eucalyptus         552 k
+ eucalyptus-sc                       x86_64         3.2.0-0.409.el6                    eucalyptus          14 k
+ eucalyptus-walrus                   x86_64         3.2.0-0.409.el6                    eucalyptus         8.3 k
+ kernel-firmware                     noarch         2.6.32-279.19.1.el6                updates            8.7 M
+ libtiff                             x86_64         3.9.4-9.el6_3                      updates            342 k
+ libvirt                             x86_64         0.9.10-21.el6_3.7                  updates            1.9 M
+ libvirt-client                      x86_64         0.9.10-21.el6_3.7                  updates            3.2 M
+ lvm2                                x86_64         2.02.95-10.el6_3.3                 updates            615 k
+ lvm2-libs                           x86_64         2.02.95-10.el6_3.3                 updates            680 k
+ mysql-libs                          x86_64         5.1.66-2.el6_3                     updates            1.2 M
+ python-eucadmin                     noarch         3.2.0-0.409.el6                    eucalyptus          91 k
+ qemu-img                            x86_64         2:0.12.1.2-2.295.el6_3.10          updates            421 k
+ qemu-kvm                            x86_64         2:0.12.1.2-2.295.el6_3.10          updates            1.3 M
+ selinux-policy                      noarch         3.7.19-155.el6_3.13                updates            1.3 M
+ selinux-policy-targeted             noarch         3.7.19-155.el6_3.13                updates            2.6 M
+
+Transaction Summary
+================================================================================================================
+Install       1 Package(s)
+Upgrade      31 Package(s)
+>>>
+
+以上です…と、言いたいところですが、アップデートすると Eucalyptus の全コンポーネントが停止されます。つまり今のバージョンでも活性アップデートは無理なようです。(spec ファイルの記述とアップデートスクリプトを変更すれば良いような気がします…)
+
+ということで、最後にこんなこと言って申し訳ないですが、「アップデートする前にご注意を」。
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}クリスマスまであと5日です ✌(՞ਊ ՞)✌{{'</font>'}}
+
+.
+Date: 20121222
+Title: Eucalyptus Advent Calendar 2012 JP 廿一日目
+Last-Modified: 1366256899
+Visible: true
+Format: Wiki
+
+慣れないソフトウェアのインストールは難しいですね
+
+質の良い文章って書くの大変ですよね、技術的な文書も非技術な文書もまともに書けない身としてはなるべく良質の文書を目にすることで自分の文書力を向上させたいとは思っているんですが、そもそも句読点の適切な使い方すらちゃんと知らないので、皆さんそこら辺どうやって学んで身につけているんでしょう？と思いつつ、先月購入した [[Software Design 2012年12月号|http://gihyo.jp/magazine/SD/archive/2012/201212]]を会社に忘れてきてしまい後悔しつつ、これを書いています。ところでくどいですが、句読点の使い方って小学校で学びました？僕はどうやらガラスの10代半ばまでポケぇ～っとしながら生きてきたせいか、いまいちそこら辺の記憶がありません。小学校って何してたっけ？
+
+みなさん今晩は、そんな駄文をダラダラ書くことだけは出来るのに CloudStack 環境が簡単に作れないヘタレの羽深です。やっぱり技術や OS やソフトウェアって好き嫌いせずに何でも美味しく頂いたほうが人生豊かになりますよ。特定のものにコダワリすぎて自分の幅を狭めちゃうとよくないです。まぁ、でもたいていは「利用はしたいけど構築はしたくねぇぜ、それ面倒さ」と思っているでしょう。そんな聖なる紳士淑女に耳寄りな話です。あの [[ECC (Eucalyptus Community Cloud)|https://communitycloud.eucalyptus.com/]] が Eucalyptus 3.2.0 ベースにバージョンアップしたようですので、今日はその使い方についてのご案内です。
+
+! ECC を使ってみる
+
+ECC の使いかたからその説明については [[Eucalyptus 社のサイトにある ECC の説明|http://www.eucalyptus.com/eucalyptus-cloud/community-cloud]]に書いてありますので、まずそちらをお読みください。
+
+で、ECC を使うためには、まずアカウントを作らなければいけません。あぁ、そうそう、説明が漏れていましたが、Eucalyptus はバージョン 2.0 までは「ユーザ」(と内部的な「グループ」)という概念しか持っていないフラットなアカウント管理でしたが 3.0 からは「アカウント」「グループ」「ユーザ」という構造で管理できるようになりました。まぁ、ここら辺の詳しい説明は連載「ユーカリプタス入門」でやりたいと思います。相変わらず汚い大人でごめんなさい。でも世の中僕ほどピュアっピュアな人間も居ませんよ？
+
+で、ECC を使うためにはそのアカウントを作らなければいけないのですが、アカウントを作るためには ECC のサイトにアクセスし、ページ右上にある「Signup Account」をクリックしてアカウントの申請ページに遷移します。
+
+{{image_right 0, 'ECC のログイン画面', 1, [320,269]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+New Account Name に任意の名前を入力し、Email にはメールが受信可能なアドレスを入力し、Password と Type password again にはこのアカウントの管理者(admin) 用のパスワードを入力し、[OK] をクリックします。
+
+{{image_right 2, 'アカウントの申請画面', 3, [320,269]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+
+すると「アカウントの申請はしたけど、そのうちメールを送るからその内容に従ってアカウントを有効にしろよ」と言われるので、あとはジッと我慢の子でメールが届くのを待ちます。
+
+{{image_right 4, '申請受理画面', 5, [320,269]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+以上です。
+
+……
+
+……
+
+……
+
+え？もっと先まで説明しろって？いや、僕もそうしたいのはヤマヤマなんですが、この Advent Calendar、基本的に思い付きで書いているもんだから、アカウント申請したのってついさっきなんですよ。なので申請したばっかりでまだメールが届いていません。いぇ～い、ECC の中の人見てる～？✌(՞ਊ ՞)✌
+
+なので、これ以上は書きたくても書けないので、メールが届いたらまたこの日記を更新しようと'''思い'''ます。
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}クリスマスまであと3日です ✌(՞ਊ ՞)✌{{'</font><br/><br/>'}}
+
+! 後日談
+
+「後日談」って言っても上記からまだ4時間ちょとしか経ってませんが、ECC からメールが帰ってきました。メールは以下のような内容ですので、メール内のリンクを踏んでアカウントを有効化します。
+
+<<<
+From: habukao@example.com
+To: habukao@example.com
+Subject: Your Eucalyptus account application was approved
+Date: Sat, 22 Dec 2012 08:16:10 -0800 (PST)
+
+Your account 'habuka' application was approved. Click the following link to login and confirm your account:
+
+https://communitycloud.eucalyptus.com:443/#confirm:confirmationcode=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+After you confirm your account you can login into it with 'admin' user and the password that you provided during account's application.
+
+However, if you never requested a Eucalyptus account then, please, disregard this message.
+>>>
+
+で、リンクを開くと以下のようなページが開きますので、Return to login をクリックしてログイン画面へ遷移します。
+
+{{image_right 6, '確認画面', 7, [320,269]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+アカウント申請時に記入した情報(User には admin)を入力し、Sign in をクリックします。
+
+{{image_right 8, 'ログイン画面', 9, [320,269]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+あとは普通にユーザを作ったりして Eucalyptus を利用します。まぁ、ここら辺の詳しい説明は連載「ユーカリプタス入門」でやりたいと思います。えぇ、僕ぁ汚い大人(ry
+
+{{image_right 10, '初期画面', 11, [320,269]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+.
+Date: 20121224
+Title: CloudStack Advent Calendar jp: 2012 廿四日目
+Last-Modified: 1385056782
+Visible: true
+Format: Wiki
+
+手取り足取りの難しさ
+
+さて皆さん本日はクリスマスイブですよ、聖なるクリスマスを迎える準備はできましたか？泣いても笑ってもサンタはやって来ます、皆さん供物の用意は済みましたか？もしくは供物のかわりに差し出す魂の用意は大丈夫ですか？清らかな人生を歩んできましたか？
+
+! CloudStackがッ 泣くまで イジメるのをやめないッ！
+
+はい、さて、CloudStack の Advent Calendar です。あ、ちなみに始めにお斷りしておきますが、間違ってもこれをカップルで仲良く読みながらホーリーナイトとか口走ってしまわないように注意してください。もし口走ると国境付近の山に封印されているサンタがうっかり掘り起こされて街中の子供達が連れ去られたりトナカイちゃんが美味しく食べられてもおかしくないことになったり、もうそりゃぁ大変なことになります。
+
+あ、はい、うざいですね、ごめんなさい、そろそろ本題に入りますね。
+えー、タイトルのとおり CloudStack をこれでもかっていうぐらいイジめて泣かそうという、僕の優しさが隠しきれないほど滲みでる企画です。
+
+!!参考にした情報
+* クリエーションライン株式会社の資料 [[CloudStackを使ってみよう[1]|http://www.creationline.com/lab/1963]]
+* 大削先生の記事 [[機能を徹底比較！　～Eucalyptus、CloudStack、OpenStack|http://techtarget.itmedia.co.jp/tt/news/1204/19/news03.html]]
+* CloudStack Advent Calendar 1日目の荒井会長の資料 [[Apache CloudStack 4.0をインストールしてみた。|http://www.slideshare.net/YasuhiroArai/apache-cloudstack-40-ver05]]
+* CloudStack の [[Installation Guide|http://incubator.apache.org/cloudstack/docs/en-US/Apache_CloudStack/4.0.0-incubating/html/Installation_Guide/index.html]]
+* [[CloudStack4.0-インストール|http://kralis.dip.jp/wiki/index.php?CloudStack4.0-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB]]
+* 大削先生のスライド [[CloudStack 概要 でもちょっと詳しめVer.|http://www.slideshare.net/star76/osc2012-cloud-cloudstack]]
+
+あ、ちなみに上記の素晴しい資料を参考にしたからと言って、僕の貧相な理解力がこれらを吸収できるか？っていうと、それは全く別の話ですよ。
+
+!!構成
+
+本当は Host を 2台にしたかったんですが、機材不足で断念しました。なので以下の構成にしています。
+<<<
++------------+    +--------+
+| CloudStack |    |        |
+| Management +----+  Host1 |
+|   Server   |    |        |
++------------+    +--------+
+>>>
+
+!!構築
+
+聖なる CloudStacker の皆さんは「構築なんて目つぶっててもできることをわざわざ書くな」と呆られるかもしれませんが、まぁ聞いてくださいよ。
+えーとですね、私えらい離れた環境から CloudStack のインストールをやっておりまして、どれだけ離れているかというと、以下のように対象マシンに接続するために 2 台ほど踏み台を通らないと駄目なんす。
+<<<
++------------+    +---------+    +---------+    +-------+
+| CloudStack |    |         |    |         |    |       |
+| Management +----+ ladder1 +----+ ladder2 +----+ My PC |
+|   Server   |    |         |    |         |    |       |
++------------+    +---------+    +---------+    +-------+
+>>>
+で、ladder1 と ladder2 にはそれぞれ stone を用意し、また諸般の事情から以下のような経路となっていました。
+<<<
++------------+    +---------+    +---------+    +-------+
+| CloudStack |    |         |    |         |    |       |
+| Management +----+ ladder1 +----+ ladder2 +----+ My PC |
+|   Server   |    |         |    |         |    |       |
++------------+    +---------+    +---------+    +-------+
+      tcp/8080 <=   tcp/38080 <=    tcp/8080 <=
+>>>
+そんで http://ladder2:8080/client にアクセスしログインを試みるも、以下のようにログインできないんです。まぁ、純真な僕は最初は本当にユーザ名かパスワードが間違っているんじゃないかと何度も入力し直したり、諸々のドキュメントや文献を漁ったり、生活態度を改めようかどうか悩んだりもしました。
+
+{{image_right 0, 'ログイン画面', 1, [320,195]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+
+で、最後の手段として CloudStacker の皆さんにも聞いてみようと思ったのですが、それには最低限素人でも収集できる情報ぐらいは確認しておかないと聖なる CloudStacker にボッコボコにされるんじゃないかと思い、とりあえず僕のようなしょぼくれ技術者でも確認できることとして、Management Server で tcpdump を叩いて認証のデータがちゃんと届いているかを見ようと考えました。
+<<<
+# tcpdump -i eth0 -vXx tcp port 8080
+>>>
+すると以下のように認証情報が流れてきました。
+<<<
+        0x0000:  4500 00b4 cee6 4000 3f06 a9eb c0a8 2015  E.....@.?.......
+        0x0010:  c0a8 210c df9d 1f90 bcfd 8b07 6fd9 dff5  ..!.........o...
+        0x0020:  8018 01c9 9e37 0000 0101 080a 8891 4a06  .....7........J.
+        0x0030:  06fd 7bb8 3066 3766 3139 3730 6335 3430  ..{.0f7f1970c540
+        0x0040:  3133 6235 3664 3432 3631 3036 3966 3566  13b56d4261069f5f
+        0x0050:  350d 0a0d 0a63 6f6d 6d61 6e64 3d6c 6f67  5....command=log
+        0x0060:  696e 2675 7365 726e 616d 653d 6164 6d69  in&username=admi
+        0x0070:  6e26 7061 7373 776f 7264 3d35 6634 6463  n&password=5f4dc
+        0x0080:  6333 6235 6161 3736 3564 3631 6438 3332  c3b5aa765d61d832
+        0x0090:  3764 6562 3838 3263 6639 3926 646f 6d61  7deb882cf99&doma
+        0x00a0:  696e 3d25 3246 2672 6573 706f 6e73 653d  in=%2F&response=
+        0x00b0:  6a73 6f6e                                json
+>>>
+で、暗号化されたパスワードは5f4dcc3b5aa765d61d8327deb882cf99であることがわかります。では Management Server 側のパスワードは？ということで MySQL のデータを覗いてみます。
+
+<<<
+mysql> select password from user where username = 'admin';
++----------------------------------+
+| password                         |
++----------------------------------+
+| 5f4dcc3b5aa765d61d8327deb882cf99 |
++----------------------------------+
+1 row in set (0.00 sec)
+>>>
+
+あれあれ？パスワードちゃんと一致してますよね？おかしいですね？エラーメッセージさんどーゆーことですか？
+
+で、ここでふと思いだしました、荒井会長のスライドの p.15 に「外部に公開する場合は、リバースProxyを中間において、HTTPS設定をしておくことがおすすめ。」と書いてあることを。あれ？もしかして TCP relay で引き回しちゃ駄目なのかしら？
+
+もうこの時点で軟弱野郎の僕は「よし、つまりアレだな、これって僕にとっての CloudStack とはユーザ名とパスワードを入力して認証エラーを出すだけのソフトウェアなんだな」と理解しようとしましたが、さすがに「インストール画面すら触っていません」という結果だと ホーリー CloudStacker に
+
+{{'<font size=5>'}}m9(＾Д ＾）プギャー{{'</font>'}}
+
+と笑われること必死です。なので、荒井会長のご神託に従ってリバース Proxy を中間に置いてみました。以下のように。
+<<<
++------------+    +--------+    +-------+    +-------+
+| CloudStack |    | Proxy  |    |       |    |       |
+| Management +----+ Server +----+ Stone +----+ My PC |
+|   Server   |    |        |    |       |    |       |
++------------+    +--------+    +-------+    +-------+
+      tcp/8080 <=     tcp/80 <=  tcp/8080 <=
+>>>
+ちなみに Proxy Server としている Apache の設定の該当部分は以下です。
+<<<
+        <Location /client/>
+                ProxyPass http://192.168.33.12:8080/client/
+                ProxyPassReverse http://192.168.33.12:8080/client/
+        </Location>
+>>>
+
+するとどうでしょう？残念なことにインストール画面にログインできてしまいました。ギギギギギ
+
+仕方がないので諦めてポチポチッと各項目を入力していきます。いきますが、不勉強な僕はこれらの各値についていまいちピンときていないので、何度か寝落ちしながら進めていきましたところ、最終的に以下ような素敵なメッセージが返されました。まぁ、そりゃそうですよね、簡単にインストールできるための Web UI で寝落ちしながら作業するウツケモノには神罰が下ってもおかしくないところ、心優しい CloudStack 神はセッションタイムアウトで許してくださる慈悲深さ…。何言ってんだろう俺？
+
+{{image_right 2, 'セッションタイムアウト', 3, [284,320]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+
+心を入れ換えてもう一度試しました。試しましたが、ホストの追加でエラー発生。「戻ってエラーを修正できます。」なんて有り難いお言葉を頂いたので戻ってみますが、ホストの情報を入力する画面が表示されるだけ…。
+
+{{image_right 4, 'ホスト追加の失敗', 5, [320,170]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+
+入力されている情報に間違いがないので、仕方がないのでもう一度パスワードを入力し直してみて続行してみるも、またもやエラー。
+
+うーん、何か事前設定とか不足しているのかしら？と思って、再度インストールガイドを確認すると、
+
+<<<
+6.5.1.1.2. KVM Host Additional Requirements
+   If shared mountpoint storage is in use, the administrator should ensure that the new host 
+   has all the same mountpoints (with storage mounted) as the other hosts in the cluster.
+   Make sure the new host has the same network configuration (guest, private, and public network) 
+   as other hosts in the cluster.
+>>>
+
+あー、はいはい、そうね、そうだよね、NFS の設定をちゃんと確認するはー。で、NFS の設定をちゃんと確認し、ホスト「Host1」でマウントできることを確認し、再度ホストの追加を試しました。{{fn "当然のことながら、ちゃんと Management Server と Host1 がお互いに FQDN で通信できることは確認済みです" }}
+
+……
+……
+……
+
+はい、残ー念♪
+
+{{image_right 6, 'ホスト追加の失敗再び', 7, [320,164]}}
+{{'<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>'}}
+
+
+もうね、これは CloudStack 神が「お前みたいなユーカリ野郎に触らせてやる CloudStack なんぞ 1Pod もねぇ！と言ってるに違いないです。意味わからんですよ。
+
+ちなみにホスト「Host1」の /var/log/secure には Manegement Server がログインをし5分後ぐらいに接続を切っている跡が残されているのですが、それ以外は何も情報が見当りませんでしたT^T。っていうか、俺何度ホストの追加試してんだよwww
+
+<<<
+Dec 24 11:13:53 machine3 sshd[18974]: Accepted password for root from 192.168.33.12 port 44467 ssh2
+Dec 24 11:13:53 machine3 sshd[18974]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 11:19:01 machine3 sshd[18974]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 11:19:01 machine3 sshd[18974]: pam_unix(sshd:session): session closed for user root
+Dec 24 11:30:13 machine3 sshd[19107]: Accepted password for root from 192.168.33.12 port 44468 ssh2
+Dec 24 11:30:13 machine3 sshd[19107]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 11:35:21 machine3 sshd[19107]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 11:35:21 machine3 sshd[19107]: pam_unix(sshd:session): session closed for user root
+Dec 24 11:37:22 machine3 sshd[19189]: Accepted password for root from 192.168.33.12 port 44469 ssh2
+Dec 24 11:37:22 machine3 sshd[19189]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 11:42:30 machine3 sshd[19189]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 11:42:30 machine3 sshd[19189]: pam_unix(sshd:session): session closed for user root
+Dec 24 11:57:19 machine3 sshd[19362]: Accepted password for root from 192.168.33.12 port 44470 ssh2
+Dec 24 11:57:19 machine3 sshd[19362]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 12:02:27 machine3 sshd[19362]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 12:02:27 machine3 sshd[19362]: pam_unix(sshd:session): session closed for user root
+Dec 24 12:03:49 machine3 sshd[19442]: Accepted password for root from 192.168.33.12 port 44471 ssh2
+Dec 24 12:03:49 machine3 sshd[19442]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 12:08:57 machine3 sshd[19442]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 12:08:57 machine3 sshd[19442]: pam_unix(sshd:session): session closed for user root
+Dec 24 12:11:31 machine3 sshd[19526]: Accepted password for root from 192.168.33.12 port 44472 ssh2
+Dec 24 12:11:31 machine3 sshd[19526]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 12:16:39 machine3 sshd[19526]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 12:16:39 machine3 sshd[19526]: pam_unix(sshd:session): session closed for user root
+>>>
+
+えー、まー、非常に残念な結果となりましたが、結論としては
+
+{{'<font size=5>'}}ユーカリ脳になると CloudStack のインストールすら満足にできなくなる{{'</font>'}}
+
+ことが証明されました。
+
+あぁ、もう、僕この先の人生、CloudStacker に会うことできません。どの面下げて会えというんでしょう？
+
+!!「余談」という名の八つ当たり
+まぁ、Eucalyptus も Wakame-VDC に比べるとインストールが面倒な気がしますが、CloudStack はより一層面倒だと思いました。
+!!!面倒その壱
+my.cnf の設定って自動化できないの？まぁ、使用する MySQL が CloudStack でのみ使用するわけではないケースもあるでしょうから、そーゆー場合を考えると自動化するのが簡単じゃないのかもしれないけど、やっぱ初心者的には面倒です。
+!!!面倒その弐
+何でインストール作業が途中から Web コンソールでやることになってんでしょうか？利用者が Web コンソールで利用できるってのはとても良いことだと思いますが、環境構築者が Web コンソールで作業できて嬉しいことってあります？今回の私みたいに利用者セグメントとはネットワーク的に違う場所──つまり遠隔地から環境構築していると Web コンソールで作業するために何段もポートフォワードしたり Proxy 経由して設定するのって面倒です。僕がヘタレだから発見できなかっただけで、きっと CUI でのインストール方法ってあるんですよね？
+!!!面倒その参
+ホストの追加が失敗すると「問題が発生しました。戻ってエラーを修正できます。:」って出るんですが、何が原因で失敗したのかが全く示されないので戻っても何も状況は解決しなかったです。せめて何を実行したら失敗したかぐらい言って頂けると嬉しいんですが…。
+
+!!後日談
+
+後日談とか書きましたが、まだ1時間も経ってません。
+
+上記を見てくださった行冨さんから「You! cloud-agent インストールしちゃいな Yo!」と指摘を頂きまして、「え？俺何か読み落してた？」とか思いながらインストールしてみることにしました。個人的には「何で WebUI でのインストールが 5 章に書かれているのに、cloud-agent のインストールが 8 章なんだろう？」と納得がいかないんですが、行冨さんから「Citrix の XenServer だったら Cloud-Agent が不要なんです」と教わり、あぁ、そーゆーものなんだ…と納得することにしました。
+
+! DeltaCloud で Eucalyptus を利用してみる？
+
+さて、この三日間、家の用事をこなす振りしつつ CloudStack Advent Calendar のことをやっていたら Eucalyptus Advent Caledar の仕込みを忘れていました。本当なら 12/24, 12/25 の Advent Calendar っていったらそりゃもう否が応にも仏恥義理な内容が用意されているもんですが、CloudStack Advent Calendar をあんな寒い状況にしておいて Eucalyptus Advent Calendar だけ立派にすることはできません。なので、今日の Eucalyptus Advent Calendar は手を抜きます。どれぐらい手抜きかと言うと、この24日間でも一二を争う手抜きっぷりです。そのぐらい手を抜かないと申し訳なくて申し訳なくて。
+
+!!事前確認
+えーと、今日の CloudStack Advent Calendar を読んでくださった聖なる紳士淑女の皆さんはよくわかると思いますが、わたくしつまらない点でハマったりするので、事前に環境の確認とかをしておかないといけません。
+
+[[Delta Cloud のサイト|http://deltacloud.apache.org/install-deltacloud.html]]を見ると、以下のパッケージがインストールされている必要があるそうです。
+* ruby と ruby-devel
+* rubygems
+* gcc-c++
+* libxml2 と libxml2-devel
+* libxslt と libxslt-devel
+* rake
+
+で、本当は CentOS なりを用意してやるところですが、残念ながらわたくしは Gentoo Linux 好きっ娘{{fn "まぁ、下手の横好きなだけですけどね"}}なので、Gentoo Linux にインストールしてみる予定で上記のパッケージを確認します。
+
+* ruby と ruby-devel
+** ruby は ruby 1.8.7 をインストールしておきます。emerge するとき RUBY_TARGETS="ruby18" を指定しておかないと ruby 1.9 も入ります。まぁ、どっちがいいのかはわかりませんので、もし 1.9 のほうがいい場合は RUBY_TARGETS="ruby19" としてくださいね。ちなみに ruby-devel は Gentoo の場合はありません。
+* rubygems
+** まぁ、これも RUBY_TARGETS="ruby18" としてインストールします (上で指定した RUBY_TARGETS と同じものを指定します)。
+* gcc-c++
+** 基本的には既にインストールされていると思いますが、一応、USE="cxx" で gcc がインストールされているかを確認します。ちなみに gcc-c++ というパッケージ名ではないので注意を。
+* libxml2 と libxml2-devel
+** パッケージ名はまま libxml2 です。Gentoo なので libxml2-devel はありません。
+* libxslt と libxslt-devel
+** パッケージ名はまま libxslt です。Gentoo なので libxslt-devel はりません。
+* rake
+** パッケージ名はまま rake です。
+
+!!インストール
+Delta Cloud の Server のインストールをします。
+<<<
+gem install deltacloud-core
+>>>
+ちなみに私の環境では以下の gems が一緒にインストールされました。
+<<<
+haml-3.1.7
+sinatra-rabbit-1.1.3
+crack-0.3.1
+rack-accept-0.4.5
+json-1.7.5
+rest-client-1.6.7
+rbovirt-0.0.16
+uuidtools-2.1.3
+http_connection-1.4.2
+xml-simple-1.1.2
+aws-2.6.0
+waz-storage-1.2.0
+cloudservers-0.4.2
+cloudfiles-1.5.0.1
+openstack-1.0.7
+nori-2.0.0
+httpi-2.0.0
+wasabi-3.0.0
+gyoku-1.0.0
+akami-1.2.0
+savon-2.0.2
+trollop-2.0
+rbvmomi-1.6.0
+deltacloud-core-1.0.5
+rack-protection-1.3.2
+>>>
+当然、環境によってインストールされる gems は異ると思います。
+
+続いて Delta Cloud の Client をインストールします。
+<<<
+gem install deltacloud-client
+>>>
+ちなみに今回は Server と Client を同じマシンにインストールしたのです。
+
+!!サーバの実行
+
+[[DeltaCloud のドキュメント|http://deltacloud.apache.org/run-deltacloud-server.html]]によると以下を実行するとサーバが起動するらしいです。
+<<<
+deltacloudd -i eucalyptus
+>>>
+で、実行したところ以下の素敵なメッセージが届きました。やったねホーリーナイト♪
+<<<
+Starting Deltacloud API :: eucalyptus :: http://localhost:3001/api
+
+/usr/lib64/ruby/site_ruby/1.8/rubygems/custom_require.rb:55:in `gem_original_require': no such file to load -- require_relative (LoadError)
+        from /usr/lib64/ruby/site_ruby/1.8/rubygems/custom_require.rb:55:in `require'
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/lib/deltacloud_rack.rb:16
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:23:in `load'
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:23
+        from /usr/lib64/ruby/gems/1.8/gems/rack-1.4.1/lib/rack/builder.rb:51:in `instance_eval'
+        from /usr/lib64/ruby/gems/1.8/gems/rack-1.4.1/lib/rack/builder.rb:51:in `initialize'
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:1:in `new'
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:1
+>>>
+
+で、ここから数々のトラブルを千切っては投げ千切っては投げの快進撃でつき進み、無事に DeltaCloud を利用できるようになる予定なのですが、どうやら続きは夢の国でやらなければならないようです。ごめんなさい。
+
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}いよいよクリスマスは明日です ✌(՞ਊ ՞)✌{{'</font><br/><br/>'}}
+
+.
+Date: 20121225
+Title: Eucalyptus Advent Calendar 2012 JP 廿五日目
+Last-Modified: 1361350948
+Visible: true
+Format: Wiki
+
+0.48
+
+さて、12/25 UTC-11 です。Advent Calendar 最後のエントリです。
+
+今日はいつも以上に時間がないので導入文も端折ります。
+
+! Eucalyptus と DNS
+
+今日は本当に時間がなく(いつも無いけど) Advent Calendar のネタを如何に手間をかけずに書こうか悩んでいたところ、@hejomo さんが「[[Eucalyptus 環境に DNS を導入してみたけどドメイン名が変だぜ|http://twitter.com/hejomo/status/283582296320249857]]」とツブやいていたので、これ幸いと思い、これをネタにすることにしました。@hejomo さんありがとうございます。
+
+!!Eucalyptus 2.0.3 までは…
+バージョン 2.0 系までは eucalyptus.conf に DISABLE_DNS="N" って設定し、Web 管理画面で「DNS Configuration」の各項目に値を設定すれば PublicIP と PrivateIP が PublicDNS と PrivateDNS となっていました。
+
+しかし、Eucalyptus 3.x からは以下のような設定を行なわないと駄目だそうです。(「だそうです」と言っているのは、実は環境を腐らせてしまい、最後まで確認しきることができなかったからなのです…orz)
+
+!!Eucalyptus 3.2 での DNS 設定
+
+まず最初に CLC にログインし、以下のコマンドを実行します。
+<<<
+euca-modify-property -p system.dns.dnsdomain=<eucadomain.yourdomain>
+>>>
+<eucadomain.yourdomain> は今回設定したい DNS のゾーン名となる値を入れます。例えば euca1.example.com とか。
+
+つぎに
+<<<
+euca-modify-property -p bootstrap.webservices.use_instance_dns=true
+>>>
+と設定し、そして
+<<<
+euca-modify-property -p cloud.vmstate.instance_subdomain=.<custom-dns-subdomain>
+>>>
+と設定します。.<custom-dns-subdomain> は適宜環境にあわせて設定してください。
+
+あとは eucalyptus-cloud を再起動し DNS サーバなどを適切に用意するだけらしいですが、どうやら eucalyptus-cloud を再起動したらうまく動かなくなりました…orz
+
+/var/log/eucalyptus/cloud-error.log には以下の出力がありますが、関係あるのかどうかすら不明です。(あ、以下の時刻は JST なので 12/26 を指してますが、正しくは 12/25 UTC-11 です)
+
+<<<
+Wed Dec 26 08:28:55 2012 ERROR [ServiceContextManager:Thread-16] [com.eucalyptus.context.ServiceContextManager.createContext(ServiceContextManager.java):233] Restarting service context with these enabled
+ services: [arn:euca:eucalyptus::notifications:192.168.33.11/eucalyptus/notifications notifications:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::configuration:192.168.33.11/eucalyptus/configuration configuration:unpartitioned:cloudLocal:, 
+arn:euca:bootstrap:cluster:node:192.168.33.11/cluster/node node:unpartitioned:, arn:euca:eucalyptus:::192.168.33.11/eucalyptus/eucalyptus 
+eucalyptus:unpartitioned:cloudLocal:, arn:euca:bootstrap:cluster:gatherlog:192.168.33.11/cluster/gatherlog gatherlog:unpartitioned:, 
+arn:euca:bootstrap::arbitrator:192.168.33.11/bootstrap/arbitrator arbitrator:partitioned:alwaysLocal:, 
+arn:euca:eucalyptus::dns:192.168.33.11/eucalyptus/dns dns:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::jetty:192.168.33.11/eucalyptus/jetty jetty:unpartitioned:cloudLocal:, 
+arn:euca:bootstrap::properties:192.168.33.11/bootstrap/properties properties:unpartitioned:alwaysLocal:, 
+arn:euca:bootstrap::reporting:192.168.33.11/bootstrap/reporting reporting:unpartitioned:alwaysLocal:, 
+arn:euca:eucalyptus::storage:192.168.33.11/eucalyptus/storage storage:partitioned:cloudLocal:, 
+arn:euca:eucalyptus::euare:192.168.33.11/eucalyptus/euare euare:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::db:192.168.33.11/eucalyptus/db db:unpartitioned:cloudLocal:, arn:euca:eucalyptus::ldap:192.168.33.11/eucalyptus/ldap 
+ldap:unpartitioned:cloudLocal:, arn:euca:eucalyptus::tokens:192.168.33.11/eucalyptus/tokens tokens:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::cluster:192.168.33.11/eucalyptus/cluster cluster:partitioned:cloudLocal:, 
+arn:euca:bootstrap:::192.168.33.11/bootstrap/bootstrap bootstrap:unpartitioned:alwaysLocal:, 
+arn:euca:bootstrap::component:192.168.33.11/bootstrap/component component:unpartitioned:alwaysLocal:, 
+arn:euca:bootstrap:walrus:walrus:192.168.33.11/walrus/walrus walrus:unpartitioned:]
+
+>>>
+
+とうとう最後の最後までぐだぐだな結果ですが、
+
+{{'<br/><br/><font size="5" color="#ee2222">'}}メリークリスマス ✌(՞ਊ ՞)✌{{'</font><br/><br/>'}}
+
+.

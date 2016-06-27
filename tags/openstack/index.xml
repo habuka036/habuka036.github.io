@@ -528,5 +528,432 @@ import nova.utils
 </description>
     </item>
     
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 三日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</link>
+      <pubDate>Mon, 03 Dec 2012 01:16:23 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</guid>
+      <description>
+
+&lt;h1 id=&#34;euca-monkey-を使ってみたよ&#34;&gt;Euca Monkey を使ってみたよ？&lt;/h1&gt;
+
+&lt;p&gt;さて、Eucalyptus Advent Calendar 2012 JP の三日目です。初日がどうやら一部で「うわっ飛ばしすぎじゃね？」とか心配されたようなので、3日目は大人し目にいきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;で、「大人し目って何だ？」って考えてみたんですが、大人しい == ドタバタしない系だと思い、つまり何か仕掛けたら放置プレイでいいんじゃね？となるようなものをターゲットにしようってことになり、協議の結果 &lt;a href=&#34;https://github.com/eucalyptus/euca-monkey&#34;&gt;Euca Monkey&lt;/a&gt; を扱おうという結論に達しました。で、この Euca Monkey ってのは Eucalyptus のストレステストツールでして、README とかを読んでると &lt;a href=&#34;https://github.com/eucalyptus/eutester&#34;&gt;Eutester&lt;/a&gt; っていうテストフレームワークを使うそうです。でもここでいきなりこのテストフレームワークの使い方を説明しだすと、また皆さんを置いてけぼりな展開になるので、ここはぐっと我慢して Euca Monkey を使う方法に徹します。&lt;/p&gt;
+
+&lt;p&gt;ちなみに Euca Monkey の作者は Eucalyptus 社のソフトウェアデザイナ の Kyo Lee さんで、詳しくは&lt;a href=&#34;http://eucatest.wordpress.com/2012/11/07/10-steps-to-euca-monkey/&#34;&gt;彼のブログ&lt;/a&gt;で紹介されています。&lt;/p&gt;
+
+&lt;h1 id=&#34;環境の準備&#34;&gt;環境の準備&lt;/h1&gt;
+
+&lt;p&gt;で、何はともあれ Eucalyptus の環境を作らないと話ははじまらないんですが、&lt;a href=&#34;http://036.habuka.jp/?date=20121201&#34;&gt;初日のときみたい&lt;/a&gt;に nightly build に手をだして本筋から外れるのも何なので、今回は日和って Eucalyptus 3.1 の環境でやります。ステーブルサイコー！&lt;/p&gt;
+
+&lt;p&gt;ちなみに Eucalyptus 3.1 の環境の作り方は OSPN Press の&lt;a href=&#34;http://www.ospn.jp/press/20121108no29-1-useit-oss.html&#34;&gt;「オープンソース」を使ってみよう (第26回 dodai-deploy編)&lt;/a&gt;を参考にしてください。&lt;/p&gt;
+
+&lt;p&gt;あぁ、一応聖なる紳士淑女のために説明をしますが、ちゃんとメモリを 16GB も積んだマシン2台構成で1台はフロントエンド (CLC/CC) で、もう1台はノードとしました。で、CLC/CC の eucalyptus.conf は以下のように変更しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# diff -u eucalyptus.conf.orig eucalyptus.conf
+--- eucalyptus.conf.orig        2012-09-27 08:17:29.000000000 +0900
++++ eucalyptus.conf     2012-12-03 02:12:05.000000000 +0900
+@@ -154,13 +154,13 @@
+ # The networking mode in which to run.  The same mode must be specified
+ # on all CCs and NCs in the entire cloud.  Valid values include SYSTEM,
+ # STATIC, MANAGED, and MANAGED-NOVLAN.
+-VNET_MODE=&amp;quot;SYSTEM&amp;quot;
++VNET_MODE=&amp;quot;MANAGED&amp;quot;
+
+ # The name of the network interface that is on the same network as
+ # the NCs.  In Managed and Managed (No VLAN) modes this may need to be
+ # a bridge.  The default is &amp;quot;eth0&amp;quot;.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-VNET_PRIVINTERFACE=&amp;quot;eth0&amp;quot;
++VNET_PRIVINTERFACE=&amp;quot;eth1&amp;quot;
+
+ # On a CC, this is the name of the network interface that is connected
+ # to the &amp;quot;public&amp;quot; network.  The default is &amp;quot;eth0&amp;quot;.
+@@ -188,22 +188,22 @@
+ # A space-separated list of individual and/or hyphenated ranges of public
+ # IP addresses to assign to instances.
+ # Networking modes: Managed, Managed (No VLAN)
+-#VNET_PUBLICIPS=&amp;quot;your-free-public-ip-1 your-free-public-ip-2 ...&amp;quot;
++VNET_PUBLICIPS=&amp;quot;192.168.33.110-192.168.33.250&amp;quot;
+
+ # The address and network mask of the network the cloud should use for
+ # instances&#39; private IP addresses.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-#VNET_SUBNET=&amp;quot;192.168.0.0&amp;quot;
+-#VNET_NETMASK=&amp;quot;255.255.0.0&amp;quot;
++VNET_SUBNET=&amp;quot;10.0.0.0&amp;quot;
++VNET_NETMASK=&amp;quot;255.0.0.0&amp;quot;
+
+ # The number of IP addresses to allocate to each security group.
+ # Specify a power of 2 between 16 and 2048.
+ # Networking modes: Managed, Managed (No VLAN)
+-#VNET_ADDRSPERNET=&amp;quot;32&amp;quot;
++VNET_ADDRSPERNET=&amp;quot;2048&amp;quot;
+
+ # The address of the DNS server to supply to instances in DHCP responses.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-#VNET_DNS=&amp;quot;your-dns-server-ip&amp;quot;
++VNET_DNS=&amp;quot;192.168.32.21&amp;quot;
+
+ # The network broadcast address and default gateway to supply to instances
+ # in DHCP responses.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、NC の eucalyptus.conf は以下のように変更しました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# diff -u eucalyptus.conf.orig eucalyptus.conf
+--- eucalyptus.conf.orig        2012-09-27 08:17:29.000000000 +0900
++++ eucalyptus.conf     2012-12-03 02:12:24.000000000 +0900
+@@ -88,10 +88,10 @@
+ # KVM hypervisor.
+
+ # If &amp;quot;1&amp;quot;, use Virtio for the root file system
+-USE_VIRTIO_ROOT=&amp;quot;0&amp;quot;
++USE_VIRTIO_ROOT=&amp;quot;1&amp;quot;
+
+ # If &amp;quot;1&amp;quot;, use Virtio for dynamic block volumes
+-USE_VIRTIO_DISK=&amp;quot;0&amp;quot;
++USE_VIRTIO_DISK=&amp;quot;1&amp;quot;
+
+ # If &amp;quot;1&amp;quot;, use Virtio for the network card
+ USE_VIRTIO_NET=&amp;quot;0&amp;quot;
+@@ -154,7 +154,7 @@
+ # The networking mode in which to run.  The same mode must be specified
+ # on all CCs and NCs in the entire cloud.  Valid values include SYSTEM,
+ # STATIC, MANAGED, and MANAGED-NOVLAN.
+-VNET_MODE=&amp;quot;SYSTEM&amp;quot;
++VNET_MODE=&amp;quot;MANAGED&amp;quot;
+
+ # The name of the network interface that is on the same network as
+ # the NCs.  In Managed and Managed (No VLAN) modes this may need to be
+@@ -171,13 +171,13 @@
+ # configuration, this may be a bridge or a physical interface that is
+ # attached to the bridge.  The default is &amp;quot;eth0&amp;quot;.
+ # Networking modes: Managed
+-VNET_PUBINTERFACE=&amp;quot;eth0&amp;quot;
++VNET_PUBINTERFACE=&amp;quot;eth1&amp;quot;
+
+ # On an NC, this is the name of the bridge interface to which instances&#39;
+ # network interfaces should attach.  A physical interface that can reach
+ # the CC must be attached to this bridge.
+ # Networking modes: System, Static, Managed (No VLAN)
+-VNET_BRIDGE=&amp;quot;br0&amp;quot;
++VNET_BRIDGE=&amp;quot;br1&amp;quot;
+
+ # A map of MAC addresses to IP addresses that Eucalyptus should allocate
+ # to instances when running in Static mode.  Separate MAC addresses and
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;マシンイメージの準備&#34;&gt;マシンイメージの準備&lt;/h2&gt;
+
+&lt;p&gt;Euca Monkey を動かすには何故か CentOS 6.3 の環境が必要だそうです。ちなみに物理でも仮想でもいいようなので、インスタンス上でやろうと思うんですが、マシンイメージを用意するのがメンドーだなーっていうあなたのために&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=&#34;5&#34;&gt;「ハイ、&lt;a href=&#34;http://emis.eucalyptus.com/&#34;&gt;http://emis.eucalyptus.com/&lt;/a&gt; 」。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;え？そこはマシンイメージ工房じゃないの？って思われるかもしれませんが、残念ながら CentOS 6.3 のイメージは用意してませんので、Eucalyptus 社が配布しているイメージを使います。&lt;/p&gt;
+
+&lt;p&gt;で、マシンイメージの取得は、&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;eustore-describe-images コマンドで一覧を取得し&lt;/li&gt;
+&lt;li&gt;eustore-install-image コマンドでインストールする&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;という簡単なコマンドと手順で実現できるため、まずは eustore-describe-images コマンドを叩きます。(カチャカチャカチャ…ッターン！)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# eustore-describe-images
+Traceback (most recent call last):
+  File &amp;quot;/usr/bin/eustore-describe-images&amp;quot;, line 36, in &amp;lt;module&amp;gt;
+    import euca2ools.commands.eustore.describeimages
+ImportError: No module named eustore.describeimages
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;さぁ、はじまりました。これだから使い慣れないディストリビューションで Eucalyptus 動かすの嫌なんだよなー。(完全に責任転嫁)&lt;/p&gt;
+
+&lt;p&gt;でとりあえず euca2ools のバージョンを確認です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# dpkg -l | grep euca2ools
+ii  euca2ools                             2.0.0~bzr516-0ubuntu3          managing cloud instances for Eucalyptus
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あー、これは無理だわー、eustore-describe-images コマンドは euca2ools 2.1 からだわー。しょーがないから便利コマンドは諦めて &lt;a href=&#34;http://emis.eucalyptus.com/starter-emis/euca-centos6.3-2012.11.07-x86_64.tgz&#34;&gt;CentOS 6.3 のイメージファイル&lt;/a&gt;を直接取得して手動で登録します。&lt;/p&gt;
+
+&lt;p&gt;で、取得したら以下の&lt;strong&gt;ように&lt;/strong&gt;登録します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# tar -xzf euca-centos6.3-2012.11.07-x86_64.tgz
+# cd centos-6.3-x86_64/
+# euca-bundle-image --kernel true -i kvm-kernel/vmlinuz-2.6.32-279.14.1.el6.x86_64
+# euca-upload-bundle -b kernel.001 -m /tmp/vmlinuz-2.6.32-279.14.1.el6.x86_64.manifest.xml
+# euca-register -a x86_64 kernel.001/vmlinuz-2.6.32-279.14.1.el6.x86_64.manifest.xml
+IMAGE   eki-945F390D
+
+# euca-bundle-image --ramdisk true -i kvm-kernel/initrd-2.6.32-279.14.1.el6.x86_64.img
+# euca-upload-bundle -b ramdisk.001 -m /tmp/initrd-2.6.32-279.14.1.el6.x86_64.img.manifest.xml
+# euca-register -a x86_64 ramdisk.001/initrd-2.6.32-279.14.1.el6.x86_64.img.manifest.xml
+IMAGE   eri-31F837E3
+
+# euca-bundle-image --kernel eki-945F390D --ramdisk eri-31F837E3 -i centos-6.3-x86_64.img
+# euca-upload-bundle -b machine.001 -m /tmp/centos-6.3-x86_64.img.manifest.xml
+# euca-register -a x86_64 machine.001/centos-6.3-x86_64.img.manifest.xml
+IMAGE   emi-69183D43
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;でテキトーに起動してログインします。&lt;/p&gt;
+
+&lt;h1 id=&#34;euca-monkey-のインストール&#34;&gt;Euca Monkey のインストール&lt;/h1&gt;
+
+&lt;p&gt;Kyo Lee さんのブログや README によれば「10ステップでインストールできるぜ」と言ってますので、以下の10ステップを実行します。&lt;/p&gt;
+
+&lt;h2 id=&#34;ステップ-1&#34;&gt;ステップ 1&lt;/h2&gt;
+
+&lt;p&gt;git のインストール&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# yum -y install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ステップ-2&#34;&gt;ステップ 2&lt;/h2&gt;
+
+&lt;p&gt;github から euca-monkey のソースを取得&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/eucalyptus/euca-monkey.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ステップ-3&#34;&gt;ステップ 3&lt;/h2&gt;
+
+&lt;p&gt;ディレクトリ euca-monkey/ 配下に移動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ./euca-monkey
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ステップ-4&#34;&gt;ステップ 4&lt;/h2&gt;
+
+&lt;p&gt;cloud-resource-populator のインストーラを実行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;../installer-cloud-resource-populator.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、スクリプトの実行が終ると4ステップの手順が示されるけどガン無視して次に進みます。&lt;/p&gt;
+
+&lt;h2 id=&#34;ステップ-5&#34;&gt;ステップ 5&lt;/h2&gt;
+
+&lt;p&gt;euca-monkey-webservice のインストーラを実行 (いまさらだけど、HTTP proxy 配下の環境で実行している人は yum にちゃんと proxy の設定してネ)。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;../installer-euca-monkey-webservice.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ステップ-6&#34;&gt;ステップ 6&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121203_0.png&#34; alt=&#34;Euca Monkey の初期画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Euca Monkey のページ (http://インスタンスのIP/euca-monkey.php) にブラウザでアクセスして、ちゃんと動いているか確認&lt;/p&gt;
+
+&lt;p&gt;あ、ちなみに事前にセキュリティグループの 80/tcp は開けといてね。あとインスタンス上でファイアウォールが有効になっている場合は system-config-firewall-tui コマンドとかで適宜 80/tcp を開けてね。&lt;/p&gt;
+
+&lt;h2 id=&#34;ステップ-7&#34;&gt;ステップ 7&lt;/h2&gt;
+
+&lt;p&gt;ディレクトリ launch_euca_monkey/ 配下に移動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ./launch_euca_monkey/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ステップ-8&#34;&gt;ステップ 8&lt;/h2&gt;
+
+&lt;p&gt;../conf/ ディレクトリ配下にある Euca Monkey の設定ファイル 2b_tested.lst と generator.ini を適宜変更します。&lt;/p&gt;
+
+&lt;p&gt;私の環境では以下の内容&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;./conf/2b_tested.lst&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;192.168.33.102  UBUNTU  12.04   64      REPO    [UI CC00 CLC SC00 WS]
+192.168.33.101  UBUNTU  12.04   64      REPO    [NC00]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;./conf/generator.ini&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;### RESOURCE GENERATOR PARAMETERS
+
+[USER INFO]
+account: cloud-user-test-acct-00
+user: cloud-user-00
+password: mypassword00
+
+[RESOURCES]
+running instances: 2
+volumes:  2
+snapshots: 1
+security groups: 3
+keypairs: 5
+ip addresses: 2
+
+[ITERATIONS]
+iterations: 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;本当は RESOURCES や ITERATIONS の値を大きくしたいんですが、このあと OpenStack Advent Calendar のネタも書かなきゃならないので、日和って小さくしました。(この時点で &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;03&lt;/sub&gt; 19:10 &amp;hellip;(^o^)/)&lt;/p&gt;
+
+&lt;h2 id=&#34;ステップ-9&#34;&gt;ステップ 9&lt;/h2&gt;
+
+&lt;p&gt;Euca Monkey を起動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;../launch-euca-monkey.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実行すると画面にポロポロっと下拵えの様子が出力されて、準備が完了すると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;===== LAUNCH EUCA MONKEY : DONE =====
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;って出力されます。あとは裏でバリバリっと動くのです。&lt;/p&gt;
+
+&lt;h2 id=&#34;ステップ-10&#34;&gt;ステップ 10&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121203_1.png&#34; alt=&#34;期待のグラフががががが…？&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;で、コンソールを眺めてても何も起きません。そりゃそうです、実行結果はブラウザでステップ 6 でアクセスした場所を表示し、画面上部の [Refresh] ボタンをクリックして画面を更新します。するとモリモリ………って、あれ？画面左側の INPUT GRAPH しか描画されないお…(´・ω・`)&lt;/p&gt;
+
+&lt;p&gt;Euca Monkey のテストのログを見ると INPUT 側のログには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2012-12-03:20:07:20     cloud-user-test-acct-00 admin   intellilink     2       2       1       3       5       2
+2012-12-03:20:07:25     cloud-user-test-acct-00 admin   intellilink     0       0       0       0       0       0
+(省略)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;って吐かれてるのに、一方の結果のログには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2012-12-03:20:07:23     cloud-user-test-acct-00 admin   intellilink     -1      -1      -1      -1      -1      -1
+2012-12-03:20:07:27     cloud-user-test-acct-00 admin   intellilink     -1      -1      -1      -1      -1      -1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;って吐かれてる…。どうみてもこれ失敗してるよなぁ。。。&lt;/p&gt;
+
+&lt;p&gt;で、ここで今更気付くのが羽深クオリティなんですが、そーいや Kyo Lee さんのブログのポスト見ると Eucalyptus 3.2 で実装されてる UI が写ってる…。もしかして Euca Monkey って 3.1 じゃ動かない？ (そんな記述は見当たらないんだけどなぁ。。。)&lt;/p&gt;
+
+&lt;p&gt;ということで、Kyo Lee さんに質問し、今日はここまで。(&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;01&lt;/sub&gt; のエントリに引き続き、こんなんばっか… T^T)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;openstack-を徹底的にイジメ抜く-許さない-絶対&#34;&gt;OpenStack を徹底的にイジメ抜く、許さない、絶対&lt;/h1&gt;
+
+&lt;p&gt;Euca Monkey で消化不良な結末を迎えたので、思わず OpenStack Advent Calendar のことを忘れて今日を終えるところでした…。&lt;/p&gt;
+
+&lt;p&gt;さて、気持ちを切り替えて頑張ります。&lt;/p&gt;
+
+&lt;p&gt;えーと、タイトルは強気ですが、ぶっちゃけアタクシ OpenStack 初心者なのです (一部の人達には誤解されていますが…)。なので、初心者は初心者らしく、&lt;a href=&#34;http://www.ospn.jp/press/20121108no29-1-useit-oss.html&#34;&gt;dodai-deploy を使って環境を作成&lt;/a&gt;します。&lt;/p&gt;
+
+&lt;p&gt;そしてこれは「ネタ」なので、書いてあることに対してスルー力が必要です。むしろこの日記自体をスルーしてくれると個人的には助かります。( ´_ゝ｀)&lt;/p&gt;
+
+&lt;p&gt;… … …&lt;/p&gt;
+
+&lt;p&gt;… … …&lt;/p&gt;
+
+&lt;p&gt;… … …&lt;/p&gt;
+
+&lt;p&gt;(…3時間経過…)&lt;/p&gt;
+
+&lt;p&gt;… … …&lt;/p&gt;
+
+&lt;p&gt;… … …&lt;/p&gt;
+
+&lt;p&gt;… … …&lt;/p&gt;
+
+&lt;p&gt;OpenStack を泣かす前に自分が泣きそうな状況になりましたよ。ツールに頼ってばかりではいけませんね… T&amp;amp;T&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=&#34;5&#34;&gt;教訓： (またこのパターンかよ…) OpenStack ぐらい手動で構築できるようにならないとダメです。&lt;/font&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;glance-を泣かしてみる&#34;&gt;glance を泣かしてみる&lt;/h1&gt;
+
+&lt;p&gt;何度も言いますが本当に OpenStack 初心者なので、OpenStacker 的には当然なことも僕にはワカラナイので「オイオイ、そんな使い方はねーだろーよ？」ってことをやっちゃってるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;Eucalyptus だろうが OpenStack だろうが、まずはマシンイメージを登録しないことには始まりません。なので華麗にマシンイメージを登録してみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、世の中的には glance にマシンイメージを追加するときは glance コマンドを使うようですが、僕は Eucalyptoid なので glance コマンドの使い方を知りません。なので意地でも euca2ools でイメージを登録してます。で、Horizon さんは素敵な方なので EC2 認証情報の zip ファイルをダウンロードさせてくれるのですが、その中にある ec2rc.sh の中には S3_URL に関する記述がないんです、何でだろう？僕の設定が悪いんですよねきっと、はい。&lt;/p&gt;
+
+&lt;p&gt;まぁ、なので毎回以下のように環境にあわせて設定してます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;S3_URL=http://192.168.33.101:3333
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、早速、おまちかねのイメージ登録です。ただし、普通に登録したのではツマラナイので、以下のスクリプトを用意し、1つのイメージを並列で登録してみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash -x
+
+WD=$(basename `pwd`)
+KERNEL_IMG=`ls kernel-*`
+RAMDISK_IMG=`ls initramfs-*`
+MACHINE_IMG=`ls ${WD}.img`
+BUCKET=`date +&#39;%Y%m%d-%H%M%S&#39;`
+
+echo ${KERNEL_IMG}
+echo ${RAMDISK_IMG}
+echo ${MACHINE_IMG}
+
+mkdir -p /mnt/tmp-${BUCKET}
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${KERNEL_IMG} --kernel true
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${KERNEL_IMG}.manifest.xml
+EKI=`euca-register ${BUCKET}/${KERNEL_IMG}.manifest.xml | gawk &#39;{print $2}&#39;`
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${RAMDISK_IMG} --ramdisk true
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${RAMDISK_IMG}.manifest.xml
+ERI=`euca-register ${BUCKET}/${RAMDISK_IMG}.manifest.xml | gawk &#39;{print $2}&#39;`
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${MACHINE_IMG} --kernel ${EKI} --ramdisk ${ERI}
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${MACHINE_IMG}.manifest.xml
+euca-register --architecture x86_64 ${BUCKET}/${MACHINE_IMG}.manifest.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、このスクリプトを6並列実行したところで、えーと、何ていいましょう、まぁ、普通ありえないとは思うのですが、私の環境はちょっと特殊でして、まぁ、以下を見てください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       9.2G  3.5G  5.3G  40% /
+udev            7.8G  4.0K  7.8G   1% /dev
+tmpfs           3.2G  280K  3.2G   1% /run
+none            5.0M     0  5.0M   0% /run/lock
+none            7.8G     0  7.8G   0% /run/shm
+cgroup          7.8G     0  7.8G   0% /sys/fs/cgroup
+/dev/sda5       445G   13G  410G   4% /mnt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;まぁ、聡明な OpenStacker の皆さんならばきっとこれを見て &lt;strong&gt;m9(^Д^)&lt;/strong&gt; ってなっていると思います。そう、実は /dev/sda5 にはいくつかディレクトリを用意しておいて、それらを /var/lib/glance/ や /tmp/ に bind マウントして今回のスクリプトを実行して&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=&#34;4&#34;&gt;いえ～ぃ、glance&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; ジャイアントロック～www&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;って笑う予定でした。ところがそのマウント行為をすっかり忘れてしまい、当然ながらディスクフルを起してしまい、glance も nova-objectsoter も動作がおかしくなり、おまけに「やべー、12/03 の Advent Calendarに穴あけちゃうよー」って思って慌てて環境を掃除して再起動してみましたが、刻すでに遅し&lt;/p&gt;
+
+&lt;p&gt;/var/log/nova-api.log を見ると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2012-12-03 23:10:42 ERROR nova.api.openstack [req-7f54c557-1f6c-42f2-aa74-dd6ff5fd26b9 aac09b12b22d4f1b85bd8339d6688a43 f045
+25346fd94c19a2a098212b93c5e6] Caught error: (OperationalError) (2003, &amp;quot;Can&#39;t connect to MySQL server on &#39;192.168.33.101&#39; (11
+1)&amp;quot;) None None
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なんて素敵なエラーが吐かれています。mysql の DB が壊れてしまったんでしょうか？もうこの時点で &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;03&lt;/sub&gt; の終りが目前なのでそろそろオチを探さないとイケないのですが、まぁ、Twitter で事前にツブやいていたように&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=&#34;5&#34; color=&#34;#ff2222&#34;&gt;OpenStack に徹底的にイジメられる、許して、マジで&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;という結果になりました。ホント OpenStack コワイです。はい。&lt;/p&gt;
+
+&lt;p&gt;終り。&lt;/p&gt;
+
+&lt;p&gt;(ちなみに glance に euca2ools で同時にイメージを登録するとジャイアントロックされるのって diablo までですかね？もうとっくに並列処理可能になってます？)&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;同僚から「節子、何叩いとるんや！これ nova-objectstore やろ。glance ちゃうやんか！！」とツッコまれました(；´Д`A
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

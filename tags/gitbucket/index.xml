@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitbucket on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/gitbucket/</link>
+    <description>Recent content in Gitbucket on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Thu, 19 Sep 2013 00:08:45 +0900</lastBuildDate>
+    <atom:link href="http://blog.osamu.habuka.jp/tags/gitbucket/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>github クローン</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-09-19.github-clone/</link>
+      <pubDate>Thu, 19 Sep 2013 00:08:45 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-09-19.github-clone/</guid>
+      <description>
+
+&lt;p&gt;いいかげん、自分のレポジトリをローカルの svn からサーバ上に移行しようと思い、どうせなら svn を git にしちゃおうと考え、サーバ側では何でレポジトリにアクセスできるようにしようかなー？と &lt;a href=&#34;http://git-scm.com/book/ja/Git-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB&#34;&gt;4.1 Git サーバー - プロトコル&lt;/a&gt; を読みながら、ふと、「そーいえば仕事では RhodeCode 使ってるし、どうせなら github クローンを立てちゃうか」と安易に考え、折角だから同僚&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;が作っている &lt;a href=&#34;https://github.com/takezoe/gitbucket&#34;&gt;GitBucket&lt;/a&gt; を使ってみようと奮闘&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;した記録です。&lt;/p&gt;
+
+&lt;h1 id=&#34;事前情報&#34;&gt;事前情報&lt;/h1&gt;
+
+&lt;p&gt;まず、事前に読んだ情報としては、作者の記事 &lt;a href=&#34;http://news.mynavi.jp/column/ide/162/index.html&#34;&gt;イマドキのIDE事情 - 手軽に設置できるGithubクローン「GitBucket」を使ってみよう&lt;/a&gt; と、Qiita にアップされてた投稿 &lt;a href=&#34;http://qiita.com/tanacasino/items/4d683debd9bcb2f6e06e&#34;&gt;Githubクローン界の新星 GitBucket を Ubuntu 12.04 で動かす&lt;/a&gt; (よくよく見たら、これも会社の同僚&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;だ…) を参考にしました。&lt;/p&gt;
+
+&lt;h1 id=&#34;インストール&#34;&gt;インストール&lt;/h1&gt;
+
+&lt;p&gt;で、Qiita の同僚の投稿を読むと&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GitBucketを動かすのは、他の類似のgitlab等と比較すると圧倒的に簡単でリリースされてるwarファイルを TomcatやJettyにデプロイするだけである。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とか書いてあるんですが、そもそも私は普段 Tomcat や Jetty とは縁遠い生活を送っているため&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:4&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:4&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; 、何が簡単なのかさっぱりわからず、とりあえず「きっと名前からして Java が必要なんだろうな～」という超いいかげんな認識で、自分のサーバ (Gentoo Linux) に Java をインストールしました。&lt;/p&gt;
+
+&lt;p&gt;実行したことは以下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;● Java のインストール
+jdk-7u40-linux-x64.gz を Oracle 社からダウンロードして
+# mv jdk-7u40-linux-x64.gz /usr/portage/distfiles/jdk-7u40-linux-x64.tar.gz
+# ACCEPT_KEYWORDS=~amd64 USE=&amp;quot;-X&amp;quot; ACCEPT_LICENSE=&amp;quot;Oracle-BCLA-JavaSE&amp;quot; emerge dev-java/oracle-jdk-bin
+
+● インストールした JDK が選択されているかを確認
+# eselect java-vm list
+Available Java Virtual Machines:
+  [1]   oracle-jdk-bin-1.7
+  [2]   sun-jdk-1.6  system-vm
+もし上記のように違うバージョンが選択されていたら以下で選択 (末尾の番号は環境にあわせて変更)
+# eselect java-vm set system 1
+
+● Jetty の環境作りと起動
+Jetty を http://download.eclipse.org/jetty/stable-9/dist/ からダウンロードして
+# cd /opt/
+# tar -xzvf jetty-distribution-9.0.5.v20130815.tar.gz
+# ln -s jetty-distribution-9.0.5.v20130815 jetty
+# cd /opt/jetty/
+# ./bin/jetty.sh
+
+● GitBucket のダウンロードと設置
+リリース情報のページ https://github.com/takezoe/gitbucket/releases から gitbucket.war をダウンロードし
+て
+# mv gitbucket.war /opt/jetty/webapps/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上で完了です。うん簡単。あとは Web ブラウザで http://[hostname]:[port]/gitbucket/ にアクセスするだけ
+です。いや、ほんと、&lt;a href=&#34;https://github.com/takezoe/gitbucket#installation&#34;&gt;ここ&lt;/a&gt; に書いてあるように、Tomcat や Jetty の環境さえあれば、3ステップで完了します。もちろん上に書いたように Tomcat や Jetty の環境がなくても、数ステップの作業で導入が完了します。&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;これ書いてるときはまだ同僚でした
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;いや、全然苦労してないです
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;これ書いているときは彼もまだ同僚でした
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;こんなとこを書くと「え？Eucalyptus やってる癖に？」と言われますが、Eucalyptus 以外では Jetty なんて触りませんし…
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:4&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
