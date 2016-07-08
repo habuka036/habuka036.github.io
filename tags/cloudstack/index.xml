@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloudstack on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/cloudstack/</link>
+    <description>Recent content in Cloudstack on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Mon, 24 Dec 2012 01:19:16 +0900</lastBuildDate>
+    <atom:link href="http://blog.osamu.habuka.jp/tags/cloudstack/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CloudStack Advent Calendar jp: 2012 &amp; Eucalyptus Advent Caledar 2012 JP 廿四日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</link>
+      <pubDate>Mon, 24 Dec 2012 01:19:16 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</guid>
+      <description>
+
+&lt;h1 id=&#34;手取り足取りの難しさ&#34;&gt;手取り足取りの難しさ&lt;/h1&gt;
+
+&lt;p&gt;さて皆さん本日はクリスマスイブですよ、聖なるクリスマスを迎える準備はできましたか？泣いても笑ってもサンタはやって来ます、皆さん供物の用意は済みましたか？もしくは供物のかわりに差し出す魂の用意は大丈夫ですか？清らかな人生を歩んできましたか？&lt;/p&gt;
+
+&lt;h1 id=&#34;cloudstackがッ-泣くまで-イジメるのをやめないッ&#34;&gt;CloudStackがッ 泣くまで イジメるのをやめないッ！&lt;/h1&gt;
+
+&lt;p&gt;はい、さて、CloudStack の Advent Calendar です。あ、ちなみに始めにお斷りしておきますが、間違ってもこれをカップルで仲良く読みながらホーリーナイトとか口走ってしまわないように注意してください。もし口走ると国境付近の山に封印されているサンタがうっかり掘り起こされて街中の子供達が連れ去られたりトナカイちゃんが美味しく食べられてもおかしくないことになったり、もうそりゃぁ大変なことになります。&lt;/p&gt;
+
+&lt;p&gt;あ、はい、うざいですね、ごめんなさい、そろそろ本題に入りますね。
+えー、タイトルのとおり CloudStack をこれでもかっていうぐらいイジめて泣かそうという、僕の優しさが隠しきれないほど滲みでる企画です。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考にした情報&#34;&gt;参考にした情報&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;クリエーションライン株式会社の資料 &lt;a href=&#34;http://www.creationline.com/lab/1963&#34;&gt;CloudStackを使ってみよう[1]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;大削先生の記事 &lt;a href=&#34;http://techtarget.itmedia.co.jp/tt/news/1204/19/news03.html&#34;&gt;機能を徹底比較！　～Eucalyptus、CloudStack、OpenStack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CloudStack Advent Calendar 1日目の荒井会長の資料 &lt;a href=&#34;http://www.slideshare.net/YasuhiroArai/apache-cloudstack-40-ver05&#34;&gt;Apache CloudStack 4.0をインストールしてみた。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CloudStack の &lt;a href=&#34;http://incubator.apache.org/cloudstack/docs/en-US/Apache_CloudStack/4.0.0-incubating/html/Installation_Guide/index.html&#34;&gt;Installation Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://kralis.dip.jp/wiki/index.php?CloudStack4.0-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB&#34;&gt;CloudStack4.0-インストール&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;大削先生のスライド &lt;a href=&#34;http://www.slideshare.net/star76/osc2012-cloud-cloudstack&#34;&gt;CloudStack 概要 でもちょっと詳しめVer.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あ、ちなみに上記の素晴しい資料を参考にしたからと言って、僕の貧相な理解力がこれらを吸収できるか？っていうと、それは全く別の話ですよ。&lt;/p&gt;
+
+&lt;h2 id=&#34;構成&#34;&gt;構成&lt;/h2&gt;
+
+&lt;p&gt;本当は Host を 2台にしたかったんですが、機材不足で断念しました。なので以下の構成にしています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+------------+    +--------+
+| CloudStack |    |        |
+| Management +----+  Host1 |
+|   Server   |    |        |
++------------+    +--------+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;構築&#34;&gt;構築&lt;/h2&gt;
+
+&lt;p&gt;聖なる CloudStacker の皆さんは「構築なんて目つぶっててもできることをわざわざ書くな」と呆られるかもしれませんが、まぁ聞いてくださいよ。
+えーとですね、私えらい離れた環境から CloudStack のインストールをやっておりまして、どれだけ離れているかというと、以下のように対象マシンに接続するために 2 台ほど踏み台を通らないと駄目なんす。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+------------+    +---------+    +---------+    +-------+
+| CloudStack |    |         |    |         |    |       |
+| Management +----+ ladder1 +----+ ladder2 +----+ My PC |
+|   Server   |    |         |    |         |    |       |
++------------+    +---------+    +---------+    +-------+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、ladder1 と ladder2 にはそれぞれ stone を用意し、また諸般の事情から以下のような経路となっていました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+------------+    +---------+    +---------+    +-------+
+| CloudStack |    |         |    |         |    |       |
+| Management +----+ ladder1 +----+ ladder2 +----+ My PC |
+|   Server   |    |         |    |         |    |       |
++------------+    +---------+    +---------+    +-------+
+      tcp/8080 &amp;lt;=   tcp/38080 &amp;lt;=    tcp/8080 &amp;lt;=
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そんで &lt;a href=&#34;http://ladder2:8080/client&#34;&gt;http://ladder2:8080/client&lt;/a&gt; にアクセスしログインを試みるも、以下のようにログインできないんです。まぁ、純真な僕は最初は本当にユーザ名かパスワードが間違っているんじゃないかと何度も入力し直したり、諸々のドキュメントや文献を漁ったり、生活態度を改めようかどうか悩んだりもしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121224_0.png&#34; alt=&#34;ログイン画面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;で、最後の手段として CloudStacker の皆さんにも聞いてみようと思ったのですが、それには最低限素人でも収集できる情報ぐらいは確認しておかないと聖なる CloudStacker にボッコボコにされるんじゃないかと思い、とりあえず僕のようなしょぼくれ技術者でも確認できることとして、Management Server で tcpdump を叩いて認証のデータがちゃんと届いているかを見ようと考えました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# tcpdump -i eth0 -vXx tcp port 8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;すると以下のように認証情報が流れてきました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        0x0000:  4500 00b4 cee6 4000 3f06 a9eb c0a8 2015  E.....@.?.......
+        0x0010:  c0a8 210c df9d 1f90 bcfd 8b07 6fd9 dff5  ..!.........o...
+        0x0020:  8018 01c9 9e37 0000 0101 080a 8891 4a06  .....7........J.
+        0x0030:  06fd 7bb8 3066 3766 3139 3730 6335 3430  ..{.0f7f1970c540
+        0x0040:  3133 6235 3664 3432 3631 3036 3966 3566  13b56d4261069f5f
+        0x0050:  350d 0a0d 0a63 6f6d 6d61 6e64 3d6c 6f67  5....command=log
+        0x0060:  696e 2675 7365 726e 616d 653d 6164 6d69  in&amp;amp;username=admi
+        0x0070:  6e26 7061 7373 776f 7264 3d35 6634 6463  n&amp;amp;password=5f4dc
+        0x0080:  6333 6235 6161 3736 3564 3631 6438 3332  c3b5aa765d61d832
+        0x0090:  3764 6562 3838 3263 6639 3926 646f 6d61  7deb882cf99&amp;amp;doma
+        0x00a0:  696e 3d25 3246 2672 6573 706f 6e73 653d  in=%2F&amp;amp;response=
+        0x00b0:  6a73 6f6e                                json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、暗号化されたパスワードは5f4dcc3b5aa765d61d8327deb882cf99であることがわかります。では Management Server 側のパスワードは？ということで MySQL のデータを覗いてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; select password from user where username = &#39;admin&#39;;
++----------------------------------+
+| password                         |
++----------------------------------+
+| 5f4dcc3b5aa765d61d8327deb882cf99 |
++----------------------------------+
+1 row in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれあれ？パスワードちゃんと一致してますよね？おかしいですね？エラーメッセージさんどーゆーことですか？&lt;/p&gt;
+
+&lt;p&gt;で、ここでふと思いだしました、荒井会長のスライドの p.15 に「外部に公開する場合は、リバースProxyを中間において、HTTPS設定をしておくことがおすすめ。」と書いてあることを。あれ？もしかして TCP relay で引き回しちゃ駄目なのかしら？&lt;/p&gt;
+
+&lt;p&gt;もうこの時点で軟弱野郎の僕は「よし、つまりアレだな、これって僕にとっての CloudStack とはユーザ名とパスワードを入力して認証エラーを出すだけのソフトウェアなんだな」と理解しようとしましたが、さすがに「インストール画面すら触っていません」という結果だと ホーリー CloudStacker に&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=5&gt;m9(＾Д ＾）プギャー&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;と笑われること必死です。なので、荒井会長のご神託に従ってリバース Proxy を中間に置いてみました。以下のように。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+------------+    +--------+    +-------+    +-------+
+| CloudStack |    | Proxy  |    |       |    |       |
+| Management +----+ Server +----+ Stone +----+ My PC |
+|   Server   |    |        |    |       |    |       |
++------------+    +--------+    +-------+    +-------+
+      tcp/8080 &amp;lt;=     tcp/80 &amp;lt;=  tcp/8080 &amp;lt;=
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに Proxy Server としている Apache の設定の該当部分は以下です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        &amp;lt;Location /client/&amp;gt;
+                ProxyPass http://192.168.33.12:8080/client/
+                ProxyPassReverse http://192.168.33.12:8080/client/
+        &amp;lt;/Location&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;するとどうでしょう？残念なことにインストール画面にログインできてしまいました。ギギギギギ&lt;/p&gt;
+
+&lt;p&gt;仕方がないので諦めてポチポチッと各項目を入力していきます。いきますが、不勉強な僕はこれらの各値についていまいちピンときていないので、何度か寝落ちしながら進めていきましたところ、最終的に以下ような素敵なメッセージが返されました。まぁ、そりゃそうですよね、簡単にインストールできるための Web UI で寝落ちしながら作業するウツケモノには神罰が下ってもおかしくないところ、心優しい CloudStack 神はセッションタイムアウトで許してくださる慈悲深さ…。何言ってんだろう俺？&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121224_2.png&#34; alt=&#34;セッションタイムアウト&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;心を入れ換えてもう一度試しました。試しましたが、ホストの追加でエラー発生。「戻ってエラーを修正できます。」なんて有り難いお言葉を頂いたので戻ってみますが、ホストの情報を入力する画面が表示されるだけ…。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121224_4.png&#34; alt=&#34;ホスト追加の失敗&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;入力されている情報に間違いがないので、仕方がないのでもう一度パスワードを入力し直してみて続行してみるも、またもやエラー。&lt;/p&gt;
+
+&lt;p&gt;うーん、何か事前設定とか不足しているのかしら？と思って、再度インストールガイドを確認すると、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;6.5.1.1.2. KVM Host Additional Requirements
+   If shared mountpoint storage is in use, the administrator should ensure that the new host 
+   has all the same mountpoints (with storage mounted) as the other hosts in the cluster.
+   Make sure the new host has the same network configuration (guest, private, and public network) 
+   as other hosts in the cluster.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あー、はいはい、そうね、そうだよね、NFS の設定をちゃんと確認するはー。で、NFS の設定をちゃんと確認し、ホスト「Host1」でマウントできることを確認し、再度ホストの追加を試しました。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;……
+……
+……&lt;/p&gt;
+
+&lt;p&gt;はい、残ー念♪&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121224_6.png&#34; alt=&#34;ホスト追加の失敗再び&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;もうね、これは CloudStack 神が「お前みたいなユーカリ野郎に触らせてやる CloudStack なんぞ 1Pod もねぇ！と言ってるに違いないです。意味わからんですよ。&lt;/p&gt;
+
+&lt;p&gt;ちなみにホスト「Host1」の /var/log/secure には Manegement Server がログインをし5分後ぐらいに接続を切っている跡が残されているのですが、それ以外は何も情報が見当りませんでしたT^T。っていうか、俺何度ホストの追加試してんだよwww&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Dec 24 11:13:53 machine3 sshd[18974]: Accepted password for root from 192.168.33.12 port 44467 ssh2
+Dec 24 11:13:53 machine3 sshd[18974]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 11:19:01 machine3 sshd[18974]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 11:19:01 machine3 sshd[18974]: pam_unix(sshd:session): session closed for user root
+Dec 24 11:30:13 machine3 sshd[19107]: Accepted password for root from 192.168.33.12 port 44468 ssh2
+Dec 24 11:30:13 machine3 sshd[19107]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 11:35:21 machine3 sshd[19107]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 11:35:21 machine3 sshd[19107]: pam_unix(sshd:session): session closed for user root
+Dec 24 11:37:22 machine3 sshd[19189]: Accepted password for root from 192.168.33.12 port 44469 ssh2
+Dec 24 11:37:22 machine3 sshd[19189]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 11:42:30 machine3 sshd[19189]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 11:42:30 machine3 sshd[19189]: pam_unix(sshd:session): session closed for user root
+Dec 24 11:57:19 machine3 sshd[19362]: Accepted password for root from 192.168.33.12 port 44470 ssh2
+Dec 24 11:57:19 machine3 sshd[19362]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 12:02:27 machine3 sshd[19362]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 12:02:27 machine3 sshd[19362]: pam_unix(sshd:session): session closed for user root
+Dec 24 12:03:49 machine3 sshd[19442]: Accepted password for root from 192.168.33.12 port 44471 ssh2
+Dec 24 12:03:49 machine3 sshd[19442]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 12:08:57 machine3 sshd[19442]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 12:08:57 machine3 sshd[19442]: pam_unix(sshd:session): session closed for user root
+Dec 24 12:11:31 machine3 sshd[19526]: Accepted password for root from 192.168.33.12 port 44472 ssh2
+Dec 24 12:11:31 machine3 sshd[19526]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 24 12:16:39 machine3 sshd[19526]: Received disconnect from 192.168.33.12: 11: Closed due to user request.
+Dec 24 12:16:39 machine3 sshd[19526]: pam_unix(sshd:session): session closed for user root
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;えー、まー、非常に残念な結果となりましたが、結論としては&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=5&gt;&amp;lsquo;ユーカリ脳になると CloudStack のインストールすら満足にできなくなる&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;ことが証明されました。&lt;/p&gt;
+
+&lt;p&gt;あぁ、もう、僕この先の人生、CloudStacker に会うことできません。どの面下げて会えというんでしょう？&lt;/p&gt;
+
+&lt;h2 id=&#34;余談-という名の八つ当たり&#34;&gt;「余談」という名の八つ当たり&lt;/h2&gt;
+
+&lt;p&gt;まぁ、Eucalyptus も Wakame-VDC に比べるとインストールが面倒な気がしますが、CloudStack はより一層面倒だと思いました。&lt;/p&gt;
+
+&lt;h3 id=&#34;面倒その壱&#34;&gt;面倒その壱&lt;/h3&gt;
+
+&lt;p&gt;my.cnf の設定って自動化できないの？まぁ、使用する MySQL が CloudStack でのみ使用するわけではないケースもあるでしょうから、そーゆー場合を考えると自動化するのが簡単じゃないのかもしれないけど、やっぱ初心者的には面倒です。&lt;/p&gt;
+
+&lt;h3 id=&#34;面倒その弐&#34;&gt;面倒その弐&lt;/h3&gt;
+
+&lt;p&gt;何でインストール作業が途中から Web コンソールでやることになってんでしょうか？利用者が Web コンソールで利用できるってのはとても良いことだと思いますが、環境構築者が Web コンソールで作業できて嬉しいことってあります？今回の私みたいに利用者セグメントとはネットワーク的に違う場所──つまり遠隔地から環境構築していると Web コンソールで作業するために何段もポートフォワードしたり Proxy 経由して設定するのって面倒です。僕がヘタレだから発見できなかっただけで、きっと CUI でのインストール方法ってあるんですよね？&lt;/p&gt;
+
+&lt;h3 id=&#34;面倒その参&#34;&gt;面倒その参&lt;/h3&gt;
+
+&lt;p&gt;ホストの追加が失敗すると「問題が発生しました。戻ってエラーを修正できます。:」って出るんですが、何が原因で失敗したのかが全く示されないので戻っても何も状況は解決しなかったです。せめて何を実行したら失敗したかぐらい言って頂けると嬉しいんですが…。&lt;/p&gt;
+
+&lt;h2 id=&#34;後日談&#34;&gt;後日談&lt;/h2&gt;
+
+&lt;p&gt;後日談とか書きましたが、まだ1時間も経ってません。&lt;/p&gt;
+
+&lt;p&gt;上記を見てくださった行冨さんから「You! cloud-agent インストールしちゃいな Yo!」と指摘を頂きまして、「え？俺何か読み落してた？」とか思いながらインストールしてみることにしました。個人的には「何で WebUI でのインストールが 5 章に書かれているのに、cloud-agent のインストールが 8 章なんだろう？」と納得がいかないんですが、行冨さんから「Citrix の XenServer だったら Cloud-Agent が不要なんです」と教わり、あぁ、そーゆーものなんだ…と納得することにしました。&lt;/p&gt;
+
+&lt;h1 id=&#34;deltacloud-で-eucalyptus-を利用してみる&#34;&gt;DeltaCloud で Eucalyptus を利用してみる？&lt;/h1&gt;
+
+&lt;p&gt;さて、この三日間、家の用事をこなす振りしつつ CloudStack Advent Calendar のことをやっていたら Eucalyptus Advent Caledar の仕込みを忘れていました。本当なら &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;24&lt;/sub&gt;, &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;25&lt;/sub&gt; の Advent Calendar っていったらそりゃもう否が応にも仏恥義理な内容が用意されているもんですが、CloudStack Advent Calendar をあんな寒い状況にしておいて Eucalyptus Advent Calendar だけ立派にすることはできません。なので、今日の Eucalyptus Advent Calendar は手を抜きます。どれぐらい手抜きかと言うと、この24日間でも一二を争う手抜きっぷりです。そのぐらい手を抜かないと申し訳なくて申し訳なくて。&lt;/p&gt;
+
+&lt;h2 id=&#34;事前確認&#34;&gt;事前確認&lt;/h2&gt;
+
+&lt;p&gt;えーと、今日の CloudStack Advent Calendar を読んでくださった聖なる紳士淑女の皆さんはよくわかると思いますが、わたくしつまらない点でハマったりするので、事前に環境の確認とかをしておかないといけません。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://deltacloud.apache.org/install-deltacloud.html&#34;&gt;Delta Cloud のサイト&lt;/a&gt;を見ると、以下のパッケージがインストールされている必要があるそうです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ruby と ruby-devel&lt;/li&gt;
+&lt;li&gt;rubygems&lt;/li&gt;
+&lt;li&gt;gcc-c++&lt;/li&gt;
+&lt;li&gt;libxml2 と libxml2-devel&lt;/li&gt;
+&lt;li&gt;libxslt と libxslt-devel&lt;/li&gt;
+&lt;li&gt;rake&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で、本当は CentOS なりを用意してやるところですが、残念ながらわたくしは Gentoo Linux 好きっ娘&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;なので、Gentoo Linux にインストールしてみる予定で上記のパッケージを確認します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ruby と ruby-devel
+
+&lt;ul&gt;
+&lt;li&gt;ruby は ruby 1.8.7 をインストールしておきます。emerge するとき RUBY_TARGETS=&amp;ldquo;ruby18&amp;rdquo; を指定しておかないと ruby 1.9 も入ります。まぁ、どっちがいいのかはわかりませんので、もし 1.9 のほうがいい場合は RUBY_TARGETS=&amp;ldquo;ruby19&amp;rdquo; としてくださいね。ちなみに ruby-devel は Gentoo の場合はありません。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;rubygems
+
+&lt;ul&gt;
+&lt;li&gt;まぁ、これも RUBY_TARGETS=&amp;ldquo;ruby18&amp;rdquo; としてインストールします (上で指定した RUBY_TARGETS と同じものを指定します)。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;gcc-c++
+
+&lt;ul&gt;
+&lt;li&gt;基本的には既にインストールされていると思いますが、一応、USE=&amp;ldquo;cxx&amp;rdquo; で gcc がインストールされているかを確認します。ちなみに gcc-c++ というパッケージ名ではないので注意を。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;libxml2 と libxml2-devel
+
+&lt;ul&gt;
+&lt;li&gt;パッケージ名はまま libxml2 です。Gentoo なので libxml2-devel はありません。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;libxslt と libxslt-devel
+
+&lt;ul&gt;
+&lt;li&gt;パッケージ名はまま libxslt です。Gentoo なので libxslt-devel はりません。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;rake
+
+&lt;ul&gt;
+&lt;li&gt;パッケージ名はまま rake です。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;インストール&#34;&gt;インストール&lt;/h2&gt;
+
+&lt;p&gt;Delta Cloud の Server のインストールをします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install deltacloud-core
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに私の環境では以下の gems が一緒にインストールされました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;haml-3.1.7
+sinatra-rabbit-1.1.3
+crack-0.3.1
+rack-accept-0.4.5
+json-1.7.5
+rest-client-1.6.7
+rbovirt-0.0.16
+uuidtools-2.1.3
+http_connection-1.4.2
+xml-simple-1.1.2
+aws-2.6.0
+waz-storage-1.2.0
+cloudservers-0.4.2
+cloudfiles-1.5.0.1
+openstack-1.0.7
+nori-2.0.0
+httpi-2.0.0
+wasabi-3.0.0
+gyoku-1.0.0
+akami-1.2.0
+savon-2.0.2
+trollop-2.0
+rbvmomi-1.6.0
+deltacloud-core-1.0.5
+rack-protection-1.3.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当然、環境によってインストールされる gems は異ると思います。&lt;/p&gt;
+
+&lt;p&gt;続いて Delta Cloud の Client をインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install deltacloud-client
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに今回は Server と Client を同じマシンにインストールしたのです。&lt;/p&gt;
+
+&lt;h2 id=&#34;サーバの実行&#34;&gt;サーバの実行&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://deltacloud.apache.org/run-deltacloud-server.html&#34;&gt;DeltaCloud のドキュメント&lt;/a&gt;によると以下を実行するとサーバが起動するらしいです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;deltacloudd -i eucalyptus
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、実行したところ以下の素敵なメッセージが届きました。やったねホーリーナイト♪&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Starting Deltacloud API :: eucalyptus :: http://localhost:3001/api
+
+/usr/lib64/ruby/site_ruby/1.8/rubygems/custom_require.rb:55:in `gem_original_require&#39;: no such file to load -- require_relative (LoadError)
+        from /usr/lib64/ruby/site_ruby/1.8/rubygems/custom_require.rb:55:in `require&#39;
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/lib/deltacloud_rack.rb:16
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:23:in `load&#39;
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:23
+        from /usr/lib64/ruby/gems/1.8/gems/rack-1.4.1/lib/rack/builder.rb:51:in `instance_eval&#39;
+        from /usr/lib64/ruby/gems/1.8/gems/rack-1.4.1/lib/rack/builder.rb:51:in `initialize&#39;
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:1:in `new&#39;
+        from /usr/lib64/ruby/gems/1.8/gems/deltacloud-core-1.0.5/config.ru:1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、ここから数々のトラブルを千切っては投げ千切っては投げの快進撃でつき進み、無事に DeltaCloud を利用できるようになる予定なのですが、どうやら続きは夢の国でやらなければならないようです。ごめんなさい。&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=&#34;5&#34; color=&#34;#ee2222&#34;&gt;いよいよクリスマスは明日です ✌(՞ਊ ՞)✌&lt;/font&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;当然のことながら、ちゃんと Management Server と Host1 がお互いに FQDN で通信できることは確認済みです
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;まぁ、下手の横好きなだけですけどね
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

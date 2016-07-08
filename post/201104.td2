@@ -1,0 +1,79 @@
+TDIARY2.01.00
+Date: 20110419
+Title: 日記再開
+Last-Modified: 1303144273
+Visible: true
+Format: Wiki
+
+って、過去のデータをどこにバックアップしたのか忘れてしまった…orz
+
+テーマ「puppy」をイジってみた。とりあえず簡単に見えてる部分だけで、その他の部分は変更できていない。
+
+.
+Date: 20110422
+Title: 産廃と幽霊複写機
+Last-Modified: 1303445965
+Visible: true
+Format: Wiki
+
+産廃を処理する案件を同僚がノープランで請け負ってきてたんだけど、発注者が筋のよくないお方で恐喝まがいのクレームをつけてきて、それの対応をさせられる。
+
+年代物の茶箪笥に幽霊が取り憑いてしまい、何故か知らんが茶箪笥にアルバムを入れ背板を力いっぱい叩くとアルバムを複製してくれる。ただし複製されるアルバム内の写真には心霊現象が発生しているというエフェクトあり。
+
+という2本立ての夢を見た。
+
+.
+Date: 20110426
+Title: チャレンジシートネタ
+Last-Modified: 1303805030
+Visible: false
+Format: Wiki
+
+言語と雲と
+
+いつまでも過去にこだわらず、今年こそ gas を勉強しよう。「何で今更？とか何のメリットが？」とか言われそうだけど、もうね、皆の学習スピードには付いてくのが辛いッ辛いんだァッ!!
+だから今の部署では誰も手を出さないアセンブラに行きます。原点回帰重要。
+
+あとはやっぱクラウドは切り離せないので、技術ネタで1つ。営業として2つだね。
+
+こんぐらいで許して、このうちいくつか年度末まで残っているか不明だしね。
+
+.
+Date: 20110427
+Title: 
+Last-Modified: 1303886817
+Visible: true
+Format: Wiki
+
+AsakusaSatellite の WebSocket
+
+CentOS 5.5 に入れた AsakusaSatellite で WebSocket を起動してシェルから抜けると WebSocket が終了しちゃうので、daemontools で起動することにした。って、本当はどうやるのがベストなんだろう？
+ # AsakusaSatellite のパスは適宜読み替えてください
+ cd /var/opt/AsakusaSatellite
+ 
+ # daemontools 用のディレクトリを作成
+ mkdir -p ./daemontools/log
+ 
+ # WebSocket を起動するスクリプトの設置
+ cat <<EOF> ./daemontools/run
+ #!/bin/bash
+ exec 2>&1
+ exec setuidgid apache /usr/bin/ruby /var/opt/AsakusaSatellite/websocket/server.rb
+ EOF
+ 
+ # ロガーを起動するスクリプトの設置
+ cat <<EOF> ./daemontools/log/run
+ #!/bin/sh
+ exec setuidgid apache multilog t ./main
+ EOF
+ 
+ # パーミッションの設定
+ chown -R apache:apache ./daemontools/
+ chmod +x ./daemontools/run
+ chmod +x ./daemontools/log/run
+ 
+ # daemontools の監視対象に設定
+ cd /service/
+ ln -sf /var/opt/AsakusaSatellite/daemontools as_websock
+
+.

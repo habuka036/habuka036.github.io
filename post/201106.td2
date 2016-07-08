@@ -1,0 +1,242 @@
+TDIARY2.01.00
+Date: 20110614
+Title: 
+Last-Modified: 1308051500
+Visible: true
+Format: Wiki
+
+仮想雲黙示録
+
+人工無能だってマトモな日本語を喋る昨今、この文章は我ながらひどいと思う…。
+
+
+ euca-run-instances…！
+ 起動しろ…インスタンスを…！
+ 
+ おまえたちは皆…　大きく見誤っている…！
+ このリージョンの空きリソースが見えていない
+ 
+ たかが3インスタンスか4インスタンスを起動しただけでこのリージョンを使い尽したかのように…
+ 求めれば周りが右往左往してTerminateInstancesしてくれる…
+ そんなふうに、まだ考えてやがるんだ
+ 臆面もなく…！
+ 遠慮を捨てろ…！
+ お前らの遠慮…その最たるは…
+ 今、次々に実行したそのDescribeAvailabilityZonesだ
+ DescribeAvailabilityZonesすれば空きリソースが返ってくるのが当たり前か…？
+ なぜそんなふうに考える…？
+ 
+ バカがっ…！
+ とんでもない誤解だ…！
+ DescribeAvailabilityZonesというものは　とどのつまり
+ 空きリソースのことは　何一つ答えたりしない…！
+ 
+ DescribeAvailabilityZonesのverboseオプション
+ DescribeAvailabilityZonesのcoredumpオプション
+ 一般ユーザがそんなオプションを投げてもレスポンスが得られたか…？
+ 得られちゃいないだろうが…！
+ これはverboseオプションだからcoredumpオプションだからってことじゃなく
+ logsやcertsでもそうなのだ…！
+ 
+ Eucalyptusは一般ユーザが実行するそれらのオプションに答えたりしない
+ それが基本だ…！
+ 
+ お前たちはその基本をはきちがえているから
+ Eucalyptusに対して一般ユーザでも空きリソースが得られると思っているのだ
+ 無論中には答えるDescribe系コマンドもある
+ しかしそれは答える側にとって
+ EC2　APIがそのように返却する仕様だからそうしているのであって
+ そんなものを使用するってことは
+ つまり普段Eucalyptusを管理者権限で使っているってことだ
+ 
+ なぜそれがわからない…？
+ なぜ…　そのことに気付かない…？
+ 
+ そりゃあかまわない…
+ Eucalyptusをインストールすること…それ自体は容易い。
+ 簡単だ…
+ Walrusのディスク容量はこれこれこう　こういう構成にし　何VM起動する予定にし
+ CPUは…？　メモリは？　NICは…？
+ そんな話はいくらでもできる
+ しかし　今オレがそんな話を　仮にしたとしても…
+ 登録するマシンイメージはどうする…？
+ マシンイメージなどどうでもいいから　インストールしたいというのか…？
+ ククク…
+ すでにこのラックを借りているおまえらには　オレのマシンイメージを否定する術はない
+ オレが何を登録しようと　結局ただそれを　盲目的にRunInstancesするしか道はない
+ つまり　どんないいマシンイメージを起動しても
+ それは単なるインスタンスにしかすぎないってことだ
+ 違うか…？
+ 
+ しかしどうだ…？
+ こんなふうにもRunInstancesできるぞ
+ 
+ euca-describe-images | \
+ gawk '{print "euca-run-instances",$2}' | \
+ grep emi | sh
+ 
+ ただ…DescribeInstancesは必要だ…
+ 登録されているどんなマシンイメージを起動してみたとしても…
+ 今は起動される前…　Walrusからダウンロードされている状態…
+ いわば起動処理中　起動しきって初めてインスタンスだ
+ 起動しきった時点で　インスタンスはrunningになる　初めてsshも繋がろう
+ 
+ しかしそれには待たねばダメだっ…！
+ NCはWalrusからマシンイメージをダウンロードしてからキャッシュにする　つまりイメージキャッシュだ
+ インスタンスの起動処理はそのキャッシュ処理が終ってから！
+ ここでまたタイムアウトするNC…
+ そんなNCのインスタンスなどオレはもう知らんよ
+ そんなNCはもう本当にどうしようもない………
+ ダウンロードもせず起動しようとすることが　そもそも論外なのだ…！
+ キャッシュできなかった時の処理なんて　そんな話はもうやめろ
+ それが無意味なことは　もう話した
+ 
+ これ以上はエラーに等しい　エラーが発生したのにインスタンスが起動するか……！
+ そうじゃない　おまえらが今することは　そうじゃないだろ……！
+ 
+ 待ってどうする…？
+ いくら待ったってステータスは変わらない
+ 
+ 今DescribeInstancesは不要だ…
+ 今おまえらがやるべきことは　ただログを確認すること　確認すること……！
+ おまえらはDescribeInstancesばかり実行するから　ログの重要性がわかっていない
+ 起動したらいいな……ぐらいにしか考えてこなかった
+ Eucalyptusはログも大切なんだ…！
+ 
+ Eucalyptusだったらいいな…じゃない…！
+ Eucalyptusじゃなきゃダメなんだ……！
+
+.
+Date: 20110620
+Title: 
+Last-Modified: 1308511366
+Visible: true
+Format: Wiki
+
+Eucalyptus 2.0.3 で DeleteVolume できなくなる件
+
+ということで、突如 DeleteVolume ができなくなった我が家の Eucalyptus ですが、以下のような感じです。
+ DescribeVolume の結果は特に問題なし
+ [root@eucalyptus ~]# euca-describe-volumes
+ VOLUME  vol-58C70625     1              cluster0        available       2011-06-09T04:25:15.757Z
+ VOLUME  vol-592B061A     2              cluster0        available       2011-06-09T04:25:28.287Z
+ 
+ DeleteVolumeを実施
+ [root@eucalyptus ~]# euca-delete-volume vol-58C70625
+ VOLUME  vol-58C70625
+ 
+ でも消えてない…
+ [root@eucalyptus ~]# euca-describe-volumes
+ VOLUME  vol-58C70625     1              cluster0        available       2011-06-09T04:25:15.757Z
+ VOLUME  vol-592B061A     2              cluster0        available       2011-06-09T04:25:28.287Z
+ 
+ /var/log/messages には LVM の lv がないというログが…
+ Jun 20 02:01:20 eucalyptus tgtd: backed_file_open(92) Could not open /dev/vg-1iOYfw../lv-CdT28w.., No such file or directory
+ 
+ ちなみに DB には問題なさげ…
+ [root@eucalyptus ~]# grep vg-1iOYfw.. -r /var/lib/eucalyptus/db/
+ /var/lib/eucalyptus/db/eucalyptus_storage.script:INSERT INTO ISCSIVOLUMEINFO VALUES('ff808081307291f4013072a5d7960014','/dev/loop1',NULL,'lv-CdT28w..','/dev/loop1','cluster0',2,NULL,'available','vg-1iOYfw..','vol-592B061A',NULL,1,'iqn.2009-06.com.eucalyptus.cluster0:store2','eucalyptus',2)
+ 
+ ループバックデバイスにもちゃんと…
+ [root@eucalyptus ~]# losetup -a
+ /dev/loop0: [0813]:118587831 (//var/lib/eucalyptus/volumes/vol-58C70625)
+ /dev/loop1: [0813]:118587832 (//var/lib/eucalyptus/volumes/vol-592B061A)
+ 
+ 実体もある…
+ [root@eucalyptus ~]# ls -al /var/lib/eucalyptus/volumes/vol-592B061A
+ -rw-r--r-- 1 eucalyptus eucalyptus 2151677952 Jun  9 13:25 /var/lib/eucalyptus/volumes/vol-592B061A
+ 
+ 削除しようとしたボリュームに対する tgtadm コマンドが止ってる…？
+ [root@eucalyptus ~]# ps auxww | grep [i]scsi
+ root      4221  0.0  0.0   3796   440 ?        S    02:01   0:00 tgtadm --lld iscsi --op new --mode logicalunit --tid 2 --lun 1 -b /dev/vg-1iOYfw../lv-CdT28w..
+ root     20681  0.0  0.0   3796   436 ?        S    03:04   0:00 tgtadm --lld iscsi --op unbind --mode target --tid 1 -I ALL
+ 
+ 確かにない…
+ [root@eucalyptus ~]# ls -al /dev/vg-1iOYfw../lv-CdT28w..
+ ls: /dev/vg-1iOYfw../lv-CdT28w..: No such file or directory
+ 
+ っていうか、すごく…何もないです…
+ [root@eucalyptus ~]# ls /dev/ | grep vg- | wc -l
+ 0
+
+で、原因追求しようとしたけど、あまり深く追う余裕がないので、さっくりと諦めて復旧…っていうか、「再インストールするよりはマシだよ」レベルのあまり良くない直し方で。
+
+ CLC/Walrus/SC を停止 (同居環境なため、Walrus は完全に巻き添え)
+ [root@eucalyptus ~]# /etc/init.d/eucalyptus-cloud stop
+ Stopping Eucalyptus services: walrus sc cloud done.
+ 
+ iSCSI まわりを停止
+ killall -9 tgtadm
+ killall -9 tgtd
+ 
+ lv を削除
+ [root@eucalyptus ~]# lvdisplay
+   --- Logical volume ---
+   LV Name                /dev/vg-1iOYfw../lv-CdT28w..
+ (snip)
+   --- Logical volume ---
+   LV Name                /dev/vg-3QD4nw../lv-V_kuAw..
+ [root@eucalyptus ~]# lvremove /dev/vg-1iOYfw../lv-CdT28w..
+   Logical volume "lv-CdT28w.." successfully removed
+ [root@eucalyptus ~]# lvremove /dev/vg-3QD4nw../lv-V_kuAw..
+   Logical volume "lv-V_kuAw.." successfully removed
+ 
+ vg を削除
+ [root@eucalyptus ~]# vgdisplay
+   --- Volume group ---
+   VG Name               vg-1iOYfw..
+ (snip)
+   --- Volume group ---
+   VG Name               vg-3QD4nw..
+ [root@eucalyptus ~]# vgremove vg-1iOYfw..
+   Volume group "vg-1iOYfw.." successfully removed
+ [root@eucalyptus ~]# vgremove vg-3QD4nw..
+   Volume group "vg-3QD4nw.." successfully removed
+ 
+ pv を削除
+ [root@eucalyptus ~]# pvdisplay
+   --- Physical volume ---
+   PV Name               /dev/loop1
+ (snip)
+   --- Physical volume ---
+   PV Name               /dev/loop0
+ [root@eucalyptus ~]# pvremove /dev/loop1
+   Labels on physical volume "/dev/loop1" successfully wiped
+ [root@eucalyptus ~]# pvremove /dev/loop0
+   Labels on physical volume "/dev/loop0" successfully wiped
+ 
+ ループバックマウントを解放
+ [root@eucalyptus ~]# losetup -d /dev/loop0
+ [root@eucalyptus ~]# losetup -d /dev/loop1
+
+で、ここまでは簡単だし、上記のような手作業じゃなくサラっとワンライナーで消したりしてもいいんですが、こっから先が説明が面倒かつ間違えると環境破壊を起してしまうので、慎重に。
+
+ DB をバックアップ
+ [root@eucalyptus ~]# cp -a /var/lib/eucalyptus/db /root/var.lib.eucalyptus.db.`date +'%Y%m%d'`
+ 
+ ボリュームについて記述してあるテーブルとトランザクションログのファイルを表示
+ [root@eucalyptus ~]# cd /var/lib/eucalyptus/db/
+ [root@eucalyptus db]# grep vol- -r ./ | cut -d':' -f1 | sort | uniq
+ ./eucalyptus_images.log
+ ./eucalyptus_images.script
+ ./eucalyptus_storage.script
+
+で、ここで表示されたテーブルとトランザクションログの中から前述のボリュームに該当するレコードとそれに付随する SQL 文を削除します (本当は CLC だけもう一度起動して、トランザクションログをテーブルデータにマージさせたほうが楽です)。
+
+これらの作業が終ったら、CLC/Walrus/SC を起動してボリュームを作ってみると、環境が直ったか否かがわかります。
+
+ CreateVolume して…
+ [root@eucalyptus db]# euca-create-volume -s 8 -z cluster0
+ VOLUME  vol-592C0622    8       creating        2011-06-19T18:45:19.713Z
+ 
+ DescribeVolume して…
+ [root@eucalyptus db]# euca-describe-volumes
+ VOLUME  vol-592C0622     8              cluster0        available       2011-06-19T18:45:19.713Z
+ 
+ lv もちゃんとあるよね？
+ [root@eucalyptus db]# ls /dev/|grep vg-|wc -l
+ 1
+
+最初、本件は連載のネタになるかと考えたんですが、バッドノウハウすぎて、ちっとも「復旧」になってないので日記に書くことにしました。一応上記の手順では実体のボリュームは /var/lib/eucalyptus/volumes/ 配下に残っているので、ちょっと面倒な手順を要しますが、データを取り出すことは可能です。(それについては別の機会で触れ…ないかも)
+
+.

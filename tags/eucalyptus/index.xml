@@ -1221,63 +1221,78 @@ WARN: Load Balancing service URL is not configured.
     </item>
     
     <item>
-      <title>Eucalyptus Advent Calendar 2012 JP 十三日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2012-12-13.eucalyptus-adventcalendar-2012-jp-day-13/</link>
-      <pubDate>Thu, 13 Dec 2012 01:43:14 +0900</pubDate>
+      <title>Eucalyptus Advent Calendar 2012 JP 廿五日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</link>
+      <pubDate>Tue, 25 Dec 2012 01:19:21 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2012-12-13.eucalyptus-adventcalendar-2012-jp-day-13/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</guid>
       <description>
 
-&lt;h3 id=&#34;見た目大事&#34;&gt;見た目大事&lt;/h3&gt;
+&lt;h1 id=&#34;0-48&#34;&gt;0.48&lt;/h1&gt;
 
-&lt;p&gt;13日目です。去年まで「Advent Calendar なんて他の国のリア充どもがやってんだろうなぁ～」ってぐらいしか思ってなかったんですが、まさか自分が当事者になるとは思いませんでした。まぁ、「1人1ネタぐらいで持ち寄って皆でワイワイやったら楽しいなぁ～ほわわぁぁん」とか思ってたのは &lt;sup&gt;11&lt;/sup&gt;&amp;frasl;&lt;sub&gt;30&lt;/sub&gt; までで、いざ始まってみると結構マゾいんすね Advent Calendar って。そんなマゾい Advent Calendar をやっている聖なる紳士淑女の皆さん元気ですか？こんばんは。&lt;/p&gt;
+&lt;p&gt;さて、12/25 UTC-11 です。Advent Calendar 最後のエントリです。&lt;/p&gt;
 
-&lt;p&gt;で、Advent Calendar って 10 分で考えて 5 分で書くということを&lt;a href=&#34;http://d.hatena.ne.jp/yukutomi/20121211/1355185510&#34;&gt;先日知った&lt;/a&gt;んですが、僕の場合は 10 秒ぐらいしか考えずに、やりながら書いているので、ここを &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;01&lt;/sub&gt; から読んでいる皆さんは僕がどんだけ毎回ドタバタしながら失敗しているかよくわかっていると思いますけど、まぁ、その今日もほとんど考えなしに走ります。&lt;/p&gt;
+&lt;p&gt;今日はいつも以上に時間がないので導入文も端折ります。&lt;/p&gt;
 
-&lt;!-- more --&gt;
+&lt;h1 id=&#34;eucalyptus-と-dns&#34;&gt;Eucalyptus と DNS&lt;/h1&gt;
 
-&lt;h3 id=&#34;とりあえずイジってみる&#34;&gt;とりあえずイジってみる&lt;/h3&gt;
+&lt;p&gt;今日は本当に時間がなく(いつも無いけど) Advent Calendar のネタを如何に手間をかけずに書こうか悩んでいたところ、@hejomo さんが「&lt;a href=&#34;http://twitter.com/hejomo/status/283582296320249857&#34;&gt;Eucalyptus 環境に DNS を導入してみたけどドメイン名が変だぜ&lt;/a&gt;」とツブやいていたので、これ幸いと思い、これをネタにすることにしました。@hejomo さんありがとうございます。&lt;/p&gt;
 
-&lt;p&gt;さて、あまり話題にしたことなかったんですが、今日は Eucalyptus の Web 管理画面の見た目を変更してみる話です。え～、Eucalyptus の Web 管理画面は /var/lib/eucalyptus/webapps/root.war というファイルにまとめられていて、/var/run/eucalyptus/webapp/ に展開されています。で、画面自体は GWT (Google Web Toolkit) で作られているようです。まぁ、僕がちゃんとしていたらここで颯爽と eclipse を立ち上げて華麗にイジり方などを解説するところですが、残念ながらちゃんとしていないので、そんな高等なことできません。&lt;/p&gt;
+&lt;h2 id=&#34;eucalyptus-2-0-3-までは&#34;&gt;Eucalyptus 2.0.3 までは…&lt;/h2&gt;
 
-&lt;p&gt;じゃー今日のネタは何すんのさー？と思われたそこの旦那さま、何も難しいことありません、/var/lib/eucalyptus/webapp/root.war をイジイジして /etc/init.d/eucalyptus-cloud を restart するだけで、あら不思議、Web 管理画面の見た目が簡単に変わりましたよ的な結果が得られます。やっぱずぅ～っとインフラやってると、たまには陽の光があたる暖い場所へ出てみたくなりますよね？なりませんか？&lt;/p&gt;
+&lt;p&gt;バージョン 2.0 系までは eucalyptus.conf に DISABLE_DNS=&amp;ldquo;N&amp;rdquo; って設定し、Web 管理画面で「DNS Configuration」の各項目に値を設定すれば PublicIP と PrivateIP が PublicDNS と PrivateDNS となっていました。&lt;/p&gt;
 
-&lt;p&gt;で、まず以下を実行して、元ファイルを展開します。&lt;/p&gt;
+&lt;p&gt;しかし、Eucalyptus 3.x からは以下のような設定を行なわないと駄目だそうです。(「だそうです」と言っているのは、実は環境を腐らせてしまい、最後まで確認しきることができなかったからなのです…orz)&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;# cd /var/lib/eucalyptus/webapp/
-# mv root.war root.war.orig
-# mkdir -p root
-# cd root
-# unzip ../root.war.orig
+&lt;h2 id=&#34;eucalyptus-3-2-での-dns-設定&#34;&gt;Eucalyptus 3.2 での DNS 設定&lt;/h2&gt;
+
+&lt;p&gt;まず最初に CLC にログインし、以下のコマンドを実行します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;euca-modify-property -p system.dns.dnsdomain=&amp;lt;eucadomain.yourdomain&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;で、展開されたファイルを適宜変更します。例えば今回は themes/{active,eucalyptus}/ 配下にある logo.png と logo-small.png を変更し、global.css の background-color を #EEE から #fdec95 に変更しました。&lt;/p&gt;
+&lt;p&gt;&lt;eucadomain.yourdomain&gt; は今回設定したい DNS のゾーン名となる値を入れます。例えば euca1.example.com とか。&lt;/p&gt;
 
-&lt;p&gt;変更したら以下を実行します。&lt;/p&gt;
+&lt;p&gt;つぎに&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;# zip -r ../root.war ./
-# /etc/init.d/eucalyptus-cloud restart
+&lt;pre&gt;&lt;code&gt;euca-modify-property -p bootstrap.webservices.use_instance_dns=true
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;で、以下がビフォーアフターです。&lt;/p&gt;
+&lt;p&gt;と設定し、そして&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;ビフォー&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;euca-modify-property -p cloud.vmstate.instance_subdomain=.&amp;lt;custom-dns-subdomain&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121213_0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;と設定します。.&lt;custom-dns-subdomain&gt; は適宜環境にあわせて設定してください。&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;アフター&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;あとは eucalyptus-cloud を再起動し DNS サーバなどを適切に用意するだけらしいですが、どうやら eucalyptus-cloud を再起動したらうまく動かなくなりました…orz&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20121213_2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;/var/log/eucalyptus/cloud-error.log には以下の出力がありますが、関係あるのかどうかすら不明です。(あ、以下の時刻は JST なので &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;26&lt;/sub&gt; を指してますが、正しくは &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;25&lt;/sub&gt; UTC-11 です)&lt;/p&gt;
 
-&lt;p&gt;まぁ、今回は「ほら簡単に変更できるよ？」と言いたいだけなので、GWT を使わずに手で変更しましたが、もしちゃんと見た目をカスタマイズしたい場合は GWT を使わないとやってらんないと思います。(いや使うよね？)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Wed Dec 26 08:28:55 2012 ERROR [ServiceContextManager:Thread-16] [com.eucalyptus.context.ServiceContextManager.createContext(ServiceContextManager.java):233] Restarting service context with these enabled
+ services: [arn:euca:eucalyptus::notifications:192.168.33.11/eucalyptus/notifications notifications:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::configuration:192.168.33.11/eucalyptus/configuration configuration:unpartitioned:cloudLocal:, 
+arn:euca:bootstrap:cluster:node:192.168.33.11/cluster/node node:unpartitioned:, arn:euca:eucalyptus:::192.168.33.11/eucalyptus/eucalyptus 
+eucalyptus:unpartitioned:cloudLocal:, arn:euca:bootstrap:cluster:gatherlog:192.168.33.11/cluster/gatherlog gatherlog:unpartitioned:, 
+arn:euca:bootstrap::arbitrator:192.168.33.11/bootstrap/arbitrator arbitrator:partitioned:alwaysLocal:, 
+arn:euca:eucalyptus::dns:192.168.33.11/eucalyptus/dns dns:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::jetty:192.168.33.11/eucalyptus/jetty jetty:unpartitioned:cloudLocal:, 
+arn:euca:bootstrap::properties:192.168.33.11/bootstrap/properties properties:unpartitioned:alwaysLocal:, 
+arn:euca:bootstrap::reporting:192.168.33.11/bootstrap/reporting reporting:unpartitioned:alwaysLocal:, 
+arn:euca:eucalyptus::storage:192.168.33.11/eucalyptus/storage storage:partitioned:cloudLocal:, 
+arn:euca:eucalyptus::euare:192.168.33.11/eucalyptus/euare euare:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::db:192.168.33.11/eucalyptus/db db:unpartitioned:cloudLocal:, arn:euca:eucalyptus::ldap:192.168.33.11/eucalyptus/ldap 
+ldap:unpartitioned:cloudLocal:, arn:euca:eucalyptus::tokens:192.168.33.11/eucalyptus/tokens tokens:unpartitioned:cloudLocal:, 
+arn:euca:eucalyptus::cluster:192.168.33.11/eucalyptus/cluster cluster:partitioned:cloudLocal:, 
+arn:euca:bootstrap:::192.168.33.11/bootstrap/bootstrap bootstrap:unpartitioned:alwaysLocal:, 
+arn:euca:bootstrap::component:192.168.33.11/bootstrap/component component:unpartitioned:alwaysLocal:, 
+arn:euca:bootstrap:walrus:walrus:192.168.33.11/walrus/walrus walrus:unpartitioned:]
 
-&lt;p&gt;ちなみに今回は(いつも？)ご覧のとおり随分と手を抜いた内容なので、冒頭に延べた「10 分で考えて 5 分で書く」は守れないものの「10 秒程度しか考えられず 50 分ちょっとで書く」ことができました。え？どこに 50 分かかってるの？と思われるかもしれませんが、Web 管理画面の左上のロゴを作るのに 30 分ぐらいかかってます。(ぉぃ&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;クリスマスまであと12日です ✌(՞ਊ ՞)✌&lt;/p&gt;
+&lt;p&gt;とうとう最後の最後までぐだぐだな結果ですが、&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;font size=&#34;5&#34; color=&#34;#ee2222&#34;&gt;メリークリスマス ✌(՞ਊ ՞)✌&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
 </description>
     </item>
     
