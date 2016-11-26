@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="ja-jp">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:title" content=" コンテナのこえ &middot;  hablog" />
+        <meta property="og:site_name" content="hablog" />
+        <meta property="og:url" content="http://blog.osamu.habuka.jp/post/2015-12-13-wakame-vdc-advent-calendar-2015-day12/" />
+
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time" content="2015-12-13T04:31:48&#43;09:00" />
+        <meta property="og:article:tag" content="Wakame-vdc" />
+        <meta property="og:article:tag" content="AdventCalendar" />
+        
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@" />
+        <meta name="twitter:title" content="コンテナのこえ" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:url" content="http://blog.osamu.habuka.jp/post/2015-12-13-wakame-vdc-advent-calendar-2015-day12/" />
+    
+
+        <title> コンテナのこえ &middot;  hablog</title>
+
+    
+        <meta name="description" content="" />
+    
+
+        <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+    
+        <link href="http://blog.osamu.habuka.jp/index.xml" rel="alternate" type="application/rss+xml" title="hablog" />
+    
+
+    
+        <link rel="canonical" href="http://blog.osamu.habuka.jp/post/2015-12-13-wakame-vdc-advent-calendar-2015-day12/" />
+
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "コンテナのこえ",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/?rel=author"
+        },
+        "datePublished": "2015-12-13",
+        "description": "",
+        "wordCount":  996 
+    }
+
+    </script>
+
+    <script type="text/javascript">
+    
+    
+
+    </script>
+    
+
+    <style>
+@charset "UTF-8";article,header,img,main,nav,section{display:block}blockquote,p,pre,ul{margin:2em auto}#wrapper,pre{width:100%;box-sizing:border-box}#nav,#wrapper,code{position:relative}#nav,body{background:#fff}#menu,blockquote,pre code{background:0 0}#menu,#menu .menu-header,#menu .menu-list,#wrapper,.post-nav .post-nav-item .post-nav-teaser .post-nav-info,blockquote,pre{box-sizing:border-box}img{border:0;max-width:100%;height:auto;margin:2.5em auto}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}code,pre{font-family:monospace,monospace;font-size:1em}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:300;src:local("Merriweather Sans Light"),local("MerriweatherSans-Light"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowY_zIojJi0m4a5Z6tRh6itY.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:400;src:local("Merriweather Sans Regular"),local("MerriweatherSans-Regular"),url(//fonts.gstatic.com/s/merriweathersans/v5/AKu1CjQ4qnV8MUltkAX3sL2aU247V0zTzydO4RoO9Ok.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:700;src:local("Merriweather Sans Bold"),local("MerriweatherSans-Bold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowQfd-b-I5PxxcmB4_-MNcqw.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:800;src:local("Merriweather Sans ExtraBold"),local("MerriweatherSans-ExtraBold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowWT7sFQ1Iz1BbpcuCPlgc9Q.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:300;src:local("Merriweather Sans Light Italic"),local("MerriweatherSans-LightItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVX9UU5BmOJGkLxUCVv5VXdc.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:400;src:local("Merriweather Sans Italic"),local("MerriweatherSans-Italic"),url(//fonts.gstatic.com/s/merriweathersans/v5/3Mz4hOHzs2npRMG3B1ascf0KIgDhPIHb_R-SWdtqte8.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:700;src:local("Merriweather Sans Bold Italic"),local("MerriweatherSans-BoldItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVYM8pfYvjMoOxygpzLVILAs.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:400;src:local("Inconsolata"),url(//fonts.gstatic.com/s/inconsolata/v12/BjAYBlHtW3CJxDcjzrnZCIbN6UDyHWBl620a-IRfuBk.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:700;src:local("Inconsolata Bold"),local("Inconsolata-Bold"),url(//fonts.gstatic.com/s/inconsolata/v12/AIed271kqQlcIRSOnQH0yTqR_3kx9_hJXbbyU8S6IN0.woff) format("woff")}@font-face{font-family:icons;src:url(/fonts/icons.eot?9273991);src:url(/fonts/icons.eot?9273991#iefix) format("embedded-opentype"),url(/fonts/icons.woff?9273991) format("woff"),url(/fonts/icons.ttf?9273991) format("truetype"),url(/fonts/icons.svg?9273991#icons) format("svg");font-weight:400;font-style:normal}[class^=icon-]:before{font-family:icons;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-arrow-left:before{content:'\e804'}.icon-arrow-right:before{content:'\e807'}.icon-rss:before{content:'\e808'}.icon-menu:before{content:'\e809'}body{margin:0;font:300 1em/1.5em 'Merriweather Sans',sans-serif;color:#595B66}blockquote,i{font-style:italic}code,pre{font-family:Inconsolata,monospace}a,blockquote,code,i{font-weight:400}::-moz-selection{color:#222;background:#D6EDFF;text-shadow:none}::-moz-selection,::selection{color:#222;background:#D6EDFF;text-shadow:none}a{background-color:transparent;color:inherit;text-decoration:none;transition:all ease-out .2s}.post-content a{border-bottom:2px solid #36D995}h1,h4{text-rendering:optimizeLegibility;color:#1F2026}h1{font-size:2em;line-height:1em;margin:2em 0 -.5em}h4{font-size:1.25em;line-height:1.2em;margin:2.4em 0 -.8em}ul{list-style:none;padding-left:3em}blockquote{padding:0 1em;border-left:.25em solid #D4D5D9;color:#595B66}blockquote *{margin:1em auto}blockquote :first-child{margin-top:0}blockquote :last-child{margin-bottom:0}i{color:#363740}code{display:inline-block;top:-1px;padding:3px 6px;margin:-1px 2px;font-size:.875em;line-height:1.143em;background:#E1E2E6;color:#000;border-radius:2px}pre{padding:1em;white-space:pre;overflow:auto;background:#9D9FA6;color:#fff}pre code{position:static;top:auto;font-size:1em;line-height:1.5em;white-space:-moz-pre-wrap;white-space:pre-wrap;vertical-align:inherit;border:none;padding:0}#menu .menu-header:before,.post .post-title:before{border-bottom:4px solid #36D995;content:''}.inner{max-width:48em;margin:0 auto;padding:0 1em}#wrapper{min-height:100vh;padding-bottom:6em;background:#F2F3F5}#push{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav{z-index:70;transition:all ease-out .4s;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav:after{clear:both;content:'';display:table}#nav .nav-logo{float:left;height:2em;padding:1em;max-width:50%}#nav .nav-logo img{width:auto;max-width:none;height:2em;margin:0}#nav .nav-menu{float:right}#nav .nav-menu:after{clear:both;content:'';display:table}#nav .nav-menu a{display:block;width:1em;height:1em;line-height:1em;padding:1.5em;text-align:center;float:left;cursor:pointer}#nav .nav-menu a i:before{margin:auto}#menu{display:none;position:fixed;left:50%;top:5%;width:30em;height:90%;margin-left:-15em;padding:3em 0 0;overflow:hidden;transition:all ease-out .3s;-webkit-transform:translate3d(0,2em,0);transform:translate3d(0,2em,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:0;z-index:100}@media only screen and (max-width:50em){#menu{width:90%;left:5%;margin-left:auto}}#menu .menu-header{position:absolute;left:0;top:0;width:100%;height:3.5em;padding:1em 1.5em .5em;margin-bottom:1em;line-height:2em;z-index:110;background:#fff}#menu .menu-header:before{position:absolute;left:-5%;bottom:-1em;width:110%;height:2em;background:#fff;box-shadow:0 .125em .125em rgba(0,0,0,.1);-webkit-transform:rotate(2.5deg);transform:rotate(2.5deg);transition:all ease-out .2s;z-index:115}#menu .menu-header:after{clear:both;content:'';display:table}#menu .menu-header .menu-label{position:relative;display:block;float:left;z-index:120}#menu .menu-header .menu-close{position:relative;display:block;float:right;width:2em;height:2em;padding:1em;margin:-1em -1.5em -1em 0;cursor:pointer;z-index:125}#menu .menu-header .menu-close:after,#menu .menu-header .menu-close:before{content:'';position:absolute;left:50%;top:50%;background:#9D9FA6;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.overlay,.overlay:before{top:0;width:100%;height:100%}#menu .menu-header .menu-close:after{width:2px;height:1em;margin:-.5em 0 0 -1px}#menu .menu-header .menu-close:before{width:1em;height:2px;margin:-1px 0 0 -.5em}#menu .menu-list{position:relative;list-style:none;margin:0;padding:2em 0;height:100%;overflow-x:hidden;overflow-y:scroll;background:#fff}.overlay{position:fixed;left:0;z-index:80;display:none}.overlay:before{content:'';position:absolute;left:0;background:#1F2026;opacity:0;transition:all ease-out .3s;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.post{position:relative;z-index:20}.post .post-meta{display:block;font-size:.75em;line-height:1.334em;font-weight:400;margin-bottom:1.334em}.post .post-title{position:relative;color:#000;font-size:2em;line-height:1.375em;font-weight:800;text-indent:-1px;margin:.25em 0 .75em}.post .post-title:before{position:absolute;left:0;bottom:-.334em;width:1em;margin-bottom:-2px}.post .post-header{padding:4em 0 0;margin-bottom:3em}.post-footer .post-share a span{display:none}.post-nav .post-nav-item{position:fixed;top:50%;display:block;margin-top:-4em;overflow:hidden;border-radius:10em;transition:none}@media only screen and (max-width:70em){.post-nav .post-nav-item{position:absolute;top:auto;margin:auto;max-width:50%}}.post-nav .post-nav-item.post-nav-next{left:0;text-align:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon{float:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon i{left:-.05em}.post-nav .post-nav-item.post-nav-next .post-nav-info{padding-left:6em}.post-nav .post-nav-item.post-nav-prev{right:0;text-align:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon{float:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon i{right:-.05em}.post-nav .post-nav-item.post-nav-prev .post-nav-info{padding-right:6em}.post-nav .post-nav-item .post-nav-teaser{display:block;padding:1em;transition:all ease-out .2s;max-width:25em;overflow:visible}.post-nav .post-nav-item .post-nav-teaser:after{clear:both;content:'';display:table}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{display:block;width:5em;height:5em;line-height:5em;text-align:center;box-sizing:border-box;border-radius:10em;border:1px solid #36D995;box-shadow:0 0 0 0 transparent;transition:all ease-out .1s;background:#F2F3F5}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{position:relative;font-size:2em}@media only screen and (max-width:30em){.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{width:4em;height:4em;line-height:4em}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{font-size:1.5em}}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i:before{margin:auto}.post-nav .post-nav-item .post-nav-teaser .post-nav-info{display:none;width:100%;transition:all ease-out .2s}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-title{display:block;max-height:1.25em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:1.25em 0 .25em;font-size:1em;line-height:1.25em;font-weight:700;color:#363740}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-excerpt{display:block;max-height:1.334em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:0;font-size:.75em;line-height:1.334em;font-weight:400;color:#9D9FA6}
+</style>
+
+
+    </head>
+    <body class="home-template" style="display: none;">
+      <section id="wrapper">
+        <div id="ajax-container">
+          <nav id="nav" class="nav">
+            <div class="nav-logo">
+              <a href="http://blog.osamu.habuka.jp/">
+      			  	
+      			  	
+      			  	<img src="/images/puta-su.png" alt="Logo"/>
+      			  	
+              </a>
+			  	    
+            </div>
+            <div class="nav-menu">
+              <a class="rss" href="">
+                <i class="icon-rss"></i>
+              </a>
+                
+                <a class="menu" data-action="toc" data-target="toc"><i class="icon-location"></i></a>
+                
+                
+            </div>
+          </nav>
+
+
+<main class="content" role="main">
+	<article class="post">
+		<div class="inner">
+
+			<div id="push">
+
+  			<header class="post-header">
+  				<span class="post-meta">
+						<span class="post-date">13 Dec 2015</span> <span class="reading-time">| <span class="estimated-reading-time">5 min.</span> (<span class="word-count">996</span> words)</span></span>
+  				</span>
+  				<div class="clear"></div>
+  				<h1 class="post-title">コンテナのこえ</h1>
+  			</header>
+
+  			<section class="post-content">
+  				<p>Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の12日目のエントリです。</p>
+
+<p>11日目のエントリにて lxc のコンテナが起動できるようにすることができたので、本当はもう少しちゃんとしたパッチを書きたいところですが、その前に11日目のエントリで充分か否かを先に検証したいので、本日は起動したコンテナに接続できるかどうかを確認したいと思います。</p>
+
+<p>起動したコンテナに早速 ssh で接続…11日目のエントリでは「ssh で接続するもいつまで待ってもログインプロンプトが返ってこない」という現象や「エンターキーを押す毎にプロンプトの表示がホストマシンのものとコンテナのものとがサイクリックに切り替わる」という不思議満点な状況でした。(動画にでも撮っておけばよかった…)</p>
+
+<p>で今日の環境は手作業修正によるものではなく、パッチを当てた LiveDVD から起動してみましたが、やはり「ssh で接続するもいつまで待ってもログインプロンプトが返ってこない」という状況でした。</p>
+
+<p>なのでまずは現状の確認を行ないます。まず、コンテナの lxc 設定ですが、以下のようになっています。</p>
+
+<pre><code>[root@host-133-130-109-122 wakame]# cat /var/lib/wakame-vdc/instances/i-kg0uuloj/lxc.conf 
+lxc.utsname = i-kg0uuloj
+
+lxc.network.type = veth
+lxc.network.link = br0
+
+lxc.network.veth.pair = vif-3kd9fd4z
+lxc.network.hwaddr = 52:54:00:c3:2f:4f
+lxc.network.flags = up
+lxc.tty = 4
+lxc.pts = 1024
+lxc.rootfs = /var/lib/wakame-vdc/instances/i-kg0uuloj/rootfs
+lxc.rootfs.mount = /var/lib/wakame-vdc/instances/i-kg0uuloj/rootfs
+lxc.mount.entry = proc        /proc                   proc    defaults        0 0
+lxc.mount.entry = sysfs       /sys                    sysfs   defaults        0 0
+#lxc.mount = /var/lib/wakame-vdc/instances/i-kg0uuloj/fstab
+#lxc.cap.drop = mac_admin sys_boot
+lxc.cgroup.devices.deny = a
+# /dev/null and zero
+lxc.cgroup.devices.allow = c 1:3 rwm
+lxc.cgroup.devices.allow = c 1:5 rwm
+# consoles
+lxc.cgroup.devices.allow = c 5:0 rwm
+lxc.cgroup.devices.allow = c 5:1 rwm
+lxc.cgroup.devices.allow = c 4:0 rwm
+lxc.cgroup.devices.allow = c 4:1 rwm
+# /dev/{,u}random&quot;
+lxc.cgroup.devices.allow = c 1:9 rwm
+lxc.cgroup.devices.allow = c 1:8 rwm
+lxc.cgroup.devices.allow = c 136:* rwm
+lxc.cgroup.devices.allow = c 5:2 rwm
+# /dev/rtc
+lxc.cgroup.devices.allow = c 254:0 rwm
+# /dev/kvm
+#lxc.cgroup.devices.allow = c 10:232 rwm
+#lxc.cgroup.devices.allow = c 10:200 rwm
+</code></pre>
+
+<p>う〜ん、特に変な設定は見当たらないですね…。次にコンテナの内部を見てみます。</p>
+
+<pre><code>[root@host-133-130-109-122 wakame]# lxc-ls 
+i-kg0uuloj
+
+[root@host-133-130-109-122 wakame]# lxc-attach --name=i-kg0uuloj
+
+[root@kg0uuloj /]# ip a
+4: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 52:54:00:c3:2f:4f brd ff:ff:ff:ff:ff:ff
+    inet 192.0.2.20/24 brd 192.0.2.255 scope global eth0
+    inet6 fe80::5054:ff:fec3:2f4f/64 scope link 
+       valid_lft forever preferred_lft forever
+6: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+[root@kg0uuloj /]# ps auxwww|grep ssh
+root       407  0.0  0.0  66688  1220 ?        Ss   01:59   0:00 /usr/sbin/sshd
+root       540  0.0  0.0  94252  4296 ?        Ss   02:02   0:00 sshd: root@pts/0 
+root       561  0.0  0.0  94252  4296 ?        Ss   02:10   0:00 sshd: root@pts/1 
+root       716  0.0  0.0 107456   932 pts/8    S+   12:47   0:00 grep ssh
+
+
+
+[root@kg0uuloj /]# /etc/init.d/sshd status
+openssh-daemon (pid  407) を実行中...
+</code></pre>
+
+<p>はい、ちゃんと NIC に IP が振られ、ssh もちゃんと起動しています。</p>
+
+<pre><code>[root@kg0uuloj /]# ls -al /home/
+合計 12
+drwxr-xr-x  3 root       root       4096  4月 19 17:29 2015 .
+dr-xr-xr-x 23 root       root       4096 12月 10 01:59 2015 ..
+drwx------  2 wakame-vdc wakame-vdc 4096  4月 19 17:29 2015 wakame-vdc
+
+# getent shadow wakame-vdc
+wakame-vdc:$6$o0NRcBn2YU/D00L$ZfpDzmFviu/YNwJDgI/QNZuLdE.JibVMBEhIs45P2C/GQnZ71bnDofck8U.hk61CvqlgcZfg0vxFLLRes5Pw2/:16544:0:99999:7:::
+
+[root@kg0uuloj /]# ls -al /home/wakame-vdc/
+合計 20
+drwx------ 2 wakame-vdc wakame-vdc 4096  4月 19 17:29 2015 .
+drwxr-xr-x 3 root       root       4096  4月 19 17:29 2015 ..
+-rw-r--r-- 1 wakame-vdc wakame-vdc   18 10月 16 22:56 2014 .bash_logout
+-rw-r--r-- 1 wakame-vdc wakame-vdc  176 10月 16 22:56 2014 .bash_profile
+-rw-r--r-- 1 wakame-vdc wakame-vdc  134  4月 19 17:29 2015 .bashrc
+</code></pre>
+
+<p>wakame-vdc というユーザが作成されており、何らかのパスワードが設定されてはいますが、ssh の鍵は設定されていないようです。</p>
+
+<pre><code>[root@kg0uuloj /]# ls -al /root/
+合計 32
+dr-xr-x---  3 root root 4096 12月 10 01:59 2015 .
+dr-xr-xr-x 23 root root 4096 12月 10 01:59 2015 ..
+-rw-r--r--  1 root root   18  5月 20 19:45 2009 .bash_logout
+-rw-r--r--  1 root root  176  5月 20 19:45 2009 .bash_profile
+-rw-r--r--  1 root root  176  9月 23 12:59 2004 .bashrc
+-rw-r--r--  1 root root  100  9月 23 12:59 2004 .cshrc
+drwx------  2 root root 4096 12月 10 01:59 2015 .ssh
+-rw-r--r--  1 root root  129 12月  4 06:42 2004 .tcshrc
+[root@kg0uuloj /]# ls -al /root/.ssh/
+合計 12
+drwx------ 2 root root 4096 12月 10 01:59 2015 .
+dr-xr-x--- 3 root root 4096 12月 10 01:59 2015 ..
+-rw------- 1 root root  396 12月 10 01:59 2015 authorized_keys
+
+[root@kg0uuloj /]# cat /root/.ssh/authorized_keys 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZhAOcHSe4aY8GwwLCJ4Et3qUBcyVPokFoCyCrtTZJVUU++B9554ahiVcrQCbfuDlaXV2ZCfIND+5N1UEk5umMoQG1aPBw9Nz9wspMpWiTKGOAm99yR9aZeNbUi8zAfyYnjrpuRUKCH1UPmh6EDaryFNDsxInmaZZ6701PgT++cZ3Vy/r1bmb93YvpV+hfaL/FmY3Cu8n+WJSoJQZ4eCMJ+4Pw/pkxjfuLUw3mFl40RVAlwlTuf1I4bB/m1mjlmirBEU6+CWLGYUNWDKaFBpJcGB6sXoQDS4FvlV92tUAEKIBWG5ma0EXBdJQBi1XxSCU2p7XMX8DhS7Gj/TSu7011 wakame-vdc.pem
+</code></pre>
+
+<p>一方で root ユーザには ssh 鍵が設定されていました。中身を見ると起動時に指定した LiveDVD のデモ用の ssh 鍵でした。</p>
+
+<pre><code>[root@kg0uuloj /]# grep -v ^# /etc/ssh/sshd_config |grep -v ^$
+Protocol 2
+SyslogFacility AUTHPRIV
+PermitRootLogin yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no
+GSSAPICleanupCredentials yes
+UsePAM yes
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+X11Forwarding yes
+UseDNS no
+Subsystem   sftp    /usr/libexec/openssh/sftp-server
+</code></pre>
+
+<p>sshd の設定を見ると、root ユーザのログインは許可されておりますが、PasswordAuthentication も ChallengeResponseAuthentication も no になっているため、既定で設定されている wakame-vdc にはログインできなさそうです。</p>
+
+<pre><code>[root@host-133-130-109-122 wakame]# ssh -l wakame-vdc 192.0.2.20
+Permission denied (publickey).
+</code></pre>
+
+<p>ね、ほら。</p>
+
+<p>では、root ユーザでログインしたときはコンテナにそもそもちゃんとアクセスできているのか…？ですが、/var/log/secure を見ると以下のようなログが残っていました。</p>
+
+<pre><code>Dec 10 15:39:23 kg0uuloj sshd[835]: Accepted publickey for root from 192.0.2.1 port 43501 ssh2
+Dec 10 15:39:23 kg0uuloj sshd[835]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 10 15:39:23 kg0uuloj sshd[837]: error: ioctl(TIOCSCTTY): Operation not permitted
+Dec 10 15:39:23 kg0uuloj sshd[837]: error: open /dev/tty failed - could not set controlling tty: No such file or directory
+</code></pre>
+
+<p>tty が無いって言ってますね…。そりゃぁログインができないわけです…。</p>
+
+<pre><code>[root@hongo0u5 /]# ls -al /dev/|grep tty
+crw-------  1 root tty  136, 4 12月 12 20:21 2015 console
+crw-------  1 root root 136, 0 12月 12 20:21 2015 tty1
+crw-------  1 root root 136, 1 12月 12 20:21 2015 tty2
+crw-------  1 root root 136, 2 12月 12 20:21 2015 tty3
+crw-------  1 root root 136, 3 12月 12 20:21 2015 tty4
+</code></pre>
+
+<p>ちなみに Wakame-vdc と関係なく lxc-create -t centos で作成したコンテナの中身を見てみると…</p>
+
+<pre><code>[root@centos /]# ls -al /dev/|grep tty
+crw-rw-rw-  1 root root 5, 0 12月 10 05:49 2015 tty
+crw-rw-rw-  1 root root 4, 0 12月 10 05:49 2015 tty0
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty1 -&gt; lxc/tty1
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty2 -&gt; lxc/tty2
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty3 -&gt; lxc/tty3
+lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty4 -&gt; lxc/tty4
+</code></pre>
+
+<p>はい、ちゃんと /dev/tty が存在しています。あと気になるのが、tty1〜tty4 に違いがあることとか…</p>
+
+<p>tty1〜tty4 の違いは別として、とりあえず tty と tty0 を作ってみます。</p>
+
+<pre><code>[root@hongo0u5 /]# mknod -m 666 /dev/tty c 5 0
+[root@hongo0u5 /]# mknod -m 666 /dev/tty0 c 4 0
+[root@hongo0u5 /]# ls -al /dev/|grep tty
+crw-------  1 root tty  136, 4 12月 12 20:21 2015 console
+crw-rw-rw-  1 root root   5, 0 12月 12 20:38 2015 tty
+crw-rw-rw-  1 root root   4, 0 12月 12 20:38 2015 tty0
+crw-------  1 root root 136, 0 12月 12 20:21 2015 tty1
+crw-------  1 root root 136, 1 12月 12 20:21 2015 tty2
+crw-------  1 root root 136, 2 12月 12 20:21 2015 tty3
+crw-------  1 root root 136, 3 12月 12 20:21 2015 tty4
+</code></pre>
+
+<p>で、再度コンテナに ssh してみます。</p>
+
+<pre><code>Dec 12 20:44:37 hongo0u5 sshd[570]: Accepted publickey for root from 192.0.2.1 port 43663 ssh2
+Dec 12 20:44:37 hongo0u5 sshd[570]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Dec 12 20:44:37 hongo0u5 sshd[572]: error: ioctl(TIOCSCTTY): Operation not permitted
+Dec 12 20:44:37 hongo0u5 sshd[572]: error: open /dev/tty failed - could not set controlling tty: No such device or address
+</code></pre>
+
+<p>う〜ん、やっぱりログインできません…。が、エラーが「No such file or directory」から「No such device or address」に変化しています。</p>
+
+<p>うむむぅ…。続きはまた明日…。(「また明日」って、既にこのエントリを書いている時点で13日に入ってしまいましたが…f^^;)</p>
+
+  			</section>
+
+  			<footer class="post-footer">
+  				<div class="post-tags">
+            
+            
+                <a href="http://blog.osamu.habuka.jp//tags/wakame-vdc/">Wakame-vdc</a>
+            
+                <a href="http://blog.osamu.habuka.jp//tags/adventcalendar/">AdventCalendar</a>
+            
+            
+  				</div>
+  				<div class="post-share">
+  					<a class="icon-twitter" href="https://twitter.com/share?text=%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%ae%e3%81%93%e3%81%88&url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2015-12-13-wakame-vdc-advent-calendar-2015-day12%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  						<span>Twitter</span>
+  					</a>
+  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2015-12-13-wakame-vdc-advent-calendar-2015-day12%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  						<span>Facebook</span>
+  					</a>
+  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2015-12-13-wakame-vdc-advent-calendar-2015-day12%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+  						<span>Google+</span>
+  					</a>
+  				</div>
+  			</footer>
+
+  			<aside class="post-comments">
+    
+    
+    
+</aside>
+
+
+			</div>
+
+			<nav class="post-nav">
+				
+					<a class="post-nav-item post-nav-next" href="http://blog.osamu.habuka.jp/post/2015-12-14-wakame-vdc-advent-calendar-2015-day13/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">花咲け！Packer〜ん</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				
+					<a class="post-nav-item post-nav-prev" href="http://blog.osamu.habuka.jp/post/2015-12-10-wakame-vdc-advent-calendar-2015-day11/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">振り返れば RabbitMQ</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				<div class="clear"></div>
+			</nav>
+
+		</div>
+	</article>
+</main>
+
+				<div id="body-class" style="display: none;"></div>
+				<footer id="footer">
+					<section class="credits">
+						<span class="credits-theme">Theme <a href="https://github.com/zenithar/hugo-theme-bleak" target="_blank" rel="nofollow">Bleak</a> by <a href="http://zutrinken.com" target="_blank" rel="nofollow">zutrinken</a></span>
+						<span class="credits-software">Published with <a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a></span>
+					</section>
+				</footer>
+				
+				
+<div id="tocMenu" data-target="toc">
+    <div class="menu-header">
+        <span class="menu-label">Menu</span>
+        <a class="menu-close" data-action="toc" data-target="toc"></a>
+    </div>
+    <div id="toc" class="menu-list">
+        
+    </div>
+</div>
+
+
+				<div class="overlay"></div>
+			</div>
+		</section>
+
+    <script>
+      (function(c,f){asyncLoader=function(i,h){i.foreach(function(k,j){e(j,d(j),h)});if(typeof h.callback=="function"){var g=setInterval(function(){if(f.readyState==="complete"){clearInterval(g);h.callback()}},10)}};var d=function(g){var h=g.split(".");return h[h.length-1]},e=function(h,i,g){switch(i){case"js":a(h,g);break;case"css":b(h);break;default:break}},a=function(i,h){var g=document.createElement("script");g.type="text/javascript";g.async=true;g.src=i;document.getElementsByTagName("head")[0].appendChild(g)},b=function(g){var h=document.createElement("link");h.type="text/css";h.rel="stylesheet";h.href=g;document.getElementsByTagName("head")[0].appendChild(h)};Array.prototype.foreach=function(h){for(var g=0;g<this.length;g++){h(g,this[g])}}})(this,document);
+
+      asyncLoader([
+				"/js/dependencies.js",
+				"/css/dependencies.css"
+      ],{
+        callback:function(){
+					asyncLoader([
+						"/css/style.css",
+						"/js/script.js"
+					], {
+						callback: function() {
+							$('body').fadeIn( 800 );
+						}
+					});
+        }
+      });
+
+</script>
+
+
+
+</body>
+</html>
+
