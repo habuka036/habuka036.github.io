@@ -116,11 +116,11 @@
   			</header>
 
   			<section class="post-content">
-  				
-
-<h2 id="外部コマンド叩く話のつづき">外部コマンド叩く話のつづき</h2>
+  				<h2 id="外部コマンド叩く話のつづき">外部コマンド叩く話のつづき</h2>
 
 <p>前回は truncate コマンドを叩くよりシステムコールの truncate を呼んだほうが実行時のコストが低いんじゃないかという話をしましたが、今回は Ciner の NFS ドライバーにある _create_regular_file() が dd コマンドを叩いていることについて考えたいと思います。コード的には以下の部分です。</p>
+
+<p></p>
 
 <p><a href="https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L227-L238">https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L227-L238</a></p>
 
@@ -221,7 +221,6 @@ syscall_write                   20.8038 (  0.1%)
 <p>個人的には完全に直列はアレですが、せめて少し並列化させて write() を呼ぶほうが良いように思えます。</p>
 
 <p>では今日はここまで。</p>
-
   			</section>
 
   			<footer class="post-footer">

@@ -123,6 +123,8 @@
 
 <p>インスタンスを起動したときに isono がタイムアウトになるのって度々遭遇していたことをすっかり忘れていました。そう<a href="https://github.com/axsh/iso-no-wakame/issues/11">このチケット</a>で。</p>
 
+<p></p>
+
 <p>RabbitMQ のデフォルト値では disk_free_limit が 1GB なんですよね。なので、</p>
 
 <pre><code>[root@host-133-130-109-122 wakame]# df -h
@@ -342,7 +344,6 @@ Use &quot;none&quot; if you really want a container without a rootfs.
 <p>はい、UI 上は起動したように見えます。では ssh で接続してみましょう。 えーと、結論だけ言うと、ホスト側の環境が変な挙動をするようになってしまいました f^^;</p>
 
 <p>明日はこれらの変更点を LiveDVD に反映させてみます。</p>
-
   			</section>
 
   			<footer class="post-footer">

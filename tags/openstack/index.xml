@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Openstack on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/openstack/</link>
-    <description>Recent content in Openstack on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/openstack/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Thu, 04 Dec 2014 08:08:08 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,11 +14,11 @@
       <pubDate>Thu, 04 Dec 2014 08:08:08 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-12-03-openstack-advent-calendar-2014-4th/</guid>
-      <description>
-
-&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/569&#34;&gt;OpenStack Advent Calendar 2014&lt;/a&gt; の4日目のエントリです。昨日は日本 Eucalyptus ユーザ会のエントリ &lt;a href=&#34;http://eucalyptus-users.jp/blog/2014/12/03/openstack-on-eucalyptus-slash-openstack-advent-calendar-2014-dot-12-dot-03/&#34;&gt;OpenStack on Eucalyptus&lt;/a&gt; でした。&lt;/p&gt;
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/569&#34;&gt;OpenStack Advent Calendar 2014&lt;/a&gt; の4日目のエントリです。昨日は日本 Eucalyptus ユーザ会のエントリ &lt;a href=&#34;http://eucalyptus-users.jp/blog/2014/12/03/openstack-on-eucalyptus-slash-openstack-advent-calendar-2014-dot-12-dot-03/&#34;&gt;OpenStack on Eucalyptus&lt;/a&gt; でした。&lt;/p&gt;
 
 &lt;p&gt;今日は題して「Eucalyptus ユーザが解説する Nova API 改造指南」です。例年ですと私の OpenStack ネタのエントリは失敗するのがお約束ですが、今日も無事失敗できるかどうかドキドキです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;で、このエントリの目標は「API にパラメータを何か追加してみて、ちゃんとそれが処理されるか否か」という緩い目標設定となっております。(あまりマトモな目標設定をすると失敗する以前にまず何もできなかったりするので…」&lt;/p&gt;
 
@@ -212,16 +211,15 @@ def do_baremetal_node_delete(cs, args):
 
 &lt;hr /&gt;
 
-&lt;p&gt;明日の &lt;a href=&#34;http://www.adventar.org/calendars/569&#34;&gt;OpenStack Advent Calendar 2014 5日目&lt;/a&gt; は Shogos3 さんのエントリです。&lt;/p&gt;
-</description>
+&lt;p&gt;明日の &lt;a href=&#34;http://www.adventar.org/calendars/569&#34;&gt;OpenStack Advent Calendar 2014 5日目&lt;/a&gt; は Shogos3 さんのエントリです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>OpenStack Advent Calendar 2013 JP 8日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-08/</link>
       <pubDate>Sun, 08 Dec 2013 01:11:57 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-08.AdventCalendar-day-8/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-08/</guid>
       <description>
 
 &lt;h1 id=&#34;碧川涼&#34;&gt;碧川涼&lt;/h1&gt;
@@ -530,10 +528,10 @@ import nova.utils
     
     <item>
       <title>Eucalyptus Advent Calendar 2012 JP 三日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</link>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-03/</link>
       <pubDate>Mon, 03 Dec 2012 01:16:23 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-03/</guid>
       <description>
 
 &lt;h1 id=&#34;euca-monkey-を使ってみたよ&#34;&gt;Euca Monkey を使ってみたよ？&lt;/h1&gt;

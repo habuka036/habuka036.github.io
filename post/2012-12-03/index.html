@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="ja-jp">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <meta property="og:title" content=" Eucalyptus Advent Calendar 2012 JP 三日目 &middot;  hablog" />
+        <meta property="og:site_name" content="hablog" />
+        <meta property="og:url" content="http://blog.osamu.habuka.jp/post/2012-12-03/" />
+
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:published_time" content="2012-12-03T01:16:23&#43;09:00" />
+        <meta property="og:article:tag" content="Eucalyptus" />
+        <meta property="og:article:tag" content="OpenStack" />
+        <meta property="og:article:tag" content="AdventCalendar" />
+        
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@" />
+        <meta name="twitter:title" content="Eucalyptus Advent Calendar 2012 JP 三日目" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:url" content="http://blog.osamu.habuka.jp/post/2012-12-03/" />
+    
+
+        <title> Eucalyptus Advent Calendar 2012 JP 三日目 &middot;  hablog</title>
+
+    
+        <meta name="description" content="" />
+    
+
+        <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+    
+        <link href="http://blog.osamu.habuka.jp/index.xml" rel="alternate" type="application/rss+xml" title="hablog" />
+    
+
+    
+        <link rel="canonical" href="http://blog.osamu.habuka.jp/post/2012-12-03/" />
+
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Eucalyptus Advent Calendar 2012 JP 三日目",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/?rel=author"
+        },
+        "datePublished": "2012-12-03",
+        "description": "",
+        "wordCount":  1203 
+    }
+
+    </script>
+
+    <script type="text/javascript">
+    
+    
+
+    </script>
+    
+
+    <style>
+@charset "UTF-8";article,header,img,main,nav,section{display:block}blockquote,p,pre,ul{margin:2em auto}#wrapper,pre{width:100%;box-sizing:border-box}#nav,#wrapper,code{position:relative}#nav,body{background:#fff}#menu,blockquote,pre code{background:0 0}#menu,#menu .menu-header,#menu .menu-list,#wrapper,.post-nav .post-nav-item .post-nav-teaser .post-nav-info,blockquote,pre{box-sizing:border-box}img{border:0;max-width:100%;height:auto;margin:2.5em auto}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}code,pre{font-family:monospace,monospace;font-size:1em}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:300;src:local("Merriweather Sans Light"),local("MerriweatherSans-Light"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowY_zIojJi0m4a5Z6tRh6itY.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:400;src:local("Merriweather Sans Regular"),local("MerriweatherSans-Regular"),url(//fonts.gstatic.com/s/merriweathersans/v5/AKu1CjQ4qnV8MUltkAX3sL2aU247V0zTzydO4RoO9Ok.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:700;src:local("Merriweather Sans Bold"),local("MerriweatherSans-Bold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowQfd-b-I5PxxcmB4_-MNcqw.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:normal;font-weight:800;src:local("Merriweather Sans ExtraBold"),local("MerriweatherSans-ExtraBold"),url(//fonts.gstatic.com/s/merriweathersans/v5/6LmGj5dOJopQKEkt88GowWT7sFQ1Iz1BbpcuCPlgc9Q.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:300;src:local("Merriweather Sans Light Italic"),local("MerriweatherSans-LightItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVX9UU5BmOJGkLxUCVv5VXdc.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:400;src:local("Merriweather Sans Italic"),local("MerriweatherSans-Italic"),url(//fonts.gstatic.com/s/merriweathersans/v5/3Mz4hOHzs2npRMG3B1ascf0KIgDhPIHb_R-SWdtqte8.woff) format("woff")}@font-face{font-family:'Merriweather Sans';font-style:italic;font-weight:700;src:local("Merriweather Sans Bold Italic"),local("MerriweatherSans-BoldItalic"),url(//fonts.gstatic.com/s/merriweathersans/v5/nAqt4hiqwq3tzCecpgPmVYM8pfYvjMoOxygpzLVILAs.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:400;src:local("Inconsolata"),url(//fonts.gstatic.com/s/inconsolata/v12/BjAYBlHtW3CJxDcjzrnZCIbN6UDyHWBl620a-IRfuBk.woff) format("woff")}@font-face{font-family:Inconsolata;font-style:normal;font-weight:700;src:local("Inconsolata Bold"),local("Inconsolata-Bold"),url(//fonts.gstatic.com/s/inconsolata/v12/AIed271kqQlcIRSOnQH0yTqR_3kx9_hJXbbyU8S6IN0.woff) format("woff")}@font-face{font-family:icons;src:url(/fonts/icons.eot?9273991);src:url(/fonts/icons.eot?9273991#iefix) format("embedded-opentype"),url(/fonts/icons.woff?9273991) format("woff"),url(/fonts/icons.ttf?9273991) format("truetype"),url(/fonts/icons.svg?9273991#icons) format("svg");font-weight:400;font-style:normal}[class^=icon-]:before{font-family:icons;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-arrow-left:before{content:'\e804'}.icon-arrow-right:before{content:'\e807'}.icon-rss:before{content:'\e808'}.icon-menu:before{content:'\e809'}body{margin:0;font:300 1em/1.5em 'Merriweather Sans',sans-serif;color:#595B66}blockquote,i{font-style:italic}code,pre{font-family:Inconsolata,monospace}a,blockquote,code,i{font-weight:400}::-moz-selection{color:#222;background:#D6EDFF;text-shadow:none}::-moz-selection,::selection{color:#222;background:#D6EDFF;text-shadow:none}a{background-color:transparent;color:inherit;text-decoration:none;transition:all ease-out .2s}.post-content a{border-bottom:2px solid #36D995}h1,h4{text-rendering:optimizeLegibility;color:#1F2026}h1{font-size:2em;line-height:1em;margin:2em 0 -.5em}h4{font-size:1.25em;line-height:1.2em;margin:2.4em 0 -.8em}ul{list-style:none;padding-left:3em}blockquote{padding:0 1em;border-left:.25em solid #D4D5D9;color:#595B66}blockquote *{margin:1em auto}blockquote :first-child{margin-top:0}blockquote :last-child{margin-bottom:0}i{color:#363740}code{display:inline-block;top:-1px;padding:3px 6px;margin:-1px 2px;font-size:.875em;line-height:1.143em;background:#E1E2E6;color:#000;border-radius:2px}pre{padding:1em;white-space:pre;overflow:auto;background:#9D9FA6;color:#fff}pre code{position:static;top:auto;font-size:1em;line-height:1.5em;white-space:-moz-pre-wrap;white-space:pre-wrap;vertical-align:inherit;border:none;padding:0}#menu .menu-header:before,.post .post-title:before{border-bottom:4px solid #36D995;content:''}.inner{max-width:48em;margin:0 auto;padding:0 1em}#wrapper{min-height:100vh;padding-bottom:6em;background:#F2F3F5}#push{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav{z-index:70;transition:all ease-out .4s;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:1}#nav:after{clear:both;content:'';display:table}#nav .nav-logo{float:left;height:2em;padding:1em;max-width:50%}#nav .nav-logo img{width:auto;max-width:none;height:2em;margin:0}#nav .nav-menu{float:right}#nav .nav-menu:after{clear:both;content:'';display:table}#nav .nav-menu a{display:block;width:1em;height:1em;line-height:1em;padding:1.5em;text-align:center;float:left;cursor:pointer}#nav .nav-menu a i:before{margin:auto}#menu{display:none;position:fixed;left:50%;top:5%;width:30em;height:90%;margin-left:-15em;padding:3em 0 0;overflow:hidden;transition:all ease-out .3s;-webkit-transform:translate3d(0,2em,0);transform:translate3d(0,2em,0);-webkit-transform-style:preserve-3d;transform-style:preserve-3d;opacity:0;z-index:100}@media only screen and (max-width:50em){#menu{width:90%;left:5%;margin-left:auto}}#menu .menu-header{position:absolute;left:0;top:0;width:100%;height:3.5em;padding:1em 1.5em .5em;margin-bottom:1em;line-height:2em;z-index:110;background:#fff}#menu .menu-header:before{position:absolute;left:-5%;bottom:-1em;width:110%;height:2em;background:#fff;box-shadow:0 .125em .125em rgba(0,0,0,.1);-webkit-transform:rotate(2.5deg);transform:rotate(2.5deg);transition:all ease-out .2s;z-index:115}#menu .menu-header:after{clear:both;content:'';display:table}#menu .menu-header .menu-label{position:relative;display:block;float:left;z-index:120}#menu .menu-header .menu-close{position:relative;display:block;float:right;width:2em;height:2em;padding:1em;margin:-1em -1.5em -1em 0;cursor:pointer;z-index:125}#menu .menu-header .menu-close:after,#menu .menu-header .menu-close:before{content:'';position:absolute;left:50%;top:50%;background:#9D9FA6;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.overlay,.overlay:before{top:0;width:100%;height:100%}#menu .menu-header .menu-close:after{width:2px;height:1em;margin:-.5em 0 0 -1px}#menu .menu-header .menu-close:before{width:1em;height:2px;margin:-1px 0 0 -.5em}#menu .menu-list{position:relative;list-style:none;margin:0;padding:2em 0;height:100%;overflow-x:hidden;overflow-y:scroll;background:#fff}.overlay{position:fixed;left:0;z-index:80;display:none}.overlay:before{content:'';position:absolute;left:0;background:#1F2026;opacity:0;transition:all ease-out .3s;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.post{position:relative;z-index:20}.post .post-meta{display:block;font-size:.75em;line-height:1.334em;font-weight:400;margin-bottom:1.334em}.post .post-title{position:relative;color:#000;font-size:2em;line-height:1.375em;font-weight:800;text-indent:-1px;margin:.25em 0 .75em}.post .post-title:before{position:absolute;left:0;bottom:-.334em;width:1em;margin-bottom:-2px}.post .post-header{padding:4em 0 0;margin-bottom:3em}.post-footer .post-share a span{display:none}.post-nav .post-nav-item{position:fixed;top:50%;display:block;margin-top:-4em;overflow:hidden;border-radius:10em;transition:none}@media only screen and (max-width:70em){.post-nav .post-nav-item{position:absolute;top:auto;margin:auto;max-width:50%}}.post-nav .post-nav-item.post-nav-next{left:0;text-align:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon{float:left}.post-nav .post-nav-item.post-nav-next .post-nav-icon i{left:-.05em}.post-nav .post-nav-item.post-nav-next .post-nav-info{padding-left:6em}.post-nav .post-nav-item.post-nav-prev{right:0;text-align:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon{float:right}.post-nav .post-nav-item.post-nav-prev .post-nav-icon i{right:-.05em}.post-nav .post-nav-item.post-nav-prev .post-nav-info{padding-right:6em}.post-nav .post-nav-item .post-nav-teaser{display:block;padding:1em;transition:all ease-out .2s;max-width:25em;overflow:visible}.post-nav .post-nav-item .post-nav-teaser:after{clear:both;content:'';display:table}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{display:block;width:5em;height:5em;line-height:5em;text-align:center;box-sizing:border-box;border-radius:10em;border:1px solid #36D995;box-shadow:0 0 0 0 transparent;transition:all ease-out .1s;background:#F2F3F5}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{position:relative;font-size:2em}@media only screen and (max-width:30em){.post-nav .post-nav-item .post-nav-teaser .post-nav-icon{width:4em;height:4em;line-height:4em}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i{font-size:1.5em}}.post-nav .post-nav-item .post-nav-teaser .post-nav-icon i:before{margin:auto}.post-nav .post-nav-item .post-nav-teaser .post-nav-info{display:none;width:100%;transition:all ease-out .2s}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-title{display:block;max-height:1.25em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:1.25em 0 .25em;font-size:1em;line-height:1.25em;font-weight:700;color:#363740}.post-nav .post-nav-item .post-nav-teaser .post-nav-info .post-nav-excerpt{display:block;max-height:1.334em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin:0;font-size:.75em;line-height:1.334em;font-weight:400;color:#9D9FA6}
+</style>
+
+
+    </head>
+    <body class="home-template" style="display: none;">
+      <section id="wrapper">
+        <div id="ajax-container">
+          <nav id="nav" class="nav">
+            <div class="nav-logo">
+              <a href="http://blog.osamu.habuka.jp/">
+      			  	
+      			  	
+      			  	<img src="/images/puta-su.png" alt="Logo"/>
+      			  	
+              </a>
+			  	    
+            </div>
+            <div class="nav-menu">
+              <a class="rss" href="">
+                <i class="icon-rss"></i>
+              </a>
+                
+                <a class="menu" data-action="toc" data-target="toc"><i class="icon-location"></i></a>
+                
+                
+            </div>
+          </nav>
+
+
+<main class="content" role="main">
+	<article class="post">
+		<div class="inner">
+
+			<div id="push">
+
+  			<header class="post-header">
+  				<span class="post-meta">
+						<span class="post-date">3 Dec 2012</span> <span class="reading-time">| <span class="estimated-reading-time">6 min.</span> (<span class="word-count">1203</span> words)</span></span>
+  				</span>
+  				<div class="clear"></div>
+  				<h1 class="post-title">Eucalyptus Advent Calendar 2012 JP 三日目</h1>
+  			</header>
+
+  			<section class="post-content">
+  				
+
+<h1 id="euca-monkey-を使ってみたよ">Euca Monkey を使ってみたよ？</h1>
+
+<p>さて、Eucalyptus Advent Calendar 2012 JP の三日目です。初日がどうやら一部で「うわっ飛ばしすぎじゃね？」とか心配されたようなので、3日目は大人し目にいきたいと思います。</p>
+
+<p>で、「大人し目って何だ？」って考えてみたんですが、大人しい == ドタバタしない系だと思い、つまり何か仕掛けたら放置プレイでいいんじゃね？となるようなものをターゲットにしようってことになり、協議の結果 <a href="https://github.com/eucalyptus/euca-monkey">Euca Monkey</a> を扱おうという結論に達しました。で、この Euca Monkey ってのは Eucalyptus のストレステストツールでして、README とかを読んでると <a href="https://github.com/eucalyptus/eutester">Eutester</a> っていうテストフレームワークを使うそうです。でもここでいきなりこのテストフレームワークの使い方を説明しだすと、また皆さんを置いてけぼりな展開になるので、ここはぐっと我慢して Euca Monkey を使う方法に徹します。</p>
+
+<p>ちなみに Euca Monkey の作者は Eucalyptus 社のソフトウェアデザイナ の Kyo Lee さんで、詳しくは<a href="http://eucatest.wordpress.com/2012/11/07/10-steps-to-euca-monkey/">彼のブログ</a>で紹介されています。</p>
+
+<h1 id="環境の準備">環境の準備</h1>
+
+<p>で、何はともあれ Eucalyptus の環境を作らないと話ははじまらないんですが、<a href="http://036.habuka.jp/?date=20121201">初日のときみたい</a>に nightly build に手をだして本筋から外れるのも何なので、今回は日和って Eucalyptus 3.1 の環境でやります。ステーブルサイコー！</p>
+
+<p>ちなみに Eucalyptus 3.1 の環境の作り方は OSPN Press の<a href="http://www.ospn.jp/press/20121108no29-1-useit-oss.html">「オープンソース」を使ってみよう (第26回 dodai-deploy編)</a>を参考にしてください。</p>
+
+<p>あぁ、一応聖なる紳士淑女のために説明をしますが、ちゃんとメモリを 16GB も積んだマシン2台構成で1台はフロントエンド (CLC/CC) で、もう1台はノードとしました。で、CLC/CC の eucalyptus.conf は以下のように変更しています。</p>
+
+<pre><code># diff -u eucalyptus.conf.orig eucalyptus.conf
+--- eucalyptus.conf.orig        2012-09-27 08:17:29.000000000 +0900
++++ eucalyptus.conf     2012-12-03 02:12:05.000000000 +0900
+@@ -154,13 +154,13 @@
+ # The networking mode in which to run.  The same mode must be specified
+ # on all CCs and NCs in the entire cloud.  Valid values include SYSTEM,
+ # STATIC, MANAGED, and MANAGED-NOVLAN.
+-VNET_MODE=&quot;SYSTEM&quot;
++VNET_MODE=&quot;MANAGED&quot;
+
+ # The name of the network interface that is on the same network as
+ # the NCs.  In Managed and Managed (No VLAN) modes this may need to be
+ # a bridge.  The default is &quot;eth0&quot;.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-VNET_PRIVINTERFACE=&quot;eth0&quot;
++VNET_PRIVINTERFACE=&quot;eth1&quot;
+
+ # On a CC, this is the name of the network interface that is connected
+ # to the &quot;public&quot; network.  The default is &quot;eth0&quot;.
+@@ -188,22 +188,22 @@
+ # A space-separated list of individual and/or hyphenated ranges of public
+ # IP addresses to assign to instances.
+ # Networking modes: Managed, Managed (No VLAN)
+-#VNET_PUBLICIPS=&quot;your-free-public-ip-1 your-free-public-ip-2 ...&quot;
++VNET_PUBLICIPS=&quot;192.168.33.110-192.168.33.250&quot;
+
+ # The address and network mask of the network the cloud should use for
+ # instances' private IP addresses.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-#VNET_SUBNET=&quot;192.168.0.0&quot;
+-#VNET_NETMASK=&quot;255.255.0.0&quot;
++VNET_SUBNET=&quot;10.0.0.0&quot;
++VNET_NETMASK=&quot;255.0.0.0&quot;
+
+ # The number of IP addresses to allocate to each security group.
+ # Specify a power of 2 between 16 and 2048.
+ # Networking modes: Managed, Managed (No VLAN)
+-#VNET_ADDRSPERNET=&quot;32&quot;
++VNET_ADDRSPERNET=&quot;2048&quot;
+
+ # The address of the DNS server to supply to instances in DHCP responses.
+ # Networking modes: Static, Managed, Managed (No VLAN)
+-#VNET_DNS=&quot;your-dns-server-ip&quot;
++VNET_DNS=&quot;192.168.32.21&quot;
+
+ # The network broadcast address and default gateway to supply to instances
+ # in DHCP responses.
+</code></pre>
+
+<p>で、NC の eucalyptus.conf は以下のように変更しました。</p>
+
+<pre><code># diff -u eucalyptus.conf.orig eucalyptus.conf
+--- eucalyptus.conf.orig        2012-09-27 08:17:29.000000000 +0900
++++ eucalyptus.conf     2012-12-03 02:12:24.000000000 +0900
+@@ -88,10 +88,10 @@
+ # KVM hypervisor.
+
+ # If &quot;1&quot;, use Virtio for the root file system
+-USE_VIRTIO_ROOT=&quot;0&quot;
++USE_VIRTIO_ROOT=&quot;1&quot;
+
+ # If &quot;1&quot;, use Virtio for dynamic block volumes
+-USE_VIRTIO_DISK=&quot;0&quot;
++USE_VIRTIO_DISK=&quot;1&quot;
+
+ # If &quot;1&quot;, use Virtio for the network card
+ USE_VIRTIO_NET=&quot;0&quot;
+@@ -154,7 +154,7 @@
+ # The networking mode in which to run.  The same mode must be specified
+ # on all CCs and NCs in the entire cloud.  Valid values include SYSTEM,
+ # STATIC, MANAGED, and MANAGED-NOVLAN.
+-VNET_MODE=&quot;SYSTEM&quot;
++VNET_MODE=&quot;MANAGED&quot;
+
+ # The name of the network interface that is on the same network as
+ # the NCs.  In Managed and Managed (No VLAN) modes this may need to be
+@@ -171,13 +171,13 @@
+ # configuration, this may be a bridge or a physical interface that is
+ # attached to the bridge.  The default is &quot;eth0&quot;.
+ # Networking modes: Managed
+-VNET_PUBINTERFACE=&quot;eth0&quot;
++VNET_PUBINTERFACE=&quot;eth1&quot;
+
+ # On an NC, this is the name of the bridge interface to which instances'
+ # network interfaces should attach.  A physical interface that can reach
+ # the CC must be attached to this bridge.
+ # Networking modes: System, Static, Managed (No VLAN)
+-VNET_BRIDGE=&quot;br0&quot;
++VNET_BRIDGE=&quot;br1&quot;
+
+ # A map of MAC addresses to IP addresses that Eucalyptus should allocate
+ # to instances when running in Static mode.  Separate MAC addresses and
+</code></pre>
+
+<h2 id="マシンイメージの準備">マシンイメージの準備</h2>
+
+<p>Euca Monkey を動かすには何故か CentOS 6.3 の環境が必要だそうです。ちなみに物理でも仮想でもいいようなので、インスタンス上でやろうと思うんですが、マシンイメージを用意するのがメンドーだなーっていうあなたのために</p>
+
+<p><font size="5">「ハイ、<a href="http://emis.eucalyptus.com/">http://emis.eucalyptus.com/</a> 」。</font></p>
+
+<p>え？そこはマシンイメージ工房じゃないの？って思われるかもしれませんが、残念ながら CentOS 6.3 のイメージは用意してませんので、Eucalyptus 社が配布しているイメージを使います。</p>
+
+<p>で、マシンイメージの取得は、</p>
+
+<ol>
+<li>eustore-describe-images コマンドで一覧を取得し</li>
+<li>eustore-install-image コマンドでインストールする</li>
+</ol>
+
+<p>という簡単なコマンドと手順で実現できるため、まずは eustore-describe-images コマンドを叩きます。(カチャカチャカチャ…ッターン！)</p>
+
+<pre><code># eustore-describe-images
+Traceback (most recent call last):
+  File &quot;/usr/bin/eustore-describe-images&quot;, line 36, in &lt;module&gt;
+    import euca2ools.commands.eustore.describeimages
+ImportError: No module named eustore.describeimages
+</code></pre>
+
+<p>さぁ、はじまりました。これだから使い慣れないディストリビューションで Eucalyptus 動かすの嫌なんだよなー。(完全に責任転嫁)</p>
+
+<p>でとりあえず euca2ools のバージョンを確認です。</p>
+
+<pre><code># dpkg -l | grep euca2ools
+ii  euca2ools                             2.0.0~bzr516-0ubuntu3          managing cloud instances for Eucalyptus
+</code></pre>
+
+<p>あー、これは無理だわー、eustore-describe-images コマンドは euca2ools 2.1 からだわー。しょーがないから便利コマンドは諦めて <a href="http://emis.eucalyptus.com/starter-emis/euca-centos6.3-2012.11.07-x86_64.tgz">CentOS 6.3 のイメージファイル</a>を直接取得して手動で登録します。</p>
+
+<p>で、取得したら以下の<strong>ように</strong>登録します。</p>
+
+<pre><code># tar -xzf euca-centos6.3-2012.11.07-x86_64.tgz
+# cd centos-6.3-x86_64/
+# euca-bundle-image --kernel true -i kvm-kernel/vmlinuz-2.6.32-279.14.1.el6.x86_64
+# euca-upload-bundle -b kernel.001 -m /tmp/vmlinuz-2.6.32-279.14.1.el6.x86_64.manifest.xml
+# euca-register -a x86_64 kernel.001/vmlinuz-2.6.32-279.14.1.el6.x86_64.manifest.xml
+IMAGE   eki-945F390D
+
+# euca-bundle-image --ramdisk true -i kvm-kernel/initrd-2.6.32-279.14.1.el6.x86_64.img
+# euca-upload-bundle -b ramdisk.001 -m /tmp/initrd-2.6.32-279.14.1.el6.x86_64.img.manifest.xml
+# euca-register -a x86_64 ramdisk.001/initrd-2.6.32-279.14.1.el6.x86_64.img.manifest.xml
+IMAGE   eri-31F837E3
+
+# euca-bundle-image --kernel eki-945F390D --ramdisk eri-31F837E3 -i centos-6.3-x86_64.img
+# euca-upload-bundle -b machine.001 -m /tmp/centos-6.3-x86_64.img.manifest.xml
+# euca-register -a x86_64 machine.001/centos-6.3-x86_64.img.manifest.xml
+IMAGE   emi-69183D43
+</code></pre>
+
+<p>でテキトーに起動してログインします。</p>
+
+<h1 id="euca-monkey-のインストール">Euca Monkey のインストール</h1>
+
+<p>Kyo Lee さんのブログや README によれば「10ステップでインストールできるぜ」と言ってますので、以下の10ステップを実行します。</p>
+
+<h2 id="ステップ-1">ステップ 1</h2>
+
+<p>git のインストール</p>
+
+<pre><code># yum -y install git
+</code></pre>
+
+<h2 id="ステップ-2">ステップ 2</h2>
+
+<p>github から euca-monkey のソースを取得</p>
+
+<pre><code>git clone https://github.com/eucalyptus/euca-monkey.git
+</code></pre>
+
+<h2 id="ステップ-3">ステップ 3</h2>
+
+<p>ディレクトリ euca-monkey/ 配下に移動</p>
+
+<pre><code>cd ./euca-monkey
+</code></pre>
+
+<h2 id="ステップ-4">ステップ 4</h2>
+
+<p>cloud-resource-populator のインストーラを実行</p>
+
+<pre><code>../installer-cloud-resource-populator.py
+</code></pre>
+
+<p>で、スクリプトの実行が終ると4ステップの手順が示されるけどガン無視して次に進みます。</p>
+
+<h2 id="ステップ-5">ステップ 5</h2>
+
+<p>euca-monkey-webservice のインストーラを実行 (いまさらだけど、HTTP proxy 配下の環境で実行している人は yum にちゃんと proxy の設定してネ)。</p>
+
+<pre><code>../installer-euca-monkey-webservice.py
+</code></pre>
+
+<h2 id="ステップ-6">ステップ 6</h2>
+
+<p><img src="/images/20121203_0.png" alt="Euca Monkey の初期画面" /></p>
+
+<p>Euca Monkey のページ (http://インスタンスのIP/euca-monkey.php) にブラウザでアクセスして、ちゃんと動いているか確認</p>
+
+<p>あ、ちなみに事前にセキュリティグループの 80/tcp は開けといてね。あとインスタンス上でファイアウォールが有効になっている場合は system-config-firewall-tui コマンドとかで適宜 80/tcp を開けてね。</p>
+
+<h2 id="ステップ-7">ステップ 7</h2>
+
+<p>ディレクトリ launch_euca_monkey/ 配下に移動</p>
+
+<pre><code>cd ./launch_euca_monkey/
+</code></pre>
+
+<h2 id="ステップ-8">ステップ 8</h2>
+
+<p>../conf/ ディレクトリ配下にある Euca Monkey の設定ファイル 2b_tested.lst と generator.ini を適宜変更します。</p>
+
+<p>私の環境では以下の内容</p>
+
+<ul>
+<li>./conf/2b_tested.lst</li>
+</ul>
+
+<pre><code>192.168.33.102  UBUNTU  12.04   64      REPO    [UI CC00 CLC SC00 WS]
+192.168.33.101  UBUNTU  12.04   64      REPO    [NC00]
+</code></pre>
+
+<ul>
+<li>./conf/generator.ini</li>
+</ul>
+
+<pre><code>### RESOURCE GENERATOR PARAMETERS
+
+[USER INFO]
+account: cloud-user-test-acct-00
+user: cloud-user-00
+password: mypassword00
+
+[RESOURCES]
+running instances: 2
+volumes:  2
+snapshots: 1
+security groups: 3
+keypairs: 5
+ip addresses: 2
+
+[ITERATIONS]
+iterations: 10
+</code></pre>
+
+<p>本当は RESOURCES や ITERATIONS の値を大きくしたいんですが、このあと OpenStack Advent Calendar のネタも書かなきゃならないので、日和って小さくしました。(この時点で <sup>12</sup>&frasl;<sub>03</sub> 19:10 &hellip;(^o^)/)</p>
+
+<h2 id="ステップ-9">ステップ 9</h2>
+
+<p>Euca Monkey を起動</p>
+
+<pre><code>../launch-euca-monkey.py
+</code></pre>
+
+<p>実行すると画面にポロポロっと下拵えの様子が出力されて、準備が完了すると</p>
+
+<pre><code>===== LAUNCH EUCA MONKEY : DONE =====
+</code></pre>
+
+<p>って出力されます。あとは裏でバリバリっと動くのです。</p>
+
+<h2 id="ステップ-10">ステップ 10</h2>
+
+<p><img src="/images/20121203_1.png" alt="期待のグラフががががが…？" /></p>
+
+<p>で、コンソールを眺めてても何も起きません。そりゃそうです、実行結果はブラウザでステップ 6 でアクセスした場所を表示し、画面上部の [Refresh] ボタンをクリックして画面を更新します。するとモリモリ………って、あれ？画面左側の INPUT GRAPH しか描画されないお…(´・ω・`)</p>
+
+<p>Euca Monkey のテストのログを見ると INPUT 側のログには</p>
+
+<pre><code>2012-12-03:20:07:20     cloud-user-test-acct-00 admin   intellilink     2       2       1       3       5       2
+2012-12-03:20:07:25     cloud-user-test-acct-00 admin   intellilink     0       0       0       0       0       0
+(省略)
+</code></pre>
+
+<p>って吐かれてるのに、一方の結果のログには</p>
+
+<pre><code>2012-12-03:20:07:23     cloud-user-test-acct-00 admin   intellilink     -1      -1      -1      -1      -1      -1
+2012-12-03:20:07:27     cloud-user-test-acct-00 admin   intellilink     -1      -1      -1      -1      -1      -1
+</code></pre>
+
+<p>って吐かれてる…。どうみてもこれ失敗してるよなぁ。。。</p>
+
+<p>で、ここで今更気付くのが羽深クオリティなんですが、そーいや Kyo Lee さんのブログのポスト見ると Eucalyptus 3.2 で実装されてる UI が写ってる…。もしかして Euca Monkey って 3.1 じゃ動かない？ (そんな記述は見当たらないんだけどなぁ。。。)</p>
+
+<p>ということで、Kyo Lee さんに質問し、今日はここまで。(<sup>12</sup>&frasl;<sub>01</sub> のエントリに引き続き、こんなんばっか… T^T)</p>
+
+<hr />
+
+<h1 id="openstack-を徹底的にイジメ抜く-許さない-絶対">OpenStack を徹底的にイジメ抜く、許さない、絶対</h1>
+
+<p>Euca Monkey で消化不良な結末を迎えたので、思わず OpenStack Advent Calendar のことを忘れて今日を終えるところでした…。</p>
+
+<p>さて、気持ちを切り替えて頑張ります。</p>
+
+<p>えーと、タイトルは強気ですが、ぶっちゃけアタクシ OpenStack 初心者なのです (一部の人達には誤解されていますが…)。なので、初心者は初心者らしく、<a href="http://www.ospn.jp/press/20121108no29-1-useit-oss.html">dodai-deploy を使って環境を作成</a>します。</p>
+
+<p>そしてこれは「ネタ」なので、書いてあることに対してスルー力が必要です。むしろこの日記自体をスルーしてくれると個人的には助かります。( ´_ゝ｀)</p>
+
+<p>… … …</p>
+
+<p>… … …</p>
+
+<p>… … …</p>
+
+<p>(…3時間経過…)</p>
+
+<p>… … …</p>
+
+<p>… … …</p>
+
+<p>… … …</p>
+
+<p>OpenStack を泣かす前に自分が泣きそうな状況になりましたよ。ツールに頼ってばかりではいけませんね… T&amp;T</p>
+
+<p><font size="5">教訓： (またこのパターンかよ…) OpenStack ぐらい手動で構築できるようにならないとダメです。</font></p>
+
+<h1 id="glance-を泣かしてみる">glance を泣かしてみる</h1>
+
+<p>何度も言いますが本当に OpenStack 初心者なので、OpenStacker 的には当然なことも僕にはワカラナイので「オイオイ、そんな使い方はねーだろーよ？」ってことをやっちゃってるかもしれません。</p>
+
+<p>Eucalyptus だろうが OpenStack だろうが、まずはマシンイメージを登録しないことには始まりません。なので華麗にマシンイメージを登録してみたいと思います。</p>
+
+<p>ちなみに、世の中的には glance にマシンイメージを追加するときは glance コマンドを使うようですが、僕は Eucalyptoid なので glance コマンドの使い方を知りません。なので意地でも euca2ools でイメージを登録してます。で、Horizon さんは素敵な方なので EC2 認証情報の zip ファイルをダウンロードさせてくれるのですが、その中にある ec2rc.sh の中には S3_URL に関する記述がないんです、何でだろう？僕の設定が悪いんですよねきっと、はい。</p>
+
+<p>まぁ、なので毎回以下のように環境にあわせて設定してます。</p>
+
+<pre><code>S3_URL=http://192.168.33.101:3333
+</code></pre>
+
+<p>で、早速、おまちかねのイメージ登録です。ただし、普通に登録したのではツマラナイので、以下のスクリプトを用意し、1つのイメージを並列で登録してみました。</p>
+
+<pre><code>#!/bin/bash -x
+
+WD=$(basename `pwd`)
+KERNEL_IMG=`ls kernel-*`
+RAMDISK_IMG=`ls initramfs-*`
+MACHINE_IMG=`ls ${WD}.img`
+BUCKET=`date +'%Y%m%d-%H%M%S'`
+
+echo ${KERNEL_IMG}
+echo ${RAMDISK_IMG}
+echo ${MACHINE_IMG}
+
+mkdir -p /mnt/tmp-${BUCKET}
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${KERNEL_IMG} --kernel true
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${KERNEL_IMG}.manifest.xml
+EKI=`euca-register ${BUCKET}/${KERNEL_IMG}.manifest.xml | gawk '{print $2}'`
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${RAMDISK_IMG} --ramdisk true
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${RAMDISK_IMG}.manifest.xml
+ERI=`euca-register ${BUCKET}/${RAMDISK_IMG}.manifest.xml | gawk '{print $2}'`
+
+euca-bundle-image -d /mnt/tmp-${BUCKET}/ -i ${MACHINE_IMG} --kernel ${EKI} --ramdisk ${ERI}
+euca-upload-bundle -b ${BUCKET} -m /mnt/tmp-${BUCKET}/${MACHINE_IMG}.manifest.xml
+euca-register --architecture x86_64 ${BUCKET}/${MACHINE_IMG}.manifest.xml
+</code></pre>
+
+<p>で、このスクリプトを6並列実行したところで、えーと、何ていいましょう、まぁ、普通ありえないとは思うのですが、私の環境はちょっと特殊でして、まぁ、以下を見てください。</p>
+
+<pre><code># df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       9.2G  3.5G  5.3G  40% /
+udev            7.8G  4.0K  7.8G   1% /dev
+tmpfs           3.2G  280K  3.2G   1% /run
+none            5.0M     0  5.0M   0% /run/lock
+none            7.8G     0  7.8G   0% /run/shm
+cgroup          7.8G     0  7.8G   0% /sys/fs/cgroup
+/dev/sda5       445G   13G  410G   4% /mnt
+</code></pre>
+
+<p>まぁ、聡明な OpenStacker の皆さんならばきっとこれを見て <strong>m9(^Д^)</strong> ってなっていると思います。そう、実は /dev/sda5 にはいくつかディレクトリを用意しておいて、それらを /var/lib/glance/ や /tmp/ に bind マウントして今回のスクリプトを実行して</p>
+
+<p><font size="4">いえ～ぃ、glance<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> ジャイアントロック～www</font></p>
+
+<p>って笑う予定でした。ところがそのマウント行為をすっかり忘れてしまい、当然ながらディスクフルを起してしまい、glance も nova-objectsoter も動作がおかしくなり、おまけに「やべー、12/03 の Advent Calendarに穴あけちゃうよー」って思って慌てて環境を掃除して再起動してみましたが、刻すでに遅し</p>
+
+<p>/var/log/nova-api.log を見ると</p>
+
+<pre><code>2012-12-03 23:10:42 ERROR nova.api.openstack [req-7f54c557-1f6c-42f2-aa74-dd6ff5fd26b9 aac09b12b22d4f1b85bd8339d6688a43 f045
+25346fd94c19a2a098212b93c5e6] Caught error: (OperationalError) (2003, &quot;Can't connect to MySQL server on '192.168.33.101' (11
+1)&quot;) None None
+</code></pre>
+
+<p>なんて素敵なエラーが吐かれています。mysql の DB が壊れてしまったんでしょうか？もうこの時点で <sup>12</sup>&frasl;<sub>03</sub> の終りが目前なのでそろそろオチを探さないとイケないのですが、まぁ、Twitter で事前にツブやいていたように</p>
+
+<p><font size="5" color="#ff2222">OpenStack に徹底的にイジメられる、許して、マジで</font></p>
+
+<p>という結果になりました。ホント OpenStack コワイです。はい。</p>
+
+<p>終り。</p>
+
+<p>(ちなみに glance に euca2ools で同時にイメージを登録するとジャイアントロックされるのって diablo までですかね？もうとっくに並列処理可能になってます？)</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">同僚から「節子、何叩いとるんや！これ nova-objectstore やろ。glance ちゃうやんか！！」とツッコまれました(；´Д`A
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+  			</section>
+
+  			<footer class="post-footer">
+  				<div class="post-tags">
+            
+            
+                <a href="http://blog.osamu.habuka.jp//tags/eucalyptus/">Eucalyptus</a>
+            
+                <a href="http://blog.osamu.habuka.jp//tags/openstack/">OpenStack</a>
+            
+                <a href="http://blog.osamu.habuka.jp//tags/adventcalendar/">AdventCalendar</a>
+            
+            
+  				</div>
+  				<div class="post-share">
+  					<a class="icon-twitter" href="https://twitter.com/share?text=Eucalyptus%20Advent%20Calendar%202012%20JP%20%e4%b8%89%e6%97%a5%e7%9b%ae&url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2012-12-03%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+  						<span>Twitter</span>
+  					</a>
+  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2012-12-03%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+  						<span>Facebook</span>
+  					</a>
+  					<a class="icon-gplus" href="https://plus.google.com/share?url=http%3a%2f%2fblog.osamu.habuka.jp%2fpost%2f2012-12-03%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+  						<span>Google+</span>
+  					</a>
+  				</div>
+  			</footer>
+
+  			<aside class="post-comments">
+    
+    
+    
+</aside>
+
+
+			</div>
+
+			<nav class="post-nav">
+				
+					<a class="post-nav-item post-nav-next" href="http://blog.osamu.habuka.jp/post/2012-12-04/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">Eucalyptus Advent Calendar 2012 JP 四日目</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				
+					<a class="post-nav-item post-nav-prev" href="http://blog.osamu.habuka.jp/post/2012-12-01/">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">Eucalyptus Advent Calendar 2012 JP 一日目</h4>
+								<p class="post-nav-excerpt">&hellip;</p>
+							</span>
+						</section>
+					</a>
+				
+				<div class="clear"></div>
+			</nav>
+
+		</div>
+	</article>
+</main>
+
+				<div id="body-class" style="display: none;"></div>
+				<footer id="footer">
+					<section class="credits">
+						<span class="credits-theme">Theme <a href="https://github.com/zenithar/hugo-theme-bleak" target="_blank" rel="nofollow">Bleak</a> by <a href="http://zutrinken.com" target="_blank" rel="nofollow">zutrinken</a></span>
+						<span class="credits-software">Published with <a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a></span>
+					</section>
+				</footer>
+				
+				
+<div id="tocMenu" data-target="toc">
+    <div class="menu-header">
+        <span class="menu-label">Menu</span>
+        <a class="menu-close" data-action="toc" data-target="toc"></a>
+    </div>
+    <div id="toc" class="menu-list">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#euca-monkey-を使ってみたよ">Euca Monkey を使ってみたよ？</a></li>
+<li><a href="#環境の準備">環境の準備</a>
+<ul>
+<li><a href="#マシンイメージの準備">マシンイメージの準備</a></li>
+</ul></li>
+<li><a href="#euca-monkey-のインストール">Euca Monkey のインストール</a>
+<ul>
+<li><a href="#ステップ-1">ステップ 1</a></li>
+<li><a href="#ステップ-2">ステップ 2</a></li>
+<li><a href="#ステップ-3">ステップ 3</a></li>
+<li><a href="#ステップ-4">ステップ 4</a></li>
+<li><a href="#ステップ-5">ステップ 5</a></li>
+<li><a href="#ステップ-6">ステップ 6</a></li>
+<li><a href="#ステップ-7">ステップ 7</a></li>
+<li><a href="#ステップ-8">ステップ 8</a></li>
+<li><a href="#ステップ-9">ステップ 9</a></li>
+<li><a href="#ステップ-10">ステップ 10</a></li>
+</ul></li>
+<li><a href="#openstack-を徹底的にイジメ抜く-許さない-絶対">OpenStack を徹底的にイジメ抜く、許さない、絶対</a></li>
+<li><a href="#glance-を泣かしてみる">glance を泣かしてみる</a></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+
+				<div class="overlay"></div>
+			</div>
+		</section>
+
+    <script>
+      (function(c,f){asyncLoader=function(i,h){i.foreach(function(k,j){e(j,d(j),h)});if(typeof h.callback=="function"){var g=setInterval(function(){if(f.readyState==="complete"){clearInterval(g);h.callback()}},10)}};var d=function(g){var h=g.split(".");return h[h.length-1]},e=function(h,i,g){switch(i){case"js":a(h,g);break;case"css":b(h);break;default:break}},a=function(i,h){var g=document.createElement("script");g.type="text/javascript";g.async=true;g.src=i;document.getElementsByTagName("head")[0].appendChild(g)},b=function(g){var h=document.createElement("link");h.type="text/css";h.rel="stylesheet";h.href=g;document.getElementsByTagName("head")[0].appendChild(h)};Array.prototype.foreach=function(h){for(var g=0;g<this.length;g++){h(g,this[g])}}})(this,document);
+
+      asyncLoader([
+				"/js/dependencies.js",
+				"/css/dependencies.css"
+      ],{
+        callback:function(){
+					asyncLoader([
+						"/css/style.css",
+						"/js/script.js"
+					], {
+						callback: function() {
+							$('body').fadeIn( 800 );
+						}
+					});
+        }
+      });
+
+</script>
+
+
+
+</body>
+</html>
+

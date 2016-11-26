@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cloudstack on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/cloudstack/</link>
-    <description>Recent content in Cloudstack on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/cloudstack/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 24 Dec 2012 01:19:16 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/cloudstack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CloudStack Advent Calendar jp: 2012 &amp; Eucalyptus Advent Caledar 2012 JP 廿四日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</link>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-24/</link>
       <pubDate>Mon, 24 Dec 2012 01:19:16 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-24/</guid>
       <description>
 
 &lt;h1 id=&#34;手取り足取りの難しさ&#34;&gt;手取り足取りの難しさ&lt;/h1&gt;

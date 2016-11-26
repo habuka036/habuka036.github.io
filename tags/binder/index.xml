@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Binder on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/binder/</link>
-    <description>Recent content in Binder on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/binder/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 20 Aug 2014 00:51:57 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/binder/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,11 +14,11 @@
       <pubDate>Wed, 20 Aug 2014 00:51:57 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-05/</guid>
-      <description>
-
-&lt;h2 id=&#34;プロジェクト&#34;&gt;プロジェクト&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;プロジェクト&#34;&gt;プロジェクト&lt;/h2&gt;
 
 &lt;p&gt;今日はブログを更新する代わりにこの「ブロックストレージサービスで車輪の再開発」の成果物を入れるプロジェクトを github に作りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/habuka036/binder&#34;&gt;https://github.com/habuka036/binder&lt;/a&gt;&lt;/p&gt;
 
@@ -27,8 +26,7 @@
 
 &lt;p&gt;etcd を利用するコードまわりは SkyDNS のコードを丸コピ…もとい参考にさせてもらってます。&lt;/p&gt;
 
-&lt;p&gt;ということで今日はブログの更新なしです。&lt;/p&gt;
-</description>
+&lt;p&gt;ということで今日はブログの更新なしです。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -37,11 +35,11 @@
       <pubDate>Tue, 19 Aug 2014 01:05:38 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-04/</guid>
-      <description>
-
-&lt;h2 id=&#34;言語&#34;&gt;言語&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;言語&#34;&gt;言語&lt;/h2&gt;
 
 &lt;p&gt;今更ですが「車輪の再開発」じゃなくて「車輪の再発明」ですよね…(// ▽ //)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;当初は勉強をかねて Elixir で書こうと思っていたんですが、会社の同僚(若者)が「Go どうよ？」「これからツールとかユーティリティ書くなら Go 楽じゃね？」「あー、でもデーモンとかは Go 辛くね？」と、満足にプログラミング一つできない老害な僕に囁いてきたので、なんか時代に乗り遅れてるとか哀れんだ目で見られないように、ちょっと今回は Go で行こうかと思います。&lt;/p&gt;
 
@@ -93,8 +91,7 @@ curl -X POST -H &amp;quot;Content-type: application/json&amp;quot; -d &#39;{&amp
 curl -X DELETE http://127.0.0.1:3000/volume/1
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;本当は自分で書いたコードにたいして「こーゆーつもりで書いたんですよ」とか恥を晒し…もとい説明しながら進めるべきなんですが、ちょっとコードがスッカスカすぎて何も説明することがないので、とりあえず今日はこれまで。&lt;/p&gt;
-</description>
+&lt;p&gt;本当は自分で書いたコードにたいして「こーゆーつもりで書いたんですよ」とか恥を晒し…もとい説明しながら進めるべきなんですが、ちょっとコードがスッカスカすぎて何も説明することがないので、とりあえず今日はこれまで。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -254,11 +251,11 @@ drwx------ 3 cinder cinder 4096 May 29  2013 ..
       <pubDate>Sun, 17 Aug 2014 01:05:42 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-02/</guid>
-      <description>
-
-&lt;h2 id=&#34;外部コマンド叩く話のつづき&#34;&gt;外部コマンド叩く話のつづき&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;外部コマンド叩く話のつづき&#34;&gt;外部コマンド叩く話のつづき&lt;/h2&gt;
 
 &lt;p&gt;前回は truncate コマンドを叩くよりシステムコールの truncate を呼んだほうが実行時のコストが低いんじゃないかという話をしましたが、今回は Ciner の NFS ドライバーにある _create_regular_file() が dd コマンドを叩いていることについて考えたいと思います。コード的には以下の部分です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L227-L238&#34;&gt;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L227-L238&lt;/a&gt;&lt;/p&gt;
 
@@ -358,8 +355,7 @@ syscall_write                   20.8038 (  0.1%)
 
 &lt;p&gt;個人的には完全に直列はアレですが、せめて少し並列化させて write() を呼ぶほうが良いように思えます。&lt;/p&gt;
 
-&lt;p&gt;では今日はここまで。&lt;/p&gt;
-</description>
+&lt;p&gt;では今日はここまで。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -368,15 +364,15 @@ syscall_write                   20.8038 (  0.1%)
       <pubDate>Sat, 16 Aug 2014 01:05:45 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-01/</guid>
-      <description>
-
-&lt;h2 id=&#34;ストレージサービスについて&#34;&gt;ストレージサービスについて&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;ストレージサービスについて&#34;&gt;ストレージサービスについて&lt;/h2&gt;
 
 &lt;p&gt;今日から何回か(もしくは何十回か)に分けてブロックストレージサービスネタを展開していこうと思います。&lt;/p&gt;
 
 &lt;p&gt;まず、ここで言うところの「ブロックストレージサービス」ですが、簡単に言うと OpenStack の Cinder ですね。&lt;/p&gt;
 
 &lt;p&gt;「だったら Cinder 使うなりイジるなりすればいいじゃん」っていう声が聴こえてきますが、宗教上の理由で OpenStack は扱えないので自分で再開発することにします。(じゃないとブログのネタにならない)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;nfs-を-rest-api-で触りたい&#34;&gt;NFS を Rest API で触りたい&lt;/h2&gt;
 
@@ -509,8 +505,7 @@ command                          2.2077 (  1.3%)
 &lt;li id=&#34;fn:3&#34;&gt;ちなみに「seek に1Gっていう風に単位つきで値を渡せたらいいのに…」とか思ってたんですが、実は指定できたんですね、これも知りませんでした…orz
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-</description>
+&lt;/div&gt;</description>
     </item>
     
   </channel>

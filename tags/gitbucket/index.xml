@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gitbucket on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/gitbucket/</link>
-    <description>Recent content in Gitbucket on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/gitbucket/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Thu, 19 Sep 2013 00:08:45 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/gitbucket/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>github クローン</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-09-19.github-clone/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-09-19/</link>
       <pubDate>Thu, 19 Sep 2013 00:08:45 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-09-19.github-clone/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2013-09-19/</guid>
       <description>
 
 &lt;p&gt;いいかげん、自分のレポジトリをローカルの svn からサーバ上に移行しようと思い、どうせなら svn を git にしちゃおうと考え、サーバ側では何でレポジトリにアクセスできるようにしようかなー？と &lt;a href=&#34;http://git-scm.com/book/ja/Git-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB&#34;&gt;4.1 Git サーバー - プロトコル&lt;/a&gt; を読みながら、ふと、「そーいえば仕事では RhodeCode 使ってるし、どうせなら github クローンを立てちゃうか」と安易に考え、折角だから同僚&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;が作っている &lt;a href=&#34;https://github.com/takezoe/gitbucket&#34;&gt;GitBucket&lt;/a&gt; を使ってみようと奮闘&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;した記録です。&lt;/p&gt;

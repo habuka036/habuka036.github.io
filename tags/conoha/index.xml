@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Conoha on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/conoha/</link>
-    <description>Recent content in Conoha on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/conoha/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 16 Dec 2015 06:15:38 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/conoha/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -20,6 +19,8 @@
 &lt;p&gt;今日のエントリでは何をやるかというと、Wakame-vdc LiveDVD のビルドとテストを自動化したいという欲求が以前からあり、折角なので Advent Calendar のネタにしようという話です。&lt;/p&gt;
 
 &lt;p&gt;(が、思いっきり失敗談です…orz)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;で、どんなものを作ろうとしているかをまず先に説明します。ざっと粗く書くと以下のような感じです。&lt;/p&gt;
 
@@ -172,8 +173,7 @@ drone/drone:0.4
 
 &lt;p&gt;うーん、GCC のバージョンが 4.6 以上じゃないと駄目と怒られます… CentOS 6 で GCC を 4.6 以上にするには…&lt;a href=&#34;https://github.com/FezVrasta/ark-server-tools/wiki/Install-of-required-versions-of-glibc-and-gcc-on-RHEL-CentOS&#34;&gt;ここ&lt;/a&gt;を読むと方法が書いてありますが、16日はタイムアップとなりました…。&lt;/p&gt;
 
-&lt;p&gt;中途半端な失敗談で申し訳ないですが、進展があったら継続してこのページを更新することにします。&lt;/p&gt;
-</description>
+&lt;p&gt;中途半端な失敗談で申し訳ないですが、進展があったら継続してこのページを更新することにします。&lt;/p&gt;</description>
     </item>
     
   </channel>

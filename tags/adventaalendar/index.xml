@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Adventaalendar on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/adventaalendar/</link>
-    <description>Recent content in Adventaalendar on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/adventaalendar/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 19 Dec 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/adventaalendar/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -18,6 +17,8 @@
       <description>&lt;p&gt;これは &lt;a href=&#34;http://qiita.com/advent-calendar/2015/aws&#34;&gt;AWS Advent Calendar 2015&lt;/a&gt; の 18 日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;今日は SkyDNS のバックエンドに etcd でなく DyamoDBを使ってみようという話です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;皆さん大好き SkyDNS ですが、これを AWS の EC2 上で構築したときに必ず以下の課題に遭遇すると思います。&lt;/p&gt;
 
@@ -38,8 +39,7 @@
 
 &lt;p&gt;ということで、etcd の代わりに DynamoDB を利用するコードを backend/ 配下に書いてみます。&lt;/p&gt;
 
-&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;
-</description>
+&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;</description>
     </item>
     
   </channel>

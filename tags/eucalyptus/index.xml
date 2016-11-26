@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eucalyptus on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/eucalyptus/</link>
-    <description>Recent content in Eucalyptus on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/eucalyptus/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 05 Dec 2015 05:05:37 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/eucalyptus/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -18,6 +17,8 @@
       <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の3日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;え？更新が途切れた？そんなバカな…。2日目の続きをやりまぁす。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;2日目のログをもう少し遡ると以下のように変なところで umount が走ってコケてます。&lt;/p&gt;
 
@@ -205,8 +206,7 @@ e2fsck 1.41.12 (17-May-2010)
 Pass 1: Checking inodes, blocks, and sizes
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;やったー。成功です。ってことで、明日はこの作成した ISO ファイルで起動して Eucalyptus のセットアップができるかを試してみます。&lt;/p&gt;
-</description>
+&lt;p&gt;やったー。成功です。ってことで、明日はこの作成した ISO ファイルで起動して Eucalyptus のセットアップができるかを試してみます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -218,6 +218,8 @@ Pass 1: Checking inodes, blocks, and sizes
       <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の2日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;どうせ誰も見てないんだからくだらない前置きとかもう止めます。チラ裏はチラ裏なりに駄文でも書いておけばいんじゃないかと思いますが、あまりにも駄文すぎて資源の無駄遣いなので、もう本題に入ります。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;さて昨日作った ISO ファイルから起動してみるんですが、root ユーザのパスワードを設定してなかったのでログインできずに意味のない LiveDVD になってしまってました…orz&lt;/p&gt;
 
@@ -316,8 +318,7 @@ lazy umount succeeded on /mnt/livecd/tmp/imgcreate-08HiGO/install_root
 
 &lt;p&gt;なんか不穏なエラー…。&lt;/p&gt;
 
-&lt;p&gt;といったところでタイムアップです…中途半端な状況ですがデバッグは明日。&lt;/p&gt;
-</description>
+&lt;p&gt;といったところでタイムアップです…中途半端な状況ですがデバッグは明日。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -326,9 +327,7 @@ lazy umount succeeded on /mnt/livecd/tmp/imgcreate-08HiGO/install_root
       <pubDate>Mon, 30 Nov 2015 23:22:39 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2015-11-30-japan-eucalyptus-advent-calendar-2015-day-1/</guid>
-      <description>
-
-&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の1日目のエントリです。&lt;/p&gt;
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の1日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;えーと、何をトチ狂ったのか、一人で25日間ですよ。2013年に同じことやって帯状疱疹でまともにエントリを埋められなかった失態を忘れてしまったんですかね？&lt;/p&gt;
 
@@ -347,6 +346,8 @@ lazy umount succeeded on /mnt/livecd/tmp/imgcreate-08HiGO/install_root
 &lt;p&gt;で、本当はこのエントリで Eucalyptus LiveDVD を公開し、後ろの日付の人達にバトンを渡す予定でしたが、知ってました？リレーって独りじゃ出来無いっぽいっすよ？マジで。&lt;/p&gt;
 
 &lt;p&gt;ってことで、検索 bot 以外に誰も見てないと思いますので、超マイペースで LiveDVD の作成日記を25日ぐらいかけてゆっくりやろうと思います。なるべく25日間失敗し続けますように。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;まず今日は背伸びをせずに「LiveDVD 作成用環境の準備」と「Eucalyptus のパッケージが入っているだけの LiveDVD を作る」の2つをやって終わりとします。&lt;/p&gt;
 
@@ -418,8 +419,7 @@ eucalyptus-walrus
 -rw-r--r-- 1 root root 634M Dec  1 01:33 Eucalyquitous.iso
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;明日はこの ISO ファイルから起動してみます。&lt;/p&gt;
-</description>
+&lt;p&gt;明日はこの ISO ファイルから起動してみます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -546,6 +546,8 @@ Dec 14 23:29:56 euca4 rsyslogd-2177: imuxsock begins to drop messages from pid 2
       <guid>http://blog.osamu.habuka.jp/post/2014-12-15-eucalyptus-advent-calendar-2014-14th/</guid>
       <description>&lt;p&gt;今日は Cirros を Eucalyptus4 のインスタンスとして動かしてみようと思います。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Eucalyptus3 のときは&lt;a href=&#34;https://www.eucalyptus.com/blog/2014/02/02/cirros-perfect-machine-image-eucalyptus-cloud-debugging&#34;&gt;こんな風&lt;/a&gt;に eustore コマンドを使って簡単にインストールできてたのですが、残念ながら Eucalyptus4 では eustore コマンドは廃止されたようです。&lt;/p&gt;
 
 &lt;p&gt;なので、Eucalyptus4 では手動で入れてみますが、特に難しい作業ではありません。&lt;/p&gt;
@@ -613,8 +615,7 @@ Term: 80x24
 4 0
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;ということで、見事に失敗している様子です。&lt;/p&gt;
-</description>
+&lt;p&gt;ということで、見事に失敗している様子です。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -626,6 +627,8 @@ Term: 80x24
       <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の12日目のエントリです。昨日は私のエントリ「&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2014/12/11/eucalyptus-advent-calendar-2014-11th/&#34;&gt;Eucalyptus4 でインスタンスタイプのパラメータを変更する方法&lt;/a&gt;」でした。&lt;/p&gt;
 
 &lt;p&gt;小ネタというより「マニュアルを紹介した」程度でしたが、今日もそんな感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;今日は CoreOS を Eucalyptus4 で動かしてみるという内容ですが、CoreOS の公式ドキュメントの &lt;a href=&#34;https://coreos.com/docs/running-coreos/platforms/eucalyptus/&#34;&gt;Running CoreOS on Eucalyptus 3.4&lt;/a&gt; を参考にして進めます。&lt;/p&gt;
 
@@ -683,8 +686,7 @@ Swap:            0          0          0
 
 &lt;hr /&gt;
 
-&lt;p&gt;ということで、Eucalyptus Advent Calendar は絶賛募集中です。&lt;/p&gt;
-</description>
+&lt;p&gt;ということで、Eucalyptus Advent Calendar は絶賛募集中です。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -693,11 +695,11 @@ Swap:            0          0          0
       <pubDate>Thu, 11 Dec 2014 02:47:38 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-12-11-eucalyptus-advent-calendar-2014-11th/</guid>
-      <description>
-
-&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の11日目のエントリです。昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-196.html&#34;&gt;Eucalyptus 4 の VMware Supportについて調べてみる&lt;/a&gt; 」でした。&lt;/p&gt;
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の11日目のエントリです。昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-196.html&#34;&gt;Eucalyptus 4 の VMware Supportについて調べてみる&lt;/a&gt; 」でした。&lt;/p&gt;
 
 &lt;p&gt;体当たりで調べてくださってありがとうございます。そうなんです、Eucalyptus にはサブスクリプションを購入しないと使えない機能がいくつかあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -745,8 +747,7 @@ INSTANCETYPE    m1.small     1            32           1
 
 &lt;hr /&gt;
 
-&lt;p&gt;ということで、Eucalyptus Advent Calendar は絶賛募集中です。&lt;/p&gt;
-</description>
+&lt;p&gt;ということで、Eucalyptus Advent Calendar は絶賛募集中です。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -759,6 +760,8 @@ INSTANCETYPE    m1.small     1            32           1
 
 &lt;p&gt;今日のエントリは Eucalyptus Advent Calendar 2012 JP の13日目の私のエントリ「&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2012/12/13/eucalyptus-advent-calendar-2012-jp-13th/&#34;&gt;Eucalyptus Advent Calendar 2012 JP 十三日目&lt;/a&gt;」を思い出したので、Eucalyptus 4 のダッシュボードの見た目も変更してみようと思います。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;といってもあまり難しいことありません。CentOS 6.5 の場合、ダッシュボードである eucaconsole の実体は /usr/lib/python2.6/site-packages/eucaconsole/ 配下にありまして、たとえば css をイジる場合は /usr/lib/python2.6/site-packages/eucaconsole/static/css/ 配下にあるファイルをイジります。&lt;/p&gt;
 
 &lt;p&gt;ということで、ちょちょいと変更した結果、&lt;/p&gt;
@@ -769,8 +772,7 @@ INSTANCETYPE    m1.small     1            32           1
 
 &lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/eucalyptus.adventcalendar.2014.1209-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;って感じになりました。おしまい。&lt;/p&gt;
-</description>
+&lt;p&gt;って感じになりました。おしまい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -784,6 +786,8 @@ INSTANCETYPE    m1.small     1            32           1
 &lt;p&gt;いつも &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんのアドベントカレンダー投稿数に驚いてますが、今年の量は更にヤバイですね。でも、おかげで助けてもらったり励みになったりしてます、ありがとうございます。&lt;/p&gt;
 
 &lt;p&gt;さて、今日のエントリは「Eucalyptus 環境を再起動後にインスタンスが起動しなくなったら」です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;実は、今回の Advent Calendar で使用している faststart で作った私の Eucalyptus 環境は、KVM のゲスト OS 上で動いているのですが、VM を再起動した後にインスタンスを起動しようとすると以下の画面のように「Not enough resources (0 in &amp;lt; 1): vm instances.」というツレないメッセージが出力されます。で、画面を見て頂くとわかりますが、インスタンスリストには「No items were found」って出ているように、リソースなんて全然枯渇してないはずなんです。&lt;/p&gt;
 
@@ -895,8 +899,7 @@ AVAILABILITYZONE    |- hs1.8xlarge  0000 / 0000  48   119808  24000
 
 &lt;hr /&gt;
 
-&lt;p&gt;ということで、8日目のエントリでした。9日目のエントリもお楽しみに。&lt;/p&gt;
-</description>
+&lt;p&gt;ということで、8日目のエントリでした。9日目のエントリもお楽しみに。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -908,6 +911,8 @@ AVAILABILITYZONE    |- hs1.8xlarge  0000 / 0000  48   119808  24000
       <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の5日目のエントリです。昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-189.html&#34;&gt;Eucalyptus から AWS を管理してみる&lt;/a&gt; でした。&lt;/p&gt;
 
 &lt;p&gt;今日のエントリは3日目の &lt;a href=&#34;https://twitter.com/tanacasino&#34;&gt;@tanacasino&lt;/a&gt; さんのエントリ「&lt;a href=&#34;http://tanacasino.hatenablog.com/entry/2014/12/03/003900&#34;&gt;Eucalyptus meets Scala !? Scala meets Eucalytpus!?&lt;/a&gt;」を参考に eucalyptuscala を使ってみようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;scala&amp;gt; euca.describeImages
 res2: com.amazonaws.services.ec2.model.DescribeImagesResult = {Images: [{ImageId: emi-dfe169b4,ImageLocation: ubuntu-12.04.4/ubuntu.raw.manifest.xml,State: available,OwnerId: 952671494305,Public: false,ProductCodes: [],Architecture: x86_64,ImageType: machine,Platform: ,Name: ubuntu-12.04.4,RootDeviceType: instance-store,RootDeviceName: /dev/sda1,BlockDeviceMappings: [],VirtualizationType: hvm,Tags: [],}]}
@@ -966,8 +971,7 @@ case class RunInstancesRequest(imageId: String, min: Int = 1, max: Int = 1)
 
 &lt;hr /&gt;
 
-&lt;p&gt;ということで、6日目になってしまった5日目のエントリでした。6日目のエントリは @shida1234 さんです。お楽しみに。&lt;/p&gt;
-</description>
+&lt;p&gt;ということで、6日目になってしまった5日目のエントリでした。6日目のエントリは @shida1234 さんです。お楽しみに。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -976,11 +980,11 @@ case class RunInstancesRequest(imageId: String, min: Int = 1, max: Int = 1)
       <pubDate>Thu, 21 Aug 2014 20:32:33 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-08-27-requiem-for-closing-jegu-ml/</guid>
-      <description>
-
-&lt;h2 id=&#34;投稿数のまとめ&#34;&gt;投稿数のまとめ&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;投稿数のまとめ&#34;&gt;投稿数のまとめ&lt;/h2&gt;
 
 &lt;p&gt;本日 Eucalyptus Users Group Japan の ML に終了のおしらせをポストしましたが、折角なので「いったい僕はどのぐらいこの ML に投稿したんだろうか？」と思いグラフを描いてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20140821_1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -1009,16 +1013,15 @@ case class RunInstancesRequest(imageId: String, min: Int = 1, max: Int = 1)
 &lt;li id=&#34;fn:1&#34;&gt;実装自体は別の名前で前から出ていたけど、この名前でリリースされたのが 2010 年だったような…
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-</description>
+&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Eucalyptus Advent Calendar 2013 5日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-05.AdventCalendar-day-5/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-05/</link>
       <pubDate>Thu, 05 Dec 2013 01:11:41 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-05.AdventCalendar-day-5/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-05/</guid>
       <description>
 
 &lt;h1 id=&#34;緑&#34;&gt;緑&lt;/h1&gt;
@@ -1042,10 +1045,10 @@ case class RunInstancesRequest(imageId: String, min: Int = 1, max: Int = 1)
     
     <item>
       <title>Eucalyptus Advent Calendar 2013 JP 4日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-04.AdventCalendar-day-4/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-04/</link>
       <pubDate>Wed, 04 Dec 2013 01:11:29 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-04.AdventCalendar-day-4/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-04/</guid>
       <description>
 
 &lt;h1 id=&#34;菅緑&#34;&gt;菅緑&lt;/h1&gt;
@@ -1117,10 +1120,10 @@ general
     
     <item>
       <title>Eucalyptus Advent Calendar 2013 JP 2日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-02.AdventCalendar-day-2/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-02/</link>
       <pubDate>Mon, 02 Dec 2013 01:11:25 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-02.AdventCalendar-day-2/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-02/</guid>
       <description>
 
 &lt;h1 id=&#34;山本みどり&#34;&gt;山本みどり&lt;/h1&gt;
@@ -1222,10 +1225,10 @@ WARN: Load Balancing service URL is not configured.
     
     <item>
       <title>Eucalyptus Advent Calendar 2012 JP 廿五日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</link>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-25/</link>
       <pubDate>Tue, 25 Dec 2012 01:19:21 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-25/</guid>
       <description>
 
 &lt;h1 id=&#34;0-48&#34;&gt;0.48&lt;/h1&gt;

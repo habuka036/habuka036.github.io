@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>擬人化 on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/%E6%93%AC%E4%BA%BA%E5%8C%96/</link>
-    <description>Recent content in 擬人化 on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/%E6%93%AC%E4%BA%BA%E5%8C%96/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 28 Aug 2013 00:29:35 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/%E6%93%AC%E4%BA%BA%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>擬人化の女神、降臨！</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-08-28.anthropomorphism/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-08-28/</link>
       <pubDate>Wed, 28 Aug 2013 00:29:35 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-08-28.anthropomorphism/</guid>
+      <guid>http://blog.osamu.habuka.jp/post/2013-08-28/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;やつを追う前に　言っておくッ！　おれは今　やつの能力を　ほんのちょっぴりだが　体験した
 い…いや…　体験したというよりは　まったく理解を　超えていたのだが……&lt;/p&gt;

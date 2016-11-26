@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Paas on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/paas/</link>
-    <description>Recent content in Paas on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/paas/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 02 Dec 2015 23:21:20 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/paas/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -18,6 +17,8 @@
       <description>&lt;p&gt;PaaS 大好きっ娘の皆さんこんばんわ。IaaS しか触ったことのないおちぶれ技術者の羽深です。&lt;/p&gt;
 
 &lt;p&gt;今日はそんな PaaS 素人が、empire っていう名前の PaaS 基盤ソフトウェアをインストールしてみて触ってみようという無謀なことを &lt;a href=&#34;http://www.adventar.org/calendars/803&#34;&gt;Open PaaS Advent Calendar 2015&lt;/a&gt; の &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; 分のエントリでやらかそうと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;で、「empire って何よ？」っていうかたも居ると思います。README には&lt;/p&gt;
 
@@ -116,8 +117,7 @@ v1.web.be294837-0398-47ae-820b-417f57993866  1X  RUNNING  50s  &amp;quot;acme-in
 
 &lt;p&gt;ってな感じで上手く出来たようなんですが、この作成された acme-inc にどうやってアクセスすりゃいいんだろう…？別途手動で Public Hosted Zone を Route53 に作成してあげないと駄目なんですかね…ちょっと調査不足 &amp;amp; 時間不足でした。&lt;/p&gt;
 
-&lt;p&gt;機会があれば引き続き試したいところですが、本日のところはタイムアップです。&lt;/p&gt;
-</description>
+&lt;p&gt;機会があれば引き続き試したいところですが、本日のところはタイムアップです。&lt;/p&gt;</description>
     </item>
     
   </channel>

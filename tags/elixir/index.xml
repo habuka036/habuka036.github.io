@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Elixir on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/elixir/</link>
-    <description>Recent content in Elixir on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/elixir/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 15 Aug 2014 13:12:23 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,11 +14,11 @@
       <pubDate>Fri, 15 Aug 2014 13:12:23 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-08-29-try-out-the-dynamo/</guid>
-      <description>
-
-&lt;p&gt;僕は普段プログラムを書かない似非エンジニアでして…っていうか技術者っていうより作業者って名乗ったほうが正しいんじゃないかと思う今日この頃でして、そんなんじゃお客様の前に自信を持って立てないから、少しは技術者のフリができるようにしようと思い、elixir の Dynamo という Sinatra 風の Web Framework を触ってみようと思います。&lt;/p&gt;
+      <description>&lt;p&gt;僕は普段プログラムを書かない似非エンジニアでして…っていうか技術者っていうより作業者って名乗ったほうが正しいんじゃないかと思う今日この頃でして、そんなんじゃお客様の前に自信を持って立てないから、少しは技術者のフリができるようにしようと思い、elixir の Dynamo という Sinatra 風の Web Framework を触ってみようと思います。&lt;/p&gt;
 
 &lt;p&gt;ちなみに今日のこのエントリーは「失敗編」です。読んでも役に立つ部分が少ないです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
 
@@ -84,8 +83,7 @@ Compiled lib/dynamo/connection/utils.ex
 
 &lt;p&gt;うーん、さすがに elixir のことが全然理解していないので、まず先にそっちを理解するほうが先ですね…σ^^;&lt;/p&gt;
 
-&lt;p&gt;「成功編」を書く日が来るのかどうかとても疑わしいですが、本日はこんな感じでおしまい。&lt;/p&gt;
-</description>
+&lt;p&gt;「成功編」を書く日が来るのかどうかとても疑わしいですが、本日はこんな感じでおしまい。&lt;/p&gt;</description>
     </item>
     
   </channel>

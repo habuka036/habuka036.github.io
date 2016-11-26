@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mcdonalds on hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/mcdonalds/</link>
-    <description>Recent content in Mcdonalds on hablog</description>
+    <title>hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/mcdonalds/index.xml</link>
+    <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 26 Jun 2016 04:43:38 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/tags/mcdonalds/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -18,6 +17,8 @@
       <description>&lt;p&gt;マクドナルドのハッピーセットで貰った「旭山動物園号」、こいつには LED が搭載されていてスイッチを入れるとヘッドライトが光るというギミックがついてます。今日はそんな旭山動物園号の電池を交換するお話です。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-00.jpg&#34; alt=&#34;旭山動物園号&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;裏を見るとネジが3つありますが、このネジを外すのが一番の難関です。というのもこのネジ穴の形状が三角で、一般家庭にはこのネジ穴に対応するドライバーが無いと思います。もちろん我が家にもありません。&lt;/p&gt;
 
@@ -79,8 +80,7 @@
 &lt;td&gt;5.0mm&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+&lt;/table&gt;</description>
     </item>
     
   </channel>

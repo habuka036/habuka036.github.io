@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on hablog</title>
-    <link>http://blog.osamu.habuka.jp/post/</link>
-    <description>Recent content in Posts on hablog</description>
+    <title>Post-rsses on hablog</title>
+    <link>http://blog.osamu.habuka.jp/post/index.xml</link>
+    <description>Recent content in Post-rsses on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 26 Jun 2016 04:43:38 +0900</lastBuildDate>
@@ -18,6 +18,8 @@
       <description>&lt;p&gt;マクドナルドのハッピーセットで貰った「旭山動物園号」、こいつには LED が搭載されていてスイッチを入れるとヘッドライトが光るというギミックがついてます。今日はそんな旭山動物園号の電池を交換するお話です。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-00.jpg&#34; alt=&#34;旭山動物園号&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;裏を見るとネジが3つありますが、このネジを外すのが一番の難関です。というのもこのネジ穴の形状が三角で、一般家庭にはこのネジ穴に対応するドライバーが無いと思います。もちろん我が家にもありません。&lt;/p&gt;
 
@@ -79,8 +81,7 @@
 &lt;td&gt;5.0mm&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+&lt;/table&gt;</description>
     </item>
     
     <item>
@@ -92,6 +93,8 @@
       <description>&lt;p&gt;これは &lt;a href=&#34;http://qiita.com/advent-calendar/2015/aws&#34;&gt;AWS Advent Calendar 2015&lt;/a&gt; の 18 日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;今日は SkyDNS のバックエンドに etcd でなく DyamoDBを使ってみようという話です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;皆さん大好き SkyDNS ですが、これを AWS の EC2 上で構築したときに必ず以下の課題に遭遇すると思います。&lt;/p&gt;
 
@@ -112,8 +115,7 @@
 
 &lt;p&gt;ということで、etcd の代わりに DynamoDB を利用するコードを backend/ 配下に書いてみます。&lt;/p&gt;
 
-&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;
-</description>
+&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -125,6 +127,8 @@
       <description>&lt;p&gt;DNS 大好き娘の皆さん今晩は。これは DNS Advent Calendar 2015 の 16 日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;16日目のエントリなのに 16 日に公開できなくてごめんなさい…orz&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;このエントリでは SkyDNS の簡単な性能調査をしてみようと思います。&lt;/p&gt;
 
@@ -189,8 +193,7 @@
 &lt;p&gt;ちゃんと索けるかどうかを確認します。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# dig @172.30.2.34 a `head -n 1 /tmp/queryfile`
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -204,6 +207,8 @@
 &lt;p&gt;今日のエントリでは何をやるかというと、Wakame-vdc LiveDVD のビルドとテストを自動化したいという欲求が以前からあり、折角なので Advent Calendar のネタにしようという話です。&lt;/p&gt;
 
 &lt;p&gt;(が、思いっきり失敗談です…orz)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;で、どんなものを作ろうとしているかをまず先に説明します。ざっと粗く書くと以下のような感じです。&lt;/p&gt;
 
@@ -356,8 +361,7 @@ drone/drone:0.4
 
 &lt;p&gt;うーん、GCC のバージョンが 4.6 以上じゃないと駄目と怒られます… CentOS 6 で GCC を 4.6 以上にするには…&lt;a href=&#34;https://github.com/FezVrasta/ark-server-tools/wiki/Install-of-required-versions-of-glibc-and-gcc-on-RHEL-CentOS&#34;&gt;ここ&lt;/a&gt;を読むと方法が書いてありますが、16日はタイムアップとなりました…。&lt;/p&gt;
 
-&lt;p&gt;中途半端な失敗談で申し訳ないですが、進展があったら継続してこのページを更新することにします。&lt;/p&gt;
-</description>
+&lt;p&gt;中途半端な失敗談で申し訳ないですが、進展があったら継続してこのページを更新することにします。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -371,6 +375,8 @@ drone/drone:0.4
 &lt;p&gt;Advent Calendar も半分を過ぎましたが、順調に一日遅れの更新から脱却できない今日この頃、皆様如何おすごしですか？&lt;/p&gt;
 
 &lt;p&gt;12日目のエントリでコンテナ内に /dev/tty が無くて上手く ssh 接続できないのを何とか解決してみようと試みました。本日はちょっと視点を変えて「先日公開されたばかりの Wakame-vdc の packer プラグインを使ってみたらどうよ？」をやってみたいと思います。(いつもどおり成功するか否かは不明です)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;で、結果だけ書くとあっという間に終わってしまうので、折角なので一から書いてみます。&lt;/p&gt;
 
@@ -543,8 +549,7 @@ wakamevdc output will be in this color.
 
 &lt;p&gt;はい、このまま数十分待っても返ってきません。やっぱりログインできるマシンイメージを用意することが最重要なので、これも Wakame-vdc の中の人に質問することにします。&lt;/p&gt;
 
-&lt;p&gt;今日はこれまで。&lt;/p&gt;
-</description>
+&lt;p&gt;今日はこれまで。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -556,6 +561,8 @@ wakamevdc output will be in this color.
       <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の12日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;11日目のエントリにて lxc のコンテナが起動できるようにすることができたので、本当はもう少しちゃんとしたパッチを書きたいところですが、その前に11日目のエントリで充分か否かを先に検証したいので、本日は起動したコンテナに接続できるかどうかを確認したいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;起動したコンテナに早速 ssh で接続…11日目のエントリでは「ssh で接続するもいつまで待ってもログインプロンプトが返ってこない」という現象や「エンターキーを押す毎にプロンプトの表示がホストマシンのものとコンテナのものとがサイクリックに切り替わる」という不思議満点な状況でした。(動画にでも撮っておけばよかった…)&lt;/p&gt;
 
@@ -756,8 +763,7 @@ Dec 12 20:44:37 hongo0u5 sshd[572]: error: open /dev/tty failed - could not set 
 
 &lt;p&gt;う〜ん、やっぱりログインできません…。が、エラーが「No such file or directory」から「No such device or address」に変化しています。&lt;/p&gt;
 
-&lt;p&gt;うむむぅ…。続きはまた明日…。(「また明日」って、既にこのエントリを書いている時点で13日に入ってしまいましたが…f^^;)&lt;/p&gt;
-</description>
+&lt;p&gt;うむむぅ…。続きはまた明日…。(「また明日」って、既にこのエントリを書いている時点で13日に入ってしまいましたが…f^^;)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -771,6 +777,8 @@ Dec 12 20:44:37 hongo0u5 sshd[572]: error: open /dev/tty failed - could not set 
 &lt;p&gt;「学習能力ないのか！」とか「何で予測できないんだ！」とか「ねぇ？ワザとやってる？ねぇ？」とか言われそうな LiveDVD 作成奮闘記。&lt;/p&gt;
 
 &lt;p&gt;インスタンスを起動したときに isono がタイムアウトになるのって度々遭遇していたことをすっかり忘れていました。そう&lt;a href=&#34;https://github.com/axsh/iso-no-wakame/issues/11&#34;&gt;このチケット&lt;/a&gt;で。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;RabbitMQ のデフォルト値では disk_free_limit が 1GB なんですよね。なので、&lt;/p&gt;
 
@@ -990,8 +998,7 @@ Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
 
 &lt;p&gt;はい、UI 上は起動したように見えます。では ssh で接続してみましょう。 えーと、結論だけ言うと、ホスト側の環境が変な挙動をするようになってしまいました f^^;&lt;/p&gt;
 
-&lt;p&gt;明日はこれらの変更点を LiveDVD に反映させてみます。&lt;/p&gt;
-</description>
+&lt;p&gt;明日はこれらの変更点を LiveDVD に反映させてみます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1001,6 +1008,8 @@ Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
       
       <guid>http://blog.osamu.habuka.jp/post/2015-12-09-wakame-vdc-advent-calendar-2015-day10/</guid>
       <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の10日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;むぅ…先日とは違うけど、やっぱりタイムアウトになって起動できず…。&lt;/p&gt;
 
@@ -1139,8 +1148,7 @@ I, [2015-12-08T18:38:53.840009 #3501]  INFO -- LinuxLocalStore: Session ID: 38e3
 
 &lt;p&gt;でそこを抜けると戻って &lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb#L66&#34;&gt;ここ&lt;/a&gt; が叩かれて…&lt;/p&gt;
 
-&lt;p&gt;とちょっと追う様を解説していくのが辛くなってきました。本日のところはこれまで。&lt;/p&gt;
-</description>
+&lt;p&gt;とちょっと追う様を解説していくのが辛くなってきました。本日のところはこれまで。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1152,6 +1160,8 @@ I, [2015-12-08T18:38:53.840009 #3501]  INFO -- LinuxLocalStore: Session ID: 38e3
       <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の9日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;7日目のエントリで「参考になる情報として、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんが書いた &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; の &lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-category-29.html&#34;&gt;&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; 分のエント&amp;gt;リ&lt;/a&gt; があるので、ますそれを一読します。」とか書いておきながら、全然それに沿わずにやってたので、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんがやったように、lxc 単体でちゃんと動くかを今日は確認してみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;ってことで、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの実施したことをトレースします。&lt;/p&gt;
 
@@ -1294,8 +1304,7 @@ Determining IP information for eth0... failed.
 
 &lt;p&gt;あぁ、はい、確かにそうです、br0 の先には DHCP サーバが居ないので当然ながら IP を取得できませんが、まぁでもこれは起動したと言っていいでしょう。&lt;/p&gt;
 
-&lt;p&gt;では、改めて先日の Wakame-vdc の LiveDVD でもう一度挑戦してみたいと思いますが、それはまた明日。&lt;/p&gt;
-</description>
+&lt;p&gt;では、改めて先日の Wakame-vdc の LiveDVD でもう一度挑戦してみたいと思いますが、それはまた明日。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1307,6 +1316,8 @@ Determining IP information for eth0... failed.
       <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の8日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;今日は昨日の続きで、マシンイメージを CentOS かつ lxc 版なものに変更してインスタンスを起動してみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;先日、メーリングリストで「lxc 用のイメージってどこぉ？」って質問をしたら Potter さんがリンクを教えてくれたので、まずそれをダウンロードします。&lt;/p&gt;
 
@@ -1425,8 +1436,7 @@ D, [2015-12-08T03:34:25.398113 #2918] DEBUG -- LinuxLocalStore: Session ID: aa20
 Command PID: 4184
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;う〜ん、「cgroup filesystem is not mounted」って言ってますが、続きはまた明日。&lt;/p&gt;
-</description>
+&lt;p&gt;う〜ん、「cgroup filesystem is not mounted」って言ってますが、続きはまた明日。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1438,6 +1448,8 @@ Command PID: 4184
       <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の7日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;今日は LiveDVD から一旦離れて「そもそも普通の Wakame-vdc で hva の利用するハイパーバイザを lxc として動かすには？」をやってみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;参考になる情報として、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんが書いた &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; の &lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-category-29.html&#34;&gt;&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; 分のエントリ&lt;/a&gt; があるので、ますそれを一読します。&lt;/p&gt;
 
@@ -1544,8 +1556,7 @@ D, [2015-12-07T05:52:48.900115 #7987] DEBUG -- ServiceNetfilter: event caught: h
 D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-jumhvsv6
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;ってことで明日はメーリングリストで教えてもらった CentOS のイメージを使って試してみます。きっと同じようなエラーが出ると信じたい。&lt;/p&gt;
-</description>
+&lt;p&gt;ってことで明日はメーリングリストで教えてもらった CentOS のイメージを使って試してみます。きっと同じようなエラーが出ると信じたい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1559,6 +1570,8 @@ D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found 
 &lt;p&gt;順調に「日々更新ができなくなってきている」状態ですが、細かいことは気にせずマイペースで行きたいと思います。&lt;/p&gt;
 
 &lt;p&gt;今日も小粒なネタで、「Wakame-vdc LiveDVD を起動したときにホストにグローバル IP が付いてると Xfce4 のログイン画面で確認のダイアログが出てログインが止まるんですけどぉ？」っていう話です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;何を言っているかというと、これです。&lt;/p&gt;
 
@@ -1579,8 +1592,7 @@ D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found 
 
 &lt;p&gt;ということで、/etc/rc.local の最後のほうで呼ぶようにしたらちゃんと上手くいきました。&lt;/p&gt;
 
-&lt;p&gt;明日は LiveDVD じゃない普通の Wakame-vdc を lxc で動かしてみる話です。&lt;/p&gt;
-</description>
+&lt;p&gt;明日は LiveDVD じゃない普通の Wakame-vdc を lxc で動かしてみる話です。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1594,6 +1606,8 @@ D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found 
 &lt;p&gt;順調に「日々更新ができなくなってきている」状態ですが、細かいことは気にせずマイペースで行きたいと思います。&lt;/p&gt;
 
 &lt;p&gt;今日も小粒なネタです。3日目の続きを。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Wakame-vdc LiveDVD の設定を KVM から lxc に作り変え、イメージも lxc 用を登録してみました。&lt;/p&gt;
 
@@ -1646,8 +1660,7 @@ W, [2015-12-05T21:20:38.660895 #3499]  WARN -- HvaHandler: Session ID: c39a19a2b
 2015-12-05 21:20:38 JobContext thr=LocalStore[1/2] [INFO]: Job complete c39a19a2b883928928b7fe6df7345c3b6c86c678 (Local ID: c39a19a2b883928928b7fe6df7345c3b6c86c678)[ delete_volume ]: 0.072499295 sec
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;うぅ〜ん？起動失敗です…。一旦 LiveDVD じゃなく普通の Wakame-vdc 環境を作ってそこで lxc を試さないといけないですね…。また明日。&lt;/p&gt;
-</description>
+&lt;p&gt;うぅ〜ん？起動失敗です…。一旦 LiveDVD じゃなく普通の Wakame-vdc 環境を作ってそこで lxc を試さないといけないですね…。また明日。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1659,6 +1672,8 @@ W, [2015-12-05T21:20:38.660895 #3499]  WARN -- HvaHandler: Session ID: c39a19a2b
       <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の3日目のエントリです。&lt;/p&gt;
 
 &lt;p&gt;え？更新が途切れた？そんなバカな…。2日目の続きをやりまぁす。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;2日目のログをもう少し遡ると以下のように変なところで umount が走ってコケてます。&lt;/p&gt;
 
@@ -1846,8 +1861,7 @@ e2fsck 1.41.12 (17-May-2010)
 Pass 1: Checking inodes, blocks, and sizes
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;やったー。成功です。ってことで、明日はこの作成した ISO ファイルで起動して Eucalyptus のセットアップができるかを試してみます。&lt;/p&gt;
-</description>
+&lt;p&gt;やったー。成功です。ってことで、明日はこの作成した ISO ファイルで起動して Eucalyptus のセットアップができるかを試してみます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1861,6 +1875,8 @@ Pass 1: Checking inodes, blocks, and sizes
 &lt;p&gt;Japan Eucalyptus Advent Calendar 2015 の1枚目も2枚目もまだ3日目分のエントリをアップしてないのに「何やってんだ？」って思われるかもしれませんが、そもそも1日にいくつも Advent Calendar のエントリを書いてる時点で「何やってんだ？」なので、生あたたかい目で見てやってください。&lt;/p&gt;
 
 &lt;p&gt;さて今日は昨日の続きをする前に、Wakame-vdc の開発に参加する方法をお話したいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;と、わざわざエントリに書くようなことじゃないんですが、&lt;a href=&#34;https://atnd.org/events/45749&#34;&gt;Wakame Users Group Advent Calendar 2013&lt;/a&gt; の &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;25&lt;/sub&gt; のエントリ「コミッタ生活のはじめかた」が残念ながら見れない状態なので、「Wakame-vdc の開発に参加するにはどーやったらいいんだろう？」っていう人向けに簡単に説明しようと思います。&lt;/p&gt;
 
@@ -1876,8 +1892,7 @@ Pass 1: Checking inodes, blocks, and sizes
 
 &lt;p&gt;そして「やっぱり開発者と直にコミュニケーションをしたい」っていう方は3ヶ月毎ぐらいの頻度で勉強会があるので、それに参加するのも手です。勉強会の告知は&lt;a href=&#34;http://wakameusersgroup.org/&#34;&gt;ユーザ会のサイト&lt;/a&gt; かメーリングリストで告知されます。&lt;/p&gt;
 
-&lt;p&gt;ってな感じで、まずは Twitter で「Wakame-vdc 使ってみたよ！」っていう魔法の言葉を唱えてみると磯野家の一員になれた気がしてきますよ。&lt;/p&gt;
-</description>
+&lt;p&gt;ってな感じで、まずは Twitter で「Wakame-vdc 使ってみたよ！」っていう魔法の言葉を唱えてみると磯野家の一員になれた気がしてきますよ。&lt;/p&gt;</description>
     </item>
     
   </channel>

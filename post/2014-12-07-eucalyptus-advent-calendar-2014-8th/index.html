@@ -123,6 +123,8 @@
 
 <p>さて、今日のエントリは「Eucalyptus 環境を再起動後にインスタンスが起動しなくなったら」です。</p>
 
+<p></p>
+
 <p>実は、今回の Advent Calendar で使用している faststart で作った私の Eucalyptus 環境は、KVM のゲスト OS 上で動いているのですが、VM を再起動した後にインスタンスを起動しようとすると以下の画面のように「Not enough resources (0 in &lt; 1): vm instances.」というツレないメッセージが出力されます。で、画面を見て頂くとわかりますが、インスタンスリストには「No items were found」って出ているように、リソースなんて全然枯渇してないはずなんです。</p>
 
 <p>本当にリソースないの？って思って CLI 叩いて確認すると、</p>
@@ -234,7 +236,6 @@ AVAILABILITYZONE    |- hs1.8xlarge  0000 / 0000  48   119808  24000
 <hr />
 
 <p>ということで、8日目のエントリでした。9日目のエントリもお楽しみに。</p>
-
   			</section>
 
   			<footer class="post-footer">

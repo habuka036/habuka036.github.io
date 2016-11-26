@@ -121,6 +121,8 @@
 
 <p>7日目のエントリで「参考になる情報として、<a href="https://twitter.com/giraffeforestg">@giraffeforestg</a> さんが書いた <a href="http://www.adventar.org/calendars/577">Wakame-vdc / OpenVNet Advent Calendar 2014</a> の <a href="http://giraffeforestg.blog.fc2.com/blog-category-29.html"><sup>12</sup>&frasl;<sub>21</sub> 分のエント&gt;リ</a> があるので、ますそれを一読します。」とか書いておきながら、全然それに沿わずにやってたので、<a href="https://twitter.com/giraffeforestg">@giraffeforestg</a> さんがやったように、lxc 単体でちゃんと動くかを今日は確認してみたいと思います。</p>
 
+<p></p>
+
 <p>ってことで、<a href="https://twitter.com/giraffeforestg">@giraffeforestg</a> さんの実施したことをトレースします。</p>
 
 <pre><code># yum install lxc-templates.x86_64
@@ -263,7 +265,6 @@ Determining IP information for eth0... failed.
 <p>あぁ、はい、確かにそうです、br0 の先には DHCP サーバが居ないので当然ながら IP を取得できませんが、まぁでもこれは起動したと言っていいでしょう。</p>
 
 <p>では、改めて先日の Wakame-vdc の LiveDVD でもう一度挑戦してみたいと思いますが、それはまた明日。</p>
-
   			</section>
 
   			<footer class="post-footer">
