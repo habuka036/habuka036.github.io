@@ -9,6 +9,26 @@
     <atom:link href="http://blog.osamu.habuka.jp/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>パパ鰻師さんだったんだよぉ</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/</link>
+      <pubDate>Thu, 01 Dec 2016 03:30:04 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/</guid>
+      <description>&lt;p&gt;日本全国の OpenStacker のみなさん、こんにちは。これは &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; の一日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;ブログを書くのが実に半年ぶりなので、どう書いていいのやら、そもそも文章ってどう書くんだっけ？と戸惑いながら書いてますが、どうぞ最後までお読み頂けますと幸いです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;で、そもそも OpenStacker でもない私が何で &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; のエントリを書いているのかと言うと、とある OpenStacker 達(個人の名誉のため OpenStacker 達の名前は伏せます)とチャットしてたら以下の動画がチャットに貼られまして、私の心を鷲掴みにしました。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/pktaP-aM0N8&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>OpenStack Advent Calendar 2014 4日目</title>
       <link>http://blog.osamu.habuka.jp/post/2014-12-03-openstack-advent-calendar-2014-4th/</link>
       <pubDate>Thu, 04 Dec 2014 08:08:08 +0900</pubDate>
