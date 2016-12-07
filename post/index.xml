@@ -51,10 +51,7 @@
 
 &lt;p&gt;そして出来上がった bf-openstacker を使って Hello, world! と表示させるコードが以下になります。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-
-
-オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+&lt;pre&gt;&lt;code&gt;オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
 ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー
 じゃじゃーん、OpenStackDaysなのだ
 オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
@@ -85,13 +82,31 @@
 
 &lt;p&gt;このファイルを例えば helloworld.openstacker という名前で保存し、以下のように実行すれば見事に Hello, world! と表示されるはずです。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ~/bf-openstacker ~/helloworld.openstacker
+&lt;pre&gt;&lt;code&gt;$ ./bf-openstacker ./helloworld.openstacker
 Hello, world!
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;ということで、初日は技術的なことが一切書かれてなかったので、もしかすると「完全なネタ投稿だったら許されるかもしれないが、技術的なことは相当高いレベルの投稿をしないと駄目なんじゃないだろうか？」と不安に思われているかもしれませんが、本日のエントリのように技術的にもライトウェイトな内容でも全然問題ないですので、皆さんまだ空いている日に是非エントリしてみてください。&lt;/p&gt;
 
-&lt;p&gt;(来年からは「鰻ネタ禁止な」って言われそう…)&lt;/p&gt;</description>
+&lt;p&gt;(来年からは「鰻ネタ禁止な」って言われそう…)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;蛇足ですが、12行目から21行目を以下のように書き換えることで…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;static Conv st_conv[] = {
+    {&#39;&amp;gt;&#39;, &amp;quot;すごく…大きいです…&amp;quot;},
+    {&#39;&amp;lt;&#39;, &amp;quot;腹ン中がパンパンだぞ&amp;quot;},
+    {&#39;+&#39;, &amp;quot;ウホッ！&amp;quot;},
+    {&#39;-&#39;, &amp;quot;いい男…&amp;quot;},
+    {&#39;.&#39;, &amp;quot;やらないか&amp;quot;},
+    {&#39;,&#39;, &amp;quot;阿部高和&amp;quot;},
+    {&#39;[&#39;, &amp;quot;ところで俺の&amp;quot;},
+    {&#39;]&#39;, &amp;quot;を見てくれ、こいつをどう思う？&amp;quot;},
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(以下、自重…&lt;/p&gt;</description>
     </item>
     
     <item>
