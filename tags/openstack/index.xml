@@ -32,7 +32,7 @@
 &lt;p&gt;上記のページを読んで頂ければ、あとは自ずと本日のタイトルから察しがつくと思いますが、ようは上記ページにあるBF-BASIC&amp;rsquo;nのソースコードの12行目から21行目を以下のように書き換えます。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;static Conv st_conv[] = {
-    {&#39;&amp;gt;&#39;, &amp;quot;じゃじゃーん、OpenStack Daysなのだ&amp;quot;},
+    {&#39;&amp;gt;&#39;, &amp;quot;じゃじゃーん、OpenStackDaysなのだ&amp;quot;},
     {&#39;&amp;lt;&#39;, &amp;quot;あなたが昔作っていたOpenStackよ&amp;quot;},
     {&#39;+&#39;, &amp;quot;オプ、&amp;quot;},
     {&#39;-&#39;, &amp;quot;スタッ、&amp;quot;},
