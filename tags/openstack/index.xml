@@ -9,6 +9,91 @@
     <atom:link href="http://blog.osamu.habuka.jp/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>BF-パパ鰻師さんだったんだよぉ</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/</link>
+      <pubDate>Thu, 08 Dec 2016 03:59:29 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/</guid>
+      <description>&lt;p&gt;日本全国の OpenStacker のみなさん、こんにちは。これは &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; の八日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/&#34;&gt;一日目のエントリ&lt;/a&gt; が方々で「ひどい」とか「初日なのに…」とか「鰻が喰いたくなった、どうしてくれる」などの絶賛のお言葉を頂き、とても嬉しく思います。皆さんの感謝の声を聴くと「あぁ、OpenStacker でもない自分が Advent Calendar の敷居を下げることができて、良かったなぁ」と感慨深く思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、その一日目以降のエントリを見ると、技術的に素晴しいエントリもしくは役に立つ系のエントリばかりで、「え？これネタ投稿だろ？」というのが全く見受けられません。&lt;/p&gt;
+
+&lt;p&gt;もちろん、技術的に素晴しいエントリや役立つ系のお話のエントリばかりで埋まればそれに越したことはないのですが、まだ所々エントリされてない日があるようですので、いま一度 OpenStacker でない自分が「大丈夫だよ、OpenStack の Advent Calendar は恐くないところだよ」ということを証明する必要があると感じました。&lt;/p&gt;
+
+&lt;p&gt;ところで皆さんは技術者の方々がほとんどだと思いますので、「Brainfuck」というプログラミング言語はご存知だと思います。
+この言語の素敵なところは色々なネタに比較的簡単に転用できるということです。&lt;/p&gt;
+
+&lt;p&gt;「え？どーゆーこと？」って思ったかたは、こちらの&lt;a href=&#34;http://kmaebashi.com/zakki/lang0003.html&#34;&gt;新プログラミング言語「BF-BASIC&amp;rsquo;n」&lt;/a&gt;をお読みください。&lt;/p&gt;
+
+&lt;p&gt;上記のページを読んで頂ければ、あとは自ずと本日のタイトルから察しがつくと思いますが、ようは上記ページにあるBF-BASIC&amp;rsquo;nのソースコードの12行目から21行目を以下のように書き換えます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;static Conv st_conv[] = {
+    {&#39;&amp;gt;&#39;, &amp;quot;じゃじゃーん、OpenStack Daysなのだ&amp;quot;},
+    {&#39;&amp;lt;&#39;, &amp;quot;あなたが昔作っていたOpenStackよ&amp;quot;},
+    {&#39;+&#39;, &amp;quot;オプ、&amp;quot;},
+    {&#39;-&#39;, &amp;quot;スタッ、&amp;quot;},
+    {&#39;.&#39;, &amp;quot;ンフー、ランニングゥゥゥ&amp;quot;},
+    {&#39;,&#39;, &amp;quot;あなた最近疲れ気味じゃない？&amp;quot;},
+    {&#39;[&#39;, &amp;quot;ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー&amp;quot;},
+    {&#39;]&#39;, &amp;quot;ヘー知ラナカッタナー、パパガ作ッテタンダァー&amp;quot;},
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして書き換えたコードを例えば bf-openstacker.c という名前で保存し、以下のようにコンパイルします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gcc -o bf-openstacker bf-openstacker.c
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして出来上がった bf-openstacker を使って Hello, world! と表示させるコードが以下になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+
+
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、
+あなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよ
+スタッ、ヘー知ラナカッタナー、パパガ作ッテタンダァー
+じゃじゃーん、OpenStackDaysなのだ
+ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、ンフー、ランニングゥゥゥ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥンフー、ランニングゥゥゥ
+オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+スタッ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+あなたが昔作っていたOpenStackよ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+オプ、ンフー、ランニングゥゥゥ
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このファイルを例えば helloworld.openstacker という名前で保存し、以下のように実行すれば見事に Hello, world! と表示されるはずです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ~/bf-openstacker ~/helloworld.openstacker
+Hello, world!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで、初日は技術的なことが一切書かれてなかったので、もしかすると「完全なネタ投稿だったら許されるかもしれないが、技術的なことは相当高いレベルの投稿をしないと駄目なんじゃないだろうか？」と不安に思われているかもしれませんが、本日のエントリのように技術的にもライトウェイトな内容でも全然問題ないですので、皆さんまだ空いている日に是非エントリしてみてください。&lt;/p&gt;
+
+&lt;p&gt;(来年からは「鰻ネタ禁止な」って言われそう…)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>パパ鰻師さんだったんだよぉ</title>
       <link>http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/</link>
       <pubDate>Thu, 01 Dec 2016 03:30:04 +0900</pubDate>

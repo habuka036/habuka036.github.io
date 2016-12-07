@@ -9,6 +9,91 @@
     <atom:link href="http://blog.osamu.habuka.jp/tags/adventcalendar/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>BF-パパ鰻師さんだったんだよぉ</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/</link>
+      <pubDate>Thu, 08 Dec 2016 03:59:29 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/</guid>
+      <description>&lt;p&gt;日本全国の OpenStacker のみなさん、こんにちは。これは &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; の八日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/&#34;&gt;一日目のエントリ&lt;/a&gt; が方々で「ひどい」とか「初日なのに…」とか「鰻が喰いたくなった、どうしてくれる」などの絶賛のお言葉を頂き、とても嬉しく思います。皆さんの感謝の声を聴くと「あぁ、OpenStacker でもない自分が Advent Calendar の敷居を下げることができて、良かったなぁ」と感慨深く思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、その一日目以降のエントリを見ると、技術的に素晴しいエントリもしくは役に立つ系のエントリばかりで、「え？これネタ投稿だろ？」というのが全く見受けられません。&lt;/p&gt;
+
+&lt;p&gt;もちろん、技術的に素晴しいエントリや役立つ系のお話のエントリばかりで埋まればそれに越したことはないのですが、まだ所々エントリされてない日があるようですので、いま一度 OpenStacker でない自分が「大丈夫だよ、OpenStack の Advent Calendar は恐くないところだよ」ということを証明する必要があると感じました。&lt;/p&gt;
+
+&lt;p&gt;ところで皆さんは技術者の方々がほとんどだと思いますので、「Brainfuck」というプログラミング言語はご存知だと思います。
+この言語の素敵なところは色々なネタに比較的簡単に転用できるということです。&lt;/p&gt;
+
+&lt;p&gt;「え？どーゆーこと？」って思ったかたは、こちらの&lt;a href=&#34;http://kmaebashi.com/zakki/lang0003.html&#34;&gt;新プログラミング言語「BF-BASIC&amp;rsquo;n」&lt;/a&gt;をお読みください。&lt;/p&gt;
+
+&lt;p&gt;上記のページを読んで頂ければ、あとは自ずと本日のタイトルから察しがつくと思いますが、ようは上記ページにあるBF-BASIC&amp;rsquo;nのソースコードの12行目から21行目を以下のように書き換えます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;static Conv st_conv[] = {
+    {&#39;&amp;gt;&#39;, &amp;quot;じゃじゃーん、OpenStack Daysなのだ&amp;quot;},
+    {&#39;&amp;lt;&#39;, &amp;quot;あなたが昔作っていたOpenStackよ&amp;quot;},
+    {&#39;+&#39;, &amp;quot;オプ、&amp;quot;},
+    {&#39;-&#39;, &amp;quot;スタッ、&amp;quot;},
+    {&#39;.&#39;, &amp;quot;ンフー、ランニングゥゥゥ&amp;quot;},
+    {&#39;,&#39;, &amp;quot;あなた最近疲れ気味じゃない？&amp;quot;},
+    {&#39;[&#39;, &amp;quot;ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー&amp;quot;},
+    {&#39;]&#39;, &amp;quot;ヘー知ラナカッタナー、パパガ作ッテタンダァー&amp;quot;},
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして書き換えたコードを例えば bf-openstacker.c という名前で保存し、以下のようにコンパイルします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gcc -o bf-openstacker bf-openstacker.c
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして出来上がった bf-openstacker を使って Hello, world! と表示させるコードが以下になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+
+
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、
+あなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよ
+スタッ、ヘー知ラナカッタナー、パパガ作ッテタンダァー
+じゃじゃーん、OpenStackDaysなのだ
+ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、ンフー、ランニングゥゥゥ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥンフー、ランニングゥゥゥ
+オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+スタッ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+あなたが昔作っていたOpenStackよ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+オプ、ンフー、ランニングゥゥゥ
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このファイルを例えば helloworld.openstacker という名前で保存し、以下のように実行すれば見事に Hello, world! と表示されるはずです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ~/bf-openstacker ~/helloworld.openstacker
+Hello, world!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで、初日は技術的なことが一切書かれてなかったので、もしかすると「完全なネタ投稿だったら許されるかもしれないが、技術的なことは相当高いレベルの投稿をしないと駄目なんじゃないだろうか？」と不安に思われているかもしれませんが、本日のエントリのように技術的にもライトウェイトな内容でも全然問題ないですので、皆さんまだ空いている日に是非エントリしてみてください。&lt;/p&gt;
+
+&lt;p&gt;(来年からは「鰻ネタ禁止な」って言われそう…)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>パパ鰻師さんだったんだよぉ</title>
       <link>http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/</link>
       <pubDate>Thu, 01 Dec 2016 03:30:04 +0900</pubDate>
@@ -1870,81 +1955,6 @@ Pass 1: Checking inodes, blocks, and sizes
 &lt;p&gt;そして「やっぱり開発者と直にコミュニケーションをしたい」っていう方は3ヶ月毎ぐらいの頻度で勉強会があるので、それに参加するのも手です。勉強会の告知は&lt;a href=&#34;http://wakameusersgroup.org/&#34;&gt;ユーザ会のサイト&lt;/a&gt; かメーリングリストで告知されます。&lt;/p&gt;
 
 &lt;p&gt;ってな感じで、まずは Twitter で「Wakame-vdc 使ってみたよ！」っていう魔法の言葉を唱えてみると磯野家の一員になれた気がしてきますよ。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>おれは KVM をやめるぞ！ジョジョーーッ！</title>
-      <link>http://blog.osamu.habuka.jp/post/2015-12-03-wakame-vdc-advent-calendar-2015-day3/</link>
-      <pubDate>Thu, 03 Dec 2015 15:08:31 +0900</pubDate>
-      
-      <guid>http://blog.osamu.habuka.jp/post/2015-12-03-wakame-vdc-advent-calendar-2015-day3/</guid>
-      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の3日目のエントリです。&lt;/p&gt;
-
-&lt;p&gt;エントリのタイトルが「Wakame-vdc LiveDVD 16.1 を作る X日目」だと面白味がないので、もうちょっと内容とタイトルが結びついてわかり易くなるようにしました。&lt;/p&gt;
-
-&lt;p&gt;ということで、今日は昨日に引き続き Wakame-vdc LiveDVD をデバッグしてみようという話です。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;昨日はインスタンスを起動したけど接続できない、何故か？が問題でしたので、まずは現状を確認してみましょう。&lt;/p&gt;
-
-&lt;p&gt;インスタンスのプロセスは以下のようなパラメータで起動しています。(わかり易くするために適宜改行してます)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/usr/libexec/qemu-kvm \
--m 256 
--smp 2 
--name vdc-i-oo5ginzo 
--pidfile /var/lib/wakame-vdc/instances/i-oo5ginzo/kvm.pid 
--daemonize 
--monitor telnet:127.0.0.1:28684,server,nowait 
--no-kvm-pit-reinjection 
--vnc 127.0.0.1:23172 
--serial telnet:127.0.0.1:29521,server,nowait 
--drive file=/var/lib/wakame-vdc/instances/i-oo5ginzo/vol-fnqwdqv3,id=vol-fnqwdqv3-drive,if=none,serial=vol-fnqwdqv3,cache=none,aio=native 
--device ide-drive,id=vol-fnqwdqv3,drive=vol-fnqwdqv3-drive,bootindex=0 
--drive file=/var/lib/wakame-vdc/instances/i-oo5ginzo/metadata.img,id=metadata-drive,if=none,serial=metadata,cache=none,aio=native 
--device ide-drive,id=metadata,drive=metadata-drive 
--net nic,vlan=0,macaddr=52:54:00:74:a4:6d,model=e1000,addr=10 
--net tap,vlan=0,ifname=vif-8azuiln0,script=no,downscript=no
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2014/12/05/debug-for-wakame-vdcs-instance/&#34;&gt;去年のアドカレ&lt;/a&gt; でも書きましたが、まずは stone で tcprelay して vnc に接続してみようじゃないですか。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# /usr/local/bin/stone -d 127.0.0.1:23172 133.130.116.239:23172
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1203-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;おぅ…接続切られます…orz&lt;/p&gt;
-
-&lt;p&gt;一方で telnet も駄目です。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# telnet 127.0.0.1 29521
-Trying 127.0.0.1...
-Connected to 127.0.0.1.
-Escape character is &#39;^]&#39;.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;じゃぁ、デバッグログでも吐かせてみようと、/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/kvm.rb をイジって、qemu-kvm のコマンドラインに「-d /tmp/wakame-vm.log」って付けるようにしてみて、hva を再起動してみたんですが…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# /opt/axsh/wakame-vdc/dcmgr/bin/vdc-manage host show
-UUID                 Node ID               Hypervisor  Architecture  Usage  Status   Scheduling
-hn-node3ab67f68a978  hva.node3ab67f68a978  kvm         x86_64        2%     offline  true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;残念ながら offline から状態が変わらなくなりました。&lt;/p&gt;
-
-&lt;p&gt;で、今さらですが、実は私の新 ConoHa のアカウントは以下のように VT が入ってないので、そもそも ConoHa を使うときに Wakame-vdc の hva で`KVM を選択すると駄目なような気がします。&lt;/p&gt;
-
-&lt;p&gt;こんな感じ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ egrep &amp;quot;(vmx|smx)&amp;quot; /proc/cpuinfo | wc -l
-0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ということで、Wakame-vdc LiveDVD のデフォルトの仮想化ドライバは KVM でなくLXC を使うように変更することにします。&lt;/p&gt;
-
-&lt;p&gt;相変らず刻んですみませんが、LXC 化させる話は明日以降に。&lt;/p&gt;</description>
     </item>
     
   </channel>

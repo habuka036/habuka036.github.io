@@ -6,8 +6,93 @@
     <description>Recent content in Post-rsses on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Thu, 01 Dec 2016 03:30:04 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 08 Dec 2016 03:59:29 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>BF-パパ鰻師さんだったんだよぉ</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/</link>
+      <pubDate>Thu, 08 Dec 2016 03:59:29 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/</guid>
+      <description>&lt;p&gt;日本全国の OpenStacker のみなさん、こんにちは。これは &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; の八日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/&#34;&gt;一日目のエントリ&lt;/a&gt; が方々で「ひどい」とか「初日なのに…」とか「鰻が喰いたくなった、どうしてくれる」などの絶賛のお言葉を頂き、とても嬉しく思います。皆さんの感謝の声を聴くと「あぁ、OpenStacker でもない自分が Advent Calendar の敷居を下げることができて、良かったなぁ」と感慨深く思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、その一日目以降のエントリを見ると、技術的に素晴しいエントリもしくは役に立つ系のエントリばかりで、「え？これネタ投稿だろ？」というのが全く見受けられません。&lt;/p&gt;
+
+&lt;p&gt;もちろん、技術的に素晴しいエントリや役立つ系のお話のエントリばかりで埋まればそれに越したことはないのですが、まだ所々エントリされてない日があるようですので、いま一度 OpenStacker でない自分が「大丈夫だよ、OpenStack の Advent Calendar は恐くないところだよ」ということを証明する必要があると感じました。&lt;/p&gt;
+
+&lt;p&gt;ところで皆さんは技術者の方々がほとんどだと思いますので、「Brainfuck」というプログラミング言語はご存知だと思います。
+この言語の素敵なところは色々なネタに比較的簡単に転用できるということです。&lt;/p&gt;
+
+&lt;p&gt;「え？どーゆーこと？」って思ったかたは、こちらの&lt;a href=&#34;http://kmaebashi.com/zakki/lang0003.html&#34;&gt;新プログラミング言語「BF-BASIC&amp;rsquo;n」&lt;/a&gt;をお読みください。&lt;/p&gt;
+
+&lt;p&gt;上記のページを読んで頂ければ、あとは自ずと本日のタイトルから察しがつくと思いますが、ようは上記ページにあるBF-BASIC&amp;rsquo;nのソースコードの12行目から21行目を以下のように書き換えます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;static Conv st_conv[] = {
+    {&#39;&amp;gt;&#39;, &amp;quot;じゃじゃーん、OpenStack Daysなのだ&amp;quot;},
+    {&#39;&amp;lt;&#39;, &amp;quot;あなたが昔作っていたOpenStackよ&amp;quot;},
+    {&#39;+&#39;, &amp;quot;オプ、&amp;quot;},
+    {&#39;-&#39;, &amp;quot;スタッ、&amp;quot;},
+    {&#39;.&#39;, &amp;quot;ンフー、ランニングゥゥゥ&amp;quot;},
+    {&#39;,&#39;, &amp;quot;あなた最近疲れ気味じゃない？&amp;quot;},
+    {&#39;[&#39;, &amp;quot;ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー&amp;quot;},
+    {&#39;]&#39;, &amp;quot;ヘー知ラナカッタナー、パパガ作ッテタンダァー&amp;quot;},
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして書き換えたコードを例えば bf-openstacker.c という名前で保存し、以下のようにコンパイルします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gcc -o bf-openstacker bf-openstacker.c
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして出来上がった bf-openstacker を使って Hello, world! と表示させるコードが以下になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+
+
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、オプ、オプ、オプ、
+あなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよ
+スタッ、ヘー知ラナカッタナー、パパガ作ッテタンダァー
+じゃじゃーん、OpenStackDaysなのだ
+ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+オプ、オプ、ンフー、ランニングゥゥゥ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥンフー、ランニングゥゥゥ
+オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+スタッ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+あなたが昔作っていたOpenStackよ
+オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+オプ、オプ、オプ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
+じゃじゃーん、OpenStackDaysなのだ
+オプ、ンフー、ランニングゥゥゥ
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このファイルを例えば helloworld.openstacker という名前で保存し、以下のように実行すれば見事に Hello, world! と表示されるはずです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ~/bf-openstacker ~/helloworld.openstacker
+Hello, world!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで、初日は技術的なことが一切書かれてなかったので、もしかすると「完全なネタ投稿だったら許されるかもしれないが、技術的なことは相当高いレベルの投稿をしないと駄目なんじゃないだろうか？」と不安に思われているかもしれませんが、本日のエントリのように技術的にもライトウェイトな内容でも全然問題ないですので、皆さんまだ空いている日に是非エントリしてみてください。&lt;/p&gt;
+
+&lt;p&gt;(来年からは「鰻ネタ禁止な」って言われそう…)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>パパ鰻師さんだったんだよぉ</title>
@@ -1748,207 +1833,6 @@ W, [2015-12-05T21:20:38.660895 #3499]  WARN -- HvaHandler: Session ID: c39a19a2b
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;うぅ〜ん？起動失敗です…。一旦 LiveDVD じゃなく普通の Wakame-vdc 環境を作ってそこで lxc を試さないといけないですね…。また明日。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Eucalyptus LiveDVD を作ってみる 3日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2015-12-05-japan-eucalyptus-advent-calendar-2015-day-3/</link>
-      <pubDate>Sat, 05 Dec 2015 05:05:37 +0900</pubDate>
-      
-      <guid>http://blog.osamu.habuka.jp/post/2015-12-05-japan-eucalyptus-advent-calendar-2015-day-3/</guid>
-      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の3日目のエントリです。&lt;/p&gt;
-
-&lt;p&gt;え？更新が途切れた？そんなバカな…。2日目の続きをやりまぁす。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;2日目のログをもう少し遡ると以下のように変なところで umount が走ってコケてます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  Installing: comps-extras                 ##################### [456/456]warning: %posttrans(nfs-uti
--1:1.2.3-64.el6.x86_64) scriptlet failed, exit status 6
-error reading information on service NetworkManager: No such file or directory
-error reading information on service sshd: No such file or directory
-+ echo RUN_FIRSTBOOT=NO
-+ sed -i -e &#39;s/^Defaults    requiretty/#Defaults    requiretty/&#39; /etc/sudoers
-+ /usr/sbin/useradd -c &#39;LiveMedia default user&#39; eucalyquitous
-+ /usr/bin/passwd -d eucalyquitous
-+ echo &#39;eucalyquitous     ALL=(ALL)     NOPASSWD: ALL&#39;
-+ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin eucalyquitous \2|&#39; /etc/init/tty.c
-f
-umount: /mnt/livecd/tmp/imgcreate-6F78B4/install_root/proc: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-umount: /mnt/livecd/tmp/imgcreate-6F78B4/install_root: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-loop: can&#39;t delete device /dev/loop0: Device or resource busy
-e2fsck 1.41.12 (17-May-2010)
-_Eucalyquitous: recovering journal
-Pass 1: Checking inodes, blocks, and sizes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;んじゃー、ビルドが成功している Wakame-vdc の LiveDVD ではここはどうなっているのかと言うと、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  Installing: gnome-backgrounds            ##################### [907/907]error reading information
- on service NetworkManager: No such file or directory
-cp: cannot stat `/etc/resolv.conf&#39;: No such file or directory
-+ echo RUN_FIRSTBOOT=NO
-+ sed -i -e &#39;s/^Defaults    requiretty/#Defaults    requiretty/&#39; /etc/sudoers
-+ /usr/sbin/useradd -c &#39;LiveMedia default user&#39; wakame
-+ /usr/bin/passwd -d wakame
-+ echo &#39;wakame     ALL=(ALL)     NOPASSWD: ALL&#39;
-+ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin wakame \2|&#39; /etc/init/tty.conf
-+ sed -i -e &#39;s/\[daemon\]/[daemon]\nTimedLoginEnable=true\nTimedLogin=wakame\nTimedLoginDelay=10/&#39; /etc/gdm/custom.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;やはり変な umount は発生していないようです。&lt;/p&gt;
-
-&lt;p&gt;違う点と言えば Wakame-vdc LiveDVD のほうでは他にも処理を入れていることと、%post &amp;ndash;nochroot のセクションもあるという点です。なのでバッドノウハウな気もしますが、以下の処理を追加で kickstart に入れて再度ビルドしてみました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;%post --nochroot
-
-cat &amp;gt; /root/postnochroot-install &amp;lt;&amp;lt; EOF_postnochroot
-#!/bin/bash
-
-rm -rf ${INSTALL_ROOT}/usr/share/{doc,man,info}
-
-EOF_postnochroot
-
-/bin/bash -x /root/postnochroot-install 2&amp;gt;&amp;amp;1 | tee /root/postnochroot-install.log
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うーん、やっぱり以下のように失敗します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-O60XR_/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-O60XR_
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-O60XR_/install_root/usr/share/info
-umount: /mnt/livecd/tmp/imgcreate-O60XR_/install_root/proc: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-umount: /mnt/livecd/tmp/imgcreate-O60XR_/install_root: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-loop: can&#39;t delete device /dev/loop1: Device or resource busy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;fuser で見てみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-lWxyO0
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/usr/share/info
-+ /sbin/fuser -vm /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc/
-                     USER        PID ACCESS COMMAND
-/mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc/:
-                     root       1355 f.... rsyslogd
-                     root       1445 f.... acpid
-                     haldaemon   1457 f.... hald
-                     root       3440 F.... libvirtd
-                     root       7273 F.... libvirtd
-                     root      13917 F.... libvirtd
-                     root      14660 F.... libvirtd
-                     root      19529 F.... libvirtd
-                     root      28104 F.... libvirtd
-umount: /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-umount: /mnt/livecd/tmp/imgcreate-lWxyO0/install_root: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-loop: can&#39;t delete device /dev/loop5: Device or resource busy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;libvirtd&amp;hellip;.？あぁ！もしかして！と思い Eucalyptus に関するパッケージのインストール指定を外してビルドしてみると&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-tERkpC/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-tERkpC
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-tERkpC/install_root/usr/share/info
-+ /sbin/fuser -vm /mnt/livecd/tmp/imgcreate-tERkpC/install_root/proc/
-                     USER        PID ACCESS COMMAND
-/mnt/livecd/tmp/imgcreate-tERkpC/install_root/proc/:
-                     root       1355 f.... rsyslogd
-                     root       1445 f.... acpid
-                     haldaemon   1457 f.... hald
-                     root       3440 F.... libvirtd
-                     root       7273 F.... libvirtd
-                     root      13917 F.... libvirtd
-                     root      14660 F.... libvirtd
-                     root      19529 F.... libvirtd
-                     root      28104 F.... libvirtd
-e2fsck 1.41.12 (17-May-2010)
-Pass 1: Checking inodes, blocks, and sizes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？半分勘違い。てっきり libvirtd はインストールした Eucalyptus のパッケージに動かされたのかと思いましたが、どうやら表示されているのはビルド環境のホスト側の情報だったみたいです。が、一方で umount のエラーが消えたのはやはり Eucalyptus のパッケージが関係しているようです。&lt;/p&gt;
-
-&lt;p&gt;ということで、Eucalyptus のパッケージをインストールすると何が起きるのかを見てみたいと思います。&lt;/p&gt;
-
-&lt;p&gt;まずインストールされるパッケージは以下。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# grep &amp;quot;Installing: euca&amp;quot; 20151203-4.eucaly.log
-  Installing: eucalyptus                   ##################### [251/456] 
-  Installing: eucalyptus-blockdev-utils    ##################### [259/456]/var/tmp/rpm-tmp.EoxuZE: line 2: /sbin/service: No such file or directory
-  Installing: eucalyptus-axis2c-common     ##################### [377/456] 
-  Installing: euca2ools                    ##################### [379/456] 
-  Installing: eucalyptus-admin-tools       ##################### [380/456] 
-  Installing: eucalyptus-imaging-toolkit   ##################### [389/456] 
-  Installing: eucanetd                     ##################### [418/456] 
-  Installing: eucalyptus-common-java-libs  ##################### [423/456] 
-  Installing: eucalyptus-common-java       ##################### [424/456] 
-  Installing: eucalyptus-nc                ##################### [442/456]Stopping libvirtd daemon: [FAILED]
-  Installing: eucalyptus-sc                ##################### [444/456]Starting SCSI target daemon: [  OK  ]
-  Installing: eucalyptus-cloud             ##################### [445/456] 
-  Installing: eucalyptus-walrus            ##################### [446/456] 
-  Installing: eucalyptus-cc                ##################### [447/456] 
-  Installing: eucaconsole                  ##################### [449/456] 
-  Installing: eucalyptus-service-image     ##################### [450/456] 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これらのパッケージをダウンロードして何が実行されるかを見ます。で、全部をここに貼るのもアレなので原因になるものだけ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# rpm -qp --scripts eucalyptus-nc-4.2.0-0.0.24054.2.el6.x86_64.rpm 
-警告: eucalyptus-nc-4.2.0-0.0.24054.2.el6.x86_64.rpm: ヘッダ V4 RSA/SHA1 Signature, key ID c1240596: NOKEY
-postinstall scriptlet (using /bin/sh):
-if [ -e /etc/rc.d/init.d/libvirtd ]; then
-    chkconfig --add libvirtd
-    /sbin/service libvirtd restart
-fi
-chkconfig --add eucalyptus-nc
-usermod -a -G kvm eucalyptus
-exit 0
-preuninstall scriptlet (using /bin/sh):
-if [ &amp;quot;$1&amp;quot; = &amp;quot;0&amp;quot; ]; then
-    if [ -f /etc/eucalyptus/eucalyptus.conf ]; then
-        /sbin/service eucalyptus-nc stop
-    fi
-    chkconfig --del eucalyptus-nc
-fi
-exit 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あぁ、やっぱり libvirtd を起動してますね。あとは&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# rpm -qp --scripts eucalyptus-sc-4.2.0-0.0.24054.2.el6.x86_64.rpm 
-警告: eucalyptus-sc-4.2.0-0.0.24054.2.el6.x86_64.rpm: ヘッダ V4 RSA/SHA1 Signature, key ID c1240596: NOKEY
-postinstall scriptlet (using /bin/sh):
-if [ -e /etc/rc.d/init.d/tgtd ]; then
-    chkconfig --add tgtd
-    /sbin/service tgtd start
-fi
-exit 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あぁ、tgtd も起動してますね。他は無さそうですので、この2つを停止するように kickstart ファイルに書いてビルドします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin eucalyquitous \2|&#39; /etc/init/tty.c
-onf
-+ /sbin/service libvirtd stop
-Stopping libvirtd daemon:                                  [  OK  ]
-+ /sbin/service tgtd stop
-Stopping SCSI target daemon:                               [  OK  ]
-+ rm -rf /mnt/livecd/tmp/imgcreate-ST404K/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-ST404K
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-ST404K/install_root/usr/share/info
-e2fsck 1.41.12 (17-May-2010)
-Pass 1: Checking inodes, blocks, and sizes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;やったー。成功です。ってことで、明日はこの作成した ISO ファイルで起動して Eucalyptus のセットアップができるかを試してみます。&lt;/p&gt;</description>
     </item>
     
   </channel>
