@@ -9,6 +9,39 @@
     <atom:link href="http://blog.osamu.habuka.jp/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>パパ、OpenStack のロゴって鰻で出来てるの？</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-12-11-openstack-logo/</link>
+      <pubDate>Sun, 11 Dec 2016 09:23:47 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-12-11-openstack-logo/</guid>
+      <description>&lt;p&gt;日本全国の OpenStacker のみなさん、こんにちは。これは &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; の十一日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/&#34;&gt;一日目のエントリ&lt;/a&gt;と&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/&#34;&gt;八日目のエントリ&lt;/a&gt;が OpenStack に一切関係ない鰻ネタだったため、三回目のエントリも鰻ネタにしたいところですが、残念ですがもうネタ切れです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、みなさんは OpenStack のロゴの寸法について正しく説明できますか？僕は OpenStacker じゃないので OpenStack のロゴの寸法についてはさっぱり分かりません。なのでちょっとググってみたところ以下のページを発見しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wiki.openstack.org/wiki/Ceilometer/TagLine&#34;&gt;https://wiki.openstack.org/wiki/Ceilometer/TagLine&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このページによると外辺の1辺の長さが100となって内辺の1辺の長さが60になってます。そして縦の隙間が10となっています。これを平面に書きだすと以下のようになります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20161211-openstack-logo-01.png&#34; alt=&#34;平面1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;外辺が100で内辺が60なので、100-60=40 となり、ロゴの各幅は &lt;sup&gt;40&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;=20 となる計算になります。一方で隙間が10ですと、100-(10*2)=80 となり隙間を除いた実体は合計 80 の長さになることになりますが、ロゴの幅が 20 のため、ロゴの縦の棒の長さは少なくとも 80-(20*2)=40 以下でなければなりません。しかし端から幅20, 隙間10, 棒40, 隙間10, 幅20とすると隙間と内辺の始点が同じになってしまうため、ロゴのように内辺の上端より隙間の上端が下に来るようにするには、幅30, 隙間10, 棒20, 隙間10, 幅30のようにする必要があり、上記のような図になりました。&lt;/p&gt;
+
+&lt;p&gt;次にロゴの奥行きを考えてみた場合、奥行を20と仮定するとロゴの縦の棒の部分は幅20, 高さ20, 奥行20の立方体になってしまいます。(「え？奥行きを10にすればいいんじゃない？」という指摘があるかもしれませんが、奥行きが10だと隙間と同じ長さになり、ロゴがペラペラに見えます)&lt;/p&gt;
+
+&lt;p&gt;ということで落ちついたのが、幅30, 隙間5, 棒30, 隙間5, 幅30の以下の形でした。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20161211-openstack-logo-02.png&#34; alt=&#34;平面2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;で、何でこんな風にロゴの寸法を測っていたのかというと、ちょっとフェルト生地でロゴを作ってみようと思ったのですが、素人にはちょっと無理でした…orz&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20161211-openstack-logo-03.jpg&#34; alt=&#34;ロゴ未満&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>BF-パパ鰻師さんだったんだよぉ</title>
       <link>http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/</link>
       <pubDate>Thu, 08 Dec 2016 03:59:29 +0900</pubDate>

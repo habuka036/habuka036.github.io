@@ -6,8 +6,41 @@
     <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Thu, 08 Dec 2016 03:59:29 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 11 Dec 2016 09:23:47 +0900</lastBuildDate>
     <atom:link href="http://blog.osamu.habuka.jp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>パパ、OpenStack のロゴって鰻で出来てるの？</title>
+      <link>http://blog.osamu.habuka.jp/post/2016-12-11-openstack-logo/</link>
+      <pubDate>Sun, 11 Dec 2016 09:23:47 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2016-12-11-openstack-logo/</guid>
+      <description>&lt;p&gt;日本全国の OpenStacker のみなさん、こんにちは。これは &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; の十一日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/&#34;&gt;一日目のエントリ&lt;/a&gt;と&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/&#34;&gt;八日目のエントリ&lt;/a&gt;が OpenStack に一切関係ない鰻ネタだったため、三回目のエントリも鰻ネタにしたいところですが、残念ですがもうネタ切れです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、みなさんは OpenStack のロゴの寸法について正しく説明できますか？僕は OpenStacker じゃないので OpenStack のロゴの寸法についてはさっぱり分かりません。なのでちょっとググってみたところ以下のページを発見しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wiki.openstack.org/wiki/Ceilometer/TagLine&#34;&gt;https://wiki.openstack.org/wiki/Ceilometer/TagLine&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このページによると外辺の1辺の長さが100となって内辺の1辺の長さが60になってます。そして縦の隙間が10となっています。これを平面に書きだすと以下のようになります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20161211-openstack-logo-01.png&#34; alt=&#34;平面1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;外辺が100で内辺が60なので、100-60=40 となり、ロゴの各幅は &lt;sup&gt;40&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;=20 となる計算になります。一方で隙間が10ですと、100-(10*2)=80 となり隙間を除いた実体は合計 80 の長さになることになりますが、ロゴの幅が 20 のため、ロゴの縦の棒の長さは少なくとも 80-(20*2)=40 以下でなければなりません。しかし端から幅20, 隙間10, 棒40, 隙間10, 幅20とすると隙間と内辺の始点が同じになってしまうため、ロゴのように内辺の上端より隙間の上端が下に来るようにするには、幅30, 隙間10, 棒20, 隙間10, 幅30のようにする必要があり、上記のような図になりました。&lt;/p&gt;
+
+&lt;p&gt;次にロゴの奥行きを考えてみた場合、奥行を20と仮定するとロゴの縦の棒の部分は幅20, 高さ20, 奥行20の立方体になってしまいます。(「え？奥行きを10にすればいいんじゃない？」という指摘があるかもしれませんが、奥行きが10だと隙間と同じ長さになり、ロゴがペラペラに見えます)&lt;/p&gt;
+
+&lt;p&gt;ということで落ちついたのが、幅30, 隙間5, 棒30, 隙間5, 幅30の以下の形でした。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20161211-openstack-logo-02.png&#34; alt=&#34;平面2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;で、何でこんな風にロゴの寸法を測っていたのかというと、ちょっとフェルト生地でロゴを作ってみようと思ったのですが、素人にはちょっと無理でした…orz&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20161211-openstack-logo-03.jpg&#34; alt=&#34;ロゴ未満&#34; /&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>BF-パパ鰻師さんだったんだよぉ</title>
@@ -1780,74 +1813,6 @@ D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found 
 &lt;p&gt;ということで、/etc/rc.local の最後のほうで呼ぶようにしたらちゃんと上手くいきました。&lt;/p&gt;
 
 &lt;p&gt;明日は LiveDVD じゃない普通の Wakame-vdc を lxc で動かしてみる話です。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>LXC と情熱のあいだ</title>
-      <link>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day5/</link>
-      <pubDate>Sun, 06 Dec 2015 05:23:52 +0900</pubDate>
-      
-      <guid>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day5/</guid>
-      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の5日目のエントリです。&lt;/p&gt;
-
-&lt;p&gt;順調に「日々更新ができなくなってきている」状態ですが、細かいことは気にせずマイペースで行きたいと思います。&lt;/p&gt;
-
-&lt;p&gt;今日も小粒なネタです。3日目の続きを。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Wakame-vdc LiveDVD の設定を KVM から lxc に作り変え、イメージも lxc 用を登録してみました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;I, [2015-12-05T21:16:58.697938 #3499]  INFO -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc
-I, [2015-12-05T21:16:58.698242 #3499]  INFO -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc
-D, [2015-12-05T21:17:24.326757 #3499] DEBUG -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Command Result: success (exit code=0)
-Command PID: 4462
-##STDERR=&amp;gt;
-[=====================================================================] 100000%
-2015-12-05 21:20:11 ThreadPool thr=InstanceMonitor[0/1] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:31:in `check_instance&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:12:in `block (3 levels) in &amp;lt;class:InstanceMonitor&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
-2015-12-05 21:20:31 JobContext thr=LocalStore[0/2] [ERROR]: Job failed 5b9118b596ebe1a208ba74e569fed366b96e21a8 [ run_local_store ]: timeout
-2015-12-05 21:20:31 JobContext thr=LocalStore[0/2] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:168:in `update_volume_state&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:49:in `deploy_local_volume&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:109:in `block (2 levels) in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `block in each_all_local_volumes&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each_all_local_volumes&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:108:in `block in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
-I, [2015-12-05T21:20:31.544538 #3499]  INFO -- HvaHandler: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Instance UUID: i-ungzbmvf: Cleaning volume vol-iz4ojoqc
-I, [2015-12-05T21:20:31.544769 #3499]  INFO -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc&#39;
-D, [2015-12-05T21:20:31.668489 #3499] DEBUG -- LinuxLocalStore: Session ID: 5b9118b596ebe1a208ba74e569fed366b96e21a8: Command Result: success (exit code=0)
-Command PID: 4559
-D, [2015-12-05T21:20:38.593790 #3499] DEBUG -- ServiceNetfilter: event caught: hva.node16aff8e215e1/vnic_destroyed: vif-8glbtzu1
-D, [2015-12-05T21:20:38.593938 #3499] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-8glbtzu1
-2015-12-05 21:20:38 JobContext thr=LocalStore[1/2] [INFO]: Job start c39a19a2b883928928b7fe6df7345c3b6c86c678 (Local ID: c39a19a2b883928928b7fe6df7345c3b6c86c678)[ delete_volume ]
-W, [2015-12-05T21:20:38.660525 #3499]  WARN -- HvaHandler: Session ID: c39a19a2b883928928b7fe6df7345c3b6c86c678: Instance UUID: i-ungzbmvf: Unexpected state deleted of vol-iz4ojoqc. But try to delete.
-W, [2015-12-05T21:20:38.660895 #3499]  WARN -- HvaHandler: Session ID: c39a19a2b883928928b7fe6df7345c3b6c86c678: Instance UUID: i-ungzbmvf: Failed to delete non-existing file: /var/lib/wakame-vdc/instances/i-ungzbmvf/vol-iz4ojoqc
-2015-12-05 21:20:38 JobContext thr=LocalStore[1/2] [INFO]: Job complete c39a19a2b883928928b7fe6df7345c3b6c86c678 (Local ID: c39a19a2b883928928b7fe6df7345c3b6c86c678)[ delete_volume ]: 0.072499295 sec
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うぅ〜ん？起動失敗です…。一旦 LiveDVD じゃなく普通の Wakame-vdc 環境を作ってそこで lxc を試さないといけないですね…。また明日。&lt;/p&gt;</description>
     </item>
     
   </channel>
