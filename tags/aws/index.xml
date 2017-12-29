@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/aws/index.xml</link>
-    <description>Recent content on hablog</description>
+    <title>Aws on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/aws/</link>
+    <description>Recent content in Aws on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <atom:link href="http://blog.osamu.habuka.jp/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>SkyDNSのバックエンドにDynamoDBを使ってみる</title>
@@ -18,166 +21,24 @@
 
 &lt;p&gt;今日は SkyDNS のバックエンドに etcd でなく DyamoDBを使ってみようという話です。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;皆さん大好き SkyDNS ですが、これを AWS の EC2 上で構築したときに必ず以下の課題に遭遇すると思います。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;冗長性を担保するために複数台構成にしよう&lt;/li&gt;
-&lt;li&gt;耐故障性を上げためにマルチ AZ 構成にしよう&lt;/li&gt;
-&lt;li&gt;あれ？ AZ 1つが丸々落ちても過半数を割らないようにするためには奇数にして…&lt;/li&gt;
-&lt;li&gt;うーん、マジョリティ側の AZ が落ちたらアウトだ…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;そーすると耐故障性を上げるどころの話じゃなくなってしまい、楽をするために導入しようとした SkyDNS が足枷になったりします。&lt;/p&gt;
-
-&lt;p&gt;でも思い出してみてください、AWS には DynamoDB という素敵なサービスがあります。SkyDNS にとっての etcd を単なるデータストアと割り切って見た場合、etcd の代用として DynamoDB が使えると思いませんか？いや、むしろ「代用」なんかじゃなく、SkyDNS を AWS で動かす場合には無くてはならない存在だと言えます。&lt;/p&gt;
-
-&lt;p&gt;じゃー SkyDNS は DynamoDB をデータストアとして使うことできるのか？と言うと、残念ながらそのままでは SkyDNS は DynamoDB をデータストアとして使うことができません。&lt;/p&gt;
-
-&lt;p&gt;しかし、我らが SkyDNS、ちゃんと &lt;a href=&#34;https://github.com/skynetservices/skydns/tree/master/backends&#34;&gt;etcd の部分を pluggable&lt;/a&gt; にしてあります。&lt;/p&gt;
-
-&lt;p&gt;ということで、etcd の代わりに DynamoDB を利用するコードを backend/ 配下に書いてみます。&lt;/p&gt;
-
-&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AWS Advent Calendar 2013 14 日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-14/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-14.adventcalendar-day-14/</link>
       <pubDate>Sat, 14 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-14/</guid>
-      <description>
-
-&lt;h1 id=&#34;今日の緑&#34;&gt;今日の緑…&lt;/h1&gt;
-
-&lt;p&gt;緑色に関するネタが見つかりません。&lt;/p&gt;
-
-&lt;h1 id=&#34;eucalyptusのuiでec2を利用してみる&#34;&gt;EucalyptusのUIでEC2を利用してみる&lt;/h1&gt;
-
-&lt;p&gt;Japan Eucalyptus Users Group の羽深です。さて、今日は AWS Advent Calendar 2013 の 14 日目のエントリになります。&lt;/p&gt;
-
-&lt;p&gt;他の方々のエントリとは違い、私が今日書く内容は少し異色な内容となってます。題して「EucalyptusのUIでEC2を利用してみる」。&lt;/p&gt;
-
-&lt;p&gt;このエントリを見にきてくださった皆さんは「AWS が何だ」「EC2 が何だ」という説明は不要だと思いますので割愛しますが、一方で「Eucalyptus って何？」と思う方は少なからず居ると思います。むしろ知っている人のほうが少ないかもしれません。&lt;/p&gt;
-
-&lt;p&gt;Eucalyptus を簡単に一言で表現すると、「AWS の EC2 API 互換なプライベートクラウド基盤」となります。&lt;/p&gt;
-
-&lt;p&gt;「なんだよ、紛い物か」「臆面もなくよくもまぁ本流の Advent Calendar に参加できたもんだなぁ」「恥を知れい」「可愛いぞ」などなどの色々な意見があるかと思いますが、たまには異色なエントリもいいのではないかと思います。&lt;/p&gt;
-
-&lt;p&gt;さて、つい AWS の Advent Calendar だと意識すると言葉遣いが固くなってしまっていけません。ここは、いつもどおりに「砕けすぎてよくわからない」言葉遣いにします。&lt;/p&gt;
-
-&lt;p&gt;えー、Eucalyptus には開発が開始してから約4年近く「利用者のためのユーザコンソール」が存在しませんでした。しかし、バージョン 3.2 頃から利用者のための WebUI が付属するようになり、バージョン 3.4 からは Eucalyptus 用のユーザコンソールで Amazon EC2 も利用できるようになりました。&lt;/p&gt;
-
-&lt;p&gt;まぁ「利用できるようになった」とは言え、普段 EC2 を利用するときは API や CUI などから利用するか、もしくは GUI として Amazon の Management Console を利用するほうが多いため、わざわざ Eucalyptus の WebUI から AWS EC2 を利用してみたことがありませんでしたが、ちょうど「&lt;a href=&#34;http://www.zusaar.com/event/1117005&#34;&gt;AWS Advent Calendar 2013&lt;/a&gt;」 が開催されるということで、このようにエントリすることになりました。&lt;/p&gt;
-
-&lt;h2 id=&#34;eucalyptus-コンソールのインストール&#34;&gt;Eucalyptus コンソールのインストール&lt;/h2&gt;
-
-&lt;p&gt;まずは Eucalyptus コンソールをインストールしなければ話は始まりませんので、以下をカチャカチャカチャ…ッターン！と実行してインストールします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;yum update
-yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/eucalyptus-release-3.4.noarch.rpm
-yum install http://downloads.eucalyptus.com/software/euca2ools/3.0/centos/6/x86_64/euca2ools-release-3.0.noarch.rpm
-yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/epel-release-6.noarch.rpm
-yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/elrepo-release-6.noarch.rpm
-yum install eucalyptus-console
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;インストールしたら /etc/eucalyptus-console/console.ini を編集します。変更点は以下。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;--- /etc/eucalyptus-console/console.ini.orig    2013-11-06 05:48:58.000000000 +0900
-+++ /etc/eucalyptus-console/console.ini 2013-12-14 01:23:00.276376944 +0900
-@@ -60,13 +60,13 @@
- enable.aws=True
-
- # set this to define a default region for aws login
--default.region=us-west-1
-+default.region=ap-northeast-1
-
- [locale]
- # Available languages.
- # UI messages and help files: en_US, zh_CN
- # UI messages only: ko_KR, ru_RU, ja_JP, fi_FI
--language=en_US
-+language=ja_JP
-
- # help page
- help.url=https://engage.eucalyptus.com?r=euca-
-@@ -96,7 +96,7 @@
- keys=eucaformat
-
- [logger_root]
--level=INFO
-+level=DEBUG
- handlers=eucahandler
-
- [handler_eucahandler_dev]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;設定を変更したら以下を実行して Eucalyptus コンソールを起動します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/etc/init.d/eucalyptus-console start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;!!Eucalyptus コンソールを利用する&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_0.png&#34; alt=&#34;Eucalyptus コンソールのログイン画面&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://EucalyptusコンソールのIP:8888/&#34;&gt;https://EucalyptusコンソールのIP:8888/&lt;/a&gt; にアクセスすると、右のようなログイン画面が表示されます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_2.png&#34; alt=&#34;Eucalyptus コンソールのダッシュボード&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;アクセスキーとシークレットキーを入力して「Log in to AWS」をクリックすると右のようなダッシュボード画面に遷移します。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_4.png&#34; alt=&#34;リージョン情報&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;おや？おやおやおや？設定ファイルでデフォルトのリージョンを ap-northeast-1 にしたのに、表示されているリージョン情報がシンガポールになってますねー。&lt;/p&gt;
-
-&lt;p&gt;ソースを確認すると、/usr/share/eucalyptus-console/static/custom/Messages.properties に以下のように定義されてました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;region_ap_northeast_1_name=Asia Pacific
-region_ap_northeast_1_loc=Singapore
-region_ap_southeast_1_name=Asia Pacific
-region_ap_southeast_1_loc=Tokyo
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;まぁ、カリフォルニアから見たら、東京とシンガポールなんて磯野家と伊佐坂家みたいなもんでしょうから、間違えても仕方ないですね。まー直してもいいんですけど、表示上の話なので、今回は放置しますね。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_5.png&#34; alt=&#34;マシンイメージ一覧&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;画面上部のメニューにある「イメージ」をクリックすると AWS 上のマシンイメージの一覧が表示されます。イメージ情報を取得しにいっているため、ちょっと反応が遅いですが、待っているとそのうち表示されます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_7.png&#34; alt=&#34;ボリュームの管理&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;「ストレージ」の中ではボリュームの一覧と情報も見れます。もちろんスナップショットも同じく見れます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_9.png&#34; alt=&#34;インスタンスの作成&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;インスタンスを起動する場合は、ダッシュボードからもイメージの一覧からも起動できます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_11.png&#34; alt=&#34;インスタンスの作成&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;インスタンスの起動ウィザードでは、イメージの選択やインスタンスタイプの選択やセキュリティグループの指定などを行ないます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_17.png&#34; alt=&#34;インスタンスタイプの値&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;あれ？あれあれあれ？インスタンスタイプのスペック値は AWS の値ではなく Eucalyptus 側のスペック値が使われてます。これだとちょっと「あれ？ AWS のリソースが少なくなっちゃった」って勘違いされちゃいますね。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_13.png&#34; alt=&#34;インスタンスの起動失敗&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;うーん、何が悪いのか、インスタンスが起動できませんでした…orz&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20131214_15.png&#34; alt=&#34;インスタンスの一覧&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Stop 状態のインスタンスを起動するのは問題なく行なえました。&lt;/p&gt;
-
-&lt;p&gt;ってな感じで、私の使い方が悪いのか、はたまた設定が悪いのか、EC2 の基本機能ですら使えない場面もありましたが、概ね&lt;font size=&#34;5&#34;&gt;問題ない&lt;/font&gt;と言えます。ですので、「へへっ、ノーマルのマネジメントコンソールなんて卒業だぜ、俺はコイツでライバルとの差を引き離してやる」的な進研○ミのような展開を夢見る少年少女は &lt;font size=&#34;5&#34;&gt;Eucalyptus のコンソールを使って&lt;/font&gt;みるのは如何でしょうか？&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;font size=&#34;5&#34; color=&#34;#ee2222&#34;&gt;クリスマスまであと11日です✌(́◓q◔`)✌&lt;/font&gt;&lt;/p&gt;
-
-&lt;p&gt;.&lt;/p&gt;
-</description>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-14.adventcalendar-day-14/</guid>
+      <description>今日の緑… 緑色に関するネタが見つかりません。
+EucalyptusのUIでEC2を利用してみる Japan Eucalyptus Users Group の羽深です。さて、今日は AWS Advent Calendar 2013 の 14 日目のエントリになります。
+他の方々のエントリとは違い、私が今日書く内容は少し異色な内容となってます。題して「EucalyptusのUIでEC2を利用してみる」。
+このエントリを見にきてくださった皆さんは「AWS が何だ」「EC2 が何だ」という説明は不要だと思いますので割愛しますが、一方で「Eucalyptus って何？」と思う方は少なからず居ると思います。むしろ知っている人のほうが少ないかもしれません。
+Eucalyptus を簡単に一言で表現すると、「AWS の EC2 API 互換なプライベートクラウド基盤」となります。
+「なんだよ、紛い物か」「臆面もなくよくもまぁ本流の Advent Calendar に参加できたもんだなぁ」「恥を知れい」「可愛いぞ」などなどの色々な意見があるかと思いますが、たまには異色なエントリもいいのではないかと思います。
+さて、つい AWS の Advent Calendar だと意識すると言葉遣いが固くなってしまっていけません。ここは、いつもどおりに「砕けすぎてよくわからない」言葉遣いにします。
+えー、Eucalyptus には開発が開始してから約4年近く「利用者のためのユーザコンソール」が存在しませんでした。しかし、バージョン 3.2 頃から利用者のための WebUI が付属するようになり、バージョン 3.4 からは Eucalyptus 用のユーザコンソールで Amazon EC2 も利用できるようになりました。
+まぁ「利用できるようになった」とは言え、普段 EC2 を利用するときは API や CUI などから利用するか、もしくは GUI として Amazon の Management Console を利用するほうが多いため、わざわざ Eucalyptus の WebUI から AWS EC2 を利用してみたことがありませんでしたが、ちょうど「AWS Advent Calendar 2013」 が開催されるということで、このようにエントリすることになりました。</description>
     </item>
     
   </channel>

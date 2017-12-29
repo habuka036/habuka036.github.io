@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/%E5%A4%A2/index.xml</link>
-    <description>Recent content on hablog</description>
+    <title>夢 on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/%E5%A4%A2/</link>
+    <description>Recent content in 夢 on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <atom:link href="http://blog.osamu.habuka.jp/tags/%E5%A4%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Apr 2011 01:04:39 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/%E5%A4%A2/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>産廃と幽霊複写機</title>
@@ -14,12 +17,9 @@
       <pubDate>Fri, 22 Apr 2011 01:04:39 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2011-04-22-sanpai/</guid>
-      <description>&lt;p&gt;産廃を処理する案件を同僚がノープランで請け負ってきてたんだけど、発注者が筋のよくないお方で恐喝まがいのクレームをつけてきて、それの対応をさせられる。&lt;/p&gt;
-
-&lt;p&gt;年代物の茶箪笥に幽霊が取り憑いてしまい、何故か知らんが茶箪笥にアルバムを入れ背板を力いっぱい叩くとアルバムを複製してくれる。ただし複製されるアルバム内の写真には心霊現象が発生しているというエフェクトあり。&lt;/p&gt;
-
-&lt;p&gt;という2本立ての夢を見た。&lt;/p&gt;
-</description>
+      <description>産廃を処理する案件を同僚がノープランで請け負ってきてたんだけど、発注者が筋のよくないお方で恐喝まがいのクレームをつけてきて、それの対応をさせられる。
+年代物の茶箪笥に幽霊が取り憑いてしまい、何故か知らんが茶箪笥にアルバムを入れ背板を力いっぱい叩くとアルバムを複製してくれる。ただし複製されるアルバム内の写真には心霊現象が発生しているというエフェクトあり。
+という2本立ての夢を見た。</description>
     </item>
     
     <item>
@@ -28,8 +28,7 @@
       <pubDate>Tue, 23 Jul 2002 04:50:38 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2002-07-23-abdominal-wind/</guid>
-      <description>&lt;p&gt;一年に一回の牛の放屁嵐に遭遇。超合金のおまけについてきた同僚の芋虫がリストラされそうになる。そして実在する同僚に「部屋を片付けろ！」と怒られる。その他いろいろ……。&lt;/p&gt;
-</description>
+      <description>一年に一回の牛の放屁嵐に遭遇。超合金のおまけについてきた同僚の芋虫がリストラされそうになる。そして実在する同僚に「部屋を片付けろ！」と怒られる。その他いろいろ……。</description>
     </item>
     
   </channel>

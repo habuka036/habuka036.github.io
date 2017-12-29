@@ -2,12 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hablog</title>
-    <link>http://blog.osamu.habuka.jp/index.xml</link>
+    <link>http://blog.osamu.habuka.jp/</link>
     <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 11 Dec 2016 09:23:47 +0900</lastBuildDate>
-    <atom:link href="http://blog.osamu.habuka.jp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Dec 2017 01:23:45 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>うなちゃ</title>
+      <link>http://blog.osamu.habuka.jp/post/2017-12-15.unacha/</link>
+      <pubDate>Fri, 15 Dec 2017 01:23:45 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2017-12-15.unacha/</guid>
+      <description>これは何？ これは 鰻 Advent Calendar 2017 の15日目のエントリーです。
+12&amp;frasl;19 に都内某所にて開催された「羽深さん第2子ご誕生記念忘年会」という、とても嬉しい飲み会を大喜多さんが主催してくださり、峯﨑さんと塚本さんも祝ってくるという素敵な会があり、そこで峯﨑さんが「鰻アドカレのネタに最適なもの」と言ってプレゼントしてくださったのが今日の元ネタです。(12&amp;frasl;19 に貰ったものを何で 12&amp;frasl;15 のエントリーに書いてるんだ？っていう疑問は全力でスルーします :-)
+ちなみに当日は「第2子ご誕生記念」と題してあるのにも関わらず第1子を連れていくという暴挙に出たあげく、テンションMAXなうちの娘に峯崎さんがタブレットを貸してくださり、終始お絵描きをして父としては「タブレット欲しい」と言いかねないかハラハラし通しでした α^^;
+うなちゃ で、峯崎さんがプレゼントしてくださったのがこちらの「うなぎ蒲焼き生茶漬」。1食でお値段が300円という時点ですでに高級感漂います。今迄の人生において1食が300円もするお茶漬を食べたことがない身としては「もしかしてこれはすごく高級なお茶漬なのではないか…？」と思い「茶漬 高級」でググったところ、世の広さというか「え？お茶漬って定食より高い金額で売ってるの？」と鰻で頭部を殴打されたような衝撃を受けました。
+で、どうせ食べるなら誰にも邪魔されず…そう間違っても娘に発見されて「わたしもたべた〜い」とか言って全部食べられるようなことがないよう、卑しい父は夜中にこっそり鰻茶漬を作って食べました。
+器が娘用のドンブリだったため、写真だと少ないように見えますが、実際は180gぐらいのご飯で作ってます。
+感想としては「この値段でこのクオリティはすごいな」って思いました。はい、美味しかったです。食べてる最中ず〜っと山葵を追加しようかどうか迷ってしまいました :-)</description>
+    </item>
     
     <item>
       <title>パパ、OpenStack のロゴって鰻で出来てるの？</title>
@@ -19,29 +36,7 @@
 
 &lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/&#34;&gt;一日目のエントリ&lt;/a&gt;と&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-08-bf-openstacker/&#34;&gt;八日目のエントリ&lt;/a&gt;が OpenStack に一切関係ない鰻ネタだったため、三回目のエントリも鰻ネタにしたいところですが、残念ですがもうネタ切れです。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;さて、みなさんは OpenStack のロゴの寸法について正しく説明できますか？僕は OpenStacker じゃないので OpenStack のロゴの寸法についてはさっぱり分かりません。なのでちょっとググってみたところ以下のページを発見しました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://wiki.openstack.org/wiki/Ceilometer/TagLine&#34;&gt;https://wiki.openstack.org/wiki/Ceilometer/TagLine&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;このページによると外辺の1辺の長さが100となって内辺の1辺の長さが60になってます。そして縦の隙間高さが10となっています。これを平面に書きだすと以下のようになります。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/2016-12-11-openstack-logo-01.png&#34; alt=&#34;平面1&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;外辺が100で内辺が60なので、100-60=40 となり、ロゴの各幅は &lt;sup&gt;40&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;=20 となる計算になります。一方で隙間高さが10ですと、100-(10*2)=80 となり隙間高さを除いた実体は合計 80 の長さになることになりますが、ロゴの幅が 20 のため、ロゴの縦の棒の高さは少なくとも 80-(20*2)=40 以下でなければなりません。しかし端から20, 隙間高さ10, 棒高さ40, 隙間高さ10, 20とすると隙間と内辺の始点が同じになってしまうため、ロゴのように内辺の上端より隙間の上端が下に来るようにするには、30, 隙間高さ10, 棒高さ20, 隙間高さ10, 30のようにする必要があり、上記のような図になりました。&lt;/p&gt;
-
-&lt;p&gt;次にロゴの奥行きを考えてみた場合、奥行を20と仮定するとロゴの縦の棒の部分は幅20, 高さ20, 奥行20の立方体になってしまいます。(「え？奥行きを10にすればいいんじゃない？」という指摘があるかもしれませんが、奥行きが10だと隙間と同じ長さになり、ロゴがペラペラに見えます)&lt;/p&gt;
-
-&lt;p&gt;ということで落ちついたのが、30, 隙間高さ5, 棒高さ30, 隙間高さ5, 30の以下の形でした。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/2016-12-11-openstack-logo-02.png&#34; alt=&#34;平面2&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;で、何でこんな風にロゴの寸法を測っていたのかというと、ちょっとフェルト生地でロゴを作ってみようと思ったのですが、素人にはちょっと無理でした…orz&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/2016-12-11-openstack-logo-03.jpg&#34; alt=&#34;ロゴ未満&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;つまり、本エントリは未完です…&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,94 +49,7 @@
 
 &lt;p&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/post/2016-12-01-openstack-theme-song/&#34;&gt;一日目のエントリ&lt;/a&gt; が方々で「ひどい」とか「初日なのに…」とか「鰻が喰いたくなった、どうしてくれる」などの絶賛のお言葉を頂き、とても嬉しく思います。皆さんの感謝の声を聴くと「あぁ、OpenStacker でもない自分が Advent Calendar の敷居を下げることができて、良かったなぁ」と感慨深く思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;さて、その一日目以降のエントリを見ると、技術的に素晴しいエントリもしくは役に立つ系のエントリばかりで、「え？これネタ投稿だろ？」というのが全く見受けられません。&lt;/p&gt;
-
-&lt;p&gt;もちろん、技術的に素晴しいエントリや役立つ系のお話のエントリばかりで埋まればそれに越したことはないのですが、まだ所々エントリされてない日があるようですので、いま一度 OpenStacker でない自分が「大丈夫だよ、OpenStack の Advent Calendar は恐くないところだよ」ということを証明する必要があると感じました。&lt;/p&gt;
-
-&lt;p&gt;ところで皆さんは技術者の方々がほとんどだと思いますので、「Brainfuck」というプログラミング言語はご存知だと思います。
-この言語の素敵なところは色々なネタに比較的簡単に転用できるということです。&lt;/p&gt;
-
-&lt;p&gt;「え？どーゆーこと？」って思ったかたは、こちらの&lt;a href=&#34;http://kmaebashi.com/zakki/lang0003.html&#34;&gt;新プログラミング言語「BF-BASIC&amp;rsquo;n」&lt;/a&gt;をお読みください。&lt;/p&gt;
-
-&lt;p&gt;上記のページを読んで頂ければ、あとは自ずと本日のタイトルから察しがつくと思いますが、ようは上記ページにあるBF-BASIC&amp;rsquo;nのソースコードの12行目から21行目を以下のように書き換えます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;static Conv st_conv[] = {
-    {&#39;&amp;gt;&#39;, &amp;quot;じゃじゃーん、OpenStackDaysなのだ&amp;quot;},
-    {&#39;&amp;lt;&#39;, &amp;quot;あなたが昔作っていたOpenStackよ&amp;quot;},
-    {&#39;+&#39;, &amp;quot;オプ、&amp;quot;},
-    {&#39;-&#39;, &amp;quot;スタッ、&amp;quot;},
-    {&#39;.&#39;, &amp;quot;ンフー、ランニングゥゥゥ&amp;quot;},
-    {&#39;,&#39;, &amp;quot;あなた最近疲れ気味じゃない？&amp;quot;},
-    {&#39;[&#39;, &amp;quot;ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー&amp;quot;},
-    {&#39;]&#39;, &amp;quot;ヘー知ラナカッタナー、パパガ作ッテタンダァー&amp;quot;},
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そして書き換えたコードを例えば bf-openstacker.c という名前で保存し、以下のようにコンパイルします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gcc -o bf-openstacker bf-openstacker.c
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そして出来上がった bf-openstacker を使って Hello, world! と表示させるコードが以下になります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
-ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー
-じゃじゃーん、OpenStackDaysなのだ
-オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
-じゃじゃーん、OpenStackDaysなのだ
-オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、
-じゃじゃーん、OpenStackDaysなのだ
-オプ、オプ、オプ、オプ、オプ、
-あなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよあなたが昔作っていたOpenStackよ
-スタッ、ヘー知ラナカッタナー、パパガ作ッテタンダァー
-じゃじゃーん、OpenStackDaysなのだ
-ンフー、ランニングゥゥゥ
-じゃじゃーん、OpenStackDaysなのだ
-オプ、オプ、ンフー、ランニングゥゥゥ
-オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥンフー、ランニングゥゥゥ
-オプ、オプ、オプ、ンフー、ランニングゥゥゥ
-じゃじゃーん、OpenStackDaysなのだ
-スタッ、ンフー、ランニングゥゥゥ
-スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
-あなたが昔作っていたOpenStackよ
-オプ、オプ、オプ、オプ、オプ、オプ、オプ、オプ、ンフー、ランニングゥゥゥ
-スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
-オプ、オプ、オプ、ンフー、ランニングゥゥゥ
-スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
-スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、スタッ、ンフー、ランニングゥゥゥ
-じゃじゃーん、OpenStackDaysなのだ
-オプ、ンフー、ランニングゥゥゥ
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;このファイルを例えば helloworld.openstacker という名前で保存し、以下のように実行すれば見事に Hello, world! と表示されるはずです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ./bf-openstacker ./helloworld.openstacker
-Hello, world!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ということで、初日は技術的なことが一切書かれてなかったので、もしかすると「完全なネタ投稿だったら許されるかもしれないが、技術的なことは相当高いレベルの投稿をしないと駄目なんじゃないだろうか？」と不安に思われているかもしれませんが、本日のエントリのように技術的にもライトウェイトな内容でも全然問題ないですので、皆さんまだ空いている日に是非エントリしてみてください。&lt;/p&gt;
-
-&lt;p&gt;(来年からは「鰻ネタ禁止な」って言われそう…)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;蛇足ですが、12行目から21行目を以下のように書き換えることで…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;static Conv st_conv[] = {
-    {&#39;&amp;gt;&#39;, &amp;quot;すごく…大きいです…&amp;quot;},
-    {&#39;&amp;lt;&#39;, &amp;quot;腹ン中がパンパンだぞ&amp;quot;},
-    {&#39;+&#39;, &amp;quot;ウホッ！&amp;quot;},
-    {&#39;-&#39;, &amp;quot;いい男…&amp;quot;},
-    {&#39;.&#39;, &amp;quot;やらないか&amp;quot;},
-    {&#39;,&#39;, &amp;quot;阿部高和&amp;quot;},
-    {&#39;[&#39;, &amp;quot;ところで俺の&amp;quot;},
-    {&#39;]&#39;, &amp;quot;を見てくれ、こいつをどう思う？&amp;quot;},
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(以下、自重…&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -154,81 +62,7 @@ Hello, world!
 
 &lt;p&gt;ブログを書くのが実に半年ぶりなので、どう書いていいのやら、そもそも文章ってどう書くんだっけ？と戸惑いながら書いてますが、どうぞ最後までお読み頂けますと幸いです。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;で、そもそも OpenStacker でもない私が何で &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; のエントリを書いているのかと言うと、とある OpenStacker 達(個人の名誉のため OpenStacker 達の名前は伏せます)とチャットしてたら以下の動画がチャットに貼られまして、私の心を鷲掴みにしました。&lt;/p&gt;
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/pktaP-aM0N8&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
- &lt;/div&gt;
-
-
-&lt;p&gt;こ、これは…前に近所のスーパーで流れていた曲だ！まさかこんな素敵な動画が存在していたなんて！&lt;/p&gt;
-
-&lt;p&gt;運命の出逢いを果してからは、寝ても覚めても鰻師達が僕の頭の中で歌い続けます。そんな中、この動画を教えてくれた OpenStacker が言います。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;来年のdaysのテーマ曲にするかw&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;もう、そんなこと言われたら居ても立っても居られません。気付いたら以下のテキストを書いていました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;夫「ただいま」
-妻「おかえり、今日は早かったわね」
-夫「あぁ、まぁ、たまにはね」
-妻「あなた最近疲れ気味じゃない」
-妻「そうそう、今日何の日か知ってる？」
-夫「何の日だっけ」
-妻「じゃじゃーん、OpenStack Daysなのだ」
-妻「あなたが昔作っていたOpenStackよ」
-妻「昔はよく使っていたのにね〜」
-夫「そうだなぁ」
-娘「エ？ソンナニ使ッテタノ？」
-妻「ソウダヨォー、ダッテパパOpenStackerダッタンダヨォー」
-娘「ヘー知ラナカッタナー、パパガ作ッテタンダァー」
-夫「nova boot」
-妻「nova boot」
-娘「boot」
-夫「ンフー、ランニングゥゥゥ」
-
-♪
-魂込めて作りあげた 島国日本の心意気
-ホットアイルで暖をとり 冷えた指先温めて 徹夜を厭わず ラッキング 寝ちゃだめだ
-客の思いを 繋いだ線に乗せ
-日本の OpenStack 導入(いれ)てみな 動くぜぇ
-バグとともに朝を迎え バグとともに日が暮れる
-動く環境を作るため
-安心安全無停止
-こだわりぬいたこの環境 我らの誇り
-客の思いを 繋いだ線に乗せ
-日本の OpenStack 導入(いれ)てみな 動くぜぇ
-
-説明しよう
-日本の OpenStack は客の要望毎に設計・設定・構築をして、OpenStacker が血涙を流しながら作りました。仕様変更・要件変更にはヘコたれず、気合と気迫で納期を死守しました。日本のOpenStackerが提供する環境
-どうぞ導入してください
-
-客の思いを 繋いだ線に乗せ
-日本の OpenStack 導入(いれ)てみな 動くぜぇ
-オプ、スタッ、オプ、スタッ、オプ、スタッ、オプ、スタッ、オプ…
-
-夫「逝ってきます」
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;が、テキストを書いてみたものの、何か満されません。「そうだ！実際に替え歌を聴きたいんだ！動画が欲しいんだ！」と気付いたのですが、いかんせん僕は滑舌が悪い上に音感ゼロで音痴です。でも OpenStacker ですらない僕ですら OpenStack Days Tokyo のテーマソングを欲っしているんだから、きっと世の OpenStacker はこの替え歌を OpenStack Days Tokyo のテーマソングにしたいはずです。そうに違いない！(電波受信中)&lt;/p&gt;
-
-&lt;p&gt;ということで、上記のテキスト部分だけは音声ファイルにしてみました。どうぞお召しあがりください。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/sounds/openstack.adventcalendar.2016.1201-01.mp3&#34;&gt;じゃじゃ〜ん、OpenStack Days なのだ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.osamu.habuka.jp/sounds/openstack.adventcalendar.2016.1201-02.mp3&#34;&gt;説明しよう&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;願わくば OpenStack Days Tokyo 2017 実行委員会の中の人がこれを聴いて「よし作ろうじゃないか」と思い作ってくれることを願います。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;明日の &lt;a href=&#34;http://www.adventar.org/calendars/1739&#34;&gt;OpenStack Advent Calendar 2016&lt;/a&gt; 二日目のエントリは rafiror さんです。どうぞお楽しみに。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -241,69 +75,7 @@ Hello, world!
 
 &lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-00.jpg&#34; alt=&#34;旭山動物園号&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;裏を見るとネジが3つありますが、このネジを外すのが一番の難関です。というのもこのネジ穴の形状が三角で、一般家庭にはこのネジ穴に対応するドライバーが無いと思います。もちろん我が家にもありません。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-01.jpg&#34; alt=&#34;三角穴&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;なので、2.5mm程度のマイナスドライバーを三角の辺のひとつに合わせて回すと、ネジを外すことができます。写真だとよく見えませんが、以下のような感じです。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-02.jpg&#34; alt=&#34;三角穴とドライバー&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ネジを外して電車の外装を外すと頭の部分にちょこんと LED ライトと黒いカバーが見えますが、電池はこの黒いカバーの中に収納されてます。&lt;/p&gt;
-
-&lt;p&gt;この黒いカバーもネジで止められていますが、このネジはプラスドライバーで外すことができます。サイズは PH0 でいいと思います。ちなみに穴の形状は十字穴のH型なので PH0 で問題ないはずですが、ポジドライバー(PZ0)のほうがよりしっくりとマッチしている感じがしました、気のせいかもしれませんが…。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-03.jpg&#34; alt=&#34;電池カバー&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;電池カバーを外すと以下のようにボタン電池が3つ収納されているのが確認できます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-04.jpg&#34; alt=&#34;ボタン電池&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;このボタン電池は LR41 という型番で、&lt;a href=&#34;https://www.amazon.co.jp/dp/B005JR7ZH0&#34;&gt;Amazon であれば10個入り1シートが100円ちょっと&lt;/a&gt;で販売されてます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-05.jpg&#34; alt=&#34;SUNCOM LR41&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ボタン電池はぎっちりと入っていて指で取りづらいため、以下のようにマイナスドライバを隙間から差し込んでやると簡単に取ることができます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-06.jpg&#34; alt=&#34;ボタン電池の取り外し&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ボタン電池を入れる際には以下のように傾けて入れていくと楽かもしれません。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-07.jpg&#34; alt=&#34;ボタン電池の装着&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;あとはカバーや外装を元に戻してやれば完了です。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20160626-08.jpg&#34; alt=&#34;点灯&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ちなみにこの電車のネジですが、部品のコストを削減するためなのか材質が脆く、ネジを回す際にネジ頭がバカになるかもしれません。1度や2度の電池交換ぐらいは耐えられるかもしれませんが…。&lt;/p&gt;
-
-&lt;p&gt;一応「いつかネジをちゃんとしたものに交換しよう」と思い、各ネジの寸法を測ってみました。が、我が家にあるノギスはおもちゃのような作りなので、もしかすると0.1単位で誤差があるかもしれません。&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ネジ種&lt;/th&gt;
-&lt;th&gt;径&lt;/th&gt;
-&lt;th&gt;長さ&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;三角穴&lt;/td&gt;
-&lt;td&gt;3.0mm&lt;/td&gt;
-&lt;td&gt;7.5mm&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;十字穴&lt;/td&gt;
-&lt;td&gt;1.6mm&lt;/td&gt;
-&lt;td&gt;5.0mm&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -316,28 +88,7 @@ Hello, world!
 
 &lt;p&gt;今日は SkyDNS のバックエンドに etcd でなく DyamoDBを使ってみようという話です。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;皆さん大好き SkyDNS ですが、これを AWS の EC2 上で構築したときに必ず以下の課題に遭遇すると思います。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;冗長性を担保するために複数台構成にしよう&lt;/li&gt;
-&lt;li&gt;耐故障性を上げためにマルチ AZ 構成にしよう&lt;/li&gt;
-&lt;li&gt;あれ？ AZ 1つが丸々落ちても過半数を割らないようにするためには奇数にして…&lt;/li&gt;
-&lt;li&gt;うーん、マジョリティ側の AZ が落ちたらアウトだ…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;そーすると耐故障性を上げるどころの話じゃなくなってしまい、楽をするために導入しようとした SkyDNS が足枷になったりします。&lt;/p&gt;
-
-&lt;p&gt;でも思い出してみてください、AWS には DynamoDB という素敵なサービスがあります。SkyDNS にとっての etcd を単なるデータストアと割り切って見た場合、etcd の代用として DynamoDB が使えると思いませんか？いや、むしろ「代用」なんかじゃなく、SkyDNS を AWS で動かす場合には無くてはならない存在だと言えます。&lt;/p&gt;
-
-&lt;p&gt;じゃー SkyDNS は DynamoDB をデータストアとして使うことできるのか？と言うと、残念ながらそのままでは SkyDNS は DynamoDB をデータストアとして使うことができません。&lt;/p&gt;
-
-&lt;p&gt;しかし、我らが SkyDNS、ちゃんと &lt;a href=&#34;https://github.com/skynetservices/skydns/tree/master/backends&#34;&gt;etcd の部分を pluggable&lt;/a&gt; にしてあります。&lt;/p&gt;
-
-&lt;p&gt;ということで、etcd の代わりに DynamoDB を利用するコードを backend/ 配下に書いてみます。&lt;/p&gt;
-
-&lt;p&gt;が、すみませんがタイムアップでして、続きはまたこのエントリを更新します。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -350,72 +101,7 @@ Hello, world!
 
 &lt;p&gt;16日目のエントリなのに 16 日に公開できなくてごめんなさい…orz&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;このエントリでは SkyDNS の簡単な性能調査をしてみようと思います。&lt;/p&gt;
-
-&lt;p&gt;性能計測パターンは1台と3台の2構成で計測してみます。(本当はもっと台数を線形に増やしてみたいんですが、ちょっと時間的に辛いので、日和って3台までで…)&lt;/p&gt;
-
-&lt;p&gt;以下、簡単な環境情報です。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AMI: Amazon Linux AMI 2015.09.1 (HVM), SSD Volume Type - ami-383c1956&lt;/li&gt;
-&lt;li&gt;SkyDNS の Instance Type: t2.micro&lt;/li&gt;
-&lt;li&gt;負荷をかける側の Instance Type: t2.medium&lt;/li&gt;
-&lt;li&gt;SkyDNS:&lt;/li&gt;
-&lt;li&gt;etcd:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;1台構成時も3台構成時も1台のインスタンスに etcd と SkyDNS がそれぞれ配置されます。図にすると以下のような構成になります。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/DNS.adventcalendar.2015.1216-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;賢明な諸兄は「え？この構成なら何台構成になっても同じじゃね？」と気付いたと思いますが、まぁ何事もやってみないとわからないってことで、まずは1台構成から測定してみます。測定環境はこんな感じです。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/DNS.adventcalendar.2015.1216-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;蛇足かもしれませんが、Amazon Linux 上に SkyDNS 環境を構築する手順が以下になります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# yum install git
-# cd /usr/local/src/
-# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
-# tar -xzf go1.5.2.linux-amd64.tar.gz 
-# mv go /opt/
-# export GOPATH=/usr/local/go
-# export GOROOT=/opt/go
-# export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-# mkdir -p $GOPATH
-# go get github.com/coreos/etcd
-# cd $GOPATH/src/github.com/coreos/etcd/etcdctl
-# go install
-# go get github.com/skynetservices/skydns
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;一方、Amazon Linux 上に dnsperf をインストールする手順は以下です。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# yum --enablerepo=epel install dnsperf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;では早速 SkyDNS を起動させます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# etcd &amp;amp;
-# skydns -addr 0.0.0.0:53 &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;次に SkyDNS に今回の性能調査のためのデータを以下のように手抜きで投入します。(SkyDNS が起動しているホストで実行)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# for i in `seq 1 10000`; do echo $i | md5sum | sed -e &amp;quot;s|\([0-9a-f]*\)\s.*$|etcdctl set /skydns/local/skydns/\1 `printf &amp;quot;&#39;{\\&amp;quot;host\\&amp;quot;:\\&amp;quot;192.168.%d.%d\\&amp;quot;}&#39;&amp;quot; $(( ($i &amp;gt;&amp;gt; 8) &amp;amp; 0xff )) $(( $i &amp;amp; 0xff ))`|&amp;quot; | sh; done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;次に投入したデータを dnsperf で索くためのクエリを以下のように作成します。(dnsperf をインストールしたホストで実行)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# for i in `seq 1 10000`; do echo $i | md5sum | sed -e &amp;quot;s|\([0-9a-f]*\)\s.*$|\1.local.\tA|&amp;quot;; done &amp;gt; /tmp/queryfile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ちゃんと索けるかどうかを確認します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# dig @172.30.2.34 a `head -n 1 /tmp/queryfile`
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -430,160 +116,7 @@ Hello, world!
 
 &lt;p&gt;(が、思いっきり失敗談です…orz)&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;で、どんなものを作ろうとしているかをまず先に説明します。ざっと粗く書くと以下のような感じです。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-00.png&#34; alt=&#34;2015.1216-00&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;まずリポジトリは github 上にあるので OK で、LiveDVD Build Macine も既に ConoHa 上に存在し、ConoHa VM は事前に準備するものがないため、残る Drone の準備だけとなります。&lt;/p&gt;
-
-&lt;p&gt;drone.io のサービスを利用する方法とローカルに Drone を構築する方法がありますが、今回は ConoHa で起動したサーバ上で動かしてみます。&lt;/p&gt;
-
-&lt;p&gt;Drone のドキュメントを読むと手軽に環境を作る方法として Drone が配布している docker のイメージを利用する方法がありますので、まずは ConoHa で起動したサーバに docker をインストールするところから始めます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# yum install epel-release.noarch
-# yum install docker-io
-# service docker start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;相変わらずの簡単さですね。続いて Drone のイメージを準備します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# docker pull drone/drone:0.4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で続いて docker run をするんですが、その前に Drone の設定ファイルを準備します。公式ドキュメントには「dronerc ファイルを用意しろ」って書いてあるだけで具体的な設定例がドキュメント中には見当たらないため、ソースコード中に存在していた &lt;a href=&#34;https://github.com/drone/drone/blob/master/contrib/debian/drone/etc/drone/dronerc&#34;&gt;Debian 用の設定サンプル&lt;/a&gt; を参考に以下のような設定にしました。一部、github の固有情報はボヤかしてあります f^^;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-
-# server configuration
-
-#SERVER_ADDR=&amp;quot;:80&amp;quot;
-#SERVER_CERT=&amp;quot;&amp;quot;
-#SERVER_KEY=&amp;quot;&amp;quot;
-
-# database configuration
-
-DATABASE_DRIVER=&amp;quot;sqlite3&amp;quot;
-DATABASE_CONFIG=&amp;quot;/var/lib/drone/drone.sqlite&amp;quot;
-
-# remote configuration
-
-CLIENT=&amp;quot;xxxxxxxxxxxxxxxxxxxx&amp;quot; # oauth2 client. REQUIRED
-SECRET=&amp;quot;yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy&amp;quot; # oauth2 secret. REQUIRED
-
-REMOTE_DRIVER=&amp;quot;github&amp;quot;
-REMOTE_CONFIG=&amp;quot;https://github.com?client_id=$CLIENT&amp;amp;client_secret=$SECRET&amp;quot;
-
-# docker configuration
-
-DOCKER_HOST=&amp;quot;unix:///var/run/docker.sock&amp;quot;
-#DOCKER_CERT=&amp;quot;&amp;quot;
-#DOCKER_KEY=&amp;quot;&amp;quot;
-#DOCKER_CA=&amp;quot;&amp;quot;
-
-# plugin configuration
-
-PLUGIN_FILTER=&amp;quot;plugins/*&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、この内容を /etc/drone/dronerc としたら以下のように docker run します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker run \
---volume /var/lib/drone:/var/lib/drone \
---volume /var/run/docker.sock:/var/run/docker.sock \
---env-file /etc/drone/dronerc \
---restart=always \
---publish=80:8000 \
---detach=true \
---name=drone \
-drone/drone:0.4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、無事コンテナが起動したら、ブラウザでアクセスします。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;はい、とてもシンプルな画面が表示されました。続いて LOGIN をクリックすると github のアプリケーション認証画面に飛ばされ…&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;あれ？404だ…何故だ…？と思って URL をよく見ると…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;https://github.com/login/oauth/authorize?client_id=%24CLIENT&amp;amp;redirect_uri=.....(略)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？ client_id が dronerc に設定した値じゃなく変数名がそのまま入ってる…&lt;/p&gt;
-
-&lt;p&gt;しょうがないので URL の %24CLIENT の部分に github から払出された値を入れて手で URL を叩いてみると…&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;おぉ、なんとか表示されました。なので [Authorize application] をクリックすると…&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;パスワード入力画面に遷移するので、パスワードを入力すると…&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/ConoHa.adventcalendar.2015.1216-05.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;う…ん、何故でしょう？うまくいきません。&lt;/p&gt;
-
-&lt;p&gt;で調べてみたところ、$CLIENT が設定値に置き換えられずにそのまま渡されるのはどうやら &lt;a href=&#34;https://github.com/drone/drone/pull/1369&#34;&gt;0.4 のバグ&lt;/a&gt; っぽいです。&lt;/p&gt;
-
-&lt;p&gt;っていうことで、仕方ないので docker イメージは諦めて自分でビルドしてみることにします。&lt;/p&gt;
-
-&lt;p&gt;まず drone のコードを入手します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# export PATH=/opt/go/bin/:$PATH
-# export GOROOT=/opt/go
-# export GOPATH=/usr/local/go
-# cd /usr/local/go/src/github.com/
-# mkdir -p drone
-# cd drone/
-# git clone https://github.com/drone/drone.git
-# cd drone/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ここまでやっておきながらアレですが、素直に go get github.com/drone/drone すりゃぁよかったんじゃないかと…。気にせずに次続けます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# make deps gen
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;エラーになり、PuerkitoBio と gopkg.in/yaml.v2 がゲットできないと言ってコケます。なのでとりあえず手動で入れます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cd /usr/local/go/src/github.com/PuerkitoBio/
-# git clone https://github.com/PuerkitoBio/purell.git
-# go get gopkg.in/yaml.v2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;gopkg.in/yaml.v2 が返ってこなくなります。で、調べたところ&lt;a href=&#34;http://qiita.com/wappy100/items/05364b5c095e4bdc860b&#34;&gt;どうやら git のバージョンが古いせい&lt;/a&gt;らしいです。なので、git を新しくします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# yum remove git
-# yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
-# cd /usr/local/src/
-# wget https://www.kernel.org/pub/software/scm/git/git-2.6.2.tar.gz
-# tar -xzvf git-2.6.2.tar.gz 
-# cd git-2.6.2
-# make prefix=/usr/local all
-# make prefix=/usr/local install
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で再度 yaml.v2 をゲットします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# go get gopkg.in/yaml.v2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;続いて依存するのもをインストールします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cd /usr/local/go/src/github.com/drone/drone/
-# ./contrib/setup-sqlite.sh 
-# ./contrib/setup-sassc.sh 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うーん、GCC のバージョンが 4.6 以上じゃないと駄目と怒られます… CentOS 6 で GCC を 4.6 以上にするには…&lt;a href=&#34;https://github.com/FezVrasta/ark-server-tools/wiki/Install-of-required-versions-of-glibc-and-gcc-on-RHEL-CentOS&#34;&gt;ここ&lt;/a&gt;を読むと方法が書いてありますが、16日はタイムアップとなりました…。&lt;/p&gt;
-
-&lt;p&gt;中途半端な失敗談で申し訳ないですが、進展があったら継続してこのページを更新することにします。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -598,180 +131,7 @@ drone/drone:0.4
 
 &lt;p&gt;12日目のエントリでコンテナ内に /dev/tty が無くて上手く ssh 接続できないのを何とか解決してみようと試みました。本日はちょっと視点を変えて「先日公開されたばかりの Wakame-vdc の packer プラグインを使ってみたらどうよ？」をやってみたいと思います。(いつもどおり成功するか否かは不明です)&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;で、結果だけ書くとあっという間に終わってしまうので、折角なので一から書いてみます。&lt;/p&gt;
-
-&lt;p&gt;まずは packer をインストールします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mkdir -p /opt/packer
-# cd /opt/packer
-# wget https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_linux_amd64.zip
-# unzip packer_0.8.6_linux_amd64.zip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;packer のプラグイン用のディレクトリを掘ります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mkdir -p /root/.packer/plugins
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;プラグインをビルドするために go をインストールします。Wakame-vdc のために golang をインストールする時代が来るとは…面白い。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cd /opt
-# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
-# tar -xzvf go1.5.2.linux-amd64.tar.gz
-# export PATH=/opt/go/bin/:$PATH
-# export GOROOT=/opt/go
-# export GOPATH=/usr/local/go
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Packer の Wakame-vdc プラグインをビルドします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mkdir -p /usr/local/go/src/github.com/axsh
-# cd /usr/local/go/src/github.com/axsh
-# git clone https://github.com/axsh/wakame-vdc.git
-# cd wakame-vdc/
-# git checkout packer-builder
-# cd client/packer-builder-wakamevdc/
-# go get
-# go build
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ビルドが成功すると以下のようにプラグインのバイナリが生成されます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# ls -al
-合計 16128
-drwxr-xr-x 3 root root     4096 12月 14 03:40 2015 .
-drwxr-xr-x 7 root root     4096 12月 14 03:27 2015 ..
--rw-r--r-- 1 root root     1533 12月 14 03:27 2015 README.md
--rw-r--r-- 1 root root      288 12月 14 03:27 2015 main.go
--rwxr-xr-x 1 root root 16487528 12月 14 03:40 2015 packer-builder-wakamevdc
--rw-r--r-- 1 root root      535 12月 14 03:27 2015 test.json
-drwxr-xr-x 2 root root     4096 12月 14 03:27 2015 wakamevdc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;このバイナリをプラグイン用ディレクトリに置きます。(っていうか、packer と同じ場所に置いちゃ駄目なのかしら？)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mv packer-builder-wakamevdc /root/.packer/plugins/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;次にイメージを生成するための json ファイルを以下のように書きました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cat lxc-image.json
-{
-  &amp;quot;builders&amp;quot;: [
-    {
-      &amp;quot;type&amp;quot;: &amp;quot;wakamevdc&amp;quot;,
-      &amp;quot;api_endpoint&amp;quot;: &amp;quot;http://133.130.109.122:9001/api/12.03/&amp;quot;,
-      &amp;quot;image_id&amp;quot;: &amp;quot;wmi-centos1d64&amp;quot;,
-      &amp;quot;hypervisor&amp;quot;: &amp;quot;lxc&amp;quot;,
-      &amp;quot;cpu_cores&amp;quot;: 1,
-      &amp;quot;memory_size&amp;quot;: 1024,
-      &amp;quot;network_id&amp;quot;: &amp;quot;nw-demo1&amp;quot;,
-      &amp;quot;ssh_username&amp;quot;: &amp;quot;root&amp;quot;,
-      &amp;quot;ssh_timeout&amp;quot;: &amp;quot;60m&amp;quot;
-    }
-  ],
-  &amp;quot;provisioners&amp;quot;: [
-    {
-      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
-      &amp;quot;inline&amp;quot;: [
-        &amp;quot;echo RUN Provisioner.&amp;quot;,
-        &amp;quot;echo \&amp;quot;nameserver 8.8.8.8\&amp;quot; &amp;gt;&amp;gt; /etc/resolve.conf&amp;quot;,
-        &amp;quot;yum install -y httpd&amp;quot;
-      ]
-    }
-  ]
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;じゃーイメージをビルドしてみましょう。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# packer build lxc-image.json 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うーん、実行したのはいいがコマンドが全然返ってきません。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# ls -al
-合計 28
-drwxr-xr-x 3 root root 4096 12月 14 04:05 2015 .
-drwxr-xr-x 7 root root 4096 12月 14 03:27 2015 ..
--rw-r--r-- 1 root root 1533 12月 14 03:27 2015 README.md
--rw-r--r-- 1 root root    0 12月 14 04:05 2015 build.hwm
--rw-r--r-- 1 root root    0 12月 14 04:05 2015 build.pwd
--rw-r--r-- 1 root root    0 12月 14 04:05 2015 build.pwi
--rw-r--r-- 1 root root  538 12月 14 04:04 2015 lxc-image.json
--rw-r--r-- 1 root root  288 12月 14 03:27 2015 main.go
--rw-r--r-- 1 root root  535 12月 14 03:27 2015 test.json
-drwxr-xr-x 2 root root 4096 12月 14 03:27 2015 wakamevdc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;実行したディレクトリに build.hwm、build.pwd、build.pwi という3つのファイルが出きてます…何だこれ？
-packer を初めて叩くのがバレバレですね…f^^;&lt;/p&gt;
-
-&lt;p&gt;ふと「あれ？ packer を /opt/packer に配置したけど PATH を通した覚えがないのに何でコマンドが実行できるんだ？と思い確認しますと…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# which packer
-/usr/sbin/packer
-# ls -al /usr/sbin/packer
-lrwxrwxrwx. 1 root root 15  8月 21 10:41 2015 /usr/sbin/packer -&amp;gt; cracklib-packer
-# rpm -qf /usr/sbin/packer
-cracklib-dicts-2.8.16-4.el6.x86_64
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？他人の空似だった…。&lt;/p&gt;
-
-&lt;p&gt;気を取り直してもう一度実行します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# /opt/packer/packer build lxc-image.json 
-Failed to initialize build &#39;wakamevdc&#39;: builder type not found: wakamevdc
-wakamevdc output will be in this color.
-
-
-==&amp;gt; Builds finished but no artifacts were created.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？ wakamevdc が builder type として認識されていない…。面倒なのでプラグインを packer のディレクトリに移動して再度実行してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mv /root/.packer/plugins/packer-builder-wakamevdc /opt/packer/
-# /opt/packer/packer build lxc-image.json 
-wakamevdc output will be in this color.
-
-==&amp;gt; wakamevdc: Creating SSH Key...
-==&amp;gt; wakamevdc: New SSH Key: ssh-ct81jnos
-==&amp;gt; wakamevdc: Creating Security Group...
-==&amp;gt; wakamevdc: New Security Group: sg-o0q0dfjn
-==&amp;gt; wakamevdc: Creating instance...
-==&amp;gt; wakamevdc: Error creating instance: API Error: Type: Dcmgr::Endpoints::Errors::InvalidImageID, Code: 137, Message: Dcmgr::Endpoints::Errors::InvalidImageID, (HTTP 400)
-==&amp;gt; wakamevdc: Deleting temporary ssh key...
-==&amp;gt; wakamevdc: Deleting temporary security group...
-Build &#39;wakamevdc&#39; errored: Error creating instance: API Error: Type: Dcmgr::Endpoints::Errors::InvalidImageID, Code: 137, Message: Dcmgr::Endpoints::Errors::InvalidImageID, (HTTP 400)
-
-==&amp;gt; Some builds didn&#39;t complete successfully and had errors:
---&amp;gt; wakamevdc: Error creating instance: API Error: Type: Dcmgr::Endpoints::Errors::InvalidImageID, Code: 137, Message: Dcmgr::Endpoints::Errors::InvalidImageID, (HTTP 400)
-
-==&amp;gt; Builds finished but no artifacts were created.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あぁ…っ、ひどい勘違いをしていたことに気付きました…。もしかしてこの packer プラグインはベースとなるイメージから作るものなのかな？って。ちょっと Wakame-vdc の中の人に聞いてみることにします。&lt;/p&gt;
-
-&lt;p&gt;一応 image_id に Wakame-vdc LiveDVD に登録されている image_id を指定して再実行してみます。(が、12日目のエントリに書いたように ssh 接続できないから無理だと思いますが…)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# /opt/packer/packer build lxc-image.json 
-wakamevdc output will be in this color.
-
-==&amp;gt; wakamevdc: Creating SSH Key...
-==&amp;gt; wakamevdc: New SSH Key: ssh-uvqidt9o
-==&amp;gt; wakamevdc: Creating Security Group...
-==&amp;gt; wakamevdc: New Security Group: sg-2z9mjrrj
-==&amp;gt; wakamevdc: Creating instance...
-==&amp;gt; wakamevdc: Waiting for instance to become running......
-==&amp;gt; wakamevdc: Waiting for SSH to become available...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;はい、このまま数十分待っても返ってきません。やっぱりログインできるマシンイメージを用意することが最重要なので、これも Wakame-vdc の中の人に質問することにします。&lt;/p&gt;
-
-&lt;p&gt;今日はこれまで。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -784,208 +144,7 @@ wakamevdc output will be in this color.
 
 &lt;p&gt;11日目のエントリにて lxc のコンテナが起動できるようにすることができたので、本当はもう少しちゃんとしたパッチを書きたいところですが、その前に11日目のエントリで充分か否かを先に検証したいので、本日は起動したコンテナに接続できるかどうかを確認したいと思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;起動したコンテナに早速 ssh で接続…11日目のエントリでは「ssh で接続するもいつまで待ってもログインプロンプトが返ってこない」という現象や「エンターキーを押す毎にプロンプトの表示がホストマシンのものとコンテナのものとがサイクリックに切り替わる」という不思議満点な状況でした。(動画にでも撮っておけばよかった…)&lt;/p&gt;
-
-&lt;p&gt;で今日の環境は手作業修正によるものではなく、パッチを当てた LiveDVD から起動してみましたが、やはり「ssh で接続するもいつまで待ってもログインプロンプトが返ってこない」という状況でした。&lt;/p&gt;
-
-&lt;p&gt;なのでまずは現状の確認を行ないます。まず、コンテナの lxc 設定ですが、以下のようになっています。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# cat /var/lib/wakame-vdc/instances/i-kg0uuloj/lxc.conf 
-lxc.utsname = i-kg0uuloj
-
-lxc.network.type = veth
-lxc.network.link = br0
-
-lxc.network.veth.pair = vif-3kd9fd4z
-lxc.network.hwaddr = 52:54:00:c3:2f:4f
-lxc.network.flags = up
-lxc.tty = 4
-lxc.pts = 1024
-lxc.rootfs = /var/lib/wakame-vdc/instances/i-kg0uuloj/rootfs
-lxc.rootfs.mount = /var/lib/wakame-vdc/instances/i-kg0uuloj/rootfs
-lxc.mount.entry = proc        /proc                   proc    defaults        0 0
-lxc.mount.entry = sysfs       /sys                    sysfs   defaults        0 0
-#lxc.mount = /var/lib/wakame-vdc/instances/i-kg0uuloj/fstab
-#lxc.cap.drop = mac_admin sys_boot
-lxc.cgroup.devices.deny = a
-# /dev/null and zero
-lxc.cgroup.devices.allow = c 1:3 rwm
-lxc.cgroup.devices.allow = c 1:5 rwm
-# consoles
-lxc.cgroup.devices.allow = c 5:0 rwm
-lxc.cgroup.devices.allow = c 5:1 rwm
-lxc.cgroup.devices.allow = c 4:0 rwm
-lxc.cgroup.devices.allow = c 4:1 rwm
-# /dev/{,u}random&amp;quot;
-lxc.cgroup.devices.allow = c 1:9 rwm
-lxc.cgroup.devices.allow = c 1:8 rwm
-lxc.cgroup.devices.allow = c 136:* rwm
-lxc.cgroup.devices.allow = c 5:2 rwm
-# /dev/rtc
-lxc.cgroup.devices.allow = c 254:0 rwm
-# /dev/kvm
-#lxc.cgroup.devices.allow = c 10:232 rwm
-#lxc.cgroup.devices.allow = c 10:200 rwm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;う〜ん、特に変な設定は見当たらないですね…。次にコンテナの内部を見てみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# lxc-ls 
-i-kg0uuloj
-
-[root@host-133-130-109-122 wakame]# lxc-attach --name=i-kg0uuloj
-
-[root@kg0uuloj /]# ip a
-4: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
-    link/ether 52:54:00:c3:2f:4f brd ff:ff:ff:ff:ff:ff
-    inet 192.0.2.20/24 brd 192.0.2.255 scope global eth0
-    inet6 fe80::5054:ff:fec3:2f4f/64 scope link 
-       valid_lft forever preferred_lft forever
-6: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN 
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-[root@kg0uuloj /]# ps auxwww|grep ssh
-root       407  0.0  0.0  66688  1220 ?        Ss   01:59   0:00 /usr/sbin/sshd
-root       540  0.0  0.0  94252  4296 ?        Ss   02:02   0:00 sshd: root@pts/0 
-root       561  0.0  0.0  94252  4296 ?        Ss   02:10   0:00 sshd: root@pts/1 
-root       716  0.0  0.0 107456   932 pts/8    S+   12:47   0:00 grep ssh
-
-
-
-[root@kg0uuloj /]# /etc/init.d/sshd status
-openssh-daemon (pid  407) を実行中...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;はい、ちゃんと NIC に IP が振られ、ssh もちゃんと起動しています。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@kg0uuloj /]# ls -al /home/
-合計 12
-drwxr-xr-x  3 root       root       4096  4月 19 17:29 2015 .
-dr-xr-xr-x 23 root       root       4096 12月 10 01:59 2015 ..
-drwx------  2 wakame-vdc wakame-vdc 4096  4月 19 17:29 2015 wakame-vdc
-
-# getent shadow wakame-vdc
-wakame-vdc:$6$o0NRcBn2YU/D00L$ZfpDzmFviu/YNwJDgI/QNZuLdE.JibVMBEhIs45P2C/GQnZ71bnDofck8U.hk61CvqlgcZfg0vxFLLRes5Pw2/:16544:0:99999:7:::
-
-[root@kg0uuloj /]# ls -al /home/wakame-vdc/
-合計 20
-drwx------ 2 wakame-vdc wakame-vdc 4096  4月 19 17:29 2015 .
-drwxr-xr-x 3 root       root       4096  4月 19 17:29 2015 ..
--rw-r--r-- 1 wakame-vdc wakame-vdc   18 10月 16 22:56 2014 .bash_logout
--rw-r--r-- 1 wakame-vdc wakame-vdc  176 10月 16 22:56 2014 .bash_profile
--rw-r--r-- 1 wakame-vdc wakame-vdc  134  4月 19 17:29 2015 .bashrc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;wakame-vdc というユーザが作成されており、何らかのパスワードが設定されてはいますが、ssh の鍵は設定されていないようです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@kg0uuloj /]# ls -al /root/
-合計 32
-dr-xr-x---  3 root root 4096 12月 10 01:59 2015 .
-dr-xr-xr-x 23 root root 4096 12月 10 01:59 2015 ..
--rw-r--r--  1 root root   18  5月 20 19:45 2009 .bash_logout
--rw-r--r--  1 root root  176  5月 20 19:45 2009 .bash_profile
--rw-r--r--  1 root root  176  9月 23 12:59 2004 .bashrc
--rw-r--r--  1 root root  100  9月 23 12:59 2004 .cshrc
-drwx------  2 root root 4096 12月 10 01:59 2015 .ssh
--rw-r--r--  1 root root  129 12月  4 06:42 2004 .tcshrc
-[root@kg0uuloj /]# ls -al /root/.ssh/
-合計 12
-drwx------ 2 root root 4096 12月 10 01:59 2015 .
-dr-xr-x--- 3 root root 4096 12月 10 01:59 2015 ..
--rw------- 1 root root  396 12月 10 01:59 2015 authorized_keys
-
-[root@kg0uuloj /]# cat /root/.ssh/authorized_keys 
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZhAOcHSe4aY8GwwLCJ4Et3qUBcyVPokFoCyCrtTZJVUU++B9554ahiVcrQCbfuDlaXV2ZCfIND+5N1UEk5umMoQG1aPBw9Nz9wspMpWiTKGOAm99yR9aZeNbUi8zAfyYnjrpuRUKCH1UPmh6EDaryFNDsxInmaZZ6701PgT++cZ3Vy/r1bmb93YvpV+hfaL/FmY3Cu8n+WJSoJQZ4eCMJ+4Pw/pkxjfuLUw3mFl40RVAlwlTuf1I4bB/m1mjlmirBEU6+CWLGYUNWDKaFBpJcGB6sXoQDS4FvlV92tUAEKIBWG5ma0EXBdJQBi1XxSCU2p7XMX8DhS7Gj/TSu7011 wakame-vdc.pem
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;一方で root ユーザには ssh 鍵が設定されていました。中身を見ると起動時に指定した LiveDVD のデモ用の ssh 鍵でした。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@kg0uuloj /]# grep -v ^# /etc/ssh/sshd_config |grep -v ^$
-Protocol 2
-SyslogFacility AUTHPRIV
-PermitRootLogin yes
-PasswordAuthentication no
-ChallengeResponseAuthentication no
-GSSAPIAuthentication no
-GSSAPICleanupCredentials yes
-UsePAM yes
-AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
-AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
-AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
-AcceptEnv XMODIFIERS
-X11Forwarding yes
-UseDNS no
-Subsystem   sftp    /usr/libexec/openssh/sftp-server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;sshd の設定を見ると、root ユーザのログインは許可されておりますが、PasswordAuthentication も ChallengeResponseAuthentication も no になっているため、既定で設定されている wakame-vdc にはログインできなさそうです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# ssh -l wakame-vdc 192.0.2.20
-Permission denied (publickey).
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ね、ほら。&lt;/p&gt;
-
-&lt;p&gt;では、root ユーザでログインしたときはコンテナにそもそもちゃんとアクセスできているのか…？ですが、/var/log/secure を見ると以下のようなログが残っていました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Dec 10 15:39:23 kg0uuloj sshd[835]: Accepted publickey for root from 192.0.2.1 port 43501 ssh2
-Dec 10 15:39:23 kg0uuloj sshd[835]: pam_unix(sshd:session): session opened for user root by (uid=0)
-Dec 10 15:39:23 kg0uuloj sshd[837]: error: ioctl(TIOCSCTTY): Operation not permitted
-Dec 10 15:39:23 kg0uuloj sshd[837]: error: open /dev/tty failed - could not set controlling tty: No such file or directory
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;tty が無いって言ってますね…。そりゃぁログインができないわけです…。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@hongo0u5 /]# ls -al /dev/|grep tty
-crw-------  1 root tty  136, 4 12月 12 20:21 2015 console
-crw-------  1 root root 136, 0 12月 12 20:21 2015 tty1
-crw-------  1 root root 136, 1 12月 12 20:21 2015 tty2
-crw-------  1 root root 136, 2 12月 12 20:21 2015 tty3
-crw-------  1 root root 136, 3 12月 12 20:21 2015 tty4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ちなみに Wakame-vdc と関係なく lxc-create -t centos で作成したコンテナの中身を見てみると…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@centos /]# ls -al /dev/|grep tty
-crw-rw-rw-  1 root root 5, 0 12月 10 05:49 2015 tty
-crw-rw-rw-  1 root root 4, 0 12月 10 05:49 2015 tty0
-lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty1 -&amp;gt; lxc/tty1
-lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty2 -&amp;gt; lxc/tty2
-lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty3 -&amp;gt; lxc/tty3
-lrwxrwxrwx  1 root root    8 12月 10 05:50 2015 tty4 -&amp;gt; lxc/tty4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;はい、ちゃんと /dev/tty が存在しています。あと気になるのが、tty1〜tty4 に違いがあることとか…&lt;/p&gt;
-
-&lt;p&gt;tty1〜tty4 の違いは別として、とりあえず tty と tty0 を作ってみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@hongo0u5 /]# mknod -m 666 /dev/tty c 5 0
-[root@hongo0u5 /]# mknod -m 666 /dev/tty0 c 4 0
-[root@hongo0u5 /]# ls -al /dev/|grep tty
-crw-------  1 root tty  136, 4 12月 12 20:21 2015 console
-crw-rw-rw-  1 root root   5, 0 12月 12 20:38 2015 tty
-crw-rw-rw-  1 root root   4, 0 12月 12 20:38 2015 tty0
-crw-------  1 root root 136, 0 12月 12 20:21 2015 tty1
-crw-------  1 root root 136, 1 12月 12 20:21 2015 tty2
-crw-------  1 root root 136, 2 12月 12 20:21 2015 tty3
-crw-------  1 root root 136, 3 12月 12 20:21 2015 tty4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、再度コンテナに ssh してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Dec 12 20:44:37 hongo0u5 sshd[570]: Accepted publickey for root from 192.0.2.1 port 43663 ssh2
-Dec 12 20:44:37 hongo0u5 sshd[570]: pam_unix(sshd:session): session opened for user root by (uid=0)
-Dec 12 20:44:37 hongo0u5 sshd[572]: error: ioctl(TIOCSCTTY): Operation not permitted
-Dec 12 20:44:37 hongo0u5 sshd[572]: error: open /dev/tty failed - could not set controlling tty: No such device or address
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;う〜ん、やっぱりログインできません…。が、エラーが「No such file or directory」から「No such device or address」に変化しています。&lt;/p&gt;
-
-&lt;p&gt;うむむぅ…。続きはまた明日…。(「また明日」って、既にこのエントリを書いている時点で13日に入ってしまいましたが…f^^;)&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1000,227 +159,7 @@ Dec 12 20:44:37 hongo0u5 sshd[572]: error: open /dev/tty failed - could not set 
 
 &lt;p&gt;インスタンスを起動したときに isono がタイムアウトになるのって度々遭遇していたことをすっかり忘れていました。そう&lt;a href=&#34;https://github.com/axsh/iso-no-wakame/issues/11&#34;&gt;このチケット&lt;/a&gt;で。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;RabbitMQ のデフォルト値では disk_free_limit が 1GB なんですよね。なので、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# df -h
-Filesystem           Size  Used Avail Use% Mounted on
-rootfs               4.0G  3.0G  960M  76% /
-devtmpfs             3.9G  196K  3.9G   1% /dev
-tmpfs                4.0G   76K  4.0G   1% /dev/shm
-/dev/sr0             1.2G  1.2G     0 100% /dev/.initramfs/live
-/dev/mapper/live-rw  4.0G  3.0G  960M  76% /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;起動した直後で既に 1GB を下回っているので、いつリソース不足になって上記の件が再現してもおかしくない状況でした。事実、インスタンスを起動すると当然ながらディスクの空き容量は減っていき…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@host-133-130-109-122 wakame]# df -h
-Filesystem           Size  Used Avail Use% Mounted on
-rootfs               4.0G  3.6G  334M  92% /
-devtmpfs             3.9G  196K  3.9G   1% /dev
-tmpfs                4.0G   76K  4.0G   1% /dev/shm
-/dev/sr0             1.2G  1.2G     0 100% /dev/.initramfs/live
-/dev/mapper/live-rw  4.0G  3.6G  334M  92% /
-
-[root@host-133-130-109-122 wakame]# rabbitmqctl list_connections
-Listing connections ...
-guest   127.0.0.1   33257   blocked
-guest   127.0.0.1   33260   blocked
-guest   127.0.0.1   33277   blocking
-...done.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ってな感じで blocked になってしまってました。&lt;/p&gt;
-
-&lt;p&gt;なので、以下を /etc/rabbitmq/rabbitmq.config として保存し、RabbitMQ を再起動します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[
-  {rabbit, [{disk_free_limit, 100000000}]}
-].
-
-# service rabbitmq-server restart
-Restarting rabbitmq-server: SUCCESS
-rabbitmq-server.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;忘れずに cgroup もマウントします&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mkdir -p /lxc/cgroup
-# mount -t cgroup lxc /lxc/cgroup
-# mount
-rootfs on / type rootfs (rw)
-proc on /proc type proc (rw,relatime)
-sysfs on /sys type sysfs (rw,relatime)
-devtmpfs on /dev type devtmpfs (rw,relatime,size=4085268k,nr_inodes=1021317,mode=755)
-devpts on /dev/pts type devpts (rw,relatime,gid=5,mode=620,ptmxmode=000)
-tmpfs on /dev/shm type tmpfs (rw,relatime)
-/dev/sr0 on /dev/.initramfs/live type iso9660 (ro,relatime)
-/dev/mapper/live-rw on / type ext3 (rw,relatime,errors=continue,user_xattr,acl,barrier=1,data=ordered)
-/proc/bus/usb on /proc/bus/usb type usbfs (rw,relatime)
-none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,relatime)
-lxc on /lxc/cgroup type cgroup (rw,relatime,net_prio,perf_event,blkio,net_cls,freezer,devices,memory,cpuacct,cpu,ns,cpuset)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、インスタンスを起動してみました…が起動はまたもや失敗しました。以下がそのログ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;2015-12-09 17:17:27 JobContext thr=LocalStore[0/2] [INFO]: Job start 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 (Local ID: 2175efba40f1f3db3a16d06422e38587931e32bd)[ run_local_store ]
-I, [2015-12-09T17:17:27.080397 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Booting i-ahmv9hlu: phase 1
-I, [2015-12-09T17:17:27.161798 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Creating volume vol-fx5ipori from bo-centos66.
-I, [2015-12-09T17:17:27.187042 #4706]  INFO -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-ahmv9hlu/vol-fx5ipori
-I, [2015-12-09T17:17:27.187352 #4706]  INFO -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-ahmv9hlu/vol-fx5ipori
-D, [2015-12-09T17:17:52.871466 #4706] DEBUG -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 4802
-##STDERR=&amp;gt;
-[=====================================================================] 100000%
-2015-12-09 17:17:52 JobContext thr=LocalStore[0/2] [INFO]: Job complete 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 (Local ID: 2175efba40f1f3db3a16d06422e38587931e32bd)[ run_local_store ]: 25.803586863 sec
-2015-12-09 17:17:52 JobContext thr=JobWorker[0/1] [INFO]: Job start 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 (Local ID: ce60e0faf6159d41fa1c1dfbe7bf29e481dae4f9)[ run_local_store ]
-I, [2015-12-09T17:17:52.886761 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Booting instance
-I, [2015-12-09T17:17:52.923605 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: lxc-version: 1.0.8
-I, [2015-12-09T17:17:52.924086 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Setting up metadata drive image:i-ahmv9hlu
-I, [2015-12-09T17:17:52.924258 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: /usr/bin/truncate -s 10m &#39;/var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img&#39;
-D, [2015-12-09T17:17:52.929614 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 4832
-I, [2015-12-09T17:17:52.929811 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: parted /var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img &amp;lt; /opt/axsh/wakame-vdc/dcmgr/templates/linux/metadata.parted
-D, [2015-12-09T17:17:52.942831 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 4833
-##STDOUT=&amp;gt;
-GNU Parted 2.1
-Using /var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img
-Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands.
-(parted) mklabel msdos                                                    
-(parted) mkpart primary fat32 1 10m                                       
-(parted) quit                                                             
-I, [2015-12-09T17:17:52.942999 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: kpartx -av /var/lib/wakame-vdc/instances/i-ahmv9hlu/metadata.img
-D, [2015-12-09T17:17:52.991573 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 4835
-##STDOUT=&amp;gt;
-add map loop5p1 (253:4): 0 18432 linear /dev/loop5 2048
-I, [2015-12-09T17:17:52.991727 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: udevadm settle
-D, [2015-12-09T17:17:53.050253 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5098
-I, [2015-12-09T17:17:53.050422 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: mkfs -t vfat -n METADATA /dev/mapper/loop5p1
-D, [2015-12-09T17:17:53.059890 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5229
-##STDOUT=&amp;gt;
-mkfs.vfat 3.0.9 (31 Jan 2010)
-unable to get drive geometry, using default 255/63
-I, [2015-12-09T17:17:53.060104 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: /bin/mount -t vfat /dev/mapper/loop5p1 &#39;/var/lib/wakame-vdc/instances/i-ahmv9hlu/tmp&#39;
-D, [2015-12-09T17:17:53.085562 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5231
-I, [2015-12-09T17:17:53.087868 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: /bin/umount -l /var/lib/wakame-vdc/instances/i-ahmv9hlu/tmp
-D, [2015-12-09T17:17:53.097684 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5239
-I, [2015-12-09T17:17:53.100518 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: dmsetup info /dev/mapper/loop5p1
-D, [2015-12-09T17:17:53.106061 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5243
-##STDOUT=&amp;gt;
-Name:              loop5p1
-State:             ACTIVE
-Read Ahead:        256
-Tables present:    LIVE
-Open count:        0
-Event number:      0
-Major, minor:      253, 4
-Number of targets: 1
-UUID: part1-loop5
-I, [2015-12-09T17:17:53.106330 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: dmsetup remove /dev/mapper/loop5p1
-D, [2015-12-09T17:17:53.130505 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5245
-I, [2015-12-09T17:17:53.130607 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Detached partition from devmapper: /dev/mapper/loop5p1
-I, [2015-12-09T17:17:53.130694 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: udevadm settle
-D, [2015-12-09T17:17:53.136577 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5249
-I, [2015-12-09T17:17:53.136757 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: losetup -d /dev/loop5
-D, [2015-12-09T17:17:53.141609 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5251
-I, [2015-12-09T17:17:53.141725 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Detached from loop device: /dev/loop5
-I, [2015-12-09T17:17:54.166413 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
-D, [2015-12-09T17:17:54.172032 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: fail (exit code=1)
-Command PID: 5307
-##STDERR=&amp;gt;
-A template must be specified.
-Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
-E, [2015-12-09T17:17:54.172207 #4706] ERROR -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Dcmgr::Helpers::CliHelper::ShellRunner::CommandError Unexpected exit code=1: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
-Command PID: 5307
-##STDERR=&amp;gt;
-A template must be specified.
-Use &amp;quot;none&amp;quot; if you really want a container without a rootfs. from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
-2015-12-09 17:17:54 JobContext thr=JobWorker[0/1] [ERROR]: Job failed 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6 [ run_local_store ]: Unexpected exit code=1: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
-Command PID: 5307
-##STDERR=&amp;gt;
-A template must be specified.
-Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
-2015-12-09 17:17:54 JobContext thr=JobWorker[0/1] [ERROR]: Caught Dcmgr::Helpers::CliHelper::ShellRunner::CommandError: Unexpected exit code=1: lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu
-Command PID: 5307
-##STDERR=&amp;gt;
-A template must be specified.
-Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:189:in `tap&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:189:in `run!&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:106:in `sh&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:65:in `run_instance&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:178:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:178:in `invoke!&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:249:in `invoke&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:323:in `block in &amp;lt;class:HvaHandler&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
-I, [2015-12-09T17:17:54.173472 #4706]  INFO -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: teminating instance
-I, [2015-12-09T17:17:54.173666 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: lxc-stop -n i-ahmv9hlu
-D, [2015-12-09T17:17:54.198187 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: fail (exit code=2)
-Command PID: 5308
-##STDERR=&amp;gt;
-i-ahmv9hlu is not running
-I, [2015-12-09T17:17:54.198349 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: lxc-wait -n i-ahmv9hlu -s STOPPED
-D, [2015-12-09T17:17:54.208155 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5310
-I, [2015-12-09T17:17:54.208413 #4706]  INFO -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: umount /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata
-D, [2015-12-09T17:17:54.212985 #4706] DEBUG -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: fail (exit code=1)
-Command PID: 5314
-##STDERR=&amp;gt;
-umount: /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata: not found
-E, [2015-12-09T17:17:54.213209 #4706] ERROR -- Lxc: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Dcmgr::Helpers::CliHelper::ShellRunner::CommandError Unexpected exit code=1: umount /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata
-Command PID: 5314
-##STDERR=&amp;gt;
-umount: /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata: not found from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
-E, [2015-12-09T17:17:54.213340 #4706] ERROR -- HvaHandler: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Instance UUID: i-ahmv9hlu: Ignoring error: Dcmgr::Helpers::CliHelper::ShellRunner::CommandError Unexpected exit code=1: umount /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata
-Command PID: 5314
-##STDERR=&amp;gt;
-umount: /var/lib/wakame-vdc/instances/i-ahmv9hlu/rootfs/metadata: not found from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/helpers/cli_helper.rb:191:in `block in run!&#39;
-I, [2015-12-09T17:17:54.220496 #4706]  INFO -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-ahmv9hlu/vol-fx5ipori&#39;
-D, [2015-12-09T17:17:54.334738 #4706] DEBUG -- LinuxLocalStore: Session ID: 69fba0c3cfb52b57c1fbaf92a0793258ff918ab6: Command Result: success (exit code=0)
-Command PID: 5315
-D, [2015-12-09T17:17:54.345632 #4706] DEBUG -- ServiceNetfilter: event caught: hva.nodeca2c0d6acf66/vnic_destroyed: vif-z5cywgjf
-D, [2015-12-09T17:17:54.345747 #4706] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-z5cywgjf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うん、長いですね。&lt;/p&gt;
-
-&lt;p&gt;lxc-create -f /var/lib/wakame-vdc/instances/i-ahmv9hlu/lxc.conf -n i-ahmv9hlu を実行したのに対して、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;A template must be specified.
-Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;だそうです。いやいや、rootfs 無しなコンテナを作りたいんじゃないんですけどね。で、どうやらメッセージによると template は must be specified らしいので、lxc-create 自体を改造しなきゃならないのかしら〜？って途方に暮れかけてたところ、&lt;a href=&#34;http://stackoverflow.com/questions/26442257/how-to-create-a-lxc-container-without-rootfs&#34;&gt;「-t /bin/true で試してみろよ」っていう男気溢れる回答があった&lt;/a&gt; ので、&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb#L65&#34;&gt;hva の lxc.rb&lt;/a&gt; をイジって、無理矢理「-t /bin/true」を付けてみます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1211-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;はい、UI 上は起動したように見えます。では ssh で接続してみましょう。 えーと、結論だけ言うと、ホスト側の環境が変な挙動をするようになってしまいました f^^;&lt;/p&gt;
-
-&lt;p&gt;明日はこれらの変更点を LiveDVD に反映させてみます。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1231,146 +170,7 @@ Use &amp;quot;none&amp;quot; if you really want a container without a rootfs.
       <guid>http://blog.osamu.habuka.jp/post/2015-12-09-wakame-vdc-advent-calendar-2015-day10/</guid>
       <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の10日目のエントリです。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;むぅ…先日とは違うけど、やっぱりタイムアウトになって起動できず…。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cat /var/log/wakame-vdc/hva.log
-D, [2015-12-08T18:36:00.942307 #3501] DEBUG -- ServiceNetfilter: Subscribing to: hva.node2ebd61a1c668/vnic_created
-D, [2015-12-08T18:36:00.942558 #3501] DEBUG -- ServiceNetfilter: Subscribing to: hva.node2ebd61a1c668/vnic_destroyed
-D, [2015-12-08T18:36:00.942689 #3501] DEBUG -- ServiceNetfilter: Subscribing to: broadcast/debug/vnet
-2015-12-08 18:36:00 Node thr=#&amp;lt;Thread:0x007f400c993d58&amp;gt; [INFO]: Started : AMQP Server=amqp://127.0.0.1/, ID=hva.node2ebd61a1c668, token=4a2c3
-I, [2015-12-08T18:36:00.943946 #3501]  INFO -- NetfilterCache: updating cache from database
-2015-12-08 18:38:53 JobContext thr=LocalStore[1/2] [INFO]: Job start 38e342ad524c2ced688c86964e8986b89d418c37 (Local ID: 34c12b506bed8ad02241dae5d432ba5754c82a04)[ run_local_store ]
-I, [2015-12-08T18:38:53.751621 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Booting i-idhvphne: phase 1
-I, [2015-12-08T18:38:53.811237 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Creating volume vol-834kwo5p from bo-centos66.
-I, [2015-12-08T18:38:53.840009 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
-I, [2015-12-08T18:38:53.840360 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
-D, [2015-12-08T18:39:21.558943 #3501] DEBUG -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Command Result: success (exit code=0)
-Command PID: 4370
-##STDERR=&amp;gt;
-[=====================================================================] 100000%
-2015-12-08 18:42:10 ThreadPool thr=InstanceMonitor[0/1] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:31:in `check_instance&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/node_modules/instance_monitor.rb:12:in `block (3 levels) in &amp;lt;class:InstanceMonitor&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
-2015-12-08 18:42:30 JobContext thr=LocalStore[1/2] [ERROR]: Job failed 38e342ad524c2ced688c86964e8986b89d418c37 [ run_local_store ]: timeout
-2015-12-08 18:42:30 JobContext thr=LocalStore[1/2] [ERROR]: Caught Isono::NodeModules::RpcChannel::RpcError: timeout
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:466:in `wait&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/rpc_channel.rb:153:in `request&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:168:in `update_volume_state&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:49:in `deploy_local_volume&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:109:in `block (2 levels) in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:21:in `block in each_all_local_volumes&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:20:in `each_all_local_volumes&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:108:in `block in &amp;lt;class:LocalStoreHandler&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
-I, [2015-12-08T18:42:30.097961 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Cleaning volume vol-834kwo5p
-I, [2015-12-08T18:42:30.098506 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p&#39;
-D, [2015-12-08T18:42:30.252159 #3501] DEBUG -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Command Result: success (exit code=0)
-Command PID: 4491
-2015-12-08 18:42:36 JobContext thr=LocalStore[0/2] [INFO]: Job start 4899f11c00630167af8a89f641432b9fd0017db6 (Local ID: 4899f11c00630167af8a89f641432b9fd0017db6)[ delete_volume ]
-D, [2015-12-08T18:42:36.611734 #3501] DEBUG -- ServiceNetfilter: event caught: hva.node2ebd61a1c668/vnic_destroyed: vif-ac9mzzo0
-D, [2015-12-08T18:42:36.611876 #3501] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-ac9mzzo0
-W, [2015-12-08T18:42:36.667704 #3501]  WARN -- HvaHandler: Session ID: 4899f11c00630167af8a89f641432b9fd0017db6: Instance UUID: i-idhvphne: Unexpected state deleted of vol-834kwo5p. But try to delete.
-W, [2015-12-08T18:42:36.668136 #3501]  WARN -- HvaHandler: Session ID: 4899f11c00630167af8a89f641432b9fd0017db6: Instance UUID: i-idhvphne: Failed to delete non-existing file: /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
-2015-12-08 18:42:36 JobContext thr=LocalStore[0/2] [INFO]: Job complete 4899f11c00630167af8a89f641432b9fd0017db6 (Local ID: 4899f11c00630167af8a89f641432b9fd0017db6)[ delete_volume ]: 0.069073835 sec
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;っことで、ログ的に問題が発生する直前から何が起きているかを追っていく旅に出ます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;I, [2015-12-08T18:38:53.840360 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Executing command: curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
-D, [2015-12-08T18:39:21.558943 #3501] DEBUG -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Command Result: success (exit code=0)
-Command PID: 4370
-##STDERR=&amp;gt;
-[=====================================================================] 100000%
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これがコードのどの部分かをまず探します。LinuxLocalStore って出てるので、おそらくコード的にはここら辺だと思います。&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb&#34;&gt;/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;見ていくと&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb#L89-L93&#34;&gt;curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp &amp;ndash;sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p&lt;/a&gt; は無事に実行できているので、手動でもちゃんと動くか試してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# curl -fsS http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz| gunzip | pv -W -f -p -s 321491 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
-[============================================================================================] 100000%
-
-# file /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p 
-/var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p: x86 boot sector; partition 1: ID=0x83, starthead 1, startsector 63, 8386498 sectors, code offset 0xb8
-[root@host-133-130-109-122 wakame]# fdisk -l /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
-You must set cylinders.
-You can do this from the extra functions menu.
-
-Disk /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p: 0 MB, 0 bytes
-4 heads, 32 sectors/track, 0 cylinders
-Units = cylinders of 128 * 512 = 65536 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x000e34e5
-
-                                                Device Boot      Start         End      Blocks   Id  System
-/var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p1               1       65521     4193249   83  Linux
-Partition 1 has different physical/logical endings:
- phys=(1023, 3, 32) logical=(65520, 0, 1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ファイル的にも問題なさそうに見えます。で、処理はこのあとこの deploy_volume() を抜けて deploy_image() に戻り、そこも抜けるので、LinuxLocalStore::deploy_image() を呼んでいるところを探します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# grep deploy_image -r /opt/axsh/
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store.rb:      def deploy_image(inst,ctx)
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/dummy_local_store.rb:      def deploy_image(inst,ctx)
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/esxi_local_store.rb:      def deploy_image(inst,ctx)
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:      def deploy_image(inst, ctx)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？誰も呼んでない…？
-じゃ、じゃぁ LinuxLocalStore::deploy_volume() が直接呼ばれてる？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# grep deploy_volume -r /opt/axsh/wakame-vdc/dcmgr/
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store.rb:      def deploy_volume(hva_ctx, volume, backup_object, opts={})
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        # Basically, deploy_volume() deals with image file as:
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        def deploy_volume_from_backup_object(sta_ctx, local_backup_path=nil)
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        deploy_volume_from_backup_object(ctx, backup_real_path(@backup_object[:object_key]))
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:        deploy_volume_from_backup_object(ctx)
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:            deploy_volume_from_backup_object(ctx, backup_real_path(backup_key))
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/backing_store/raw.rb:            deploy_volume_from_backup_object(ctx)
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/dummy_local_store.rb:      def deploy_volume(hva_ctx, volume, backup_object, opts={})
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:      def deploy_volume(hva_ctx, volume, backup_object, opts={:cache=&amp;gt;false})
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:            deploy_volume(@ctx, v, inst[:image][:backup_object], {:cache=&amp;gt;inst[:image][:is_cacheable]})
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/local_store/linux_local_store.rb:            deploy_volume(@ctx, v, v[:backup_object])
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:                              :deploy_volume, [@hva_ctx, v, v[:backup_object], opts])
-/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb:      job :deploy_volume_and_attach, proc {
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ってことで、&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb&#34;&gt;/opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/local_store_handler.rb&lt;/a&gt; を追います。&lt;/p&gt;
-
-&lt;p&gt;ログで LinuxLocalStore を呼ぶ前が HvaHandler で &amp;ldquo;Creating volume&amp;rdquo; と言っているので、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;I, [2015-12-08T18:38:53.811237 #3501]  INFO -- HvaHandler: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Instance UUID: i-idhvphne: Creating volume vol-834kwo5p from bo-centos66.
-I, [2015-12-08T18:38:53.840009 #3501]  INFO -- LinuxLocalStore: Session ID: 38e342ad524c2ced688c86964e8986b89d418c37: Deploying image: wmi-centos66 from http://192.0.2.1:8000/images/centos-6.6.x86_64.lxc.md.raw.gz to /var/lib/wakame-vdc/instances/i-idhvphne/vol-834kwo5p
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;コードの&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb#L41-L42&#34;&gt;この場所&lt;/a&gt; が deploy_volume を呼んでいるところになります。&lt;/p&gt;
-
-&lt;p&gt;なのでそこの処理が抜けると次は&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb#L49&#34;&gt;ここ&lt;/a&gt; に入って、&lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/hva_handler.rb#L166-L184&#34;&gt;ここ&lt;/a&gt; が呼ばれています。&lt;/p&gt;
-
-&lt;p&gt;でそこを抜けると戻って &lt;a href=&#34;https://github.com/axsh/wakame-vdc/blob/v16.1.0/dcmgr/lib/dcmgr/rpc/local_store_handler.rb#L66&#34;&gt;ここ&lt;/a&gt; が叩かれて…&lt;/p&gt;
-
-&lt;p&gt;とちょっと追う様を解説していくのが辛くなってきました。本日のところはこれまで。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1383,150 +183,7 @@ I, [2015-12-08T18:38:53.840009 #3501]  INFO -- LinuxLocalStore: Session ID: 38e3
 
 &lt;p&gt;7日目のエントリで「参考になる情報として、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんが書いた &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; の &lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-category-29.html&#34;&gt;&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; 分のエント&amp;gt;リ&lt;/a&gt; があるので、ますそれを一読します。」とか書いておきながら、全然それに沿わずにやってたので、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんがやったように、lxc 単体でちゃんと動くかを今日は確認してみたいと思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;ってことで、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの実施したことをトレースします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# yum install lxc-templates.x86_64
-# ls /usr/share/lxc/templates/
-lxc-alpine     lxc-busybox  lxc-debian    lxc-gentoo        lxc-oracle  lxc-ubuntu
-lxc-altlinux   lxc-centos   lxc-download  lxc-openmandriva  lxc-plamo   lxc-ubuntu-cloud
-lxc-archlinux  lxc-cirros   lxc-fedora    lxc-opensuse      lxc-sshd
-
-# lxc-create -t centos -n testvm01
-Host CPE ID from /etc/system-release-cpe: cpe:/o:centos:linux:6:GA
-dnsdomainname: 不明なホスト
-Checking cache download in /var/cache/lxc/centos/x86_64/6/rootfs ... 
-Downloading centos minimal ...
-読み込んだプラグイン:fastestmirror, security
-インストール処理の設定をしています
-base                                                                            | 3.7 kB     00:00     
-base/primary_db                                                                 | 4.6 MB     00:00     
-updates                                                                         | 3.4 kB     00:00     
-updates/primary_db                                                              | 2.6 MB     00:00     
-依存性の解決をしています
---&amp;gt; トランザクションの確認を実行しています。
----&amp;gt; Package chkconfig.x86_64 0:1.3.49.3-5.el6 will be インストール
---&amp;gt; 依存性の処理をしています: rtld(GNU_HASH) のパッケージ: chkconfig-1.3.49.3-5.el6.x86_64
-
-(中略)
-
-完了しました!
-Download complete.
-Copy /var/cache/lxc/centos/x86_64/6/rootfs to /var/lib/lxc/testvm01/rootfs ... 
-Copying rootfs to /var/lib/lxc/testvm01/rootfs ...
-Storing root password in &#39;/var/lib/lxc/testvm01/tmp_root_pass&#39;
-Expiring password for user root.
-passwd: 成功
-
-Container rootfs and config have been created.
-Edit the config file to check/enable networking setup.
-
-The temporary root password is stored in:
-
-        &#39;/var/lib/lxc/testvm01/tmp_root_pass&#39;
-
-
-The root password is set up as expired and will require it to be changed
-at first login, which you should do as soon as possible.  If you lose the
-root password or wish to change it without starting the container, you
-can change it from the host by running the following command (which will
-also reset the expired flag):
-
-        chroot /var/lib/lxc/testvm01/rootfs passwd
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;成功しました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# lxc-ls 
-testvm01
-# chroot /var/lib/lxc/testvm01/rootfs passwd
-# lxc-start -n testvm01
-lxc-start: conf.c: instantiate_veth: 3105 failed to attach &#39;veth8QPHXV&#39; to the bridge &#39;virbr0&#39;: No such device
-lxc-start: conf.c: lxc_create_network: 3388 failed to create netdev
-lxc-start: start.c: lxc_spawn: 841 failed to create the network
-lxc-start: start.c: __lxc_start: 1100 failed to spawn &#39;testvm01&#39;
-lxc-start: lxc_start.c: main: 341 The container failed to start.
-lxc-start: lxc_start.c: main: 345 Additional information can be obtained by setting the --logfile and --logpriority options.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ…？ virbr0 って…あ、そうか&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cat /etc/lxc/default.conf 
-lxc.network.type = veth
-lxc.network.link = virbr0
-lxc.network.flags = up
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;既定値が virbr0 でした。
-で、それを元にして生成された testvm01 の設定も virbr0 になっているので、/var/lib/lxc/testvm01/config の lxc.network.link の値を virbr0 を br0 に変更して、もう一度起動してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# lxc-start -n testvm01
-lxc-start: cgfs.c: cgfs_init: 2246 cgroupfs failed to detect cgroup metadata
-lxc-start: start.c: lxc_spawn: 869 failed initializing cgroup support
-lxc-start: start.c: __lxc_start: 1100 failed to spawn &#39;testvm01&#39;
-lxc-start: lxc_start.c: main: 341 The container failed to start.
-lxc-start: lxc_start.c: main: 345 Additional information can be obtained by setting the --logfile and --logpriority options.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？やっぱり駄目です。で、メッセージにはさっきから &amp;ndash;logfile オプションのことを教えてくれているので、このオプションを利用してログを取ります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# lxc-start -n testvm01 --logfile /tmp/lxc.log
-lxc-start: cgfs.c: cgfs_init: 2246 cgroupfs failed to detect cgroup metadata
-lxc-start: start.c: lxc_spawn: 869 failed initializing cgroup support
-lxc-start: start.c: __lxc_start: 1100 failed to spawn &#39;testvm01&#39;
-lxc-start: lxc_start.c: main: 341 The container failed to start.
-lxc-start: lxc_start.c: main: 345 Additional information can be obtained by setting the --logfile and --logpriority options.
-# cat /tmp/lxc.log 
-      lxc-start 1449578879.006 ERROR    lxc_cgfs - cgfs.c:cgfs_init:2246 - cgroupfs failed to detect cgroup metadata
-      lxc-start 1449578879.006 ERROR    lxc_start - start.c:lxc_spawn:869 - failed initializing cgroup support
-      lxc-start 1449578879.056 ERROR    lxc_start - start.c:__lxc_start:1100 - failed to spawn &#39;testvm01&#39;
-      lxc-start 1449578879.056 ERROR    lxc_start_ui - lxc_start.c:main:341 - The container failed to start.
-      lxc-start 1449578879.056 ERROR    lxc_start_ui - lxc_start.c:main:345 - Additional information can be obtained by setting the --logfile and --logpriority options.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そーいや昨日のエラーも「cgroup filesystem is not mounted.」で、今日のエラーも「cgroupfs failed to detect cgroup metadata」で、なんか cgroupfs で設定が足りてないのかもしれません。&lt;/p&gt;
-
-&lt;p&gt;ふと…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mount
-/dev/mapper/VolGroup-lv_root on / type ext4 (rw)
-proc on /proc type proc (rw)
-sysfs on /sys type sysfs (rw)
-devpts on /dev/pts type devpts (rw,gid=5,mode=620)
-tmpfs on /dev/shm type tmpfs (rw)
-/dev/vda1 on /boot type ext4 (rw)
-none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？何か足りてないような気が…、確か中井さんのブログで…&lt;a href=&#34;http://enakai00.hatenablog.com/entry/20110529/1306658627&#34;&gt;LXC が利用するための /lxc/cgroup ディレクトリをマウント&lt;/a&gt; って書いてありました。なのでそれをやります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mkdir -p /lxc/cgroup
-# mount -t cgroup lxc /lxc/cgroup
-# mount
-/dev/mapper/VolGroup-lv_root on / type ext4 (rw)
-proc on /proc type proc (rw)
-sysfs on /sys type sysfs (rw)
-devpts on /dev/pts type devpts (rw,gid=5,mode=620)
-tmpfs on /dev/shm type tmpfs (rw)
-/dev/vda1 on /boot type ext4 (rw)
-none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
-lxc on /lxc/cgroup type cgroup (rw)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これでもう一度起動してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# lxc-start -n testvm01 --logfile /tmp/lxc.log
-(中略)
-Bringing up loopback interface:                            [  OK  ]
-Bringing up interface eth0:  
-Determining IP information for eth0... failed.
-                                                           [FAILED]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あぁ、はい、確かにそうです、br0 の先には DHCP サーバが居ないので当然ながら IP を取得できませんが、まぁでもこれは起動したと言っていいでしょう。&lt;/p&gt;
-
-&lt;p&gt;では、改めて先日の Wakame-vdc の LiveDVD でもう一度挑戦してみたいと思いますが、それはまた明日。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1539,126 +196,7 @@ Determining IP information for eth0... failed.
 
 &lt;p&gt;今日は昨日の続きで、マシンイメージを CentOS かつ lxc 版なものに変更してインスタンスを起動してみます。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;先日、メーリングリストで「lxc 用のイメージってどこぉ？」って質問をしたら Potter さんがリンクを教えてくれたので、まずそれをダウンロードします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# wget http://dlc2.wakame.axsh.jp/demo/1box/vmimage/centos-6.6.x86_64.lxc.md.raw.tar.gz
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、ダウンロードしたらマシンイメージの情報を得るため、以下を実行します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# tar -xzvf centos-6.6.x86_64.lxc.md.raw.tar.gz 
-centos-6.6.x86_64.lxc.md.raw
-# LANG=C ls -kl centos-6.6.x86_64.lxc.md.raw.tar.gz centos-6.6.x86_64.lxc.md.raw
--rw-r--r-- 1 root root 4194304 Apr 19  2015 centos-6.6.x86_64.lxc.md.raw
--rw-r--r-- 1 root root  317193 Apr 19  2015 centos-6.6.x86_64.lxc.md.raw.tar.gz
-# md5sum centos-6.6.x86_64.lxc.md.raw.tar.gz
-45e35271d4b45e274b4952240799d9d4  centos-6.6.x86_64.lxc.md.raw.tar.gz
-# kpartx -v -a centos-6.6.x86_64.lxc.md.raw
-add map loop0p1 (253:2): 0 8386498 linear /dev/loop0 63
-# blkid | grep loop0p1
-/dev/mapper/loop0p1: LABEL=&amp;quot;root&amp;quot; UUID=&amp;quot;eb69a6cf-fc3f-42cd-9b21-c70ad78f6d9e&amp;quot; TYPE=&amp;quot;ext4&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、ダウンロードしたマシンイメージを登録します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# /opt/axsh/wakame-vdc/dcmgr/bin/vdc-manage backupobject add \
-&amp;gt; --uuid bo-centos66 --display-name &amp;quot;CentOS 6.6 x86_64 root partition&amp;quot; \
-&amp;gt; --storage-id bkst-local --object-key centos-6.6.x86_64.lxc.md.raw.tar.gz \
-&amp;gt; --size 317193 --allocation-size 4194304 --container-format gz \
-&amp;gt; --checksum  45e35271d4b45e274b4952240799d9d4
-bo-centos66
-
-# /opt/axsh/wakame-vdc/dcmgr/bin/vdc-manage image add local bo-centos66 \
-&amp;gt; --account-id a-shpoolxx --uuid wmi-centos66 \
-&amp;gt; --root-device uuid:eb69a6cf-fc3f-42cd-9b21-c70ad78f6d9e \
-&amp;gt; --display-name &amp;quot;CentOS 6.6 x86_64&amp;quot;
-wmi-centos66
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;backupobject add の「&amp;ndash;size」には centos-6.6.x86_64.lxc.md.raw.tar.gz のサイズ(KB)の値を、「&amp;ndash;allocation-size」には tar玉を展開したファイル「centos-6.6.x86_64.lxc.md.raw」のサイズ(KB)の値を、「&amp;ndash;checksum」にはtar玉の md5sum の値を入れます。たぶん。&lt;/p&gt;
-
-&lt;p&gt;image add local の「&amp;ndash;root-device」には blkid で確認した UUID を指定します。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1208-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;こんな感じで登録されました。
-で、早速起動できるかを試してみましたが、速攻で terminated になってました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;I, [2015-12-08T02:23:54.192699 #2918]  INFO -- LinuxLocalStore: Session ID: 1b8debb3740a08af60b9e02dfb0c43ed8b80a4b6: Executing command: cat /var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz| gunzip | pv -W -f -p -s 317193 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-ysmhdpjf/vol-8a0wk702
-D, [2015-12-08T02:23:54.209337 #2918] DEBUG -- LinuxLocalStore: Session ID: 1b8debb3740a08af60b9e02dfb0c43ed8b80a4b6: Command Result: success (exit code=0)
-Command PID: 3230
-##STDERR=&amp;gt;
-cat: /var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz: No such file or directory 
-gzip: stdin: unexpected end of file
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ん？登録した tar 玉がない？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# ls -l /var/lib/wakame-vdc/images/
-total 305212
--rw-r--r-- 1 root root 312530604 Dec  7 05:41 ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うん、確かにない……あ！あぁっ！そうでした、Eucalyptus や OpenStack に毒されてすっかり忘れてましたが、Wakame-vdc での backupobject add や image add はマシンイメージの情報を登録するだけで、実体のファイルは自分でストレージの種類に合わせてアップロードする必要があります。たぶん。&lt;/p&gt;
-
-&lt;p&gt;ってことで、/var/lib/wakame-vdc/images/ 配下に tar 玉を置きます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# mv centos-6.6.x86_64.lxc.md.raw.tar.gz /var/lib/wakame-vdc/images/
-# ls -l /var/lib/wakame-vdc/images/
-total 622412
--rw-r--r-- 1 root root 324805362 Apr 19  2015 centos-6.6.x86_64.lxc.md.raw.tar.gz
--rw-r--r-- 1 root root 312530604 Dec  7 05:41 ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;さて、もう一度起動してみます。&lt;/p&gt;
-
-&lt;p&gt;……また terminated になりました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;I, [2015-12-08T03:34:19.002068 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Booting i-9nm5c1tx: phase 1
-I, [2015-12-08T03:34:19.043404 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Creating volume vol-44wrtwwu from bo-centos66.
-I, [2015-12-08T03:34:19.044296 #2918]  INFO -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Deploying image: wmi-centos66 from file:///var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz to /var/lib/wakame-vdc/instances/i-9nm5c1tx/vol-44wrtwwu
-I, [2015-12-08T03:34:19.045121 #2918]  INFO -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Executing command: cat /var/lib/wakame-vdc/images/centos-6.6.x86_64.lxc.md.raw.tar.gz| gunzip | pv -W -f -p -s 317193 | cp --sparse=always /dev/stdin /var/lib/wakame-vdc/instances/i-9nm5c1tx/vol-44wrtwwu
-D, [2015-12-08T03:34:25.204525 #2918] DEBUG -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Command Result: success (exit code=0)
-Command PID: 4172
-##STDERR=&amp;gt;
-[=====================================================================] 100000%
-2015-12-08 03:34:25 JobContext thr=LocalStore[1/2] [INFO]: Job complete aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c (Local ID: 84c5aa808ca2c8e5716491cfc3abe77fcadb2710)[ run_local_store ]: 6.211798189 sec
-2015-12-08 03:34:25 JobContext thr=JobWorker[0/1] [INFO]: Job start aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c (Local ID: fc17b9446d7201916f03da8f2859a006515e3065)[ run_local_store ]
-I, [2015-12-08T03:34:25.218415 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Booting instance
-I, [2015-12-08T03:34:25.255464 #2918]  INFO -- Lxc: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: lxc-version: 1.0.8
-2015-12-08 03:34:25 JobContext thr=JobWorker[0/1] [ERROR]: Job failed aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c [ run_local_store ]: cgroup filesystem is not mounted.
-2015-12-08 03:34:25 JobContext thr=JobWorker[0/1] [ERROR]: Caught RuntimeError: cgroup filesystem is not mounted.
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `new&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `block in &amp;lt;class:Lxc&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `new_task_class&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:243:in `invoke&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:212:in `setup_metadata_drive&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:315:in `block in &amp;lt;class:HvaHandler&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
-I, [2015-12-08T03:34:25.256199 #2918]  INFO -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: teminating instance
-I, [2015-12-08T03:34:25.262402 #2918]  INFO -- Lxc: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: lxc-version: 1.0.8
-E, [2015-12-08T03:34:25.262739 #2918] ERROR -- HvaHandler: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Instance UUID: i-9nm5c1tx: Ignoring error: RuntimeError cgroup filesystem is not mounted. from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
-I, [2015-12-08T03:34:25.270003 #2918]  INFO -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-9nm5c1tx/vol-44wrtwwu&#39;
-D, [2015-12-08T03:34:25.398113 #2918] DEBUG -- LinuxLocalStore: Session ID: aa2084f3b25f316ed5e7e06bd9c013ff9ffb136c: Command Result: success (exit code=0)
-Command PID: 4184
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;う〜ん、「cgroup filesystem is not mounted」って言ってますが、続きはまた明日。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1671,114 +209,7 @@ Command PID: 4184
 
 &lt;p&gt;今日は LiveDVD から一旦離れて「そもそも普通の Wakame-vdc で hva の利用するハイパーバイザを lxc として動かすには？」をやってみます。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;参考になる情報として、&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんが書いた &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; の &lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-category-29.html&#34;&gt;&lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; 分のエントリ&lt;/a&gt; があるので、ますそれを一読します。&lt;/p&gt;
-
-&lt;p&gt;で、インストール手順自体は Wakame-vdc の&lt;a href=&#34;http://wakame-vdc.org/installation/&#34;&gt;インストールガイド&lt;/a&gt; を参考に進めてみます。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんのエントリですと、Wakame-vdc のデモイメージでは lxc のバージョンは CentOS 側の最新ではなく、0.8.0 を使用しているようですが、とりあえず CentOS 6.7 が提供する 1.0.8 で進めてみます。&lt;/p&gt;
-
-&lt;p&gt;で、手抜き描写ですみませんがセットアップは以下。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo curl -o /etc/yum.repos.d/wakame-vdc-stable.repo -R https://raw.githubusercontent.com/axsh/wakame-vdc/master/rpmbuild/yum_repositories/wakame-vdc-stable.repo
-sudo yum install -y epel-release
-sudo yum install -y wakame-vdc-dcmgr-vmapp-config
-sudo yum install -y wakame-vdc-hva-lxc-vmapp-config
-sudo yum install -y wakame-vdc-webui-vmapp-config
-cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-br0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ifcfg-br0 の記述は以下&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DEVICE=br0
-TYPE=Bridge
-ONBOOT=yes
-NM_CONTROLLED=no
-BOOTPROTO=dhcp
-DHCPV6C=no 
-IPV6INIT=no 
-IPV6_AUTOCONF=no
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ifcfg-eth0 の記述は以下&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DEVICE=eth0
-ONBOOT=yes
-BRIDGE=br0
-NM_CONTROLLED=no
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、引き続きセットアップ&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo service network restart
-wget http://wakame-vdc.org/scripts/install_guide_demo_data.sh
-sed -i -e &amp;quot;s/openvz/lxc/g&amp;quot; install_guide_demo_data.sh
-chmod +x install_guide_demo_data.sh 
-NETWORK=&#39;10.0.0.0&#39; PREFIX=&#39;8&#39; DHCP_RANGE_START=&#39;10.0.0.100&#39; DHCP_RANGE_END=&#39;10.0.0.200&#39; ./install_guide_demo_data.sh
-sudo service rabbitmq-server start
-sudo service mysqld start
-sudo start vdc-dcmgr
-sudo start vdc-collector
-sudo start vdc-hva
-sudo start vdc-webui
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、このあとブラウザで WebUI に接続し、セキュリティグループとキーペアを設定し、install_guide_demo_data.sh で登録された Ubuntu のイメージを指定して起動してみます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1207-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;はい、起動に失敗したようです。
-「そもそもホストが CentOS なのに何で Ubuntu イメージ(それも OpenVZ なデモイメージ用の…)を使うんだよ？もしかしてエラー出るようにワザとやってない？」ってツッコまれそうですが…そ、そんなことないです…たぶん、もしそうだとしても天然です。&lt;/p&gt;
-
-&lt;p&gt;で、じゃぁ、hva のログは…というと以下な感じ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;2015-12-07 05:52:38 JobContext thr=LocalStore[0/2] [INFO]: Job start afe0d78dacb3bafa8b8f8141dffed72510d61fa6 (Local ID: 450b54eeb176f67426defc0407d91c1177e6da51)[ run_local_store ]
-I, [2015-12-07T05:52:38.554305 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Booting i-7ujh4q24: phase 1
-I, [2015-12-07T05:52:38.620281 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Creating volume vol-atfog2nw from bo-ubuntu14043ple.
-I, [2015-12-07T05:52:38.687657 #7987]  INFO -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Deploying image: wmi-ubuntu14043ple from file:///var/lib/wakame-vdc/images/ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz to /var/lib/wakame-vdc/instances/i-7ujh4q24/vol-atfog2nw
-I, [2015-12-07T05:52:38.688701 #7987]  INFO -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Executing command: cat /var/lib/wakame-vdc/images/ubuntu-14.04.3-x86_64-30g-passwd-login-enabled.raw.tgz| pv -W -f -p -s 312530432 | tar -zxS -C /var/lib/wakame-vdc/instances/i-7ujh4q24/d20151207-7987-999etl
-D, [2015-12-07T05:52:48.575228 #7987] DEBUG -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Command Result: success (exit code=0)
-Command PID: 8168
-##STDERR=&amp;gt;
-[=======================================================================&amp;gt;] 100%
-2015-12-07 05:52:48 JobContext thr=LocalStore[0/2] [INFO]: Job complete afe0d78dacb3bafa8b8f8141dffed72510d61fa6 (Local ID: 450b54eeb176f67426defc0407d91c1177e6da51)[ run_local_store ]: 10.0355809 sec
-2015-12-07 05:52:48 JobContext thr=JobWorker[0/1] [INFO]: Job start afe0d78dacb3bafa8b8f8141dffed72510d61fa6 (Local ID: 24d2bbd8bc0913354622224e4e179ead2be00f9d)[ run_local_store ]
-I, [2015-12-07T05:52:48.593029 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Booting instance
-I, [2015-12-07T05:52:48.715200 #7987]  INFO -- Lxc: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: lxc-version: 1.0.8
-2015-12-07 05:52:48 JobContext thr=JobWorker[0/1] [ERROR]: Job failed afe0d78dacb3bafa8b8f8141dffed72510d61fa6 [ run_local_store ]: cgroup filesystem is not mounted.
-2015-12-07 05:52:48 JobContext thr=JobWorker[0/1] [ERROR]: Caught RuntimeError: cgroup filesystem is not mounted.
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `new&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:162:in `block in &amp;lt;class:Lxc&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:95:in `new_task_class&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/task.rb:243:in `invoke&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:212:in `setup_metadata_drive&#39;
-    /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/rpc/hva_handler.rb:315:in `block in &amp;lt;class:HvaHandler&amp;gt;&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/runner/rpc_server.rb:69:in `block in job&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `instance_eval&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/proc.rb:25:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/map.rb:52:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/builder.rb:36:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/rack/job.rb:59:in `block (2 levels) in call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/node_modules/job_worker.rb:67:in `block in start&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `call&#39;
-    /opt/axsh/wakame-vdc/dcmgr/vendor/bundle/ruby/2.0.0/gems/isono-0.2.20/lib/isono/thread_pool.rb:32:in `block (2 levels) in initialize&#39;
-I, [2015-12-07T05:52:48.716150 #7987]  INFO -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: teminating instance
-I, [2015-12-07T05:52:48.723362 #7987]  INFO -- Lxc: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: lxc-version: 1.0.8
-E, [2015-12-07T05:52:48.724572 #7987] ERROR -- HvaHandler: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Instance UUID: i-7ujh4q24: Ignoring error: RuntimeError cgroup filesystem is not mounted. from /opt/axsh/wakame-vdc/dcmgr/lib/dcmgr/drivers/hypervisor/linux_hypervisor/linux_container/lxc.rb:54:in `initialize&#39;
-I, [2015-12-07T05:52:48.731985 #7987]  INFO -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Executing command: rm &#39;/var/lib/wakame-vdc/instances/i-7ujh4q24/vol-atfog2nw&#39;
-D, [2015-12-07T05:52:48.885889 #7987] DEBUG -- LinuxLocalStore: Session ID: afe0d78dacb3bafa8b8f8141dffed72510d61fa6: Command Result: success (exit code=0)
-Command PID: 8182
-D, [2015-12-07T05:52:48.900115 #7987] DEBUG -- ServiceNetfilter: event caught: hva.demo1/vnic_destroyed: vif-jumhvsv6
-D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found in cache: vif-jumhvsv6
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ってことで明日はメーリングリストで教えてもらった CentOS のイメージを使って試してみます。きっと同じようなエラーが出ると信じたい。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1793,28 +224,948 @@ D, [2015-12-07T05:52:48.900236 #7987] DEBUG -- ServiceNetfilter: vnic not found 
 
 &lt;p&gt;今日も小粒なネタで、「Wakame-vdc LiveDVD を起動したときにホストにグローバル IP が付いてると Xfce4 のログイン画面で確認のダイアログが出てログインが止まるんですけどぉ？」っていう話です。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LXC と情熱のあいだ</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day5/</link>
+      <pubDate>Sun, 06 Dec 2015 05:23:52 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-06-wakame-vdc-advent-calendar-2015-day5/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の5日目のエントリです。&lt;/p&gt;
 
-&lt;p&gt;何を言っているかというと、これです。&lt;/p&gt;
+&lt;p&gt;順調に「日々更新ができなくなってきている」状態ですが、細かいことは気にせずマイペースで行きたいと思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1206-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;今日も小粒なネタです。3日目の続きを。&lt;/p&gt;
 
-&lt;p&gt;まー、たいしたこと言ってるわけじゃなく確認事項なので普段なら「Continue anyway をクリックしてね」で済むんですが、先々 CI 環境を作ってテストを回そうとしたときに邪魔になりますよね、間違いなく。(もちろん、LiveDVD の CI で GUI 側をテストしなきゃいいっていう話もありますが、できれば GUI 側もテストしたいじゃないですか？)&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus LiveDVD を作ってみる 3日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-05-japan-eucalyptus-advent-calendar-2015-day-3/</link>
+      <pubDate>Sat, 05 Dec 2015 05:05:37 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-05-japan-eucalyptus-advent-calendar-2015-day-3/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の3日目のエントリです。&lt;/p&gt;
 
-&lt;p&gt;ってことで、これに対処するために LiveDVD の /etc/rc.local に以下を追記しました。(実際は以下を実行するスクリプトを書いて、/etc/rc.local で起動する形に)&lt;/p&gt;
+&lt;p&gt;え？更新が途切れた？そんなバカな…。2日目の続きをやりまぁす。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;hostname -s | awk &#39;BEGIN {FS=&amp;quot;-&amp;quot;;OFS=&amp;quot;.&amp;quot;} {print $2,$3,$4,$5&amp;quot; &amp;quot;$0}&#39; &amp;gt;&amp;gt; /etc/hosts
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>みんな!コミッターだよ!</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-04-wakame-vdc-advent-calendar-2015-day4/</link>
+      <pubDate>Fri, 04 Dec 2015 10:37:39 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-04-wakame-vdc-advent-calendar-2015-day4/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の4日目のエントリです。&lt;/p&gt;
 
-&lt;p&gt;もっと良い方法があるとは思うんですが、まぁこれでやってみます。(まぁ、当然ながらホスト名の形式が host-GL-OB-AL-IP な場合にしか通用しないので、このままだと酷いですが、とりあえず今だけ)&lt;/p&gt;
+&lt;p&gt;Japan Eucalyptus Advent Calendar 2015 の1枚目も2枚目もまだ3日目分のエントリをアップしてないのに「何やってんだ？」って思われるかもしれませんが、そもそも1日にいくつも Advent Calendar のエントリを書いてる時点で「何やってんだ？」なので、生あたたかい目で見てやってください。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/wakame-vdc.adventcalendar.2015.1206-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;さて今日は昨日の続きをする前に、Wakame-vdc の開発に参加する方法をお話したいと思います。&lt;/p&gt;
 
-&lt;p&gt;ん？「&amp;hellip; localhost」？あぁ、これはホスト名が設定される前に /etc/rc.local が叩かれているからか…。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>おれは KVM をやめるぞ！ジョジョーーッ！</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-03-wakame-vdc-advent-calendar-2015-day3/</link>
+      <pubDate>Thu, 03 Dec 2015 15:08:31 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-03-wakame-vdc-advent-calendar-2015-day3/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の3日目のエントリです。&lt;/p&gt;
 
-&lt;p&gt;ということで、/etc/rc.local の最後のほうで呼ぶようにしたらちゃんと上手くいきました。&lt;/p&gt;
+&lt;p&gt;エントリのタイトルが「Wakame-vdc LiveDVD 16.1 を作る X日目」だと面白味がないので、もうちょっと内容とタイトルが結びついてわかり易くなるようにしました。&lt;/p&gt;
 
-&lt;p&gt;明日は LiveDVD じゃない普通の Wakame-vdc を lxc で動かしてみる話です。&lt;/p&gt;</description>
+&lt;p&gt;ということで、今日は昨日に引き続き Wakame-vdc LiveDVD をデバッグしてみようという話です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>empire で PaaS デビューしてみたい！</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-02-open-paas-advent-calendar-2015-day-3/</link>
+      <pubDate>Wed, 02 Dec 2015 23:21:20 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-02-open-paas-advent-calendar-2015-day-3/</guid>
+      <description>&lt;p&gt;PaaS 大好きっ娘の皆さんこんばんわ。IaaS しか触ったことのないおちぶれ技術者の羽深です。&lt;/p&gt;
+
+&lt;p&gt;今日はそんな PaaS 素人が、empire っていう名前の PaaS 基盤ソフトウェアをインストールしてみて触ってみようという無謀なことを &lt;a href=&#34;http://www.adventar.org/calendars/803&#34;&gt;Open PaaS Advent Calendar 2015&lt;/a&gt; の &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; 分のエントリでやらかそうと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wakame-vdc LiveDVD 16.1 を作る 2日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-02-wakame-vdc-advent-calendar-2015-day2/</link>
+      <pubDate>Wed, 02 Dec 2015 20:15:43 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-02-wakame-vdc-advent-calendar-2015-day2/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の2日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;いやぁ、昨日1日目のエントリを投稿したあとで、半袖さんの &lt;a href=&#34;https://twitter.com/hansode_retro/status/671776916995641344&#34;&gt;@hansode_retro&lt;/a&gt; が「おめぇ、去年とネタが同じじゃねーかwww」って教えてくれたんですよ。&lt;/p&gt;
+
+&lt;p&gt;まぁ、去年どころか年がら年中「LiveDVD! LiveDVD! LiveDVD!」って叫んでるのでネタが被るのも当然ですよね？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus LiveDVD を作ってみる 2日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-01-japan-eucalyptus-advent-calendar-2015-day-2/</link>
+      <pubDate>Tue, 01 Dec 2015 23:03:40 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-01-japan-eucalyptus-advent-calendar-2015-day-2/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の2日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;どうせ誰も見てないんだからくだらない前置きとかもう止めます。チラ裏はチラ裏なりに駄文でも書いておけばいんじゃないかと思いますが、あまりにも駄文すぎて資源の無駄遣いなので、もう本題に入ります。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wakame-vdc LiveDVD 16.1 を作る 1日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-12-01-wakame-vdc-advent-calendar-2015-day1/</link>
+      <pubDate>Tue, 01 Dec 2015 18:48:37 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-12-01-wakame-vdc-advent-calendar-2015-day1/</guid>
+      <description>&lt;p&gt;Wakame-vdc ユーザの皆さん、磯野家の皆さん、こんにちは。これはオレオレ WakameVdc / OpenVNet Advent Calendar 2015 の1日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;え？そんなアドカレどこに立ってんの？って？それは皆の心の中に立ってます。そう皆の心の中に立ってるので、エントリは自由！ Yes! フリーダム！イイイイイヤッフウウウウウゥゥゥヒイアウィゴオオオオオオオッ！！&lt;/p&gt;
+
+&lt;p&gt;もちろん変な薬や危ない薬なんてやってません。&lt;/p&gt;
+
+&lt;p&gt;さすがに一人で1日3本も書くとなると完全にネタなんて枯渇します。もとよりたいして気の利いたことも言えないし、人様を楽しませられるようなナイスな話術もないので、完全に「タダの頭のおかしいやつ」状態です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus LiveDVD を作ってみる 1日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2015-11-30-japan-eucalyptus-advent-calendar-2015-day-1/</link>
+      <pubDate>Mon, 30 Nov 2015 23:22:39 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2015-11-30-japan-eucalyptus-advent-calendar-2015-day-1/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/752&#34;&gt;(1枚目) Japan Eucalyptus Advent Calendar 2015&lt;/a&gt; の1日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;えーと、何をトチ狂ったのか、一人で25日間ですよ。2013年に同じことやって帯状疱疹でまともにエントリを埋められなかった失態を忘れてしまったんですかね？&lt;/p&gt;
+
+&lt;p&gt;僕らが敬愛する利根川先生の声が聞こえてきますよ。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;バカがっ…！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;とんでもない誤解だ…！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;世間というものはとどのつまり&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Eucalyptus Advent Calendar には何ひとつエントリしない…！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;うん、まぁ、気のせいですね。&lt;/p&gt;
+
+&lt;p&gt;で、本当はこのエントリで Eucalyptus LiveDVD を公開し、後ろの日付の人達にバトンを渡す予定でしたが、知ってました？リレーって独りじゃ出来無いっぽいっすよ？マジで。&lt;/p&gt;
+
+&lt;p&gt;ってことで、検索 bot 以外に誰も見てないと思いますので、超マイペースで LiveDVD の作成日記を25日ぐらいかけてゆっくりやろうと思います。なるべく25日間失敗し続けますように。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wakame-VDC LiveDVD 軽量版</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-26-wakame-vdc-slash-openvnet-advent-calendar-2014-25th/</link>
+      <pubDate>Thu, 25 Dec 2014 20:41:24 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-26-wakame-vdc-slash-openvnet-advent-calendar-2014-25th/</guid>
+      <description>&lt;p&gt;Wakame ユーザの皆さん、磯野家の皆さん、こんにちは。これは Wakame-VDC / OpenVNet Advent Calendar 2014 の25日目のエントリです。&lt;/p&gt;
+
+&lt;p&gt;先日、Wakame-VDC LiveDVD with X 版をリリースしましたが、&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>1ノードで何台起動できるか？</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-15-eucalyptus-advent-calendar-2014-15th/</link>
+      <pubDate>Mon, 15 Dec 2014 23:08:28 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-15-eucalyptus-advent-calendar-2014-15th/</guid>
+      <description>これは Eucalyptus Advent Calendar 2014 の15日目のエントリです。昨日は私のエントリ「CirrOS を Eucalyptus4 で動かしてみる」でした。まぁ、動かなかったんですけどね。
+今日は「1ノードで何台起動できるか？」です。もうタイトルからして失敗の匂いがプンプンしやがります。
+で、環境ですが、この Advent Calendar でやってきたように、KVM のゲスト OS 上に Eucalyptus 環境を立ててますので、そこで大量のインスタンスを起動してみたいと思います。本当は昨日のエントリで CirrOS が無事起動した続きとしてこのエントリが引き立つはずでしたが、なんか失敗への道筋が出来上がっている気がしてなりません。
+Eucalyptus 環境のメモリは約 12GB で、インスタンスに使用できるディスク容量は約 60GB で、CPU コア数はたったの2コアという貧相な環境です。
+[root@euca4 ~]# free -m total used free shared buffers cached Mem: 11902 3356 8546 295 1 1232 -/+ buffers/cache: 2123 9779 Swap: 3967 0 3967 [root@euca4 ~]# df -h Filesystem Size Used Avail Use% Mounted on /dev/mapper/vg_euca4-lv_root 50G 14G 33G 30% / tmpfs 6.</description>
+    </item>
+    
+    <item>
+      <title>Cirros を Eucalyptus4 で動かしてみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-15-eucalyptus-advent-calendar-2014-14th/</link>
+      <pubDate>Mon, 15 Dec 2014 12:28:49 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-15-eucalyptus-advent-calendar-2014-14th/</guid>
+      <description>&lt;p&gt;今日は Cirros を Eucalyptus4 のインスタンスとして動かしてみようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CoreOS on Eucalyptus4</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-12-coreos-on-eucalyptus4/</link>
+      <pubDate>Fri, 12 Dec 2014 02:16:33 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-12-coreos-on-eucalyptus4/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の12日目のエントリです。昨日は私のエントリ「&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2014/12/11/eucalyptus-advent-calendar-2014-11th/&#34;&gt;Eucalyptus4 でインスタンスタイプのパラメータを変更する方法&lt;/a&gt;」でした。&lt;/p&gt;
+
+&lt;p&gt;小ネタというより「マニュアルを紹介した」程度でしたが、今日もそんな感じです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus4 でインスタンスタイプのパラメータを変更する方法</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-11-eucalyptus-advent-calendar-2014-11th/</link>
+      <pubDate>Thu, 11 Dec 2014 02:47:38 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-11-eucalyptus-advent-calendar-2014-11th/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の11日目のエントリです。昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-196.html&#34;&gt;Eucalyptus 4 の VMware Supportについて調べてみる&lt;/a&gt; 」でした。&lt;/p&gt;
+
+&lt;p&gt;体当たりで調べてくださってありがとうございます。そうなんです、Eucalyptus にはサブスクリプションを購入しないと使えない機能がいくつかあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus4 のダッシュボードの見た目を変えてみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-09-eucalyptus-advent-calendar-2014-9th/</link>
+      <pubDate>Tue, 09 Dec 2014 23:05:42 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-09-eucalyptus-advent-calendar-2014-9th/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の9日目のエントリです。昨日は私のエントリ「&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2014/12/08/eucalyptus-advent-calendar-2014-8th/&#34;&gt;Eucalyptus 環境を再起動後にインスタンスが起動しなくなったら&lt;/a&gt;」でした。&lt;/p&gt;
+
+&lt;p&gt;今日のエントリは Eucalyptus Advent Calendar 2012 JP の13日目の私のエントリ「&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2012/12/13/eucalyptus-advent-calendar-2012-jp-13th/&#34;&gt;Eucalyptus Advent Calendar 2012 JP 十三日目&lt;/a&gt;」を思い出したので、Eucalyptus 4 のダッシュボードの見た目も変更してみようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus 環境を再起動後にインスタンスが起動しなくなったら</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-07-eucalyptus-advent-calendar-2014-8th/</link>
+      <pubDate>Mon, 08 Dec 2014 01:06:53 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-07-eucalyptus-advent-calendar-2014-8th/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の8日目のエントリです。昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-195.html&#34;&gt;Eucalyptus 4 の AUTO SCALING機能を使ってみる&lt;/a&gt; 」でした。&lt;/p&gt;
+
+&lt;p&gt;いつも &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんのアドベントカレンダー投稿数に驚いてますが、今年の量は更にヤバイですね。でも、おかげで助けてもらったり励みになったりしてます、ありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;さて、今日のエントリは「Eucalyptus 環境を再起動後にインスタンスが起動しなくなったら」です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>eucalyptuscala を試してみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-05-try-out-the-eucalyptuscala/</link>
+      <pubDate>Fri, 05 Dec 2014 23:50:28 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-05-try-out-the-eucalyptuscala/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の5日目のエントリです。昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-189.html&#34;&gt;Eucalyptus から AWS を管理してみる&lt;/a&gt; でした。&lt;/p&gt;
+
+&lt;p&gt;今日のエントリは3日目の &lt;a href=&#34;https://twitter.com/tanacasino&#34;&gt;@tanacasino&lt;/a&gt; さんのエントリ「&lt;a href=&#34;http://tanacasino.hatenablog.com/entry/2014/12/03/003900&#34;&gt;Eucalyptus meets Scala !? Scala meets Eucalytpus!?&lt;/a&gt;」を参考に eucalyptuscala を使ってみようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wakeme-VDC で起動したインスタンスをデバッグしてみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-05-debug-for-wakame-vdcs-instance/</link>
+      <pubDate>Fri, 05 Dec 2014 17:56:59 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-05-debug-for-wakame-vdcs-instance/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; 5日目の投稿です。&lt;/p&gt;
+
+&lt;p&gt;昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-192.html&#34;&gt;Wakame-vdcのLoadBalancer機能を使ってみる&lt;/a&gt;」でした。いつも &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの情報量には驚かされます。&lt;/p&gt;
+
+&lt;p&gt;今日は3日目で起動したはずのインスタンスに接続できない原因を調べてみようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenStack Advent Calendar 2014 4日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-03-openstack-advent-calendar-2014-4th/</link>
+      <pubDate>Thu, 04 Dec 2014 08:08:08 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-03-openstack-advent-calendar-2014-4th/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/569&#34;&gt;OpenStack Advent Calendar 2014&lt;/a&gt; の4日目のエントリです。昨日は日本 Eucalyptus ユーザ会のエントリ &lt;a href=&#34;http://eucalyptus-users.jp/blog/2014/12/03/openstack-on-eucalyptus-slash-openstack-advent-calendar-2014-dot-12-dot-03/&#34;&gt;OpenStack on Eucalyptus&lt;/a&gt; でした。&lt;/p&gt;
+
+&lt;p&gt;今日は題して「Eucalyptus ユーザが解説する Nova API 改造指南」です。例年ですと私の OpenStack ネタのエントリは失敗するのがお約束ですが、今日も無事失敗できるかどうかドキドキです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wakame-VDC のマシンイメージを作ってみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-03-try-to-make-wakame-vdcs-image/</link>
+      <pubDate>Wed, 03 Dec 2014 00:07:46 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-03-try-to-make-wakame-vdcs-image/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; 3日目の投稿です。&lt;/p&gt;
+
+&lt;p&gt;昨日は &lt;a href=&#34;https://twitter.com/giraffeforestg&#34;&gt;@giraffeforestg&lt;/a&gt; さんの「&lt;a href=&#34;http://giraffeforestg.blog.fc2.com/blog-entry-191.html&#34;&gt;2014年に書いたWakame-vdc/OpenVNetのblogを振り返ってみる&lt;/a&gt;」でした。&lt;/p&gt;
+
+&lt;p&gt;今日は「ぶっつけ本番で Wakame-VDC のマシンイメージを作ってみよう」です。&lt;/p&gt;
+
+&lt;p&gt;今まで中身が気になっていましたが、実は Wakame-VDC のマシンイメージの中身をちゃんと見たことありませんでした。もちろん作ってみたことも。ただ、前にあくしゅの山崎さんに「AWS で動くイメージなら動くよ」って言われたような言われてないような…もしかしたら酔って幻聴を聴いただけかもしれませんが、とりあえず「API だけ互換の Eucalyptus、API 以外は互換もする Wakame-VDC」って昔に言われた気がするので、ぶっつけ本番でマシンイメージを作っても何とかなるだろう？と始めたいと思います。(長い導入だ…)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wakame-VDC の LiveDVD を作る方法 〜CentOS 版〜</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-12-01-how-to-make-wakame-vdc-livedvd/</link>
+      <pubDate>Mon, 01 Dec 2014 01:02:42 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-12-01-how-to-make-wakame-vdc-livedvd/</guid>
+      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/577&#34;&gt;Wakame-vdc / OpenVNet Advent Calendar 2014&lt;/a&gt; 1日目の投稿です。&lt;/p&gt;
+
+&lt;p&gt;1日目ということで難易度の高くない…というか低めの内容になっています。題して「Wakame-VDC の LiveDVD を作る方法 〜CentOS 版〜」です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JEUGのML終了に寄せて</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-27-requiem-for-closing-jegu-ml/</link>
+      <pubDate>Thu, 21 Aug 2014 20:32:33 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-27-requiem-for-closing-jegu-ml/</guid>
+      <description>&lt;h2 id=&#34;投稿数のまとめ&#34;&gt;投稿数のまとめ&lt;/h2&gt;
+
+&lt;p&gt;本日 Eucalyptus Users Group Japan の ML に終了のおしらせをポストしましたが、折角なので「いったい僕はどのぐらいこの ML に投稿したんだろうか？」と思いグラフを描いてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ブロックストレージサービスで車輪の再開発(5)</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-05/</link>
+      <pubDate>Wed, 20 Aug 2014 00:51:57 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-05/</guid>
+      <description>&lt;h2 id=&#34;プロジェクト&#34;&gt;プロジェクト&lt;/h2&gt;
+
+&lt;p&gt;今日はブログを更新する代わりにこの「ブロックストレージサービスで車輪の再開発」の成果物を入れるプロジェクトを github に作りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ブロックストレージサービスで車輪の再開発(4)</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-04/</link>
+      <pubDate>Tue, 19 Aug 2014 01:05:38 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-04/</guid>
+      <description>&lt;h2 id=&#34;言語&#34;&gt;言語&lt;/h2&gt;
+
+&lt;p&gt;今更ですが「車輪の再開発」じゃなくて「車輪の再発明」ですよね…(// ▽ //)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ブロックストレージサービスで車輪の再開発(3)</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-03/</link>
+      <pubDate>Mon, 18 Aug 2014 01:05:40 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-03/</guid>
+      <description>外部コマンド叩く話のつづき2 さて、今日は _create_qcow2_file() の部分です。
+https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L240-L246
+qemu-img コマンドを叩かない方法はどうしたらいいんだろう？と思い、とりあえず qemu-img でイメージを生成してみました。すると以下のように一部のヘッダ部分だけ値の入っている 193KB 程度のファイルが生成されます。
+$ xxd ~/test.img |grep -v &amp;quot;: 0000 0000 0000 0000 0000 0000 0000 0000 ................&amp;quot; 0000000: 5146 49fb 0000 0003 0000 0000 0000 0000 QFI............. 0000010: 0000 0000 0000 0010 0000 0000 4000 0000 ............@... 0000020: 0000 0000 0000 0002 0000 0000 0003 0000 ................ 0000030: 0000 0000 0001 0000 0000 0001 0000 0000 ................ 0000060: 0000 0004 0000 0068 0000 0000 0000 0000 .</description>
+    </item>
+    
+    <item>
+      <title>ブロックストレージサービスで車輪の再開発(2)</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-02/</link>
+      <pubDate>Sun, 17 Aug 2014 01:05:42 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-02/</guid>
+      <description>&lt;h2 id=&#34;外部コマンド叩く話のつづき&#34;&gt;外部コマンド叩く話のつづき&lt;/h2&gt;
+
+&lt;p&gt;前回は truncate コマンドを叩くよりシステムコールの truncate を呼んだほうが実行時のコストが低いんじゃないかという話をしましたが、今回は Ciner の NFS ドライバーにある _create_regular_file() が dd コマンドを叩いていることについて考えたいと思います。コード的には以下の部分です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ブロックストレージサービスで車輪の再開発(1)</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-01/</link>
+      <pubDate>Sat, 16 Aug 2014 01:05:45 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-01/</guid>
+      <description>&lt;h2 id=&#34;ストレージサービスについて&#34;&gt;ストレージサービスについて&lt;/h2&gt;
+
+&lt;p&gt;今日から何回か(もしくは何十回か)に分けてブロックストレージサービスネタを展開していこうと思います。&lt;/p&gt;
+
+&lt;p&gt;まず、ここで言うところの「ブロックストレージサービス」ですが、簡単に言うと OpenStack の Cinder ですね。&lt;/p&gt;
+
+&lt;p&gt;「だったら Cinder 使うなりイジるなりすればいいじゃん」っていう声が聴こえてきますが、宗教上の理由で OpenStack は扱えないので自分で再開発することにします。(じゃないとブログのネタにならない)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dynamo を触ってみる</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-29-try-out-the-dynamo/</link>
+      <pubDate>Fri, 15 Aug 2014 13:12:23 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-29-try-out-the-dynamo/</guid>
+      <description>&lt;p&gt;僕は普段プログラムを書かない似非エンジニアでして…っていうか技術者っていうより作業者って名乗ったほうが正しいんじゃないかと思う今日この頃でして、そんなんじゃお客様の前に自信を持って立てないから、少しは技術者のフリができるようにしようと思い、elixir の Dynamo という Sinatra 風の Web Framework を触ってみようと思います。&lt;/p&gt;
+
+&lt;p&gt;ちなみに今日のこのエントリーは「失敗編」です。読んでも役に立つ部分が少ないです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>etcd-fs を試す</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-08-29-try-out-the-etcd-fs/</link>
+      <pubDate>Thu, 14 Aug 2014 13:13:20 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-08-29-try-out-the-etcd-fs/</guid>
+      <description>&lt;p&gt;皆さん、素敵な etcd ライフを送ってますかー？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Gentoo で Ceph れ！</title>
+      <link>http://blog.osamu.habuka.jp/post/2014-04-23.do-ceph-with-gentoo/</link>
+      <pubDate>Wed, 23 Apr 2014 22:06:56 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2014-04-23.do-ceph-with-gentoo/</guid>
+      <description>きっかけ 皆さんは Piston OpenStack をご存知ですか？先日 Piston OpenStack の話を耳にし、ストレージまわりは Ceph で冗長構成とすることで、ノードが1つ死んでもデータはもとよりコンポーネントも冗長化されているらしいです。 で、やはりそんなことを聴くと自分でも同じようなことできないかとても興味が湧いてくるんですが、Piston Cloud Computing 社とは違ってこちとら一介の「クラウド作業者」ですので、おいそれとそんな夢のような構成は作れ ません。 なので、できることからコツコツと…ということで Gentoo で Ceph を使ってみたメモです。
+参考情報 以下のサイトの情報を参考にしました。
+ @jedipunkz さんのブログ 1  Ceph-Deploy で Ceph 分散ストレージ構築 OpenStack + Ceph 連携 Ceph のプロセス配置ベストプラクティス Journal 用 SSD を用いた Ceph 構成の構築 OpenStack Havana Cinder,Glance の分散ストレージ Ceph 連携  本家のドキュメント「マニュアルインストールの方法」 @nminoru_jp さんの「Ceph の覚え書きのインデックス」 外道父さんの「Ceph基本情報と構築手順」  ちなみに参考にした上記のサイトには Ceph + OpenStack な話がたくさん出てきますが、私のこの日記では OpenStack には一切觝れませんので、ごめんなさい。
+構成 今回は以下の構成に構築します。
++–––––––––––––––––––––+ +–––––––––––––––––––––+ +–––––––––––––––––––––+ +–––––––––––––––––––––+ | | | | | | | | | host: aug | | host: berlin | | host: calvary-r | | host: devoncha | | IP: 192.</description>
+    </item>
+    
+    <item>
+      <title>AWS Advent Calendar 2013 14 日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-14.adventcalendar-day-14/</link>
+      <pubDate>Sat, 14 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-14.adventcalendar-day-14/</guid>
+      <description>今日の緑… 緑色に関するネタが見つかりません。
+EucalyptusのUIでEC2を利用してみる Japan Eucalyptus Users Group の羽深です。さて、今日は AWS Advent Calendar 2013 の 14 日目のエントリになります。
+他の方々のエントリとは違い、私が今日書く内容は少し異色な内容となってます。題して「EucalyptusのUIでEC2を利用してみる」。
+このエントリを見にきてくださった皆さんは「AWS が何だ」「EC2 が何だ」という説明は不要だと思いますので割愛しますが、一方で「Eucalyptus って何？」と思う方は少なからず居ると思います。むしろ知っている人のほうが少ないかもしれません。
+Eucalyptus を簡単に一言で表現すると、「AWS の EC2 API 互換なプライベートクラウド基盤」となります。
+「なんだよ、紛い物か」「臆面もなくよくもまぁ本流の Advent Calendar に参加できたもんだなぁ」「恥を知れい」「可愛いぞ」などなどの色々な意見があるかと思いますが、たまには異色なエントリもいいのではないかと思います。
+さて、つい AWS の Advent Calendar だと意識すると言葉遣いが固くなってしまっていけません。ここは、いつもどおりに「砕けすぎてよくわからない」言葉遣いにします。
+えー、Eucalyptus には開発が開始してから約4年近く「利用者のためのユーザコンソール」が存在しませんでした。しかし、バージョン 3.2 頃から利用者のための WebUI が付属するようになり、バージョン 3.4 からは Eucalyptus 用のユーザコンソールで Amazon EC2 も利用できるようになりました。
+まぁ「利用できるようになった」とは言え、普段 EC2 を利用するときは API や CUI などから利用するか、もしくは GUI として Amazon の Management Console を利用するほうが多いため、わざわざ Eucalyptus の WebUI から AWS EC2 を利用してみたことがありませんでしたが、ちょうど「AWS Advent Calendar 2013」 が開催されるということで、このようにエントリすることになりました。</description>
+    </item>
+    
+    <item>
+      <title>OpenStack Advent Calendar 2013 JP 8日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-08.adventcalendar-day-8/</link>
+      <pubDate>Sun, 08 Dec 2013 01:11:57 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-08.adventcalendar-day-8/</guid>
+      <description>碧川涼 さて、今日も名前に緑色のつく人を見つけられませんでした。が、よくよく考えたら「碧」っていう字も、青だったり緑だったりするじゃないですか、ってことで、今日はゲーム『NOëL 〜La neige〜』に登場するキャラクターの「碧川涼」さんの誕生日だそうです。お誕生日おめでとうございます。えーと、恋愛シミュレーションゲームだそうです。すみません、残念ながらやったことないので、存じあげておりませんでした。
+それと、この碧川涼というキャラクターの声を演じているのは根谷美智子さんなんですが、根谷さんの親友の菅原祥子さんは12月12日が誕生日だそうです。おめでとうございます。
+Glance のかわりに Walrus を使ってみる まず最初に、我らが愛する石川 さんがこんなことをツブやいてまして
+OpenStack Advent Calendar 2013、誰も記事内で AdventCalendarの何日目という宣言をしてないの良くない。
+&amp;mdash; 石川@驚きの白々しさ (@ishikawa84g) 2013年12月6日 
+これは、やばい、このままだと enforcing されちゃう…(((( ；ﾟДﾟ)))…ってことで、今日は OpenStack Advent Calendar 2013 JP の 8 日目です。
+ところで、去年の OpenStack Advent Calendar 2012 JP の僕のエントリーは惨々な結果でした…。今年は反省しちゃんとやりきりたいと思いますが、どうやら僕は OpenStack 界隈では「負け犬」「噛ませ犬」のポジションらしく「今年も惨々な内容でひとつよろしく頼むよキミぃ」とか言われてます…(｡´Д⊂)
+OpenStack 環境の設定 えー、僕は OpenStack 初心者1なので、いま流行りの RDO? Packstack? を使って構築しました。まぁ、Packstack を用いた構築方法についてはきっと誰かが今回の Advent Calendar で書いてくれるでしょうから、ここでは割愛します。
+ちなみに、ここで使う Walrus は先日の Eucalyptus Advent Calendar 2013 のエントリ「Walrus をだけを使ってみる」で作った環境を使います。
+まず、glance のサービスを止めます。だって使わないんだもんだもん。止めちゃいますよー。
+[root@rdo ~(keystone_admin)]# /etc/init.d/openstack-glance-api stop Stopping openstack-glance-api: [ OK ] [root@rdo ~(keystone_admin)]# /etc/init.</description>
+    </item>
+    
+    <item>
+      <title>Wakame Users Group Advent Calendar 2013 7日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-07.adventcalendar-day-7/</link>
+      <pubDate>Sat, 07 Dec 2013 01:11:46 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-07.adventcalendar-day-7/</guid>
+      <description>今日の緑… 今日も緑色に関するネタが見つかりません…。
+Wakame-VDC の LiveDVD を作ってみた えー、タイトルから「Wakame-VDC」を連呼してすみません。好きなんだからしょうがない。そんな Wakame-VDC および OpenVNet を話題にする Wakame Users Group Advent Calendar 2013 の7日目です。
+去る12/5に@s1061123さんがWakame vdc install on Gentoo linux (2013, winter) という素敵エントリを書いてくださったので、羽深はそれを参考にして Wakame-VDC が動く LiveDVD を作ってみました。ISO ファイルのサイズは約 1.7GB です。
+ダウンロードした ISO を DVD に焼いたら、そこら辺で余っているマシンで起動してください。ちなみにマシンスペックは VT 機能がついてる 64bit マシンで、メモリは 6GB 以上ないと動かないかもしれません。(メモリ 8GB な nested KVM のゲスト環境でしか起動テストしてないので…)
+で、起動させるとこんな感じの、Wakame-VDC 色ゆたか…とは言い難い Grub の画面が表示されます。
+で、Enter 押してもいいですし、10秒放置しておいてもいいです。で、すると画面サイズを確認する画面が表示されますので、テキトーに画面を選択してください。以下では、318 (1024 x 768 x 24bit) を選択した場合を説明します。
+あ、ちなみに Grub の画面で「LiveCD NO-FB」を選択した場合は、画面左上に Wakame-VDC 色ゆたか…とは言い難いロゴが表示されます。
+Grub 画面で「LiveCD」を選択した場合は、こんな感じの Wakame-VDC 色ゆたか…とは言い難いスプラッシュスクリーンが表示されます。</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2013 5日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-05.adventcalendar-day-5/</link>
+      <pubDate>Thu, 05 Dec 2013 01:11:41 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-05.adventcalendar-day-5/</guid>
+      <description> 緑 さて、今日はとうとう「緑」に関する名前で誕生日な人を見つけることができませんでした。1
+なので、苦肉の策？として、「緑」という言葉に関して、ちょっぴりググってしまいました。というのも、これだけ好きな色なのに、語源を知らなかったからです。
+「みどり」という言葉が登場するのは平安時代になってからだそうです。へー。では、それまでは緑色のことを何て呼んでたんでしょうかね？ちょっと僕の浅い検索力では調べられませんでした。
+ だから時間切れになってしまい、本日のエントリを12/5中に公開することができませんでした(；´Д`A [return]   </description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2013 JP 4日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-04.adventcalendar-day-4/</link>
+      <pubDate>Wed, 04 Dec 2013 01:11:29 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-04.adventcalendar-day-4/</guid>
+      <description>菅緑 皆さん、遊園地とかの絶叫系マシンは好きですか？私は大嫌いです。何で金を出して怖い目にあわないといけないんでしょうかね？ちっとも理解できません。ちなみに私の妻は絶叫系マシンが大好きなので、遊園地に行くときはいつも寿命が年単位で縮んでいます。だぶんこのままだと私の戒名は緑毒草子守熊絶叫居士とかになりそうです。
+はい、どうでもいい個人的な話から始めてしまいました今日12/4は熊本出身で第2日本テレビの元アナウンサー菅緑さんの誕生日です。全く存じあげない人(をお祝いするというのは、かなり変な行為だということは重々承知のうえ)ですが、お誕生日おめでとうございます。
+Eucalyptus 1.6.2 で CLC がなかなか起動しないことがあったという話 えーと、本題です。普段仕事で使うプライベートクラウドに Eucalyptus 1.6.2 相当のものを使っているのですが、今日触っていたらどうも様子が変だということでログを見ていました。
+そしたら定期的にスタックトレースを吐いている様子で、ちょっと原因追求する暇も余力もないから、やってはいけないと思いつつ、背に腹はかえられぬということで、エイヤッと CLC を再起動しました。
+するとですね、cloud-debug.log に
+2013/12/03 21:58:35 WARN [GroovyUtil:GroovyUtil:loadConfig:91:main] javax.script.ScriptException: javax.script.ScriptException: java.lang.N ullPointerException javax.script.ScriptException: javax.script.ScriptException: java.lang.NullPointerException at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:119) at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:264) at com.eucalyptus.util.GroovyUtil.loadConfig(GroovyUtil.java:89) (中略) at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:113) ... 76 more Caused by: java.lang.NullPointerException at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:253) ... 77 more 2013/12/03 21:58:48 WARN [Environment:Environment:verifyProperties:532:main] Property [hibernate.cglib.use_reflection_optimizer] has been renamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately  ってな感じのログが吐かれて、そのままピタっとログ出力が止まったまま、起動処理が進まなくなる現象が発生しました。自分しか使ってない環境なら、まぁそんなに慌てないんですが、Eucalyptus 1.6.2 です、そりゃぁもう使ってきた歴史がそれなりに長いわけでして、みんなこの環境に頼りまくりです。
+もうね同僚のみなさんが「OpenStack すげーイカしてるー、しびれるわー」とか言ってても、何だかんだで Eucalyptus 1.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2013 JP 2日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-02.adventcalendar-day-2/</link>
+      <pubDate>Mon, 02 Dec 2013 01:11:25 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-02.adventcalendar-day-2/</guid>
+      <description>山本みどり 年末の定番といえば特番の時代劇ですが、最近は時代劇を観る人があまり居ないんでしょうかね？
+僕が幼少の頃は祖母が子守をしてくれたんですが、祖母が観る番組ってドラマか時代劇かのどちらかでした。当然、僕も幼少の頃は時代劇を観て育つんですが、今も放映されているかどうか不明ですが、子供の頃によく観(せられ)ていた時代劇と言えば「桃太郎侍」「水戸黄門」「暴れん坊将軍」「遠山の金さん」「大岡越前」「銭形平次」など1でした。
+で、ふと気づいたんですが、上に挙げた時代劇全てに出演している女優さんが居ました。そう、女優の山本みどりさんです。すごいですね。
+そして本日12/2は山本みどりさんの誕生日です。おめでとうございます。
+Walrus をだけを使ってみる 去年は見事なまでの醜態を晒してしまいましたが、今年は頑張ります。
+さて、懇切丁寧に説明したいところですが、諸般の事情によりサクサク進めていきます。
+まずレポジトリ情報をインストールします。
+[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/eucalyptus-release-3.4.noarch.rpm [root@walrus ~]# yum install http://downloads.eucalyptus.com/software/euca2ools/3.0/centos/6/x86_64/euca2ools-release-3.0.noarch.rpm [root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/epel-release-6.noarch.rpm [root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/elrepo-release-6.noarch.rpm  そして Walrus をインストールするんですが、Walrus を利用するには CloudController も必要不可欠なためインストールします。
+[root@walrus ~]# yum install eucalyptus-cloud eucalyptus-walrus  次にデータベースの初期化をして CloudController と Walrus を起動します。
+[root@walrus ~]# /usr/sbin/euca_conf --initialize Initializing a new cloud. This may take a few minutes. Initialize command succeeded [root@walrus ~]# /etc/init.d/eucalyptus-cloud start Starting Eucalyptus services: ************************************************************************ ERR-1008 2013-12-03 15:13:38Z ntp is not running Condition: Can&#39;t find running ntp process Cause: unknown Initiator: eucalyptus Location: ntp daemon on localhost Resolution: 1) Install ntp 2) Run ntp ************************************************************************ done.</description>
+    </item>
+    
+    <item>
+      <title>Wakame Users Group Advent Calendar 2013 1日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-01.adventcalendar-day-1/</link>
+      <pubDate>Sun, 01 Dec 2013 01:11:06 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-01.adventcalendar-day-1/</guid>
+      <description>緑山タイガ 「Eucalyptus の Advent Calendar は今年はやりません」と言いましたが、あちこちの Advent Calendar に参加を表明しているうちに、やっぱり今年もやりたくなってきたので、こっそり1 Advent Calendar をやろうと思います。
+まぁ、ぶっちゃけると他の Advent Calendar が賑わっていく様子を見ててとても羨ましくなったんですよ。かと言って、自分から「仲間に入れてー」なんて声をかけられないシャイボーイなので、遠巻きにチラッチラッと見るのが関の山なんですけど、思えば昔からクラスの端っこに居る根暗少年でした。よくクラスに23人ぐらいスポーツ万能で喋りも面白くてちょっと女の子に黄色い声をかけられると満更でもない様子ではにかんじゃうようなスポーツ少年が居るじゃないですか？「俺ってシャイだからなぁ…」とか言っちゃう感じの、いやいやいや、くっそぉーい、「シャイ」っつーのは俺みたいに教室の隅っこで慎ましくジッとしているような人間を表すんであって、君らみたいにクラスの中心で愛を叫んじゃうような人達では断じてあってはいけないんです。
+えーっと、脱線しすぎました。何の話でしたっけ？ そうそう、そんなクラスの中心に居るようなスポーツ少年と言えば、エフエム山口の緑山タイガくんです。もうねプロフィールに「自分ではモテると思ってる。」とか書いてあるんすよ、少年にしてこの充実っぷり、オジさんもうね、やんなっちゃう。で、この緑山タイガくん、なんと今日12/1が誕生日です。おめでとう。意味もなくオジさん祝っちゃうよ。
+nested KVM を用いた環境で Wakame-VDC 環境の作り方 えー、もう何年も前から「オレ Wakame-VDC やるんだ」って言ってるんですが、未だに環境1つ満足に作ってきませんでした。そう、いわゆる「やるやる詐欺」ってやつです。で、そろそろ外圧がないとやらないこと確定なので、Advent Calendar に参加してみることにしました。まー、そんな私の個人的理由なんてどーでもいいと思うので、さっさと Wakame-VDC な環境を作ってみようと思います。
+その前に、実はこの日記の設定がうまく行ってなく、画像をアップロードすることができないため、スクリーンショットを交えながら説明することができません。ですので、大変見辛い日記になっています。すみません。
+nested KVM な環境の準備 IaaS 環境を構築する場合、物理マシンに直接構築する場合と仮想マシン上に構築する場合があります。前者の場合は一般的ですが、後者の場合は実運用としてはあまり一般的とは言えませんが、IaaS ソフトウェアの開発やテストおよび学習環境として利用する場合は比較的よく見られる構成です。ということで、今日は私が Eucalyptus の研修や教育を行なうときに受講者に提供している環境の作り方をベースに Wakame-VDC 環境の作り方を紹介します。
+あ、ちなみに nested KVM を用いた IaaS 環境の構築については、私の駄文2より中井先生のブログ「Nested KVM環境でOpenStack(RDO/Grizzly)をセットアップ」を読むことをお勧め致します。
+nested KVM についての説明はざっくり割愛しますが、一言で言えば「KVM のゲスト OS 上で KVM のホスト OS を動かす仕組み」です。で、今日ここで紹介する nested KVM 環境を構築する一番下地になる環境は、私の趣味により Gentoo Linux を用います。本当は一般的な Ubuntu とかを使うべきなんでしょうが、Ubuntu は仕事でしか使うことがないのであまり詳しくないのです。
+で、まず Gentoo の環境ですが、Gentoo Linux のインストール方法とかを書いてたら日が暮れてしまうどころか日が明けてしまうので、これまたざっくり割愛して、Gentoo Linux で nested KVM を有効にする方法を説明します。「説明します」って言うほど難しい方法があるわけではなく、恐らく Ubuntu でも同じやり方だと思いますが、以下の一行を /etc/modprobe.</description>
+    </item>
+    
+    <item>
+      <title>github クローン</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-09-19.github-clone/</link>
+      <pubDate>Thu, 19 Sep 2013 00:08:45 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-09-19.github-clone/</guid>
+      <description>いいかげん、自分のレポジトリをローカルの svn からサーバ上に移行しようと思い、どうせなら svn を git にしちゃおうと考え、サーバ側では何でレポジトリにアクセスできるようにしようかなー？と 4.1 Git サーバー - プロトコル を読みながら、ふと、「そーいえば仕事では RhodeCode 使ってるし、どうせなら github クローンを立てちゃうか」と安易に考え、折角だから同僚1が作っている GitBucket を使ってみようと奮闘2した記録です。
+事前情報 まず、事前に読んだ情報としては、作者の記事 イマドキのIDE事情 - 手軽に設置できるGithubクローン「GitBucket」を使ってみよう と、Qiita にアップされてた投稿 Githubクローン界の新星 GitBucket を Ubuntu 12.04 で動かす (よくよく見たら、これも会社の同僚3だ…) を参考にしました。
+インストール で、Qiita の同僚の投稿を読むと
+ GitBucketを動かすのは、他の類似のgitlab等と比較すると圧倒的に簡単でリリースされてるwarファイルを TomcatやJettyにデプロイするだけである。
+ とか書いてあるんですが、そもそも私は普段 Tomcat や Jetty とは縁遠い生活を送っているため4 、何が簡単なのかさっぱりわからず、とりあえず「きっと名前からして Java が必要なんだろうな～」という超いいかげんな認識で、自分のサーバ (Gentoo Linux) に Java をインストールしました。
+実行したことは以下。
+● Java のインストール jdk-7u40-linux-x64.gz を Oracle 社からダウンロードして # mv jdk-7u40-linux-x64.gz /usr/portage/distfiles/jdk-7u40-linux-x64.tar.gz # ACCEPT_KEYWORDS=~amd64 USE=&amp;quot;-X&amp;quot; ACCEPT_LICENSE=&amp;quot;Oracle-BCLA-JavaSE&amp;quot; emerge dev-java/oracle-jdk-bin ● インストールした JDK が選択されているかを確認 # eselect java-vm list Available Java Virtual Machines: [1] oracle-jdk-bin-1.</description>
+    </item>
+    
+    <item>
+      <title>擬人化の女神、降臨！</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-08-28.anthropomorphism/</link>
+      <pubDate>Wed, 28 Aug 2013 00:29:35 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-08-28.anthropomorphism/</guid>
+      <description>やつを追う前に　言っておくッ！　おれは今　やつの能力を　ほんのちょっぴりだが　体験した い…いや…　体験したというよりは　まったく理解を　超えていたのだが……
+あ…ありのまま 今　起こった事を話すぜ！
+「おれは　AWS の擬人化ネタをふぁぼっていたら　いつのまにか俺が擬人化ネタにされていた」 な…　何を言っているのか　わからねーと思うが　おれも　何をされたのか　わからなかった… 頭がどうにかなりそうだった…　ゆるキャラだとか萌えキャラだとか そんなチャチなもんじゃあ　断じてねえ
+もっと恐ろしいものの片鱗を　味わったぜ…
+ えー、何の話かと言うと、@ayakomuro さんがこんなことをツブやいてまして
+要らないと思うけどアップしたよ / popowa: #AWS擬人化 の画像一部アップ http://t.co/EIVrOX12se
+&amp;mdash; Aya Komuro (@ayakomuro) 2013年8月26日 
+それに私、ただたんに純粋に感嘆したわけですよ。
+すげー。 RT @ayakomuro: 要らないと思うけどアップしたよ / popowa: #AWS擬人化 の画像一部アップ http://t.co/q1eBkCso5K
+&amp;mdash; Osamu Habuka (@habuka036) 2013年8月26日 
+そしたらですね、
+@habuka036 ユーカリプタスもどうですか？w
+&amp;mdash; Aya Komuro (@ayakomuro) 2013年8月26日</description>
+    </item>
+    
+    <item>
+      <title>ベビーカーについて</title>
+      <link>http://blog.osamu.habuka.jp/post/2013-02-21.stroller/</link>
+      <pubDate>Thu, 21 Feb 2013 00:48:34 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2013-02-21.stroller/</guid>
+      <description>はじめに Advent Calendar からしばらく日記を書く気が失せてしまったが、あまり間をあけるとまた書けなくなってしまうので、リハビリの意味も含めて日記を書いてみようかと思う。ただしリハビリであるので今日は技術的な話題は避けて、珍しく日常的な話題を扱ってみよう。
+そう、今日の話題はベビーカー。何を思ったかベビーカー。先進国に産まれた人は乗る機会が多いであろう乗り物ベビーカー。今日はそんなベビーカーについて話をしてみたい。
+歴史的な何か ベビーカーは Wikipedia によると 1848 年頃にニューヨークで作られたものが最初らしい。
+ニューヨークと言えば全然関係ないけどシカゴである。「シカゴ」と「ベビーカー」とくれば思いつくのが映画「アンタッチャブル」のセントラル駅の階段でのシーン。銃撃戦とベビーカーなんて一見ミスマッチな組み合わせだが、それがあの銃撃戦のシーンの緊迫感を効果的に表現していると私は思う。
+まぁ、あまり書くと映画に詳しくないことがバレるのでほどほどにするが、銃撃戦つまり暴力とベビーカーというミスマッチを表現として用いていると思われるのが、日本人なら知らぬ人は居ないであろう彼の有名な子連れ狼である。アンタッチャブルのベビーカーに比べると、重量感といい無骨さと言いあれを「ベビーカー」と呼ぶにはいささか抵抗を覚えるが、「乳母車」という意味では全く一緒である。
+その子連れ狼の乳母車であるが、前述のアンタッチャブルと同様にミスマッチではあるが、では暴力と全くの対角にあるものかと言うと、実は子連れ狼の乳母車は暴力と同居したタイプの乳母車である。というのもあの乳母車には各種兵装が施されており、言うなればベビーカー界のボンドカーと言っても過言でない逸品である。ミスマッチでありながら、世界で一番兵装が似合うベビーカー、それが大五郎の駆るベビーカーである。「いや、あれは大五郎が駆っているのではない、拝一刀が押しているのである」という無粋なツッコミは不要である。
+さて前述したように最初のベビーカーは 1848 年である。一方で子連れ狼の時代背景はこれまた Wikipedia によると4代将軍徳川家綱の時代だそうである。聰明な諸兄らは気づかれたと思うが、徳川家綱は 1651 年から 1680 年の人である。つまり子連れ狼のベビーカーはニューヨークの発明より早いことになる。それもただのベビーカーではなく兵装型ベビーカーをである。この事実を「拝一刀すげぇ」と思うかどうかは諸君らの自由である。
+なお、子連れ狼はフィクションであり、更にあれはベビーカーというより「箱車」と呼ぶものらしく、その箱車の歴史については残念ながら辿れなかったことを蛇足としてつけ加えておく。
+Air Ria さて本題の Air Ria である。Air Ria はベビー用品業界の双頭の一社であるアップリカが来る 3&amp;frasl;29 に満を持して世に放つ軽量型のベビーカーである。いま「軽量型」と書いたが、どうやらベビーカーには「軽量型」「重量型」などというタイプ分けではなく「A型」「B型」「AB型」などのような、まるで血液型のようなタイプ分けがあるようだ。で、この Air Ria は生後1ヶ月から36ヶ月ぐらいまで使えるように設計されているらしく、A型のようにも見えますが、前述のとおり軽量なのでAB型になるのでしょうか。
+そして軽量ってどのぐらい軽量かというと 4.8kg らしいです。4.8kg というと我が愛機 ThinkPad X40 の重さが約 1.2kg なので、X40 が4台分となります。これは軽いですね。一方の子連れ狼のベビーカーは間違いなく重量級でしょう。だって木製に加えてあんなに武器が仕込まれているわけですから。そして恐らく床面は平らでしょうから何気に生後1ヶ月から乗れそうです。そして拝大五郎は3才らしく、SG基準ではA型でもB型でも最高48ヶ月までと規定されています。そう、子連れ狼のベビーカーはA型と言っていいんじゃないでしょうか。
+さてこの Air Ria は軽さだけではなく他にも優れたアピールポイントがありまして、「ハイシート53cm」と言って座面が高めな設計となっており、お母さんが赤ちゃんを乗り降りさせるときに無理な態勢にならないような設計になっています。日々赤ちゃんを色んな高さに上げ下げしたり、授乳で抱えたりするお母さんの腰のライフはもうゼロに近いので、少しでも腰の負担が減るようになっている Air Ria はお母さんの見方と言えます。まぁ、僕はオッサンですけどね。で、座面が高いので熱やホコリからも赤ちゃんを遠ざけることになるようです。
+他にも Air Ria には色々と優れた点がありますが、僕の拙い文章力では下手解説にもならないので、あとは皆さんが実際に手にとって見てみてください。東京周辺のかたはアップリカ代官山店で実物を見ることができるそうですよ。
+あぁ、そうそう、何で技術や夢ネタでもないことをブログで書きだしたのかというと、この Air Ria はいまキャンペーンをやっているらしく、まぁ、ブログなり Twitter でツブやいたりすると当選確率があがるようなのですよ。
+でもたかがキャンペーンのためにここまで書くのは珍しいと思われるかもしれませんが、まずは上記のリンク先を見てみてください。そう緑色がテーマカラーなのか、随所に緑色が配色されています。思わず赤ちゃんのテンションも上昇ですよね。ヾ(＠⌒ー⌒＠)ノ</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 廿五日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</link>
+      <pubDate>Tue, 25 Dec 2012 01:19:21 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</guid>
+      <description>0.48 さて、12/25 UTC-11 です。Advent Calendar 最後のエントリです。
+今日はいつも以上に時間がないので導入文も端折ります。
+Eucalyptus と DNS 今日は本当に時間がなく(いつも無いけど) Advent Calendar のネタを如何に手間をかけずに書こうか悩んでいたところ、@hejomo さんが「Eucalyptus 環境に DNS を導入してみたけどドメイン名が変だぜ」とツブやいていたので、これ幸いと思い、これをネタにすることにしました。@hejomo さんありがとうございます。
+Eucalyptus 2.0.3 までは… バージョン 2.0 系までは eucalyptus.conf に DISABLE_DNS=&amp;ldquo;N&amp;rdquo; って設定し、Web 管理画面で「DNS Configuration」の各項目に値を設定すれば PublicIP と PrivateIP が PublicDNS と PrivateDNS となっていました。
+しかし、Eucalyptus 3.x からは以下のような設定を行なわないと駄目だそうです。(「だそうです」と言っているのは、実は環境を腐らせてしまい、最後まで確認しきることができなかったからなのです…orz)
+Eucalyptus 3.2 での DNS 設定 まず最初に CLC にログインし、以下のコマンドを実行します。
+euca-modify-property -p system.dns.dnsdomain=&amp;lt;eucadomain.yourdomain&amp;gt;   は今回設定したい DNS のゾーン名となる値を入れます。例えば euca1.example.com とか。
+つぎに
+euca-modify-property -p bootstrap.webservices.use_instance_dns=true  と設定し、そして
+euca-modify-property -p cloud.vmstate.instance_subdomain=.&amp;lt;custom-dns-subdomain&amp;gt;  と設定します。.</description>
+    </item>
+    
+    <item>
+      <title>CloudStack Advent Calendar jp: 2012 &amp; Eucalyptus Advent Caledar 2012 JP 廿四日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</link>
+      <pubDate>Mon, 24 Dec 2012 01:19:16 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</guid>
+      <description>手取り足取りの難しさ さて皆さん本日はクリスマスイブですよ、聖なるクリスマスを迎える準備はできましたか？泣いても笑ってもサンタはやって来ます、皆さん供物の用意は済みましたか？もしくは供物のかわりに差し出す魂の用意は大丈夫ですか？清らかな人生を歩んできましたか？
+CloudStackがッ 泣くまで イジメるのをやめないッ！ はい、さて、CloudStack の Advent Calendar です。あ、ちなみに始めにお斷りしておきますが、間違ってもこれをカップルで仲良く読みながらホーリーナイトとか口走ってしまわないように注意してください。もし口走ると国境付近の山に封印されているサンタがうっかり掘り起こされて街中の子供達が連れ去られたりトナカイちゃんが美味しく食べられてもおかしくないことになったり、もうそりゃぁ大変なことになります。
+あ、はい、うざいですね、ごめんなさい、そろそろ本題に入りますね。 えー、タイトルのとおり CloudStack をこれでもかっていうぐらいイジめて泣かそうという、僕の優しさが隠しきれないほど滲みでる企画です。
+参考にした情報  クリエーションライン株式会社の資料 CloudStackを使ってみよう[1] 大削先生の記事 機能を徹底比較！　～Eucalyptus、CloudStack、OpenStack CloudStack Advent Calendar 1日目の荒井会長の資料 Apache CloudStack 4.0をインストールしてみた。 CloudStack の Installation Guide CloudStack4.0-インストール 大削先生のスライド CloudStack 概要 でもちょっと詳しめVer.  あ、ちなみに上記の素晴しい資料を参考にしたからと言って、僕の貧相な理解力がこれらを吸収できるか？っていうと、それは全く別の話ですよ。
+構成 本当は Host を 2台にしたかったんですが、機材不足で断念しました。なので以下の構成にしています。
++------------+ +--------+ | CloudStack | | | | Management +----+ Host1 | | Server | | | +------------+ +--------+  構築 聖なる CloudStacker の皆さんは「構築なんて目つぶっててもできることをわざわざ書くな」と呆られるかもしれませんが、まぁ聞いてくださいよ。 えーとですね、私えらい離れた環境から CloudStack のインストールをやっておりまして、どれだけ離れているかというと、以下のように対象マシンに接続するために 2 台ほど踏み台を通らないと駄目なんす。</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 廿一日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-21.eucalyptus-adventcalendar-2012-jp-day-21/</link>
+      <pubDate>Fri, 21 Dec 2012 01:19:04 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-21.eucalyptus-adventcalendar-2012-jp-day-21/</guid>
+      <description>慣れないソフトウェアのインストールは難しいですね 質の良い文章って書くの大変ですよね、技術的な文書も非技術な文書もまともに書けない身としてはなるべく良質の文書を目にすることで自分の文書力を向上させたいとは思っているんですが、そもそも句読点の適切な使い方すらちゃんと知らないので、皆さんそこら辺どうやって学んで身につけているんでしょう？と思いつつ、先月購入した Software Design 2012年12月号を会社に忘れてきてしまい後悔しつつ、これを書いています。ところでくどいですが、句読点の使い方って小学校で学びました？僕はどうやらガラスの10代半ばまでポケぇ～っとしながら生きてきたせいか、いまいちそこら辺の記憶がありません。小学校って何してたっけ？
+みなさん今晩は、そんな駄文をダラダラ書くことだけは出来るのに CloudStack 環境が簡単に作れないヘタレの羽深です。やっぱり技術や OS やソフトウェアって好き嫌いせずに何でも美味しく頂いたほうが人生豊かになりますよ。特定のものにコダワリすぎて自分の幅を狭めちゃうとよくないです。まぁ、でもたいていは「利用はしたいけど構築はしたくねぇぜ、それ面倒さ」と思っているでしょう。そんな聖なる紳士淑女に耳寄りな話です。あの ECC (Eucalyptus Community Cloud) が Eucalyptus 3.2.0 ベースにバージョンアップしたようですので、今日はその使い方についてのご案内です。
+ECC を使ってみる ECC の使いかたからその説明については Eucalyptus 社のサイトにある ECC の説明に書いてありますので、まずそちらをお読みください。
+で、ECC を使うためには、まずアカウントを作らなければいけません。あぁ、そうそう、説明が漏れていましたが、Eucalyptus はバージョン 2.0 までは「ユーザ」(と内部的な「グループ」)という概念しか持っていないフラットなアカウント管理でしたが 3.0 からは「アカウント」「グループ」「ユーザ」という構造で管理できるようになりました。まぁ、ここら辺の詳しい説明は連載「ユーカリプタス入門」でやりたいと思います。相変わらず汚い大人でごめんなさい。でも世の中僕ほどピュアっピュアな人間も居ませんよ？
+で、ECC を使うためにはそのアカウントを作らなければいけないのですが、アカウントを作るためには ECC のサイトにアクセスし、ページ右上にある「Signup Account」をクリックしてアカウントの申請ページに遷移します。
+New Account Name に任意の名前を入力し、Email にはメールが受信可能なアドレスを入力し、Password と Type password again にはこのアカウントの管理者(admin) 用のパスワードを入力し、[OK] をクリックします。
+すると「アカウントの申請はしたけど、そのうちメールを送るからその内容に従ってアカウントを有効にしろよ」と言われるので、あとはジッと我慢の子でメールが届くのを待ちます。
+以上です。
+……
+……
+……
+え？もっと先まで説明しろって？いや、僕もそうしたいのはヤマヤマなんですが、この Advent Calendar、基本的に思い付きで書いているもんだから、アカウント申請したのってついさっきなんですよ。なので申請したばっかりでまだメールが届いていません。いぇ～い、ECC の中の人見てる～？✌(՞ਊ ՞)✌
+なので、これ以上は書きたくても書けないので、メールが届いたらまたこの日記を更新しようと思います。
+クリスマスまであと3日です ✌(՞ਊ ՞)✌
+後日談 「後日談」って言っても上記からまだ4時間ちょとしか経ってませんが、ECC からメールが帰ってきました。メールは以下のような内容ですので、メール内のリンクを踏んでアカウントを有効化します。
+From: habukao@example.com To: habukao@example.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 廿日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-20.eucalyptus-adventcalendar-2012-jp-day-20/</link>
+      <pubDate>Thu, 20 Dec 2012 01:17:57 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-20.eucalyptus-adventcalendar-2012-jp-day-20/</guid>
+      <description>Eucalyptus 3.2.0 出ましたよ 師走で年末進行でギッチギチなのに忘年会とか納品作業とか挨拶まわりとか世の中の聖なる紳士淑女は大変ですね？羽深です。
+Eucalyptus 3.2.0 がリリースされたので今日は技術ネタです。(昨晩の CUPA Cafe で「来週ぐらいにはリリースされんじゃね？」とかテキトーなことをぬかしてごめんなさい)
+Silvereye 3.2 β2 でインストールした環境を Eucalyptus 3.2.0 リリース版の環境にアップデートする えー、先日の OSC 2012.Cloud で日本 Eucalyptus ユーザ会が配布した Silvereye 3.2β2 を使って環境を構築してくれたナイスガイ(女性も含む)達は Eucalyptus 3.2.0 がリリースされて、きっとこう思っていると思います。
+何だよーもー、折角環境を作ったばっかりなのにー、ぷんすかぷん
+でも大丈夫です、ご安心ください。簡単にその環境を Eucalyptus 3.2 にアップデートする方法をお伝え致します。
+まず最初に現在インストールされている nightly 用の yum レポジトリ設定をアンインストールします。
+# rpm -e eucalyptus-release  次にリリース版の yum レポジトリ設定をインストールします。
+# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.2/centos/6/x86_64/eucalyptus-release-3.2.noarch.rpm  えーい、面倒だから全部アップデート
+# yum update  ちなみに12/20時点では以下のパッケージがアップデートされました。
+================================================================================================================ Package Arch Version Repository Size ================================================================================================================ Installing: kernel x86_64 2.6.32-279.19.1.el6 updates 25 M Updating: device-mapper x86_64 1.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十八日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-18.eucalyptus-adventcalendar-2012-jp-day-18/</link>
+      <pubDate>Tue, 18 Dec 2012 01:17:50 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-18.eucalyptus-adventcalendar-2012-jp-day-18/</guid>
+      <description>今日のネタは演説ものです これを書いている今日は 12&amp;frasl;19 という説もありますが、断じで本日は 12&amp;frasl;18 です。自分でも「何言ってんだコイツ？」と思います。
+さて、世間では徴兵制度がうんたらかんたらと論じられているようですが、僕は残念ながら知識が乏しいので想像でしか物を言えぬ愚かものですが、何で「徴兵制度 = 戦闘員の増加」と短絡思考するんでしょうかね？一方で、何で「強い日本 = 徴兵制度の復活」と短絡思考するんでしょうかね？兵士になる気がない人を徴兵で集めても意味ないですし、兵士さえ居れば軍事力が増す訳でもないですよね。徴兵制度を復活させようとしている人達の意図はどこにあるんでしょう？反対する人達でも自分の家族は護りたいとか思ってますよね？ちょっと自分、新聞読まなすぎですね。
+妻とも話をしてたんですが、まずは前回の震災時のように自衛隊の隊員が休息を満足に取れない状況を回避するところから努力するべきじゃないかと思います。国民が理解できるように国も国民も双方が努力しないと駄目ですよね？徴兵制度って言うから反発くらうんだろうから、予備自衛官の制度をちゃんと正しく伝えるところから着手してはどうかしら？と思います。
+ということで、僕みたいなアーパーな人間が考えることは穴だらけでどうしようもないと思いますが、企業が(希望する)社員に予備自衛官への応募を支援したら、最初の一歩としてはいいんじゃないかと。まぁ、ボランティア活動をしていない僕が言うのはおかしいですけども。
+で、今日の Eucalyptus ネタは演説ネタです。技術ネタじゃなくてごめんなさい。帰宅してから書くにはあまりにも時間が無さすぎました。なので非技術ネタにしたんですが、技術ネタを書くより時間がかかったかもしんない…。ガンダム観てない人はごめんなさい、今日は諦めてください。ちなみに書いた自分が言うのも何ですが、さっぱり意味がわかりません。もしこれを書いたのが僕の家族なら、迷わず病院に連れて行くレベルです。
+クワトロ・ハブーカのユーカリの演説 私は、元千葉県民のクワトロ・ハブーカである。秋田県出身である。そして、今は、東京都品川区の住民である。我々の Eucalyptus を使いたいと思っている人々は、オンプレミス上にも、クラウドにも多いはずだ。オープンソースが主流であるプライベートクラウド業界ならば、私の発言を止められるはずはない！
+私がこの場を借りて、Eucalyptusの意思を代弁するものとして語るのは、リソース枯渇の危険性が、現在、極めて重要な問題になってきたからに他ならない。これはかつてのオンプレミスでの問題である。いや、プライベートクラウドが抱えるこの問題は、オンプレミス以上に深刻である。
+プライベートクラウドの名を借りて、パブリッククラウドの単なる模倣で満足しようとしている現状は、クラウドを利用しているだけなのに「クラウド型」と宣伝する企業サービス同様に悪質である。
+人がプライベートクラウドを求めたのは、なぜか、と思い出してもらいたい。クラウドの有するインフラ技術が技術者として垂涎ものだからだ。
+企業がプライベートクラウドを所有したことによって、企業そのものがクラウド技術を身につけたと誤解した。その結果が、リソース枯渇なのだ。プライベートクラウドの導入の拡大が、企業に力をつけたと誤解し、パブリッククラウドの模倣で満足だと思ったのだ。それは、過ちである。この意味は重要である。企業は、もともと、所有欲が強いという証拠である。プライベートクラウドはリソースが有限であると認識する必要がある。もう、オンプレミスでの苦悩を繰り返してはならない。
+企業がプライベートクラウドを得ることによって、手に入れられるのは、純粋にクラウドの利用を広げることができることなのである。
+プログラマブルインフラストラクチャによる新しい領域で、人のプログラミング欲求は刺激を受けて、今までプログラミングできていた対象が増加する。たとえば、物理的な操作がよりプログラミングできるようになるということだ。俗にいわれる神技とも異なる運用ができるのだ。なぜできるか？ 簡単なことだ。インフラアーキテクト以外の人がプログラミングしたい要求対象がロジカルな領域からフィジカルな領域に広がったために、インフラアーキテクト以外の人も利用可能な便利なAPIを作り出さねば、一つの技術集団として共通の会話をすることが出来ないからにすぎない。
+これまで、インフラを愛する我々の人口は、業界の50%も占めていなかったといわれる。残りの人口は、インフラが手軽に扱えるようになったときのために、神々が我々インフラアーキテクトの仲間を増やすために与えて下さった予備軍なのだ。
+オンプレミスを快適と思うあまり、物理サーバの所有に固執することが最良と思う人々は、オンプレミスに魂を引かれた者である。人のクラウド利用の拡大の可能性を否定して、人の間に所有欲を生み出すことによって、人類を堕落させようとするのが箱物売りの狙いである。
+しかし、それでは、過去から言われていたように、物理マシン単体のスペックが処理速度を飛躍させたという古い規範から、人は一歩も出ることは出来ない。
+違う！　人は、違うのだ。クラウドを使い、APIを叩き、まだ目覚めていない人のプログラミング力を高めれば、人は、所有なくして、永遠に発展し、環境を増殖し続けることができる。クラウドの可能性は、無限である。この無限という意味を考えていただきたい。 どのような叡智をも呑み込むだけの果てしなさを持ったもの、という意味である。その果てしなさに対して、永遠に叡智を放出できるのもまた人類でしかない。その叡智とプログラミング力、そして、神技を、なぜ人は、アプリ開発にぶつけることだけで満足して死んでゆけるのか？
+それが、人に与えられた使命ではない。神は、クラウド駆ける者として人を創造されたのである。
+箱物売りは、オンプレミスの重力に魂を引かれた人々で、オンプレミスの論理だけで革命を進めようとしているのだ。しかし、それは改革ではない。オンプレミスを所有する人とクラウドを利用する人という階級だけを作り、その緊張感の中で、特定の人々だけが、利益を得る社会構造を作るだけである。
+それでは、中世である。人にプログラミングするなと言うに等しい。
+人は、長い間、このオンプレミスという揺り籠の中で戯れてきた。しかし、時は、すでに人類をオンプレミスから巣立たせているのだ。この期に及んで、なぜ、サーバルームに籠り、環境を構築しなければならないのだ？　物理マシンの操作をなるべく減らし、人類は、Eucalyptus で自立しなければ、技術力は干涸らびて使い物にならなくなる日は近いのである！
+しかし、今ならば、まだ君らのマシンはまだ動き、残す価値がある。ならば、自分の欲望を満たすためだけに、物理マシンに寄生虫のようにへばりついて、物理マシンを汚すことは、何人にも許されない。
+箱物売りは、このような時でさえも、営業を仕掛けてくるのだ。この傲慢な行為は、かつての物売りから成長した組織が、導入しない者は全て情弱と称して、掃討しようという意志を持っている証明である。これこそ情弱であり、人類を衰退させてゆくと言い切れる。
+IaaS 系 Advent Calendar をご覧になっている方々は、お分かりのはずだ！　これが彼らのやり方なのだ！　そして、冷静に事態をご覧になっていただきたい。彼らは、この Advent Calendar に自分たちの味方がいるにも拘わらず、私一人の口を封じるために忘年会に誘おうとしているのです！
+クリスマスまであと7日です ✌(՞ਊ ՞)✌</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十七日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-17.eucalyptus-adventcalendar-2012-jp-day-17/</link>
+      <pubDate>Mon, 17 Dec 2012 01:17:44 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-17.eucalyptus-adventcalendar-2012-jp-day-17/</guid>
+      <description>手抜きじゃないよ？省力化だよ？ 同僚から「最近の Advent Calendar の内容薄くなってね？」とツッコまれました内気な少年の羽深です。ほんと危うく思い詰めるところでしたよ。取り扱い注意なガラスの心なんですよ、まったく。
+Eucalyptus を fog に巻く 巷では Ruby によるクラウドサービスライブラリの「fog」が流行っているようなので、「EC2/S3/IAM API 互換」と言っている Eucalyptus でも使えるんじゃね？ということで fog で Eucalyptus を利用してみました。
+まぁ、「fog に巻く」っていうタイトルにした割には内容が薄くて全然巻けていなくて、さすがのブライトさんも怒れないレベルの薄さですよ、どうせ。
+ちなみに参考にしたドキュメント類は、fog のドキュメントとソースコードと以下のブログです。ありがとうございます。
+ abe4tawa8さんのブログ dkavanaghさんのブログ  インストール方法ですが、以下のとおりです。うん簡単。
+gem install fog  で、簡単なサンプルとして以下のようなコードを書いてみました。
+#!/usr/bin/ruby require &#39;rubygems&#39; require &#39;fog&#39; compute = Fog::Compute.new({ :provider =&amp;gt; &#39;AWS&#39;, :aws_access_key_id =&amp;gt; &#39;WKy3rMzOWPouVOxK1p3Ar1C2uRBwa2FBXnCw&#39;, :aws_secret_access_key =&amp;gt; &#39;yxXm3RXPl97GPRSpWrHJduejS323WqZL0Mw&#39;, :endpoint =&amp;gt; &#39;http://172.16.34.10:8773/services/Eucalyptus&#39;, :region =&amp;gt; &#39;Eucalyptus&#39;, }) puts compute.servers.inspect  で、これを実行すると以下のような結果がびろびろ～んと出てきます。
+ &amp;lt;Fog::Compute::AWS::Servers filters={} [ &amp;lt;Fog::Compute::AWS::Server id=&amp;quot;i-4997090C&amp;quot;, ami_launch_index=0, availability_zone=&amp;quot;amesha-spenta&amp;quot;, block_device_mapping=[], network_interfaces=[], client_token=nil, dns_name=&amp;quot;172.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十六日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-16.eucalyptus-adventcalendar-2012-jp-day-16/</link>
+      <pubDate>Sun, 16 Dec 2012 01:17:32 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-16.eucalyptus-adventcalendar-2012-jp-day-16/</guid>
+      <description> 祝って頂きありがとうございます。 はい、誕生日です。ありがとうございます。誕生日なのですが前日は夫婦共に DVD 100枚を焼き焼き刷り刷りし、当日は妻を家に置いて OSC 2012.Cloud に参加して2つ発表し、DVD 100枚を配布するという、恐らく一般的な平民としては終っているような人間ですが、オープンソース教の信者なのでごめんなさい。パトラッシュ1が尻尾を振り振りヨダレだらだらで駆けよってきてますが、Advent Calendar の更新を頑張ります。2
+いつもはちょっと自虐的だったり自暴自棄的な書きっぷりですが、今日はさすがに皆さんへの感謝が溢れ出ているので、読んだ結果ジンマシンが出ても責任は取れません。あしからず。
+OSC 2012.Cloud の報告 そう、今日 12&amp;frasl;16 は OSC 2012.Cloud でした。OSC 初のクラウドに特化したイベントです。来場者の合計は 300 名だそうです。へー、すごいですね。
+冒頭でも書きましたが、この日に配布するために Silvereye 3.2 β2 の DVD を 100 枚焼いて持っていきました。
+で、10:00 ～のセッション「オープンソースで作るプライベートクラウド環境」で Silvereye について約 10 分ほど紹介をしました。日曜の朝 10:00 からのセッションにもかかわらず、実に 80 名以上の人が聞きにきてくださいました。
+そしてそのセッションの終了後に配布したり、展示スペースで配布したりで、結果 96 枚が配布できました。配布に積極的に協力して頂いた前佛さんと日本 OpenStack ユーザ会とその女子部の皆さん、どうもありがとうございました。僕独りではうまく配布できないところを、皆さんがガンガン配布してくれたおかげで、来場者の実に三分の一の人達の手に渡ったことになります。すごい。感激です。皆さんの協力が何よりの誕生日プレゼントになりました。本当にありがとうです。
+クリスマスまであと9日です ✌(՞ਊ ՞)✌
+ 紛らわしい書き方をしましたが「眠気が襲ってくる」という意味で使いました。我が家のお犬様の名前は「プーチン」です [return] 「頑張ります」って、自分で好きでやってんだから「頑張る」のは当然ですね (；´Д`A [return]   </description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十五日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-15.eucalyptus-adventcalendar-2012-jp-day-15/</link>
+      <pubDate>Sat, 15 Dec 2012 01:17:27 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-15.eucalyptus-adventcalendar-2012-jp-day-15/</guid>
+      <description>前説 さて、明日はいよいよオープンソースカンファレンス 2012.Cloud ですね。皆さん準備は進んでますか～？僕はまだ 1mm もできてませんよ～。やっほ～。
+以前、海外の論文だかで「子供のときに計画的に──例えば夏休みの宿題などを片付けられなかった人は、大人になっても計画的に物事を進めたり、物事をやりきることができない人になる」っていう発表があったらしく、論文とか小難しいものを読まないアーパーな僕でもすごく納得した気がします。まぁ、そんな計画的に物事を進められる聖なる紳士淑女の皆さんにはきっと僕のようなカツオ・のび太型人間の苦悩を計り知ることは難しいかもしれませんが、これを書いている今、我が家のお犬様が僕の臭い足をペロペロと舐めてお掃除してくれていて、僕の苦悩って何だっけ？と忘れちゃうぐらいどうでもよい悩みだということがわりました。
+インスタンスに VNC 接続 さて、インスタンスに VNC 接続する方法ですが、NC の /etc/eucalyptus/libvirt.xsl を見ると 290 行目に以下のように記述がありますが、
+ 287: &amp;lt;console type=&amp;quot;pty&amp;quot;/&amp;gt; 288: &amp;lt;/xsl:when&amp;gt; 289: &amp;lt;/xsl:choose&amp;gt; 290: &amp;lt;!-- &amp;lt;graphics type=&#39;vnc&#39; port=&#39;-1&#39; autoport=&#39;yes&#39; keymap=&#39;en-us&#39; listen=&#39;0.0.0.0&#39;/&amp;gt; --&amp;gt; 291: &amp;lt;/devices&amp;gt; 292: &amp;lt;/domain&amp;gt; 293: &amp;lt;/xsl:template&amp;gt;  これを以下のように &amp;lt;!&amp;ndash; /&amp;ndash;&amp;gt; を外してインスタンス起動すると、
+ 287: &amp;lt;console type=&amp;quot;pty&amp;quot;/&amp;gt; 288: &amp;lt;/xsl:when&amp;gt; 289: &amp;lt;/xsl:choose&amp;gt; 290: &amp;lt;graphics type=&#39;vnc&#39; port=&#39;-1&#39; autoport=&#39;yes&#39; keymap=&#39;en-us&#39; listen=&#39;0.0.0.0&#39;/&amp;gt; 291: &amp;lt;/devices&amp;gt; 292: &amp;lt;/domain&amp;gt; 293: &amp;lt;/xsl:template&amp;gt;  NC の TCP ポート 5900 以降が使われます。</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十四日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-14.eucalyptus-adventcalendar-2012-jp-day-14/</link>
+      <pubDate>Fri, 14 Dec 2012 01:17:14 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-14.eucalyptus-adventcalendar-2012-jp-day-14/</guid>
+      <description>ネットワークモードと構成に関する勘違い 花金をエンジョイしている聖なる紳士淑女の皆さんこんばんは。世の中悲しいことがたくさん降りかかってきますが、あなたが辛いときは誰かが幸せだったり、逆にあなたが幸せなときは他の誰かが辛かったり、つまり何が言いたいかっていうと、分かち合えるのは幸せな気分だけでなく、辛いときも分かち合えるので、幸せなときも辛いときも他人に報告するといいんじゃないかと思います。まぁなので今日1は僕は皆さんの幸せを祈ります。
+って言ってもこの Advent Calendar は辛さを独りで分かち合うという不思議体験ミラクルゾーンです。(嘘です、皆さんの協力に感謝してます。
+silvereye の腹ん中 えー、先日紹介した silvereye について、ちょっと気になったことを確認する回です。「手抜き」とか言ってはいけません、簡単にヘコむ子です。
+何かと言うと私は常々「マシン1台で Eucalyptus を動かすなら Eucalyptus のネットワークモードは SYSTEM か STATIC じゃないと駄目です」と豪語していました。が、先日紹介した silvereye は 1台のマシンにインストールして動かしたら MANAGED-NOVLAN でした。設定は以下な感じなんです。
+EUCALYPTUS=&amp;quot;/&amp;quot; EUCA_USER=&amp;quot;eucalyptus&amp;quot; CLOUD_OPTS=&amp;quot;&amp;quot; CREATE_SC_LOOP_DEVICES=&amp;quot;256&amp;quot; NC_PORT=&amp;quot;8775&amp;quot; CC_PORT=&amp;quot;8774&amp;quot; SCHEDPOLICY=&amp;quot;ROUNDROBIN&amp;quot; NODES=&amp;quot;172.31.252.1&amp;quot; NC_SERVICE=&amp;quot;axis2/services/EucalyptusNC&amp;quot; HYPERVISOR=&amp;quot;kvm&amp;quot; USE_VIRTIO_ROOT=&amp;quot;1&amp;quot; USE_VIRTIO_DISK=&amp;quot;1&amp;quot; USE_VIRTIO_NET=&amp;quot;0&amp;quot; INSTANCE_PATH=&amp;quot;/var/lib/eucalyptus/instances&amp;quot; VNET_MODE=&amp;quot;MANAGED-NOVLAN&amp;quot; VNET_PRIVINTERFACE=&amp;quot;br0&amp;quot; VNET_PUBINTERFACE=&amp;quot;eth1&amp;quot; VNET_BRIDGE=&amp;quot;br0&amp;quot; VNET_PUBLICIPS=&amp;quot;192.168.33.100-192.168.33.200&amp;quot; VNET_SUBNET=&amp;quot;10.0.0.0&amp;quot; VNET_NETMASK=&amp;quot;255.0.0.0&amp;quot; VNET_ADDRSPERNET=&amp;quot;256&amp;quot; VNET_DNS=&amp;quot;192.168.32.21&amp;quot; VNET_DHCPDAEMON=&amp;quot;/usr/sbin/dhcpd41&amp;quot;  で、前回のスクリーンショットは画像が荒くて設定値までは読み取れないと思いますが、「NC Bridge Network」っていう項目に 172.31.252.1 を指定しました。(デフォルト値がそうだったので)
+そんで ip コマンドで自分自身の IP を確認すると確かに NC Bridge Network で指定した値が設定されています。
+# ip addr show br0 7: br0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue state UNKNOWN link/ether fe:0d:d6:e2:40:82 brd ff:ff:ff:ff:ff:ff inet 169.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十三日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-13.eucalyptus-adventcalendar-2012-jp-day-13/</link>
+      <pubDate>Thu, 13 Dec 2012 01:43:14 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-13.eucalyptus-adventcalendar-2012-jp-day-13/</guid>
+      <description>見た目大事 13日目です。去年まで「Advent Calendar なんて他の国のリア充どもがやってんだろうなぁ～」ってぐらいしか思ってなかったんですが、まさか自分が当事者になるとは思いませんでした。まぁ、「1人1ネタぐらいで持ち寄って皆でワイワイやったら楽しいなぁ～ほわわぁぁん」とか思ってたのは 11&amp;frasl;30 までで、いざ始まってみると結構マゾいんすね Advent Calendar って。そんなマゾい Advent Calendar をやっている聖なる紳士淑女の皆さん元気ですか？こんばんは。
+で、Advent Calendar って 10 分で考えて 5 分で書くということを先日知ったんですが、僕の場合は 10 秒ぐらいしか考えずに、やりながら書いているので、ここを 12&amp;frasl;01 から読んでいる皆さんは僕がどんだけ毎回ドタバタしながら失敗しているかよくわかっていると思いますけど、まぁ、その今日もほとんど考えなしに走ります。
+とりあえずイジってみる さて、あまり話題にしたことなかったんですが、今日は Eucalyptus の Web 管理画面の見た目を変更してみる話です。え～、Eucalyptus の Web 管理画面は /var/lib/eucalyptus/webapps/root.war というファイルにまとめられていて、/var/run/eucalyptus/webapp/ に展開されています。で、画面自体は GWT (Google Web Toolkit) で作られているようです。まぁ、僕がちゃんとしていたらここで颯爽と eclipse を立ち上げて華麗にイジり方などを解説するところですが、残念ながらちゃんとしていないので、そんな高等なことできません。
+じゃー今日のネタは何すんのさー？と思われたそこの旦那さま、何も難しいことありません、/var/lib/eucalyptus/webapp/root.war をイジイジして /etc/init.d/eucalyptus-cloud を restart するだけで、あら不思議、Web 管理画面の見た目が簡単に変わりましたよ的な結果が得られます。やっぱずぅ～っとインフラやってると、たまには陽の光があたる暖い場所へ出てみたくなりますよね？なりませんか？
+で、まず以下を実行して、元ファイルを展開します。
+# cd /var/lib/eucalyptus/webapp/ # mv root.war root.war.orig # mkdir -p root # cd root # unzip ../root.war.orig  で、展開されたファイルを適宜変更します。例えば今回は themes/{active,eucalyptus}/ 配下にある logo.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十二日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-12.eucalyptus-adventcalendar-2012-jp-day-12/</link>
+      <pubDate>Wed, 12 Dec 2012 01:17:04 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-12.eucalyptus-adventcalendar-2012-jp-day-12/</guid>
+      <description>JEUG 版 LiveDVD の作り方 今日は 2012/12/12 です。「いぇ～い、ゾロ目～」とかって言いながら非公営ギャンブルに勤しんでいるクズい紳士淑女の皆さんこんばんは、人生是博打な羽深です。スマイルしてますか～？今日は JEUG 版 LiveDVD の作り方をネタにします。
+「JEUG 版 LiveDVD って何かしら？」と思ったそこのあなた、「Eucalyptus LiveDVD」と検索したらいいですよ。見つかるかどうかは知りませんけどね。
+で、需要がないのは重々承知で、知っている稀有な方にのみ送ります。あぁ、CentOS 5.x な環境を用意してくださいね。本当はこれ Gentoo な LiveDVD を目指していたんですが、ちょっと色々と色気を出しすぎてまだ完成していないので、未だに「簡単に LiveDVD を作れる CentOS」となっています。CentOS 万歳♪ RHEL 万歳♪
+ちなみに参考情報として CentOS の LiveCD の作り方 を読んでおくと幸せになれます。
+まず、以下の内容で「/etc/yum.repos.d/centos-livecd.repo」というファイルを作ります。
+[livecd] name = CentOS $releasever - LiveCD baseurl = http://www.nanotechnologies.qc.ca/propos/linux/centos-live/$basearch/live enabled=1 protect=0 gpgkey = http://www.nanotechnologies.qc.ca/propos/linux/RPM-GPG-KEY-PGuay2010  次に、以下を実行して LiveDVD を作る環境を整えます
+# yum install livecd-tools syslinux anaconda-runtime  そして、github から JEUG 版 LiveDVD に必要なファイル類をゲットします。
+# wget --no-check-certificate -O eucalyquitous.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十一日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-11.eucalyptus-adventcalendar-2012-jp-day-11/</link>
+      <pubDate>Tue, 11 Dec 2012 01:16:53 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-11.eucalyptus-adventcalendar-2012-jp-day-11/</guid>
+      <description> クッキー 11日目です。
+えーと、画像ネタに植物ネタと他の IaaS 系 AdventCalendar とは違って、マジメっぷりが全然ないネタばかりで申し訳ないのですが、今日は食べ物ネタです。
+ちなみに今日は本当は CloudStack Advent Calendar の 12&amp;frasl;11 も担当していたのですが、力不足により @opt_Hohenheim さんに交代してもらいました。この場をお借りして……ってここ俺の日記だった。
+おまけに Eucalyptus Adevent Calendar のほうはネタが二転三転し、結局こうなりました。1 「で、これ何ですか？」っていう話ですが、日本Eucalyptusユーザ会のマスコットキャラクター「ぷたとす～」の「ぷた」と私の顔2のクッキーでして、妻の力作になります。
+ 更にこれ書いている途中で自宅のネットワークが重くなり、4Kbps という素敵な回線速度です… [return] ご存じだとは思いすが、当人の顔は「松竹梅」で言うと「灰」レベルの酷さです [return]   </description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 九日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-09.eucalyptus-adventcalendar-2012-jp-day-9/</link>
+      <pubDate>Sun, 09 Dec 2012 01:16:43 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-09.eucalyptus-adventcalendar-2012-jp-day-9/</guid>
+      <description>ヨウ化銀？違うよ silvereye だよ え～と「何の話さ？」と思われるかもしれませんが、今日は silvereye というプロジェクトおよびツール？について紹介します。
+無駄話的な前説 で、野鳥友の会のかたならばご存知かと思いますが、この silvereye は日本語ではハイムネメジロという名前の鳥のことを示します。写真で見るとカワイイ眼をしてますが、残念ながら私は直接見たことも撮影したこともないので、ここでは写真をお見せできませんので、皆さん各自でググってください。で、このハイムネメジロちゃんはオーストラリアとニュージーランドにおられるようですが、日本名があるってことは日本にも在住しているのかな？かな？
+本題に戻しますね。この silvereye は物理マシンに Eucalyptus をインストールするインストーラです。iso ファイルをダウンロードして DVD に焼くか、もしくはスクリプト「iso-to-usb.sh」を使って USB メモリに焼いて、物理マシンをそこから起動すると CentOS 6.3 のインストーラをカスタマイズした silvereye インストーラが起動します。 CentOS ラブっ子ならば 90% は何も考えずに使えるという優れものです。CentOS に詳しくない人でも RHEL ラブっ子ならば 89% は何も考えずに使えます。もちろん、CentOS や RHEL に詳しくなくても Scientific Linux ラブっ…ごめんなさい、しつこいですね。
+まぁ、僕の駄文なんて読みたくも嗅ぎたくもないっていう紳士淑女はさっさと silvereye の ISO ファイル をダウンロードして DVD なり USB メモリにバーニングして起動してみたらいいんじゃないでしょうか？ あぁ、そうそう、この日記を書いている時点ではまだβ版なので覚悟してね。ふふふっ。
+さぁ、以下はとてもとても退屈なスクリーンショットによる懇切丁寧極まりない愚直な説明です。目ん玉見開いて見開きすぎてこぼれ落ちて silvereye どころじゃなくなるほど刮目しちゃってくださいよ。ちなみに以下は1つのマシンに全てのコンポーネントをインストールする場合の説明です。それ意外のインストールパターンはクラウド Watch での私の連載「ユーカリプタス入門」で扱う予定です。え？あぁ、そうですね、大人ってそーゆーもんですよ。うんうん。
+silvereye を使ったインストール 起動画面 DVD なり USB メモリで起動したら grub の画面が表示されるので「Install CentOS 6 with Eucalyptus Cloud-in-a-box」を選択します。「Install a minimal CentOS 6 without Eucalyptus」は選んでもいいですが、Eucalyptus はインストールされません。どうしてもそれを選びたい人は CentOS 6 のインストーラを使ったらいいよ。っていうか、そんな人はこんな日記読んでいる場合じゃないですよ？大丈夫？心配になっちゃうよ。</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 四日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-04.eucalyptus-adventcalendar-2012-jp-day-4/</link>
+      <pubDate>Tue, 04 Dec 2012 01:16:28 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-04.eucalyptus-adventcalendar-2012-jp-day-4/</guid>
+      <description>また枯らしちゃった
+えーと、Eucalyptus Advent Calendar 2012 JP 4日目です。今日は我が家の Eucalyptus の話です。
+とは言っても、我が家は現在 hp compaq t5000 という i686 なシンクライアントを無理矢理ファイルサーバとして使っているだけの寂しい環境になってしまい、Eucalyptus をインストールできるマシンは冬眠中なのです。
+なので、植物の Eucalyptus についてです。(決してネタが尽きたわけじゃないんです、どうしても今日じゃないとこの話が活きないのです…T&amp;amp;T)
+初代グニー えーと、うちの妻が戸越銀座や武蔵小山でお買い物していたときに Eucalyptus Gunnii の小鉢を発見し、買ってきてくれました。この子が我が家に来るほんのちょっと前に──写真の背景にも写っていますが──ぷたとす～が羽深妻画伯の手によって産まれました。
+で、この Gunnii ですが、結構強いと聞いたのですが我が家の放置プレイ気味な育て方が駄目だったらしく、途中で元気が無くなったりうどん粉病っぽい感じで葉っぱが白く粉を吹いた状態になり、最終的には葉が硬くなり枯れてしまいました。
+二代目グニー で、しばらくしてから今年の夏にまた Gunnii に巡り会うことができ、妻に買ってきてもらって再挑戦したのですが、現在、また葉っぱが硬くなり、どうやら枯れてきてしまいました…。ということで、導入するのは簡単なのですが、ちゃんと運用しようとすると面倒を観ないと駄目なのはクラウドも植物も同じようです…。ごめんね、グニー ｡ﾟ(ﾟ´Д｀ﾟ)゜｡</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 三日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</link>
+      <pubDate>Mon, 03 Dec 2012 01:16:23 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</guid>
+      <description>Euca Monkey を使ってみたよ？ さて、Eucalyptus Advent Calendar 2012 JP の三日目です。初日がどうやら一部で「うわっ飛ばしすぎじゃね？」とか心配されたようなので、3日目は大人し目にいきたいと思います。
+で、「大人し目って何だ？」って考えてみたんですが、大人しい == ドタバタしない系だと思い、つまり何か仕掛けたら放置プレイでいいんじゃね？となるようなものをターゲットにしようってことになり、協議の結果 Euca Monkey を扱おうという結論に達しました。で、この Euca Monkey ってのは Eucalyptus のストレステストツールでして、README とかを読んでると Eutester っていうテストフレームワークを使うそうです。でもここでいきなりこのテストフレームワークの使い方を説明しだすと、また皆さんを置いてけぼりな展開になるので、ここはぐっと我慢して Euca Monkey を使う方法に徹します。
+ちなみに Euca Monkey の作者は Eucalyptus 社のソフトウェアデザイナ の Kyo Lee さんで、詳しくは彼のブログで紹介されています。
+環境の準備 で、何はともあれ Eucalyptus の環境を作らないと話ははじまらないんですが、初日のときみたいに nightly build に手をだして本筋から外れるのも何なので、今回は日和って Eucalyptus 3.1 の環境でやります。ステーブルサイコー！
+ちなみに Eucalyptus 3.1 の環境の作り方は OSPN Press の「オープンソース」を使ってみよう (第26回 dodai-deploy編)を参考にしてください。
+あぁ、一応聖なる紳士淑女のために説明をしますが、ちゃんとメモリを 16GB も積んだマシン2台構成で1台はフロントエンド (CLC/CC) で、もう1台はノードとしました。で、CLC/CC の eucalyptus.conf は以下のように変更しています。
+# diff -u eucalyptus.conf.orig eucalyptus.conf --- eucalyptus.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 一日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-01.eucalyptus-adventcalendar-2012-jp-day-1/</link>
+      <pubDate>Sat, 01 Dec 2012 01:16:17 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-01.eucalyptus-adventcalendar-2012-jp-day-1/</guid>
+      <description>Walrus だけ使ってみたよ Eucalyptus Advent Calendar 2012 JP の一日目なので、内容はライトでキャワワな方向で行きます。
+いきなり初日からこいつぁ Geek 臭プンプン匂うぜぇ的な内容だと読む人も参加する人もドン引きでしょうから、「Eucalyptus 3.2 の nightly ビルドを入れて Walrus だけ使ってみたぜぇ？」って感じの内容にします。
+前説 Eucalyptus には AWS の S3 互換機能を提供する Walrus という名のコンポーネントがあります。この Walrus くん、辞書で索くとセイウチのことだそうです。EC2 互換機能およびソフトウェア名が Eucalyptus なのに何でここでいきなり海の生き物なんですかね？全然関連性がないですよね？
+「全然関係ない」と言えば、AWS の API 操作ライブラリの boto、この boto ですが、Wikipedia によるとアマゾンカワイルカの別名らしいです。まぁ、ホント全然関係ないですけどね。(ﾉ´*ω*｀)ﾉ
+で、この Walrus、S3 互換なので「大規模分散オブジェクトストア」じゃないけど一応「オブジェクトストア」の末席に居まして、ってことは「S3 っぽく使っていいんじゃね？」とムクムクとスケベ心が出てくるわけですよ。やったねホーリーナイト！ ってことで、「Walrus だけ使ってみるの巻」です。
+パッケージのインストール じゃーさっそく Walrus のインストール。本当は難しいこと全然ないし、Advent Calendar 向けのポストなので細かいことは省いてサクサク書くつもりだったんですが、ちょいちょいハマる可能性があるので、聖なる紳士淑女のために一応実行したコマンドも書きますね。(あ、ntp のインストールと設定は省きますね)
+ ## まずはレポジトリ情報をぶち込みます # rpm -Uvh http://downloads.eucalyptus.com/software/euca2ools/2.1/centos/5/x86_64/euca2ools-release-2.1.noarch.rpm # rpm -Uvh http://downloads.eucalyptus.com/software/eucalyptus/nightly/3.2/centos/5/x86_64/eucalyptus-release-3.2.0.noarch.rpm # rpm -Uvh http://downloads.eucalyptus.com/software/eucalyptus/nightly/3.2/centos/5/x86_64/epel-release-5.noarch.rpm ## で Walrus のパッケージをインストールします。やったねたえちゃん！ # yum install eucalyptus-walrus Loaded plugins: fastestmirror, security Loading mirror speeds from cached hostfile * base: ftp.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 前夜祭</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-11-30.eucalyptus-adventcalendar-2012-jp/</link>
+      <pubDate>Fri, 30 Nov 2012 01:09:11 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-11-30.eucalyptus-adventcalendar-2012-jp/</guid>
+      <description>明日から Eucalyptus Advent Calendar 2012 JP が始まります
+北瀬さんが CloudStack Advent Calendar jp: 2012 をやると聞いて、「んじゃぁ、うちもやってみよう。だけど CloudStack と違って人気がないから独りで細々とやろう」と気軽に考えて立ち上げた Eucalyptus Advent Calendar 2012 JP ですが、11/30 の時点でなんと 11 人の参加者となっていました。素直に驚きです。
+ちなみに、その CloudStack Advent Calendar jp: 2012 は前日の時点で 19 名の参加者で、OpenStack Advent Calendar 2012 JP は 14 人の参加者となっており、さすがに二大巨頭(？)と言えども 25 人は揃わなかったようです。(難しいですね…f^^;)
+で、「前夜祭」というタイトルなので何かひとネタと考えていたのですが、実はこれを書いているうちに寝落ちしてたので、今日はこのぐらいで。あ、ちなにみに、誰も参加してくれなかったとき用に 25 日分のネタを考えておいたのですが、折角なので以下にその一覧を。
+ euca-monkey を使ってみる eutester を使ってみる se34euca を使ってみる image-configs を使ってみる silvereye を使ってみる bodega を使ってみる JEUG版 Live-DVD の作り方 doctor-euca を使ってみる nagios 連携を試してみる faststart を使ってみる 1.6.2, 2.0.3, 3.</description>
+    </item>
+    
+    <item>
+      <title>ぷた &amp; す～</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-10-22-puta-and-su/</link>
+      <pubDate>Sat, 22 Oct 2011 00:57:42 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-10-22-puta-and-su/</guid>
+      <description>先日の第2回自作プライベートクラウド勉強会で浜田さんに言われたので、私のiPhoneの壁紙を貼ります。(あっ、 右腕の色を塗り忘れてる…)</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus 2.0.3 で DeleteVolume できなくなる件</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-06-20-unable-to-delete-volume-in-eucalyptus-2.0.3/</link>
+      <pubDate>Mon, 20 Jun 2011 01:13:20 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-06-20-unable-to-delete-volume-in-eucalyptus-2.0.3/</guid>
+      <description>ということで、突如 DeleteVolume ができなくなった我が家の Eucalyptus ですが、以下のような感じです。
+DescribeVolume の結果は特に問題なし
+ [root@eucalyptus ~]# euca-describe-volumes VOLUME vol-58C70625 1 cluster0 available 2011-06-09T04:25:15.757Z VOLUME vol-592B061A 2 cluster0 available 2011-06-09T04:25:28.287Z  DeleteVolumeを実施
+ [root@eucalyptus ~]# euca-delete-volume vol-58C70625 VOLUME vol-58C70625  でも消えてない…
+ [root@eucalyptus ~]# euca-describe-volumes VOLUME vol-58C70625 1 cluster0 available 2011-06-09T04:25:15.757Z VOLUME vol-592B061A 2 cluster0 available 2011-06-09T04:25:28.287Z  /var/log/messages には LVM の lv がないというログが…
+ Jun 20 02:01:20 eucalyptus tgtd: backed_file_open(92) Could not open /dev/vg-1iOYfw../lv-CdT28w.., No such file or directory  ちなみに DB には問題なさげ…</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptusではじめるプライベートクラウド構築</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-05-25.deploying-private-cloud-with-eucalyptus/</link>
+      <pubDate>Wed, 25 May 2011 01:10:42 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-05-25.deploying-private-cloud-with-eucalyptus/</guid>
+      <description>ということで、各方面の皆様のご協力を得て無事に発売することができました。皆様お疲れさまでした。 自分で書いた本が本屋に置かれているのを見ると何か不思議と浮かれてしまいますね…f^^;
+ </description>
+    </item>
+    
+    <item>
+      <title>AsakusaSatellite の WebSocket</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-04-27-asakusasatellite/</link>
+      <pubDate>Wed, 27 Apr 2011 01:05:29 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-04-27-asakusasatellite/</guid>
+      <description>CentOS 5.5 に入れた AsakusaSatellite で WebSocket を起動してシェルから抜けると WebSocket が終了しちゃうので、daemontools で起動することにした。って、本当はどうやるのがベストなんだろう？
+ # AsakusaSatellite のパスは適宜読み替えてください cd /var/opt/AsakusaSatellite # daemontools 用のディレクトリを作成 mkdir -p ./daemontools/log # WebSocket を起動するスクリプトの設置 cat &amp;lt;&amp;lt;EOF&amp;gt; ./daemontools/run #!/bin/bash exec 2&amp;gt;&amp;amp;1 exec setuidgid apache /usr/bin/ruby /var/opt/AsakusaSatellite/websocket/server.rb EOF # ロガーを起動するスクリプトの設置 cat &amp;lt;&amp;lt;EOF&amp;gt; ./daemontools/log/run #!/bin/sh exec setuidgid apache multilog t ./main EOF # パーミッションの設定 chown -R apache:apache ./daemontools/ chmod +x ./daemontools/run chmod +x ./daemontools/log/run # daemontools の監視対象に設定 cd /service/ ln -sf /var/opt/AsakusaSatellite/daemontools as_websock  </description>
+    </item>
+    
+    <item>
+      <title>産廃と幽霊複写機</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-04-22-sanpai/</link>
+      <pubDate>Fri, 22 Apr 2011 01:04:39 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-04-22-sanpai/</guid>
+      <description>産廃を処理する案件を同僚がノープランで請け負ってきてたんだけど、発注者が筋のよくないお方で恐喝まがいのクレームをつけてきて、それの対応をさせられる。
+年代物の茶箪笥に幽霊が取り憑いてしまい、何故か知らんが茶箪笥にアルバムを入れ背板を力いっぱい叩くとアルバムを複製してくれる。ただし複製されるアルバム内の写真には心霊現象が発生しているというエフェクトあり。
+という2本立ての夢を見た。</description>
+    </item>
+    
+    <item>
+      <title>今日の夢</title>
+      <link>http://blog.osamu.habuka.jp/post/2002-07-23-abdominal-wind/</link>
+      <pubDate>Tue, 23 Jul 2002 04:50:38 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2002-07-23-abdominal-wind/</guid>
+      <description>一年に一回の牛の放屁嵐に遭遇。超合金のおまけについてきた同僚の芋虫がリストラされそうになる。そして実在する同僚に「部屋を片付けろ！」と怒られる。その他いろいろ……。</description>
     </item>
     
   </channel>

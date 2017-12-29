@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/eucalyptus/index.xml</link>
-    <description>Recent content on hablog</description>
+    <title>Eucalyptus on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/eucalyptus/</link>
+    <description>Recent content in Eucalyptus on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <atom:link href="http://blog.osamu.habuka.jp/tags/eucalyptus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Dec 2015 05:05:37 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/eucalyptus/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Eucalyptus LiveDVD を作ってみる 3日目</title>
@@ -18,195 +21,7 @@
 
 &lt;p&gt;え？更新が途切れた？そんなバカな…。2日目の続きをやりまぁす。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;2日目のログをもう少し遡ると以下のように変なところで umount が走ってコケてます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  Installing: comps-extras                 ##################### [456/456]warning: %posttrans(nfs-uti
--1:1.2.3-64.el6.x86_64) scriptlet failed, exit status 6
-error reading information on service NetworkManager: No such file or directory
-error reading information on service sshd: No such file or directory
-+ echo RUN_FIRSTBOOT=NO
-+ sed -i -e &#39;s/^Defaults    requiretty/#Defaults    requiretty/&#39; /etc/sudoers
-+ /usr/sbin/useradd -c &#39;LiveMedia default user&#39; eucalyquitous
-+ /usr/bin/passwd -d eucalyquitous
-+ echo &#39;eucalyquitous     ALL=(ALL)     NOPASSWD: ALL&#39;
-+ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin eucalyquitous \2|&#39; /etc/init/tty.c
-f
-umount: /mnt/livecd/tmp/imgcreate-6F78B4/install_root/proc: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-umount: /mnt/livecd/tmp/imgcreate-6F78B4/install_root: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-loop: can&#39;t delete device /dev/loop0: Device or resource busy
-e2fsck 1.41.12 (17-May-2010)
-_Eucalyquitous: recovering journal
-Pass 1: Checking inodes, blocks, and sizes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;んじゃー、ビルドが成功している Wakame-vdc の LiveDVD ではここはどうなっているのかと言うと、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  Installing: gnome-backgrounds            ##################### [907/907]error reading information
- on service NetworkManager: No such file or directory
-cp: cannot stat `/etc/resolv.conf&#39;: No such file or directory
-+ echo RUN_FIRSTBOOT=NO
-+ sed -i -e &#39;s/^Defaults    requiretty/#Defaults    requiretty/&#39; /etc/sudoers
-+ /usr/sbin/useradd -c &#39;LiveMedia default user&#39; wakame
-+ /usr/bin/passwd -d wakame
-+ echo &#39;wakame     ALL=(ALL)     NOPASSWD: ALL&#39;
-+ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin wakame \2|&#39; /etc/init/tty.conf
-+ sed -i -e &#39;s/\[daemon\]/[daemon]\nTimedLoginEnable=true\nTimedLogin=wakame\nTimedLoginDelay=10/&#39; /etc/gdm/custom.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;やはり変な umount は発生していないようです。&lt;/p&gt;
-
-&lt;p&gt;違う点と言えば Wakame-vdc LiveDVD のほうでは他にも処理を入れていることと、%post &amp;ndash;nochroot のセクションもあるという点です。なのでバッドノウハウな気もしますが、以下の処理を追加で kickstart に入れて再度ビルドしてみました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;%post --nochroot
-
-cat &amp;gt; /root/postnochroot-install &amp;lt;&amp;lt; EOF_postnochroot
-#!/bin/bash
-
-rm -rf ${INSTALL_ROOT}/usr/share/{doc,man,info}
-
-EOF_postnochroot
-
-/bin/bash -x /root/postnochroot-install 2&amp;gt;&amp;amp;1 | tee /root/postnochroot-install.log
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うーん、やっぱり以下のように失敗します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-O60XR_/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-O60XR_
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-O60XR_/install_root/usr/share/info
-umount: /mnt/livecd/tmp/imgcreate-O60XR_/install_root/proc: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-umount: /mnt/livecd/tmp/imgcreate-O60XR_/install_root: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-loop: can&#39;t delete device /dev/loop1: Device or resource busy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;fuser で見てみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-lWxyO0
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/usr/share/info
-+ /sbin/fuser -vm /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc/
-                     USER        PID ACCESS COMMAND
-/mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc/:
-                     root       1355 f.... rsyslogd
-                     root       1445 f.... acpid
-                     haldaemon   1457 f.... hald
-                     root       3440 F.... libvirtd
-                     root       7273 F.... libvirtd
-                     root      13917 F.... libvirtd
-                     root      14660 F.... libvirtd
-                     root      19529 F.... libvirtd
-                     root      28104 F.... libvirtd
-umount: /mnt/livecd/tmp/imgcreate-lWxyO0/install_root/proc: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-umount: /mnt/livecd/tmp/imgcreate-lWxyO0/install_root: device is busy.
-        (In some cases useful info about processes that use
-         the device is found by lsof(8) or fuser(1))
-loop: can&#39;t delete device /dev/loop5: Device or resource busy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;libvirtd&amp;hellip;.？あぁ！もしかして！と思い Eucalyptus に関するパッケージのインストール指定を外してビルドしてみると&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ rm -rf /mnt/livecd/tmp/imgcreate-tERkpC/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-tERkpC
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-tERkpC/install_root/usr/share/info
-+ /sbin/fuser -vm /mnt/livecd/tmp/imgcreate-tERkpC/install_root/proc/
-                     USER        PID ACCESS COMMAND
-/mnt/livecd/tmp/imgcreate-tERkpC/install_root/proc/:
-                     root       1355 f.... rsyslogd
-                     root       1445 f.... acpid
-                     haldaemon   1457 f.... hald
-                     root       3440 F.... libvirtd
-                     root       7273 F.... libvirtd
-                     root      13917 F.... libvirtd
-                     root      14660 F.... libvirtd
-                     root      19529 F.... libvirtd
-                     root      28104 F.... libvirtd
-e2fsck 1.41.12 (17-May-2010)
-Pass 1: Checking inodes, blocks, and sizes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あれ？半分勘違い。てっきり libvirtd はインストールした Eucalyptus のパッケージに動かされたのかと思いましたが、どうやら表示されているのはビルド環境のホスト側の情報だったみたいです。が、一方で umount のエラーが消えたのはやはり Eucalyptus のパッケージが関係しているようです。&lt;/p&gt;
-
-&lt;p&gt;ということで、Eucalyptus のパッケージをインストールすると何が起きるのかを見てみたいと思います。&lt;/p&gt;
-
-&lt;p&gt;まずインストールされるパッケージは以下。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# grep &amp;quot;Installing: euca&amp;quot; 20151203-4.eucaly.log
-  Installing: eucalyptus                   ##################### [251/456] 
-  Installing: eucalyptus-blockdev-utils    ##################### [259/456]/var/tmp/rpm-tmp.EoxuZE: line 2: /sbin/service: No such file or directory
-  Installing: eucalyptus-axis2c-common     ##################### [377/456] 
-  Installing: euca2ools                    ##################### [379/456] 
-  Installing: eucalyptus-admin-tools       ##################### [380/456] 
-  Installing: eucalyptus-imaging-toolkit   ##################### [389/456] 
-  Installing: eucanetd                     ##################### [418/456] 
-  Installing: eucalyptus-common-java-libs  ##################### [423/456] 
-  Installing: eucalyptus-common-java       ##################### [424/456] 
-  Installing: eucalyptus-nc                ##################### [442/456]Stopping libvirtd daemon: [FAILED]
-  Installing: eucalyptus-sc                ##################### [444/456]Starting SCSI target daemon: [  OK  ]
-  Installing: eucalyptus-cloud             ##################### [445/456] 
-  Installing: eucalyptus-walrus            ##################### [446/456] 
-  Installing: eucalyptus-cc                ##################### [447/456] 
-  Installing: eucaconsole                  ##################### [449/456] 
-  Installing: eucalyptus-service-image     ##################### [450/456] 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これらのパッケージをダウンロードして何が実行されるかを見ます。で、全部をここに貼るのもアレなので原因になるものだけ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# rpm -qp --scripts eucalyptus-nc-4.2.0-0.0.24054.2.el6.x86_64.rpm 
-警告: eucalyptus-nc-4.2.0-0.0.24054.2.el6.x86_64.rpm: ヘッダ V4 RSA/SHA1 Signature, key ID c1240596: NOKEY
-postinstall scriptlet (using /bin/sh):
-if [ -e /etc/rc.d/init.d/libvirtd ]; then
-    chkconfig --add libvirtd
-    /sbin/service libvirtd restart
-fi
-chkconfig --add eucalyptus-nc
-usermod -a -G kvm eucalyptus
-exit 0
-preuninstall scriptlet (using /bin/sh):
-if [ &amp;quot;$1&amp;quot; = &amp;quot;0&amp;quot; ]; then
-    if [ -f /etc/eucalyptus/eucalyptus.conf ]; then
-        /sbin/service eucalyptus-nc stop
-    fi
-    chkconfig --del eucalyptus-nc
-fi
-exit 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あぁ、やっぱり libvirtd を起動してますね。あとは&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# rpm -qp --scripts eucalyptus-sc-4.2.0-0.0.24054.2.el6.x86_64.rpm 
-警告: eucalyptus-sc-4.2.0-0.0.24054.2.el6.x86_64.rpm: ヘッダ V4 RSA/SHA1 Signature, key ID c1240596: NOKEY
-postinstall scriptlet (using /bin/sh):
-if [ -e /etc/rc.d/init.d/tgtd ]; then
-    chkconfig --add tgtd
-    /sbin/service tgtd start
-fi
-exit 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あぁ、tgtd も起動してますね。他は無さそうですので、この2つを停止するように kickstart ファイルに書いてビルドします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;+ /bin/sed -i -e &#39;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin eucalyquitous \2|&#39; /etc/init/tty.c
-onf
-+ /sbin/service libvirtd stop
-Stopping libvirtd daemon:                                  [  OK  ]
-+ /sbin/service tgtd stop
-Stopping SCSI target daemon:                               [  OK  ]
-+ rm -rf /mnt/livecd/tmp/imgcreate-ST404K/install_root/usr/share/doc /mnt/livecd/tmp/imgcreate-ST404K
-/install_root/usr/share/man /mnt/livecd/tmp/imgcreate-ST404K/install_root/usr/share/info
-e2fsck 1.41.12 (17-May-2010)
-Pass 1: Checking inodes, blocks, and sizes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;やったー。成功です。ってことで、明日はこの作成した ISO ファイルで起動して Eucalyptus のセットアップができるかを試してみます。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -219,106 +34,7 @@ Pass 1: Checking inodes, blocks, and sizes
 
 &lt;p&gt;どうせ誰も見てないんだからくだらない前置きとかもう止めます。チラ裏はチラ裏なりに駄文でも書いておけばいんじゃないかと思いますが、あまりにも駄文すぎて資源の無駄遣いなので、もう本題に入ります。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;さて昨日作った ISO ファイルから起動してみるんですが、root ユーザのパスワードを設定してなかったのでログインできずに意味のない LiveDVD になってしまってました…orz&lt;/p&gt;
-
-&lt;p&gt;ということで、昨日の ks ファイルを修正し、以下のようにしてパスワードなしでログインできるようにしました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lang en_US.UTF-8
-keyboard us
-timezone Asia/Tokyo
-auth --useshadow --enablemd5
-selinux --disabled
-firewall --disabled
-
-repo --name=base        --baseurl=http://ftp.iij.ad.jp/pub/linux/centos/6.7/os/$basearch
-repo --name=updates     --baseurl=http://ftp.iij.ad.jp/pub/linux/centos/6.7/updates/$basearch
-repo --name=extras      --baseurl=http://ftp.iij.ad.jp/pub/linux/centos/6.7/extras/$basearch
-repo --name=epel        --baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
-repo --name=eucalyptus  --baseurl=http://downloads.eucalyptus.com/software/eucalyptus/4.2/centos/6/$basearch
-repo --name=euca2ools   --baseurl=http://downloads.eucalyptus.com/software/euca2ools/3.3/centos/6/$basearch
-
-xconfig --startxonboot
-
-#services --disabled=NetworkManager,network,sshd
-
-%pre
-
-%packages
-bash
-kernel
-syslinux
-passwd
-policycoreutils
-chkconfig
-authconfig
-rootfiles
-comps-extras
-xkeyboard-config
-dhclient
-livecd-tools
-# for eucalyptus
-eucalyptus-nc
-eucalyptus-cloud
-eucalyptus-service-image
-eucalyptus-cloud
-eucaconsole
-eucalyptus-cc
-eucalyptus-sc
-eucalyptus-walrus
-
-
-%post
-
-echo &amp;quot;Eucalyptus LiveDVD release 15.12 (Final)&amp;quot; &amp;gt; /etc/redhat-release
-LIVE_USER=&amp;quot;eucalyquitous&amp;quot;
-
-cat &amp;gt; /root/post-install &amp;lt;&amp;lt; EOF_post
-#!/bin/bash
-
-# turn off firstboot for livecd boots
-echo &amp;quot;RUN_FIRSTBOOT=NO&amp;quot; &amp;gt; /etc/sysconfig/firstboot
-
-sed -i -e &amp;quot;s/^Defaults    requiretty/#Defaults    requiretty/&amp;quot; /etc/sudoers
-
-## create the LiveCD default user
-# add default user with no password
-/usr/sbin/useradd -c &amp;quot;LiveMedia default user&amp;quot; $LIVE_USER
-/usr/bin/passwd -d $LIVE_USER &amp;gt; /dev/null
-# give default user sudo privileges
-echo &amp;quot;$LIVE_USER     ALL=(ALL)     NOPASSWD: ALL&amp;quot; &amp;gt;&amp;gt; /etc/sudoers
-/bin/sed -i -e &amp;quot;s|^\(exec /sbin/mingetty \)\(.*\)|\1 --autologin $LIVE_USER \2|&amp;quot; /etc/init/tty.conf
-
-EOF_post
-
-/bin/bash -x /root/post-install 2&amp;gt;&amp;amp;1 | tee /root/post-install.log
-
-#echo &amp;quot;timeout 40;&amp;quot; &amp;gt; /etc/dhclient.conf
-cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;が、何故かオートログインできないどころか、sudo でスーパーユーザにすら昇格できない…。そしてあーだこーだやっているうちに、とうとう以下のようなエラーまで出てくる始末…。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Free inodes count wrong (61919, counted=61935).
-Fix? yes
-
-
-_Eucalyquitous: ***** FILE SYSTEM WAS MODIFIED *****
-_Eucalyquitous: 36369/98304 files (0.1% non-contiguous), 371591/379653 blocks
-/usr/lib/python2.6/site-packages/imgcreate/errors.py:45: DeprecationWarning: BaseException.message has been deprecated as of Python 2.6
-  return unicode(self.message)
-Error creating Live CD : fsck after resize returned an error!  image to debug at /tmp/resize-image-Uwn9U7
-
-
-lazy umount succeeded on /mnt/livecd/tmp/imgcreate-08HiGO/install_root//proc
-Unmounting directory /mnt/livecd/tmp/imgcreate-08HiGO/install_root failed, using lazy umount
-lazy umount succeeded on /mnt/livecd/tmp/imgcreate-08HiGO/install_root
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;なんか不穏なエラー…。&lt;/p&gt;
-
-&lt;p&gt;といったところでタイムアップです…中途半端な状況ですがデバッグは明日。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -347,79 +63,7 @@ lazy umount succeeded on /mnt/livecd/tmp/imgcreate-08HiGO/install_root
 
 &lt;p&gt;ってことで、検索 bot 以外に誰も見てないと思いますので、超マイペースで LiveDVD の作成日記を25日ぐらいかけてゆっくりやろうと思います。なるべく25日間失敗し続けますように。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;まず今日は背伸びをせずに「LiveDVD 作成用環境の準備」と「Eucalyptus のパッケージが入っているだけの LiveDVD を作る」の2つをやって終わりとします。&lt;/p&gt;
-
-&lt;h1 id=&#34;livedvd-作成用環境の準備&#34;&gt;LiveDVD 作成用環境の準備&lt;/h1&gt;
-
-&lt;p&gt;もうね、説明とか丁寧にするの面倒なので、&lt;a href=&#34;https://github.com/axsh/iso-no-wakame/wiki/HowtoCreateEnvironmentForLiveDVD&#34;&gt;Wakame-vdc LiveDVD の作成環境の作り方&lt;/a&gt;でも参考にして作ってください。&lt;/p&gt;
-
-&lt;p&gt;ほんとチョー簡単。&lt;/p&gt;
-
-&lt;h1 id=&#34;eucalyptus-のパッケージが入っているだけの-livedvd-を作る&#34;&gt;Eucalyptus のパッケージが入っているだけの LiveDVD を作る&lt;/h1&gt;
-
-&lt;p&gt;kickstart ファイル「eucalyquitous.ks」を以下の内容で保存します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;lang en_US.UTF-8
-keyboard us
-timezone Asia/Tokyo
-auth --useshadow --enablemd5
-selinux --disabled
-firewall --disabled
-
-repo --name=base        --baseurl=http://ftp.iij.ad.jp/pub/linux/centos/6.7/os/$basearch
-repo --name=updates     --baseurl=http://ftp.iij.ad.jp/pub/linux/centos/6.7/updates/$basearch
-repo --name=extras      --baseurl=http://ftp.iij.ad.jp/pub/linux/centos/6.7/extras/$basearch
-repo --name=epel        --baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
-repo --name=eucalyptus  --baseurl=http://downloads.eucalyptus.com/software/eucalyptus/4.2/centos/6/$basearch
-repo --name=euca2ools   --baseurl=http://downloads.eucalyptus.com/software/euca2ools/3.3/centos/6/$basearch
-
-xconfig --startxonboot
-
-#services --disabled=NetworkManager,network,sshd
-
-%pre
-
-%packages
-bash
-kernel
-syslinux
-passwd
-policycoreutils
-chkconfig
-authconfig
-rootfiles
-comps-extras
-xkeyboard-config
-dhclient
-livecd-tools
-# for eucalyptus
-eucalyptus-nc
-eucalyptus-cloud
-eucalyptus-service-image
-eucalyptus-cloud
-eucaconsole
-eucalyptus-cc
-eucalyptus-sc
-eucalyptus-walrus
-
-
-%post
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、このファイルのある場所で以下を実行します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# LANG=C livecd-creator --config=eucalyquitous.ks --fslabel=Eucalyquitous
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、しばらくすると ISO ファイルが作成されます。ちなみに↑のksファイルで作成すると約CD1枚分ほどのサイズの ISO ファイルが出来ました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# ls -hal Eucalyquitous.iso 
--rw-r--r-- 1 root root 634M Dec  1 01:33 Eucalyquitous.iso
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;明日はこの ISO ファイルから起動してみます。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -428,114 +72,11 @@ eucalyptus-walrus
       <pubDate>Mon, 15 Dec 2014 23:08:28 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-12-15-eucalyptus-advent-calendar-2014-15th/</guid>
-      <description>&lt;p&gt;これは &lt;a href=&#34;http://www.adventar.org/calendars/547&#34;&gt;Eucalyptus Advent Calendar 2014&lt;/a&gt; の15日目のエントリです。昨日は私のエントリ「&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2014/12/15/eucalyptus-advent-calendar-2014-14th/&#34;&gt;CirrOS を Eucalyptus4 で動かしてみる&lt;/a&gt;」でした。まぁ、動かなかったんですけどね。&lt;/p&gt;
-
-&lt;p&gt;今日は「1ノードで何台起動できるか？」です。もうタイトルからして失敗の匂いがプンプンしやがります。&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;で、環境ですが、この Advent Calendar でやってきたように、KVM のゲスト OS 上に Eucalyptus 環境を立ててますので、そこで大量のインスタンスを起動してみたいと思います。本当は昨日のエントリで CirrOS が無事起動した続きとしてこのエントリが引き立つはずでしたが、なんか失敗への道筋が出来上がっている気がしてなりません。&lt;/p&gt;
-
-&lt;p&gt;Eucalyptus 環境のメモリは約 12GB で、インスタンスに使用できるディスク容量は約 60GB で、CPU コア数はたったの2コアという貧相な環境です。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@euca4 ~]# free -m
-             total       used       free     shared    buffers     cached
-Mem:         11902       3356       8546        295          1       1232
--/+ buffers/cache:       2123       9779
-Swap:         3967          0       3967
-
-[root@euca4 ~]# df -h
-Filesystem            Size  Used Avail Use% Mounted on
-/dev/mapper/vg_euca4-lv_root
-                       50G   14G   33G  30% /
-tmpfs                 6.2G  164K  6.2G   1% /dev/shm
-/dev/vda1             477M   61M  391M  14% /boot
-/dev/mapper/vg_euca4-lv_home
-                       64G  2.4G   59G   4% /var/lib/eucalyptus
-
-[root@euca4 ~]# grep ^pro /proc/cpuinfo 
-processor   : 0
-processor   : 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;それでも無理矢理設定して、256 インスタンスまでは起動できるようにしてみました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@euca4 ~]# euca-describe-availability-zones verbose
-AVAILABILITYZONE    default 192.168.122.115 arn:euca:eucalyptus:default:cluster:default-cc-1/   
-AVAILABILITYZONE    |- vm types free / max   cpu   ram  disk    
-AVAILABILITYZONE    |- m1.small 0256 / 0256   1     32     1    
-AVAILABILITYZONE    |- t1.micro 0203 / 0203   1     64     1    
-AVAILABILITYZONE    |- m1.medium    0101 / 0101   1    128     1    
-AVAILABILITYZONE    |- c1.medium    0025 / 0025   2    512    10    
-AVAILABILITYZONE    |- m1.large 0025 / 0025   2    512    10    
-AVAILABILITYZONE    |- m1.xlarge    0012 / 0012   2   1024    10    
-AVAILABILITYZONE    |- c1.xlarge    0006 / 0006   2   2048    10    
-AVAILABILITYZONE    |- m2.xlarge    0006 / 0006   2   2048    10    
-AVAILABILITYZONE    |- m3.xlarge    0006 / 0006   4   2048    15    
-AVAILABILITYZONE    |- m2.2xlarge   0003 / 0003   2   4096    30    
-AVAILABILITYZONE    |- m3.2xlarge   0003 / 0003   4   4096    30    
-AVAILABILITYZONE    |- cc1.4xlarge  0004 / 0004   8   3072    60    
-AVAILABILITYZONE    |- m2.4xlarge   0003 / 0003   8   4096    60    
-AVAILABILITYZONE    |- hi1.4xlarge  0002 / 0002   8   6144   120    
-AVAILABILITYZONE    |- cc2.8xlarge  0002 / 0002  16   6144   120    
-AVAILABILITYZONE    |- cg1.4xlarge  0001 / 0001  16   12288   200   
-AVAILABILITYZONE    |- cr1.8xlarge  0000 / 0000  16   16384   240   
-AVAILABILITYZONE    |- hs1.8xlarge  0000 / 0000  48   119808  24000 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Eucalyptus4 の WebUI ではマシンイメージから新規にインスタンスを起動する場合は、1セキュリティグループにつきインスタンスは10個までという制約があります。なんちゃらスタックやちょめちょめスタックとかでも似たような話を聴きますが、Eucalyptus でも同じような不具合があるんでしょうかね？&lt;/p&gt;
-
-&lt;p&gt;いや、無い、無いと信じたい。伊達に他のほにゃららスタックらより叩かれまくってきたわけじゃないということを、今日ここで証明したい。&lt;/p&gt;
-
-&lt;p&gt;脱線しました。で、1度に10インスタンスまでという制約があるのは新規の起動のときのみで、既存のインスタンスと同じ構成で起動する分には制約がありません。&lt;/p&gt;
-
-&lt;p&gt;なので、昨日のエントリで起動した CirrOS インスタンスをそのまま流用します。エコです。&lt;/p&gt;
-
-&lt;p&gt;では、インスタンスのプルダウンメニューから「Launch more like this」を選んで、一度に200インスタンスを起動してみようと思います。(「起動」って言っても OS の起動は失敗しているので、ズルい気もしますが気にしない)&lt;/p&gt;
-
-&lt;p&gt;どどーん。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/eucalyptus.adventcalendar.2014.1215-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;インスタンス一覧に画面が遷移するところで Internal Server Error になりました。お約束すぎるwww&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/eucalyptus.adventcalendar.2014.1215-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ところがどっこい、しばらくしてからアクセスすると何と 94 インスタンスが起動に成功しています。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/eucalyptus.adventcalendar.2014.1215-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;で、他のインスタンスはどうしたのかと言うと、pending のままでした。&lt;/p&gt;
-
-&lt;p&gt;何が起きているのかと Eucayptus 側の OS の syslog を見てみると、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Dec 14 23:29:56 euca4 dhcpd: No subnet declaration for vnet68 (no IPv4 addresses).
-Dec 14 23:29:56 euca4 dhcpd: ** Ignoring requests on vnet68.  If this is not what
-Dec 14 23:29:56 euca4 dhcpd:    you want, please write a subnet declaration
-Dec 14 23:29:56 euca4 dhcpd:    in your dhcpd.conf file for the network segment
-Dec 14 23:29:56 euca4 dhcpd:    to which interface vnet68 is attached. **
-Dec 14 23:29:56 euca4 dhcpd: 
-Dec 14 23:29:56 euca4 dhcpd: 
-Dec 14 23:29:56 euca4 dhcpd: No subnet declaration for vnet67 (no IPv4 addresses).
-Dec 14 23:29:56 euca4 dhcpd: ** Ignoring requests on vnet67.  If this is not what
-Dec 14 23:29:56 euca4 dhcpd:    you want, please write a subnet declaration
-Dec 14 23:29:56 euca4 dhcpd:    in your dhcpd.conf file for the network segment
-Dec 14 23:29:56 euca4 dhcpd:    to which interface vnet67 is attached. **
-Dec 14 23:29:56 euca4 dhcpd: 
-Dec 14 23:29:56 euca4 dhcpd: 
-Dec 14 23:29:56 euca4 rsyslogd-2177: imuxsock begins to drop messages from pid 23662 due to rate-limiting
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ってな感じで dhcpd が「定義が足んないんですけどぉ〜」って怒ってました。実際に /var/run/eucalyptus/net/euca-dhcp.conf を見ると 94 ホスト分しか定義が書かれてませんでした。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# cat /var/run/eucalyptus/net/euca-dhcp.conf | grep ^host | wc -l
-94
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;逆を言えば、このファイルへの書き出しが上手く行っていたら、200台起動も夢じゃなかったということになりますでしょうかね。&lt;/p&gt;
-
-&lt;p&gt;いやー、Eucalyptus 素晴しい。&lt;/p&gt;
-</description>
+      <description>これは Eucalyptus Advent Calendar 2014 の15日目のエントリです。昨日は私のエントリ「CirrOS を Eucalyptus4 で動かしてみる」でした。まぁ、動かなかったんですけどね。
+今日は「1ノードで何台起動できるか？」です。もうタイトルからして失敗の匂いがプンプンしやがります。
+で、環境ですが、この Advent Calendar でやってきたように、KVM のゲスト OS 上に Eucalyptus 環境を立ててますので、そこで大量のインスタンスを起動してみたいと思います。本当は昨日のエントリで CirrOS が無事起動した続きとしてこのエントリが引き立つはずでしたが、なんか失敗への道筋が出来上がっている気がしてなりません。
+Eucalyptus 環境のメモリは約 12GB で、インスタンスに使用できるディスク容量は約 60GB で、CPU コア数はたったの2コアという貧相な環境です。
+[root@euca4 ~]# free -m total used free shared buffers cached Mem: 11902 3356 8546 295 1 1232 -/+ buffers/cache: 2123 9779 Swap: 3967 0 3967 [root@euca4 ~]# df -h Filesystem Size Used Avail Use% Mounted on /dev/mapper/vg_euca4-lv_root 50G 14G 33G 30% / tmpfs 6.</description>
     </item>
     
     <item>
@@ -546,76 +87,7 @@ Dec 14 23:29:56 euca4 rsyslogd-2177: imuxsock begins to drop messages from pid 2
       <guid>http://blog.osamu.habuka.jp/post/2014-12-15-eucalyptus-advent-calendar-2014-14th/</guid>
       <description>&lt;p&gt;今日は Cirros を Eucalyptus4 のインスタンスとして動かしてみようと思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Eucalyptus3 のときは&lt;a href=&#34;https://www.eucalyptus.com/blog/2014/02/02/cirros-perfect-machine-image-eucalyptus-cloud-debugging&#34;&gt;こんな風&lt;/a&gt;に eustore コマンドを使って簡単にインストールできてたのですが、残念ながら Eucalyptus4 では eustore コマンドは廃止されたようです。&lt;/p&gt;
-
-&lt;p&gt;なので、Eucalyptus4 では手動で入れてみますが、特に難しい作業ではありません。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(イメージファイルをダウンロードします)
-# wget http://download.cirros-cloud.net/0.3.1/cirros-0.3.1-x86_64-disk.img
-(ファイル形式が qcow2 なので raw 形式に変換します)
-# file cirros-0.3.1-x86_64-disk.img 
-cirros-0.3.1-x86_64-disk.img: Qemu Image, Format: Qcow , Version: 2
-# qemu-img convert -O raw cirros-0.3.1-x86_64-disk.img cirros-0.3.1-x86_64-disk.raw
-(Eucalyptus に登録します)
-# euca-install-image -b cirros031 -r x86_64 -i cirros-0.3.1-x86_64-disk.raw -n cirros031 --virtualization-type hvm
-/var/tmp/bundle-O0s4JM/cirros-0.3.1-x86_64-disk.raw.part.00 100% |===================|  10.00 MB  25.81 MB/s Time: 0:00:00
-/var/tmp/bundle-O0s4JM/cirros-0.3.1-x86_64-disk.raw.part.01 100% |===================|   1.81 MB   7.52 MB/s Time: 0:00:00
-/var/tmp/bundle-O0s4JM/cirros-0.3.1-x86_64-disk.raw.manifest.xml 100% |==============|   3.49 kB   1.61 kB/s Time: 0:00:02
-IMAGE   emi-b27ea8b4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以上であっという間に完了です。あとはインスタンスを起動するだけです。&lt;/p&gt;
-
-&lt;p&gt;……が、インスタンスのコンソールを確認すると、以下のような出力が延々て出続け、起動が成功しませんでした。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SeaBIOS (version seabios-0.6.1.2-28.el6)
-
-
-Machine UUID e0c370a4-513a-c61d-c8f3-398b3c25420d
-
-
-
-
-
-
-gPXE (http://etherboot.org) - 00:03.0 C100 PCI2.10 PnP BBS PMM01E0@10 C100
-
-
-Press Ctrl-B to configure gPXE (PCI 00:03.0)...
-
-
-
-
-
-
-
-Booting from Hard Disk...
-
-
-GRUB Loading stage1.5.
-
-
-
-
-
-
-GRUB loading, please wait...
-
-
-
-Starting up ...
-
-
-ogle, Inc.
-Serial Graphics Adapter 12/07/11
-SGABIOS $Id: sgabios.S 8 2010-04-22 00:03:40Z nlaredo $ (mockbuild@c6b18n1.dev.centos.org) Wed Dec  7 17:04:47 UTC 2011
-Term: 80x24
-4 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ということで、見事に失敗している様子です。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -628,65 +100,7 @@ Term: 80x24
 
 &lt;p&gt;小ネタというより「マニュアルを紹介した」程度でしたが、今日もそんな感じです。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;今日は CoreOS を Eucalyptus4 で動かしてみるという内容ですが、CoreOS の公式ドキュメントの &lt;a href=&#34;https://coreos.com/docs/running-coreos/platforms/eucalyptus/&#34;&gt;Running CoreOS on Eucalyptus 3.4&lt;/a&gt; を参考にして進めます。&lt;/p&gt;
-
-&lt;p&gt;まぁ、公式ドキュメントに書いてあるように、簡単なことしかしません。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(OpenStack 用のイメージファイルを取得して解凍)
-# wget http://stable.release.core-os.net/amd64-usr/current/coreos_production_openstack_image.img.bz2
-# bunzip2 coreos_production_openstack_image.img.bz2
-(ファイル形式は qcow2 形式なので、raw 形式に変換する)
-# file coreos_production_openstack_image.img
-coreos_production_openstack_image.img: Qemu Image, Format: Qcow , Version: 2
-# qemu-img convert -O raw coreos_production_openstack_image.img coreos_production_openstack_image.raw
-(公式ドキュメントでは Eucalyptus 3 系だったので 3 つのコマンドを利用しているが、Eucalyptus 4 系からは1コマンドで処理可能)
-# euca-install-image -b coreos -r x86_64 -i coreos_production_openstack_image.raw -n coreos --virtualization-type hvm
-/var/tmp/bundle-BRRcnG/coreos_production_openstack_image.raw.part.00 100% |=========================================================|  10.00 MB   8.00 MB/s Time: 0:00:01
-(中略)
-/var/tmp/bundle-BRRcnG/coreos_production_openstack_image.raw.manifest.xml 100% |====================================================|   6.39 kB   2.81 kB/s Time: 0:00:02
-IMAGE   emi-c3cd53c4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あとは登録されたマシンイメージを使ってインスタンスを起動するだけです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh -i ~/euca4_20141203.pem core@192.168.122.246
-The authenticity of host &#39;192.168.122.246 (192.168.122.246)&#39; can&#39;t be established.
-ED25519 key fingerprint is 43:6c:bd:63:0e:35:2b:b8:98:95:4f:8b:f6:22:80:78.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added &#39;192.168.122.246&#39; (ED25519) to the list of known hosts.
-CoreOS (stable)
-core@192 ~ $
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;やったー  :)&lt;/p&gt;
-
-&lt;p&gt;メモリの消費量が 114MB 程度だと言うので、起動後のメモリを見てみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;core@192 ~ $ free -m
-             total       used       free     shared    buffers     cached
-Mem:           494        113        380          0          3         70
--/+ buffers/cache:         39        454
-Swap:            0          0          0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;おぉ、確かに。では、次にキャッシュらを解放してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;core@192 ~ $ sudo sysctl -w vm.drop_caches=3
-vm.drop_caches = 3
-core@192 ~ $ free -m
-             total       used       free     shared    buffers     cached
-Mem:           494         62        431          0          0         25
--/+ buffers/cache:         36        457
-Swap:            0          0          0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;64MB 以下ですね。小さい。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;ということで、Eucalyptus Advent Calendar は絶賛募集中です。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -699,55 +113,7 @@ Swap:            0          0          0
 
 &lt;p&gt;体当たりで調べてくださってありがとうございます。そうなんです、Eucalyptus にはサブスクリプションを購入しないと使えない機能がいくつかあります。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&#34;インスタンスタイプの値を変更してみる&#34;&gt;インスタンスタイプの値を変更してみる&lt;/h3&gt;
-
-&lt;p&gt;今日はまた小ネタですが Eucalyptus 4 でインスタンスタイプの値を変更する方法について紹介します。&lt;/p&gt;
-
-&lt;p&gt;Eucalyptus はバージョン2系頃までは管理者用の WebUI がありました(評判は良くなかったですが)。でも Eucalyptus 3 から管理者用の画面が綺麗になり、そして Eucalyptus 4 では管理者用の WebUI が消えたように見えます。(少なくとも見当りません)&lt;/p&gt;
-
-&lt;p&gt;じゃー、インスタンスタイプはどこで変更するんだ？という疑問がわきまして、本家のドキュメントを見ると &lt;a href=&#34;https://www.eucalyptus.com/docs/euca2ools/3.0/euca2ools-guide/euca-modify-instance-type.html&#34;&gt;euca-modify-instance-type&lt;/a&gt; というコマンドが増えていました。ちなみにインスタンスタイプの一覧は &lt;a href=&#34;https://www.eucalyptus.com/docs/euca2ools/3.0/euca2ools-guide/euca-describe-instance-types.html&#34;&gt;euca-describe-instance-types&lt;/a&gt; コマンドで出ます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# euca-describe-instance-types 
-INSTANCETYPE    Name         CPUs  Memory (MiB)  Disk (GiB)
-INSTANCETYPE    m1.small        1           256           5
-INSTANCETYPE    t1.micro        1           256           5
-INSTANCETYPE    m1.medium       1           512          10
-INSTANCETYPE    c1.medium       2           512          10
-INSTANCETYPE    m1.large        2           512          10
-INSTANCETYPE    m1.xlarge       2          1024          10
-INSTANCETYPE    c1.xlarge       2          2048          10
-INSTANCETYPE    m2.xlarge       2          2048          10
-INSTANCETYPE    m3.xlarge       4          2048          15
-INSTANCETYPE    m2.2xlarge      2          4096          30
-INSTANCETYPE    m3.2xlarge      4          4096          30
-INSTANCETYPE    cc1.4xlarge     8          3072          60
-INSTANCETYPE    m2.4xlarge      8          4096          60
-INSTANCETYPE    hi1.4xlarge     8          6144         120
-INSTANCETYPE    cc2.8xlarge    16          6144         120
-INSTANCETYPE    cg1.4xlarge    16         12288         200
-INSTANCETYPE    cr1.8xlarge    16         16384         240
-INSTANCETYPE    hs1.8xlarge    48        119808       24000
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ということで、早速 m1.small をメモリ 32MB、ディスク 1GB にしてみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# euca-modify-instance-type -d 1 -m 32 m1.small
-INSTANCETYPE    m1.small    1   32  1
-
-# euca-describe-instance-types m1.small
-INSTANCETYPE    Name      CPUs  Memory (MiB)  Disk (GiB)
-INSTANCETYPE    m1.small     1            32           1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あら簡単。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;ということで、Eucalyptus Advent Calendar は絶賛募集中です。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -760,19 +126,7 @@ INSTANCETYPE    m1.small     1            32           1
 
 &lt;p&gt;今日のエントリは Eucalyptus Advent Calendar 2012 JP の13日目の私のエントリ「&lt;a href=&#34;http://blog.osamu.habuka.jp/blog/2012/12/13/eucalyptus-advent-calendar-2012-jp-13th/&#34;&gt;Eucalyptus Advent Calendar 2012 JP 十三日目&lt;/a&gt;」を思い出したので、Eucalyptus 4 のダッシュボードの見た目も変更してみようと思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;といってもあまり難しいことありません。CentOS 6.5 の場合、ダッシュボードである eucaconsole の実体は /usr/lib/python2.6/site-packages/eucaconsole/ 配下にありまして、たとえば css をイジる場合は /usr/lib/python2.6/site-packages/eucaconsole/static/css/ 配下にあるファイルをイジります。&lt;/p&gt;
-
-&lt;p&gt;ということで、ちょちょいと変更した結果、&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/eucalyptus.adventcalendar.2014.1209-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;が&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/eucalyptus.adventcalendar.2014.1209-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;って感じになりました。おしまい。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -787,119 +141,7 @@ INSTANCETYPE    m1.small     1            32           1
 
 &lt;p&gt;さて、今日のエントリは「Eucalyptus 環境を再起動後にインスタンスが起動しなくなったら」です。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;実は、今回の Advent Calendar で使用している faststart で作った私の Eucalyptus 環境は、KVM のゲスト OS 上で動いているのですが、VM を再起動した後にインスタンスを起動しようとすると以下の画面のように「Not enough resources (0 in &amp;lt; 1): vm instances.」というツレないメッセージが出力されます。で、画面を見て頂くとわかりますが、インスタンスリストには「No items were found」って出ているように、リソースなんて全然枯渇してないはずなんです。&lt;/p&gt;
-
-&lt;p&gt;本当にリソースないの？って思って CLI 叩いて確認すると、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# euca-describe-availability-zones verbose
-AVAILABILITYZONE    default 192.168.122.115 arn:euca:eucalyptus:default:cluster:default-cc-1/   
-AVAILABILITYZONE    |- vm types free / max   cpu   ram  disk    
-AVAILABILITYZONE    |- m1.small 0000 / 0000   1    256     5    
-AVAILABILITYZONE    |- t1.micro 0000 / 0000   1    256     5    
-AVAILABILITYZONE    |- m1.medium    0000 / 0000   1    512    10    
-AVAILABILITYZONE    |- c1.medium    0000 / 0000   2    512    10    
-AVAILABILITYZONE    |- m1.large 0000 / 0000   2    512    10    
-AVAILABILITYZONE    |- m1.xlarge    0000 / 0000   2   1024    10    
-AVAILABILITYZONE    |- c1.xlarge    0000 / 0000   2   2048    10    
-AVAILABILITYZONE    |- m2.xlarge    0000 / 0000   2   2048    10    
-AVAILABILITYZONE    |- m3.xlarge    0000 / 0000   4   2048    15    
-AVAILABILITYZONE    |- m2.2xlarge   0000 / 0000   2   4096    30    
-AVAILABILITYZONE    |- m3.2xlarge   0000 / 0000   4   4096    30    
-AVAILABILITYZONE    |- cc1.4xlarge  0000 / 0000   8   3072    60    
-AVAILABILITYZONE    |- m2.4xlarge   0000 / 0000   8   4096    60    
-AVAILABILITYZONE    |- hi1.4xlarge  0000 / 0000   8   6144   120    
-AVAILABILITYZONE    |- cc2.8xlarge  0000 / 0000  16   6144   120    
-AVAILABILITYZONE    |- cg1.4xlarge  0000 / 0000  16   12288   200   
-AVAILABILITYZONE    |- cr1.8xlarge  0000 / 0000  16   16384   240   
-AVAILABILITYZONE    |- hs1.8xlarge  0000 / 0000  48   119808  24000 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あらやだ、本当にリソースゼロですよwww&lt;/p&gt;
-
-&lt;p&gt;NC ちゃん大丈夫？息してる？と思って確認すると&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# euca-describe-nodes 
-NODE    default     192.168.122.115 DISABLED    
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;って出力されます。そもそも CC から見て NC が無効になっているという罠。&lt;/p&gt;
-
-&lt;p&gt;NC のログを見ると、とかく「failed だかんね」の一点張り。もうちょっと理由を述べてくれてもいいのに…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# tail /var/log/eucalyptus/nc.log 
-2014-12-06 17:32:22 ERROR | failed error=1
-2014-12-06 17:32:23 ERROR | failed error=1
-2014-12-06 17:32:29 ERROR | failed error=1
-2014-12-06 17:32:35 ERROR | failed error=1
-2014-12-06 17:32:42 ERROR | failed error=1
-2014-12-06 17:32:42 ERROR | failed error=1
-2014-12-06 17:32:48 ERROR | failed error=1
-2014-12-06 17:32:51 ERROR | failed error=1
-2014-12-06 17:32:54 ERROR | failed error=1
-2014-12-06 17:33:00 ERROR | failed error=1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;CC のログを見ると、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# tail /var/log/eucalyptus/cc.log 
-2014-12-06 17:33:00 ERROR | error message from ncDescribeResource: NULL parameter was passed when a non NULL parameter was expected
-2014-12-06 17:33:02  INFO | modifying node 192.168.122.115 with state=enabled
-2014-12-06 17:33:02 ERROR | returned an error
-2014-12-06 17:33:02ERROR: doEnableService() returned FAIL
-2014-12-06 17:33:06 ERROR | operation on 192.168.122.115 could not be invoked (check NC host, port, and credentials): NULL parameter was passed when a non NULL parameter was expected
-2014-12-06 17:33:06 ERROR | bad return from ncDescribeResource(192.168.122.115) (1)
-2014-12-06 17:33:06 ERROR | error message from ncDescribeResource: NULL parameter was passed when a non NULL parameter was expected
-2014-12-06 17:33:12 ERROR | operation on 192.168.122.115 could not be invoked (check NC host, port, and credentials): NULL parameter was passed when a non NULL parameter was expected
-2014-12-06 17:33:12 ERROR | bad return from ncDescribeResource(192.168.122.115) (1)
-2014-12-06 17:33:12 ERROR | error message from ncDescribeResource: NULL parameter was passed when a non NULL parameter was expected
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;CC は CC で「NC がちゃんと応答しないぜコンチキショウ」と言ってやがります。「modifying node 192.168.122.115 with state=enabled」って実行してるっぽいのに、NC は無効なまま。&lt;/p&gt;
-
-&lt;p&gt;仕方ないので、とりあえず NC を再起動してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# /etc/init.d/eucalyptus-nc restart
-Restarting Eucalyptus services: done.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、もう一度 NC の状況を確認すると…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# euca-describe-nodes 
-NODE    default     192.168.122.115 ENABLED 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;おぉ、今度はちゃんと有効になっていますね。そーすると、リソースも…？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# euca-describe-availability-zones verbose
-AVAILABILITYZONE    default 192.168.122.115 arn:euca:eucalyptus:default:cluster:default-cc-1/   
-AVAILABILITYZONE    |- vm types free / max   cpu   ram  disk    
-AVAILABILITYZONE    |- m1.small 0019 / 0019   1    256     5    
-AVAILABILITYZONE    |- t1.micro 0019 / 0019   1    256     5    
-AVAILABILITYZONE    |- m1.medium    0009 / 0009   1    512    10    
-AVAILABILITYZONE    |- c1.medium    0009 / 0009   2    512    10    
-AVAILABILITYZONE    |- m1.large 0009 / 0009   2    512    10    
-AVAILABILITYZONE    |- m1.xlarge    0007 / 0007   2   1024    10    
-AVAILABILITYZONE    |- c1.xlarge    0003 / 0003   2   2048    10    
-AVAILABILITYZONE    |- m2.xlarge    0003 / 0003   2   2048    10    
-AVAILABILITYZONE    |- m3.xlarge    0003 / 0003   4   2048    15    
-AVAILABILITYZONE    |- m2.2xlarge   0001 / 0001   2   4096    30    
-AVAILABILITYZONE    |- m3.2xlarge   0001 / 0001   4   4096    30    
-AVAILABILITYZONE    |- cc1.4xlarge  0001 / 0001   8   3072    60    
-AVAILABILITYZONE    |- m2.4xlarge   0001 / 0001   8   4096    60    
-AVAILABILITYZONE    |- hi1.4xlarge  0000 / 0000   8   6144   120    
-AVAILABILITYZONE    |- cc2.8xlarge  0000 / 0000  16   6144   120    
-AVAILABILITYZONE    |- cg1.4xlarge  0000 / 0000  16   12288   200   
-AVAILABILITYZONE    |- cr1.8xlarge  0000 / 0000  16   16384   240   
-AVAILABILITYZONE    |- hs1.8xlarge  0000 / 0000  48   119808  24000 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;やったー、ちゃんとリソースも復活！&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;ということで、8日目のエントリでした。9日目のエントリもお楽しみに。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -912,66 +154,7 @@ AVAILABILITYZONE    |- hs1.8xlarge  0000 / 0000  48   119808  24000
 
 &lt;p&gt;今日のエントリは3日目の &lt;a href=&#34;https://twitter.com/tanacasino&#34;&gt;@tanacasino&lt;/a&gt; さんのエントリ「&lt;a href=&#34;http://tanacasino.hatenablog.com/entry/2014/12/03/003900&#34;&gt;Eucalyptus meets Scala !? Scala meets Eucalytpus!?&lt;/a&gt;」を参考に eucalyptuscala を使ってみようと思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scala&amp;gt; euca.describeImages
-res2: com.amazonaws.services.ec2.model.DescribeImagesResult = {Images: [{ImageId: emi-dfe169b4,ImageLocation: ubuntu-12.04.4/ubuntu.raw.manifest.xml,State: available,OwnerId: 952671494305,Public: false,ProductCodes: [],Architecture: x86_64,ImageType: machine,Platform: ,Name: ubuntu-12.04.4,RootDeviceType: instance-store,RootDeviceName: /dev/sda1,BlockDeviceMappings: [],VirtualizationType: hvm,Tags: [],}]}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;おぉ、イメージ ID が取得できますね。&lt;/p&gt;
-
-&lt;p&gt;次にインスタンスを起動してみようと思います…が、どうやたらいいのかさっぱりわかりません。AWScala ってリファレンスないんすか？(← ヘタレ)&lt;/p&gt;
-
-&lt;p&gt;とりあえず、引数なしで叩いてみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scala&amp;gt; euca.runInstances()
-&amp;lt;console&amp;gt;:12: error: not enough arguments for method runInstances: (x$1: com.amazonaws.services.ec2.model.RunInstancesRequest)com.amazonaws.services.ec2.model.RunInstancesResult.
-Unspecified value parameter x$1.
-              euca.runInstances()
-                               ^
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;なんか RunInstancesRequest な型で渡せということでしょうかね？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scala&amp;gt; euca.runInstances(com.amazonaws.services.ec2.model.RunInstancesRequest(&amp;quot;emi-dfe169b4&amp;quot;, 1, 1))
-&amp;lt;console&amp;gt;:12: error: object com.amazonaws.services.ec2.model.RunInstancesRequest is not a value
-              euca.runInstances(com.amazonaws.services.ec2.model.RunInstancesRequest(&amp;quot;emi-dfe169b4&amp;quot;, 1, 1))
-                                                                 ^
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ん？値じゃないって？じゃぁ…こう？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scala&amp;gt; euca.runInstances(new com.amazonaws.services.ec2.model.RunInstancesRequest(&amp;quot;emi-dfe169b4&amp;quot;, 1, 1))
-res11: com.amazonaws.services.ec2.model.RunInstancesResult = {Reservation: {ReservationId: r-dadc5b05,OwnerId: 952671494305,Groups: [{GroupName: default,GroupId: sg-4f9f263b}],GroupNames: [default],Instances: [{InstanceId: i-7933764d,ImageId: emi-dfe169b4,State: {Code: 0,Name: pending},PrivateDnsName: 192.168.122.242,PublicDnsName: 192.168.122.242,StateTransitionReason: NORMAL:  -- [],AmiLaunchIndex: 0,ProductCodes: [],InstanceType: m1.small,LaunchTime: Sat Dec 06 17:34:57 JST 2014,Placement: {AvailabilityZone: default,},Monitoring: {State: disabled},PrivateIpAddress: 192.168.122.242,PublicIpAddress: 192.168.122.242,Architecture: x86_64,RootDeviceType: instance-store,RootDeviceName: /dev/sda1,BlockDeviceMappings: [],VirtualizationType: hvm,ClientToken: 860b57f0-43f6-4099-b2a1-5749d63336...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;おぉっ！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/eucalyptus.adventcalendar.2014.1205-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;おぉぉ！！ってことで無事起動できました。やったー。&lt;/p&gt;
-
-&lt;p&gt;ということで、途中から次の日になってしまいましたが、euca.runInstances() にどうやって値を渡せばよいのかを悩んでいるうちに日付が変わってしまいましたwww&lt;/p&gt;
-
-&lt;p&gt;ちなみに AWScala の runInstances() のことを説明しているドキュメントとかリファレンスがどこにあるのかさっぱりわからないので、とりあえず&lt;a href=&#34;https://github.com/seratch/AWScala/blob/develop/src/main/scala/awscala/ec2/Requests.scala#L6-L7&#34;&gt;コード&lt;/a&gt;を見てみると以下のように書いてあります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;package awscala.ec2
-
-import scala.collection.JavaConverters._
-import com.amazonaws.services.{ ec2 =&amp;gt; aws }
-
-case class RunInstancesRequest(imageId: String, min: Int = 1, max: Int = 1)
-    extends aws.model.RunInstancesRequest(imageId, min, max) {
-
-  // TODO set...
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;さて、インスタンスタイプとかユーザデータとかセキュリティグループとかゾーンとかはどうやって渡せばいいんだろう？これは ec2.model.RunInstancesRequest じゃなく aws.model.RunInstancesRequest を見ないといけないのでしょうけれど、僕は Scala を全く知らないので諦めることにします。:)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;ということで、6日目になってしまった5日目のエントリでした。6日目のエントリは @shida1234 さんです。お楽しみに。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -984,319 +167,366 @@ case class RunInstancesRequest(imageId: String, min: Int = 1, max: Int = 1)
 
 &lt;p&gt;本日 Eucalyptus Users Group Japan の ML に終了のおしらせをポストしましたが、折角なので「いったい僕はどのぐらいこの ML に投稿したんだろうか？」と思いグラフを描いてみました。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/20140821_1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2012年以降は全体のポスト数が激減したために、全体のポスト数 = 自分のポスト数になることがありますが、5年間を通して見るとそんなに投稿してませんね。&lt;/p&gt;
-
-&lt;p&gt;Web で連載を開始した &lt;sup&gt;2010&lt;/sup&gt;&amp;frasl;&lt;sub&gt;09&lt;/sub&gt; が丁度ポスト数が落ち込んだ最初の谷で、ちょうど連載の1回目が公開される前後数ヶ月の間に CloudStack&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; やら OpenStack やらがリリースされて、みんなの興味がそっちに移った時期でもありました。&lt;/p&gt;
-
-&lt;p&gt;あとは何気に 2011 年以降は告知系のポストがメインとなっていき、流れても1～2通/月という状況でした。そして今頃気付きましたが、自分の書籍の告知を ML に流してなかったんですね…。もうこの頃には告知系はほとんど Twitter でツブやいていたのも流量が減った一因かもしれません。&lt;/p&gt;
-
-&lt;p&gt;&lt;sup&gt;2012&lt;/sup&gt;&amp;frasl;&lt;sub&gt;12&lt;/sub&gt; に全体のポスト数と自分のポスト数が完全一致しているのは、AdventCalendar をやった時期だったため、一人でモクモクと狂気じみたポストをしていたせいです。とは言ってもたかが数ポストですが。&lt;/p&gt;
-
-&lt;p&gt;2013年や2014年にたまにスパイクが現われますが、こちらは珍しく技術的な投稿だったんですが私が全然反応できなくて申し訳ないことをしたと思ってます。&lt;/p&gt;
-
-&lt;p&gt;ということで 5年間という歴史のわりにはポスト数の少なかった ML ですが、今日の ML への投稿にも書いたようにこの ML は私が人前で OSS 活動をすることになった最初の場所でもあったので、ML 終了の決意を何割か…いやほとんどを決めた身とは言え、需要が無く閉鎖するのは胸がしめつけられる気持ちもあります。&lt;/p&gt;
-
-&lt;p&gt;ただ、投稿にも書いたように、このまま需要がない ML をだらだらと運用するのはコスト面でも辛いので、やはりどこかで幕を引かなきゃいけなかったという意味では、今日が良いタイミングだったと思います。写真を撮る余裕がありませんでしたが、今日の東京の空は良い天気だったので、最後を送るにはそういう意味でも良い日でした。&lt;/p&gt;
-
-&lt;p&gt;投稿にも書きましたが、肝付さん前佛さんお疲れさまでした。&lt;/p&gt;
-
-&lt;p&gt;あ！終了するのは ML であって、&lt;strong&gt;Users Group はまだ存続してます&lt;/strong&gt;よーーーー&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;実装自体は別の名前で前から出ていたけど、この名前でリリースされたのが 2010 年だったような…
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Eucalyptus Advent Calendar 2013 5日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-05/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-05.adventcalendar-day-5/</link>
       <pubDate>Thu, 05 Dec 2013 01:11:41 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-05/</guid>
-      <description>
-
-&lt;h1 id=&#34;緑&#34;&gt;緑&lt;/h1&gt;
-
-&lt;p&gt;さて、今日はとうとう「緑」に関する名前で誕生日な人を見つけることができませんでした。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;なので、苦肉の策？として、「緑」という言葉に関して、ちょっぴりググってしまいました。というのも、これだけ好きな色なのに、語源を知らなかったからです。&lt;/p&gt;
-
-&lt;p&gt;「みどり」という言葉が登場するのは平安時代になってからだそうです。へー。では、それまでは緑色のことを何て呼んでたんでしょうかね？ちょっと僕の浅い検索力では調べられませんでした。&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;だから時間切れになってしまい、本日のエントリを12/5中に公開することができませんでした(；´Д`A
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-05.adventcalendar-day-5/</guid>
+      <description> 緑 さて、今日はとうとう「緑」に関する名前で誕生日な人を見つけることができませんでした。1
+なので、苦肉の策？として、「緑」という言葉に関して、ちょっぴりググってしまいました。というのも、これだけ好きな色なのに、語源を知らなかったからです。
+「みどり」という言葉が登場するのは平安時代になってからだそうです。へー。では、それまでは緑色のことを何て呼んでたんでしょうかね？ちょっと僕の浅い検索力では調べられませんでした。
+ だから時間切れになってしまい、本日のエントリを12/5中に公開することができませんでした(；´Д`A [return]   </description>
     </item>
     
     <item>
       <title>Eucalyptus Advent Calendar 2013 JP 4日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-04/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-04.adventcalendar-day-4/</link>
       <pubDate>Wed, 04 Dec 2013 01:11:29 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-04/</guid>
-      <description>
-
-&lt;h1 id=&#34;菅緑&#34;&gt;菅緑&lt;/h1&gt;
-
-&lt;p&gt;皆さん、遊園地とかの絶叫系マシンは好きですか？私は大嫌いです。何で金を出して怖い目にあわないといけないんでしょうかね？ちっとも理解できません。ちなみに私の妻は絶叫系マシンが大好きなので、遊園地に行くときはいつも寿命が年単位で縮んでいます。だぶんこのままだと私の戒名は緑毒草子守熊絶叫居士とかになりそうです。&lt;/p&gt;
-
-&lt;p&gt;はい、どうでもいい個人的な話から始めてしまいました今日12/4は熊本出身で第2日本テレビの元アナウンサー&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E8%8F%85%E7%B7%91&#34;&gt;菅緑&lt;/a&gt;さんの誕生日です。全く存じあげない人(をお祝いするというのは、かなり変な行為だということは重々承知のうえ)ですが、お誕生日おめでとうございます。&lt;/p&gt;
-
-&lt;h1 id=&#34;eucalyptus-1-6-2-で-clc-がなかなか起動しないことがあったという話&#34;&gt;Eucalyptus 1.6.2 で CLC がなかなか起動しないことがあったという話&lt;/h1&gt;
-
-&lt;p&gt;えーと、本題です。普段仕事で使うプライベートクラウドに Eucalyptus 1.6.2 相当のものを使っているのですが、今日触っていたらどうも様子が変だということでログを見ていました。&lt;/p&gt;
-
-&lt;p&gt;そしたら定期的にスタックトレースを吐いている様子で、ちょっと原因追求する暇も余力もないから、やってはいけないと思いつつ、背に腹はかえられぬということで、エイヤッと CLC を再起動しました。&lt;/p&gt;
-
-&lt;p&gt;するとですね、cloud-debug.log に&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;2013/12/03 21:58:35  WARN [GroovyUtil:GroovyUtil:loadConfig:91:main] javax.script.ScriptException: javax.script.ScriptException: java.lang.N
-ullPointerException
-javax.script.ScriptException: javax.script.ScriptException: java.lang.NullPointerException
-        at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:119)
-        at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:264)
-        at com.eucalyptus.util.GroovyUtil.loadConfig(GroovyUtil.java:89)
-(中略)
-        at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:113)
-        ... 76 more
-Caused by: java.lang.NullPointerException
-        at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:253)
-        ... 77 more
-2013/12/03 21:58:48  WARN [Environment:Environment:verifyProperties:532:main] Property [hibernate.cglib.use_reflection_optimizer] has been renamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ってな感じのログが吐かれて、そのままピタっとログ出力が止まったまま、起動処理が進まなくなる現象が発生しました。自分しか使ってない環境なら、まぁそんなに慌てないんですが、Eucalyptus 1.6.2 です、そりゃぁもう使ってきた歴史がそれなりに長いわけでして、みんなこの環境に頼りまくりです。&lt;/p&gt;
-
-&lt;p&gt;もうね同僚のみなさんが「OpenStack すげーイカしてるー、しびれるわー」とか言ってても、何だかんだで Eucalyptus 1.6.2 のインスタンス上で動く Redmine でバグ管理とかしているんですよ、もう私は心の中でニヤリなわけでして…って何の話だ？&lt;/p&gt;
-
-&lt;p&gt;ということで、このままだと OpenStacker な同僚から「ちっ、羽深だけじゃなくて Eucalyptus も使えねーなー」とか蔑まれちゃうこと間違いなしですよ。もうね、焦って焦って色々と見ます。下手したら焦りすぎてテンパりだして、別環境を構築して手動マイグレーションしちゃおうかとか考えだす始末です。&lt;/p&gt;
-
-&lt;p&gt;いくら &lt;font size=&#34;5&#34;&gt;Eucalyptus が「環境を構築し易い」&lt;/font&gt;とは言え、トラブル対応放っておいて環境構築をやっちゃ駄目ですよね。&lt;/p&gt;
-
-&lt;p&gt;で、基本として /etc/eucalyptus/, /var/lib/eucalyptus/, /var/log/eucalyptus/ 配下をチェックしていくんですが、ふと違和感を感じました。/var/lib/eucalyptus/db/ 配下を見ると…&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;-rw-r--r--  1 root       root         20G Dec  3 21:58 eucalyptus_general.log
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;とかってデカいのが居るわけですよ。普段このファイルがそんなに大きくなっているのを見てないので、ちょっとビビります。で、このファイル、そんなに肥大化すんだっけ？と思ってバグチケットに何か情報ないかと検索してみたところ…&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://gyazo.com/636b0cdfa998f0e7a6ead1406174a1b9&#34;&gt;http://gyazo.com/636b0cdfa998f0e7a6ead1406174a1b9&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;あれ？さすがにもう 1.6.2 の情報なんて世の中から消えさってしまったの？と不安を抱きながら漫画を読みながら、試行錯誤しているうちに、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;-rw-r--r--  1 root       root        154K Dec  3 23:06 eucalyptus_general.log
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あらやだ、ファイルが小さくなってる…&lt;/p&gt;
-
-&lt;p&gt;で、再び cloud-debug.log を見てみると&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;2013/12/03 22:11:43  WARN [Environment:Environment:verifyProperties:532:main] Property [hibernate.cglib.use_reflection_optimizer] has been r
-enamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately
-2013/12/03 22:56:12  INFO [DatabaseUtil:DatabaseUtil:registerPersistenceContext:45:main] -&amp;gt; Setting up persistence context for : eucalyptus_
-general
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;なんと、ログ出力が再開しているじゃないですか。えー、つまりですよ、CLC 君は hsqldb を起動してレスポンスが返ってくるのを待ち続けていただけという、つまりそーゆーこと？&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;font size=&#34;5&#34; color=&#34;#ee2222&#34;&gt;クリスマスまであと21日です✌(́◓q◔`)✌&lt;/font&gt;&lt;/p&gt;
-</description>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-04.adventcalendar-day-4/</guid>
+      <description>菅緑 皆さん、遊園地とかの絶叫系マシンは好きですか？私は大嫌いです。何で金を出して怖い目にあわないといけないんでしょうかね？ちっとも理解できません。ちなみに私の妻は絶叫系マシンが大好きなので、遊園地に行くときはいつも寿命が年単位で縮んでいます。だぶんこのままだと私の戒名は緑毒草子守熊絶叫居士とかになりそうです。
+はい、どうでもいい個人的な話から始めてしまいました今日12/4は熊本出身で第2日本テレビの元アナウンサー菅緑さんの誕生日です。全く存じあげない人(をお祝いするというのは、かなり変な行為だということは重々承知のうえ)ですが、お誕生日おめでとうございます。
+Eucalyptus 1.6.2 で CLC がなかなか起動しないことがあったという話 えーと、本題です。普段仕事で使うプライベートクラウドに Eucalyptus 1.6.2 相当のものを使っているのですが、今日触っていたらどうも様子が変だということでログを見ていました。
+そしたら定期的にスタックトレースを吐いている様子で、ちょっと原因追求する暇も余力もないから、やってはいけないと思いつつ、背に腹はかえられぬということで、エイヤッと CLC を再起動しました。
+するとですね、cloud-debug.log に
+2013/12/03 21:58:35 WARN [GroovyUtil:GroovyUtil:loadConfig:91:main] javax.script.ScriptException: javax.script.ScriptException: java.lang.N ullPointerException javax.script.ScriptException: javax.script.ScriptException: java.lang.NullPointerException at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:119) at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:264) at com.eucalyptus.util.GroovyUtil.loadConfig(GroovyUtil.java:89) (中略) at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:113) ... 76 more Caused by: java.lang.NullPointerException at org.codehaus.groovy.jsr223.GroovyScriptEngineImpl.eval(GroovyScriptEngineImpl.java:253) ... 77 more 2013/12/03 21:58:48 WARN [Environment:Environment:verifyProperties:532:main] Property [hibernate.cglib.use_reflection_optimizer] has been renamed to [hibernate.bytecode.use_reflection_optimizer]; update your properties appropriately  ってな感じのログが吐かれて、そのままピタっとログ出力が止まったまま、起動処理が進まなくなる現象が発生しました。自分しか使ってない環境なら、まぁそんなに慌てないんですが、Eucalyptus 1.6.2 です、そりゃぁもう使ってきた歴史がそれなりに長いわけでして、みんなこの環境に頼りまくりです。
+もうね同僚のみなさんが「OpenStack すげーイカしてるー、しびれるわー」とか言ってても、何だかんだで Eucalyptus 1.</description>
     </item>
     
     <item>
       <title>Eucalyptus Advent Calendar 2013 JP 2日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2013-12-02/</link>
+      <link>http://blog.osamu.habuka.jp/post/2013-12-02.adventcalendar-day-2/</link>
       <pubDate>Mon, 02 Dec 2013 01:11:25 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2013-12-02/</guid>
-      <description>
-
-&lt;h1 id=&#34;山本みどり&#34;&gt;山本みどり&lt;/h1&gt;
-
-&lt;p&gt;年末の定番といえば特番の時代劇ですが、最近は時代劇を観る人があまり居ないんでしょうかね？&lt;/p&gt;
-
-&lt;p&gt;僕が幼少の頃は祖母が子守をしてくれたんですが、祖母が観る番組ってドラマか時代劇かのどちらかでした。当然、僕も幼少の頃は時代劇を観て育つんですが、今も放映されているかどうか不明ですが、子供の頃によく観(せられ)ていた時代劇と言えば「桃太郎侍」「水戸黄門」「暴れん坊将軍」「遠山の金さん」「大岡越前」「銭形平次」など&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;でした。&lt;/p&gt;
-
-&lt;p&gt;で、ふと気づいたんですが、上に挙げた時代劇全てに出演している女優さんが居ました。そう、女優の&lt;a href=&#34;http://www.sachikopro.co.jp/actress/yamamoto/yamamoto.html&#34;&gt;山本みどりさん&lt;/a&gt;です。すごいですね。&lt;/p&gt;
-
-&lt;p&gt;そして本日12/2は山本みどりさんの誕生日です。おめでとうございます。&lt;/p&gt;
-
-&lt;h1 id=&#34;walrus-をだけを使ってみる&#34;&gt;Walrus をだけを使ってみる&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://036.habuka.jp/diary/?date=20121201&#34;&gt;去年は見事なまでの醜態&lt;/a&gt;を晒してしまいましたが、今年は頑張ります。&lt;/p&gt;
-
-&lt;p&gt;さて、懇切丁寧に説明したいところですが、諸般の事情によりサクサク進めていきます。&lt;/p&gt;
-
-&lt;p&gt;まずレポジトリ情報をインストールします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/eucalyptus-release-3.4.noarch.rpm
-[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/euca2ools/3.0/centos/6/x86_64/euca2ools-release-3.0.noarch.rpm
-[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/epel-release-6.noarch.rpm
-[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/elrepo-release-6.noarch.rpm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そして Walrus をインストールするんですが、Walrus を利用するには CloudController も必要不可欠なためインストールします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@walrus ~]# yum install eucalyptus-cloud eucalyptus-walrus
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;次にデータベースの初期化をして CloudController と Walrus を起動します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@walrus ~]# /usr/sbin/euca_conf --initialize
-Initializing a new cloud.  This may take a few minutes.
-Initialize command succeeded
-
-[root@walrus ~]# /etc/init.d/eucalyptus-cloud start
-Starting Eucalyptus services:
-************************************************************************
-  ERR-1008 2013-12-03 15:13:38Z ntp is not running
-
-   Condition: Can&#39;t find running ntp process
-       Cause: unknown
-   Initiator: eucalyptus
-    Location: ntp daemon on localhost
-  Resolution:
-        1) Install ntp
-        2) Run ntp
-
-************************************************************************
-
-done.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;無事に起動したら Walrus のコンポーネントを登録します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@walrus ~]# /usr/sbin/euca_conf --register-walrus --partition walrus --host 192.168.32.73 --component walrus0
-SERVICE walrus          walrus          walrus0         LOADED          26      http://192.168.32.74:8773/services/Walrus  arn:euca:bootstrap:walrus:walrus:walrus0/
-The authenticity of host &#39;192.168.32.73 (192.168.32.73)&#39; can&#39;t be established.
-RSA key fingerprint is 92:7c:d1:a1:49:25:ac:44:4e:c9:75:bd:ed:0b:57:95.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added &#39;192.168.32.73&#39; (RSA) to the list of known hosts.
-root@192.168.32.73&#39;s password:
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Walrus を使うための情報を取得します。ついでにダウンロードした情報を環境変数に取り込みます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[root@walrus ~]# mkdir -p .euca/admin/
-[root@walrus ~]# cd .euca/admin/
-[root@walrus admin]# euca_conf --get-credentials euca2-admin-x509.zip
-[root@walrus admin]# unzip euca2-admin-x509.zip
-Archive:  euca2-admin-x509.zip
-To setup the environment run: source /path/to/eucarc
-  inflating: eucarc
-  inflating: iamrc
-  inflating: cloud-cert.pem
-  inflating: jssecacerts
-  inflating: euca2-admin-d69abbe4-pk.pem
-  inflating: euca2-admin-d69abbe4-cert.pem
-[root@walrus admin]# source eucarc
-WARN: Load Balancing service URL is not configured.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、ここで Cyberduck を使ってさくっと Walrus にバケットを作ってオブジェクトをアップロードする様をスクリーンショットを交えながら、ここで紹介しようとしたのですが、実はこの日記は設定を失敗してて画像をアップロードできないんです…orz&lt;/p&gt;
-
-&lt;p&gt;というこで、別の方法で Walrus だけ使えることを紹介しようと思い、OpenStack の Glance の代わりに Walrus を使ってみようと思いますが、それはまた別の日に。&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;もちろん思い出せないだけで、他にも観てた時代劇があったと思います
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <guid>http://blog.osamu.habuka.jp/post/2013-12-02.adventcalendar-day-2/</guid>
+      <description>山本みどり 年末の定番といえば特番の時代劇ですが、最近は時代劇を観る人があまり居ないんでしょうかね？
+僕が幼少の頃は祖母が子守をしてくれたんですが、祖母が観る番組ってドラマか時代劇かのどちらかでした。当然、僕も幼少の頃は時代劇を観て育つんですが、今も放映されているかどうか不明ですが、子供の頃によく観(せられ)ていた時代劇と言えば「桃太郎侍」「水戸黄門」「暴れん坊将軍」「遠山の金さん」「大岡越前」「銭形平次」など1でした。
+で、ふと気づいたんですが、上に挙げた時代劇全てに出演している女優さんが居ました。そう、女優の山本みどりさんです。すごいですね。
+そして本日12/2は山本みどりさんの誕生日です。おめでとうございます。
+Walrus をだけを使ってみる 去年は見事なまでの醜態を晒してしまいましたが、今年は頑張ります。
+さて、懇切丁寧に説明したいところですが、諸般の事情によりサクサク進めていきます。
+まずレポジトリ情報をインストールします。
+[root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/eucalyptus-release-3.4.noarch.rpm [root@walrus ~]# yum install http://downloads.eucalyptus.com/software/euca2ools/3.0/centos/6/x86_64/euca2ools-release-3.0.noarch.rpm [root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/epel-release-6.noarch.rpm [root@walrus ~]# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/elrepo-release-6.noarch.rpm  そして Walrus をインストールするんですが、Walrus を利用するには CloudController も必要不可欠なためインストールします。
+[root@walrus ~]# yum install eucalyptus-cloud eucalyptus-walrus  次にデータベースの初期化をして CloudController と Walrus を起動します。
+[root@walrus ~]# /usr/sbin/euca_conf --initialize Initializing a new cloud. This may take a few minutes. Initialize command succeeded [root@walrus ~]# /etc/init.d/eucalyptus-cloud start Starting Eucalyptus services: ************************************************************************ ERR-1008 2013-12-03 15:13:38Z ntp is not running Condition: Can&#39;t find running ntp process Cause: unknown Initiator: eucalyptus Location: ntp daemon on localhost Resolution: 1) Install ntp 2) Run ntp ************************************************************************ done.</description>
     </item>
     
     <item>
       <title>Eucalyptus Advent Calendar 2012 JP 廿五日目</title>
-      <link>http://blog.osamu.habuka.jp/post/2012-12-25/</link>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</link>
       <pubDate>Tue, 25 Dec 2012 01:19:21 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2012-12-25/</guid>
-      <description>
-
-&lt;h1 id=&#34;0-48&#34;&gt;0.48&lt;/h1&gt;
-
-&lt;p&gt;さて、12/25 UTC-11 です。Advent Calendar 最後のエントリです。&lt;/p&gt;
-
-&lt;p&gt;今日はいつも以上に時間がないので導入文も端折ります。&lt;/p&gt;
-
-&lt;h1 id=&#34;eucalyptus-と-dns&#34;&gt;Eucalyptus と DNS&lt;/h1&gt;
-
-&lt;p&gt;今日は本当に時間がなく(いつも無いけど) Advent Calendar のネタを如何に手間をかけずに書こうか悩んでいたところ、@hejomo さんが「&lt;a href=&#34;http://twitter.com/hejomo/status/283582296320249857&#34;&gt;Eucalyptus 環境に DNS を導入してみたけどドメイン名が変だぜ&lt;/a&gt;」とツブやいていたので、これ幸いと思い、これをネタにすることにしました。@hejomo さんありがとうございます。&lt;/p&gt;
-
-&lt;h2 id=&#34;eucalyptus-2-0-3-までは&#34;&gt;Eucalyptus 2.0.3 までは…&lt;/h2&gt;
-
-&lt;p&gt;バージョン 2.0 系までは eucalyptus.conf に DISABLE_DNS=&amp;ldquo;N&amp;rdquo; って設定し、Web 管理画面で「DNS Configuration」の各項目に値を設定すれば PublicIP と PrivateIP が PublicDNS と PrivateDNS となっていました。&lt;/p&gt;
-
-&lt;p&gt;しかし、Eucalyptus 3.x からは以下のような設定を行なわないと駄目だそうです。(「だそうです」と言っているのは、実は環境を腐らせてしまい、最後まで確認しきることができなかったからなのです…orz)&lt;/p&gt;
-
-&lt;h2 id=&#34;eucalyptus-3-2-での-dns-設定&#34;&gt;Eucalyptus 3.2 での DNS 設定&lt;/h2&gt;
-
-&lt;p&gt;まず最初に CLC にログインし、以下のコマンドを実行します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;euca-modify-property -p system.dns.dnsdomain=&amp;lt;eucadomain.yourdomain&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;eucadomain.yourdomain&gt; は今回設定したい DNS のゾーン名となる値を入れます。例えば euca1.example.com とか。&lt;/p&gt;
-
-&lt;p&gt;つぎに&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;euca-modify-property -p bootstrap.webservices.use_instance_dns=true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;と設定し、そして&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;euca-modify-property -p cloud.vmstate.instance_subdomain=.&amp;lt;custom-dns-subdomain&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;と設定します。.&lt;custom-dns-subdomain&gt; は適宜環境にあわせて設定してください。&lt;/p&gt;
-
-&lt;p&gt;あとは eucalyptus-cloud を再起動し DNS サーバなどを適切に用意するだけらしいですが、どうやら eucalyptus-cloud を再起動したらうまく動かなくなりました…orz&lt;/p&gt;
-
-&lt;p&gt;/var/log/eucalyptus/cloud-error.log には以下の出力がありますが、関係あるのかどうかすら不明です。(あ、以下の時刻は JST なので &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;26&lt;/sub&gt; を指してますが、正しくは &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;25&lt;/sub&gt; UTC-11 です)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Wed Dec 26 08:28:55 2012 ERROR [ServiceContextManager:Thread-16] [com.eucalyptus.context.ServiceContextManager.createContext(ServiceContextManager.java):233] Restarting service context with these enabled
- services: [arn:euca:eucalyptus::notifications:192.168.33.11/eucalyptus/notifications notifications:unpartitioned:cloudLocal:, 
-arn:euca:eucalyptus::configuration:192.168.33.11/eucalyptus/configuration configuration:unpartitioned:cloudLocal:, 
-arn:euca:bootstrap:cluster:node:192.168.33.11/cluster/node node:unpartitioned:, arn:euca:eucalyptus:::192.168.33.11/eucalyptus/eucalyptus 
-eucalyptus:unpartitioned:cloudLocal:, arn:euca:bootstrap:cluster:gatherlog:192.168.33.11/cluster/gatherlog gatherlog:unpartitioned:, 
-arn:euca:bootstrap::arbitrator:192.168.33.11/bootstrap/arbitrator arbitrator:partitioned:alwaysLocal:, 
-arn:euca:eucalyptus::dns:192.168.33.11/eucalyptus/dns dns:unpartitioned:cloudLocal:, 
-arn:euca:eucalyptus::jetty:192.168.33.11/eucalyptus/jetty jetty:unpartitioned:cloudLocal:, 
-arn:euca:bootstrap::properties:192.168.33.11/bootstrap/properties properties:unpartitioned:alwaysLocal:, 
-arn:euca:bootstrap::reporting:192.168.33.11/bootstrap/reporting reporting:unpartitioned:alwaysLocal:, 
-arn:euca:eucalyptus::storage:192.168.33.11/eucalyptus/storage storage:partitioned:cloudLocal:, 
-arn:euca:eucalyptus::euare:192.168.33.11/eucalyptus/euare euare:unpartitioned:cloudLocal:, 
-arn:euca:eucalyptus::db:192.168.33.11/eucalyptus/db db:unpartitioned:cloudLocal:, arn:euca:eucalyptus::ldap:192.168.33.11/eucalyptus/ldap 
-ldap:unpartitioned:cloudLocal:, arn:euca:eucalyptus::tokens:192.168.33.11/eucalyptus/tokens tokens:unpartitioned:cloudLocal:, 
-arn:euca:eucalyptus::cluster:192.168.33.11/eucalyptus/cluster cluster:partitioned:cloudLocal:, 
-arn:euca:bootstrap:::192.168.33.11/bootstrap/bootstrap bootstrap:unpartitioned:alwaysLocal:, 
-arn:euca:bootstrap::component:192.168.33.11/bootstrap/component component:unpartitioned:alwaysLocal:, 
-arn:euca:bootstrap:walrus:walrus:192.168.33.11/walrus/walrus walrus:unpartitioned:]
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;とうとう最後の最後までぐだぐだな結果ですが、&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;font size=&#34;5&#34; color=&#34;#ee2222&#34;&gt;メリークリスマス ✌(՞ਊ ՞)✌&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
-</description>
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</guid>
+      <description>0.48 さて、12/25 UTC-11 です。Advent Calendar 最後のエントリです。
+今日はいつも以上に時間がないので導入文も端折ります。
+Eucalyptus と DNS 今日は本当に時間がなく(いつも無いけど) Advent Calendar のネタを如何に手間をかけずに書こうか悩んでいたところ、@hejomo さんが「Eucalyptus 環境に DNS を導入してみたけどドメイン名が変だぜ」とツブやいていたので、これ幸いと思い、これをネタにすることにしました。@hejomo さんありがとうございます。
+Eucalyptus 2.0.3 までは… バージョン 2.0 系までは eucalyptus.conf に DISABLE_DNS=&amp;ldquo;N&amp;rdquo; って設定し、Web 管理画面で「DNS Configuration」の各項目に値を設定すれば PublicIP と PrivateIP が PublicDNS と PrivateDNS となっていました。
+しかし、Eucalyptus 3.x からは以下のような設定を行なわないと駄目だそうです。(「だそうです」と言っているのは、実は環境を腐らせてしまい、最後まで確認しきることができなかったからなのです…orz)
+Eucalyptus 3.2 での DNS 設定 まず最初に CLC にログインし、以下のコマンドを実行します。
+euca-modify-property -p system.dns.dnsdomain=&amp;lt;eucadomain.yourdomain&amp;gt;   は今回設定したい DNS のゾーン名となる値を入れます。例えば euca1.example.com とか。
+つぎに
+euca-modify-property -p bootstrap.webservices.use_instance_dns=true  と設定し、そして
+euca-modify-property -p cloud.vmstate.instance_subdomain=.&amp;lt;custom-dns-subdomain&amp;gt;  と設定します。.</description>
+    </item>
+    
+    <item>
+      <title>CloudStack Advent Calendar jp: 2012 &amp; Eucalyptus Advent Caledar 2012 JP 廿四日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</link>
+      <pubDate>Mon, 24 Dec 2012 01:19:16 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</guid>
+      <description>手取り足取りの難しさ さて皆さん本日はクリスマスイブですよ、聖なるクリスマスを迎える準備はできましたか？泣いても笑ってもサンタはやって来ます、皆さん供物の用意は済みましたか？もしくは供物のかわりに差し出す魂の用意は大丈夫ですか？清らかな人生を歩んできましたか？
+CloudStackがッ 泣くまで イジメるのをやめないッ！ はい、さて、CloudStack の Advent Calendar です。あ、ちなみに始めにお斷りしておきますが、間違ってもこれをカップルで仲良く読みながらホーリーナイトとか口走ってしまわないように注意してください。もし口走ると国境付近の山に封印されているサンタがうっかり掘り起こされて街中の子供達が連れ去られたりトナカイちゃんが美味しく食べられてもおかしくないことになったり、もうそりゃぁ大変なことになります。
+あ、はい、うざいですね、ごめんなさい、そろそろ本題に入りますね。 えー、タイトルのとおり CloudStack をこれでもかっていうぐらいイジめて泣かそうという、僕の優しさが隠しきれないほど滲みでる企画です。
+参考にした情報  クリエーションライン株式会社の資料 CloudStackを使ってみよう[1] 大削先生の記事 機能を徹底比較！　～Eucalyptus、CloudStack、OpenStack CloudStack Advent Calendar 1日目の荒井会長の資料 Apache CloudStack 4.0をインストールしてみた。 CloudStack の Installation Guide CloudStack4.0-インストール 大削先生のスライド CloudStack 概要 でもちょっと詳しめVer.  あ、ちなみに上記の素晴しい資料を参考にしたからと言って、僕の貧相な理解力がこれらを吸収できるか？っていうと、それは全く別の話ですよ。
+構成 本当は Host を 2台にしたかったんですが、機材不足で断念しました。なので以下の構成にしています。
++------------+ +--------+ | CloudStack | | | | Management +----+ Host1 | | Server | | | +------------+ +--------+  構築 聖なる CloudStacker の皆さんは「構築なんて目つぶっててもできることをわざわざ書くな」と呆られるかもしれませんが、まぁ聞いてくださいよ。 えーとですね、私えらい離れた環境から CloudStack のインストールをやっておりまして、どれだけ離れているかというと、以下のように対象マシンに接続するために 2 台ほど踏み台を通らないと駄目なんす。</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 廿一日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-21.eucalyptus-adventcalendar-2012-jp-day-21/</link>
+      <pubDate>Fri, 21 Dec 2012 01:19:04 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-21.eucalyptus-adventcalendar-2012-jp-day-21/</guid>
+      <description>慣れないソフトウェアのインストールは難しいですね 質の良い文章って書くの大変ですよね、技術的な文書も非技術な文書もまともに書けない身としてはなるべく良質の文書を目にすることで自分の文書力を向上させたいとは思っているんですが、そもそも句読点の適切な使い方すらちゃんと知らないので、皆さんそこら辺どうやって学んで身につけているんでしょう？と思いつつ、先月購入した Software Design 2012年12月号を会社に忘れてきてしまい後悔しつつ、これを書いています。ところでくどいですが、句読点の使い方って小学校で学びました？僕はどうやらガラスの10代半ばまでポケぇ～っとしながら生きてきたせいか、いまいちそこら辺の記憶がありません。小学校って何してたっけ？
+みなさん今晩は、そんな駄文をダラダラ書くことだけは出来るのに CloudStack 環境が簡単に作れないヘタレの羽深です。やっぱり技術や OS やソフトウェアって好き嫌いせずに何でも美味しく頂いたほうが人生豊かになりますよ。特定のものにコダワリすぎて自分の幅を狭めちゃうとよくないです。まぁ、でもたいていは「利用はしたいけど構築はしたくねぇぜ、それ面倒さ」と思っているでしょう。そんな聖なる紳士淑女に耳寄りな話です。あの ECC (Eucalyptus Community Cloud) が Eucalyptus 3.2.0 ベースにバージョンアップしたようですので、今日はその使い方についてのご案内です。
+ECC を使ってみる ECC の使いかたからその説明については Eucalyptus 社のサイトにある ECC の説明に書いてありますので、まずそちらをお読みください。
+で、ECC を使うためには、まずアカウントを作らなければいけません。あぁ、そうそう、説明が漏れていましたが、Eucalyptus はバージョン 2.0 までは「ユーザ」(と内部的な「グループ」)という概念しか持っていないフラットなアカウント管理でしたが 3.0 からは「アカウント」「グループ」「ユーザ」という構造で管理できるようになりました。まぁ、ここら辺の詳しい説明は連載「ユーカリプタス入門」でやりたいと思います。相変わらず汚い大人でごめんなさい。でも世の中僕ほどピュアっピュアな人間も居ませんよ？
+で、ECC を使うためにはそのアカウントを作らなければいけないのですが、アカウントを作るためには ECC のサイトにアクセスし、ページ右上にある「Signup Account」をクリックしてアカウントの申請ページに遷移します。
+New Account Name に任意の名前を入力し、Email にはメールが受信可能なアドレスを入力し、Password と Type password again にはこのアカウントの管理者(admin) 用のパスワードを入力し、[OK] をクリックします。
+すると「アカウントの申請はしたけど、そのうちメールを送るからその内容に従ってアカウントを有効にしろよ」と言われるので、あとはジッと我慢の子でメールが届くのを待ちます。
+以上です。
+……
+……
+……
+え？もっと先まで説明しろって？いや、僕もそうしたいのはヤマヤマなんですが、この Advent Calendar、基本的に思い付きで書いているもんだから、アカウント申請したのってついさっきなんですよ。なので申請したばっかりでまだメールが届いていません。いぇ～い、ECC の中の人見てる～？✌(՞ਊ ՞)✌
+なので、これ以上は書きたくても書けないので、メールが届いたらまたこの日記を更新しようと思います。
+クリスマスまであと3日です ✌(՞ਊ ՞)✌
+後日談 「後日談」って言っても上記からまだ4時間ちょとしか経ってませんが、ECC からメールが帰ってきました。メールは以下のような内容ですので、メール内のリンクを踏んでアカウントを有効化します。
+From: habukao@example.com To: habukao@example.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 廿日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-20.eucalyptus-adventcalendar-2012-jp-day-20/</link>
+      <pubDate>Thu, 20 Dec 2012 01:17:57 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-20.eucalyptus-adventcalendar-2012-jp-day-20/</guid>
+      <description>Eucalyptus 3.2.0 出ましたよ 師走で年末進行でギッチギチなのに忘年会とか納品作業とか挨拶まわりとか世の中の聖なる紳士淑女は大変ですね？羽深です。
+Eucalyptus 3.2.0 がリリースされたので今日は技術ネタです。(昨晩の CUPA Cafe で「来週ぐらいにはリリースされんじゃね？」とかテキトーなことをぬかしてごめんなさい)
+Silvereye 3.2 β2 でインストールした環境を Eucalyptus 3.2.0 リリース版の環境にアップデートする えー、先日の OSC 2012.Cloud で日本 Eucalyptus ユーザ会が配布した Silvereye 3.2β2 を使って環境を構築してくれたナイスガイ(女性も含む)達は Eucalyptus 3.2.0 がリリースされて、きっとこう思っていると思います。
+何だよーもー、折角環境を作ったばっかりなのにー、ぷんすかぷん
+でも大丈夫です、ご安心ください。簡単にその環境を Eucalyptus 3.2 にアップデートする方法をお伝え致します。
+まず最初に現在インストールされている nightly 用の yum レポジトリ設定をアンインストールします。
+# rpm -e eucalyptus-release  次にリリース版の yum レポジトリ設定をインストールします。
+# yum install http://downloads.eucalyptus.com/software/eucalyptus/3.2/centos/6/x86_64/eucalyptus-release-3.2.noarch.rpm  えーい、面倒だから全部アップデート
+# yum update  ちなみに12/20時点では以下のパッケージがアップデートされました。
+================================================================================================================ Package Arch Version Repository Size ================================================================================================================ Installing: kernel x86_64 2.6.32-279.19.1.el6 updates 25 M Updating: device-mapper x86_64 1.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十八日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-18.eucalyptus-adventcalendar-2012-jp-day-18/</link>
+      <pubDate>Tue, 18 Dec 2012 01:17:50 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-18.eucalyptus-adventcalendar-2012-jp-day-18/</guid>
+      <description>今日のネタは演説ものです これを書いている今日は 12&amp;frasl;19 という説もありますが、断じで本日は 12&amp;frasl;18 です。自分でも「何言ってんだコイツ？」と思います。
+さて、世間では徴兵制度がうんたらかんたらと論じられているようですが、僕は残念ながら知識が乏しいので想像でしか物を言えぬ愚かものですが、何で「徴兵制度 = 戦闘員の増加」と短絡思考するんでしょうかね？一方で、何で「強い日本 = 徴兵制度の復活」と短絡思考するんでしょうかね？兵士になる気がない人を徴兵で集めても意味ないですし、兵士さえ居れば軍事力が増す訳でもないですよね。徴兵制度を復活させようとしている人達の意図はどこにあるんでしょう？反対する人達でも自分の家族は護りたいとか思ってますよね？ちょっと自分、新聞読まなすぎですね。
+妻とも話をしてたんですが、まずは前回の震災時のように自衛隊の隊員が休息を満足に取れない状況を回避するところから努力するべきじゃないかと思います。国民が理解できるように国も国民も双方が努力しないと駄目ですよね？徴兵制度って言うから反発くらうんだろうから、予備自衛官の制度をちゃんと正しく伝えるところから着手してはどうかしら？と思います。
+ということで、僕みたいなアーパーな人間が考えることは穴だらけでどうしようもないと思いますが、企業が(希望する)社員に予備自衛官への応募を支援したら、最初の一歩としてはいいんじゃないかと。まぁ、ボランティア活動をしていない僕が言うのはおかしいですけども。
+で、今日の Eucalyptus ネタは演説ネタです。技術ネタじゃなくてごめんなさい。帰宅してから書くにはあまりにも時間が無さすぎました。なので非技術ネタにしたんですが、技術ネタを書くより時間がかかったかもしんない…。ガンダム観てない人はごめんなさい、今日は諦めてください。ちなみに書いた自分が言うのも何ですが、さっぱり意味がわかりません。もしこれを書いたのが僕の家族なら、迷わず病院に連れて行くレベルです。
+クワトロ・ハブーカのユーカリの演説 私は、元千葉県民のクワトロ・ハブーカである。秋田県出身である。そして、今は、東京都品川区の住民である。我々の Eucalyptus を使いたいと思っている人々は、オンプレミス上にも、クラウドにも多いはずだ。オープンソースが主流であるプライベートクラウド業界ならば、私の発言を止められるはずはない！
+私がこの場を借りて、Eucalyptusの意思を代弁するものとして語るのは、リソース枯渇の危険性が、現在、極めて重要な問題になってきたからに他ならない。これはかつてのオンプレミスでの問題である。いや、プライベートクラウドが抱えるこの問題は、オンプレミス以上に深刻である。
+プライベートクラウドの名を借りて、パブリッククラウドの単なる模倣で満足しようとしている現状は、クラウドを利用しているだけなのに「クラウド型」と宣伝する企業サービス同様に悪質である。
+人がプライベートクラウドを求めたのは、なぜか、と思い出してもらいたい。クラウドの有するインフラ技術が技術者として垂涎ものだからだ。
+企業がプライベートクラウドを所有したことによって、企業そのものがクラウド技術を身につけたと誤解した。その結果が、リソース枯渇なのだ。プライベートクラウドの導入の拡大が、企業に力をつけたと誤解し、パブリッククラウドの模倣で満足だと思ったのだ。それは、過ちである。この意味は重要である。企業は、もともと、所有欲が強いという証拠である。プライベートクラウドはリソースが有限であると認識する必要がある。もう、オンプレミスでの苦悩を繰り返してはならない。
+企業がプライベートクラウドを得ることによって、手に入れられるのは、純粋にクラウドの利用を広げることができることなのである。
+プログラマブルインフラストラクチャによる新しい領域で、人のプログラミング欲求は刺激を受けて、今までプログラミングできていた対象が増加する。たとえば、物理的な操作がよりプログラミングできるようになるということだ。俗にいわれる神技とも異なる運用ができるのだ。なぜできるか？ 簡単なことだ。インフラアーキテクト以外の人がプログラミングしたい要求対象がロジカルな領域からフィジカルな領域に広がったために、インフラアーキテクト以外の人も利用可能な便利なAPIを作り出さねば、一つの技術集団として共通の会話をすることが出来ないからにすぎない。
+これまで、インフラを愛する我々の人口は、業界の50%も占めていなかったといわれる。残りの人口は、インフラが手軽に扱えるようになったときのために、神々が我々インフラアーキテクトの仲間を増やすために与えて下さった予備軍なのだ。
+オンプレミスを快適と思うあまり、物理サーバの所有に固執することが最良と思う人々は、オンプレミスに魂を引かれた者である。人のクラウド利用の拡大の可能性を否定して、人の間に所有欲を生み出すことによって、人類を堕落させようとするのが箱物売りの狙いである。
+しかし、それでは、過去から言われていたように、物理マシン単体のスペックが処理速度を飛躍させたという古い規範から、人は一歩も出ることは出来ない。
+違う！　人は、違うのだ。クラウドを使い、APIを叩き、まだ目覚めていない人のプログラミング力を高めれば、人は、所有なくして、永遠に発展し、環境を増殖し続けることができる。クラウドの可能性は、無限である。この無限という意味を考えていただきたい。 どのような叡智をも呑み込むだけの果てしなさを持ったもの、という意味である。その果てしなさに対して、永遠に叡智を放出できるのもまた人類でしかない。その叡智とプログラミング力、そして、神技を、なぜ人は、アプリ開発にぶつけることだけで満足して死んでゆけるのか？
+それが、人に与えられた使命ではない。神は、クラウド駆ける者として人を創造されたのである。
+箱物売りは、オンプレミスの重力に魂を引かれた人々で、オンプレミスの論理だけで革命を進めようとしているのだ。しかし、それは改革ではない。オンプレミスを所有する人とクラウドを利用する人という階級だけを作り、その緊張感の中で、特定の人々だけが、利益を得る社会構造を作るだけである。
+それでは、中世である。人にプログラミングするなと言うに等しい。
+人は、長い間、このオンプレミスという揺り籠の中で戯れてきた。しかし、時は、すでに人類をオンプレミスから巣立たせているのだ。この期に及んで、なぜ、サーバルームに籠り、環境を構築しなければならないのだ？　物理マシンの操作をなるべく減らし、人類は、Eucalyptus で自立しなければ、技術力は干涸らびて使い物にならなくなる日は近いのである！
+しかし、今ならば、まだ君らのマシンはまだ動き、残す価値がある。ならば、自分の欲望を満たすためだけに、物理マシンに寄生虫のようにへばりついて、物理マシンを汚すことは、何人にも許されない。
+箱物売りは、このような時でさえも、営業を仕掛けてくるのだ。この傲慢な行為は、かつての物売りから成長した組織が、導入しない者は全て情弱と称して、掃討しようという意志を持っている証明である。これこそ情弱であり、人類を衰退させてゆくと言い切れる。
+IaaS 系 Advent Calendar をご覧になっている方々は、お分かりのはずだ！　これが彼らのやり方なのだ！　そして、冷静に事態をご覧になっていただきたい。彼らは、この Advent Calendar に自分たちの味方がいるにも拘わらず、私一人の口を封じるために忘年会に誘おうとしているのです！
+クリスマスまであと7日です ✌(՞ਊ ՞)✌</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十七日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-17.eucalyptus-adventcalendar-2012-jp-day-17/</link>
+      <pubDate>Mon, 17 Dec 2012 01:17:44 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-17.eucalyptus-adventcalendar-2012-jp-day-17/</guid>
+      <description>手抜きじゃないよ？省力化だよ？ 同僚から「最近の Advent Calendar の内容薄くなってね？」とツッコまれました内気な少年の羽深です。ほんと危うく思い詰めるところでしたよ。取り扱い注意なガラスの心なんですよ、まったく。
+Eucalyptus を fog に巻く 巷では Ruby によるクラウドサービスライブラリの「fog」が流行っているようなので、「EC2/S3/IAM API 互換」と言っている Eucalyptus でも使えるんじゃね？ということで fog で Eucalyptus を利用してみました。
+まぁ、「fog に巻く」っていうタイトルにした割には内容が薄くて全然巻けていなくて、さすがのブライトさんも怒れないレベルの薄さですよ、どうせ。
+ちなみに参考にしたドキュメント類は、fog のドキュメントとソースコードと以下のブログです。ありがとうございます。
+ abe4tawa8さんのブログ dkavanaghさんのブログ  インストール方法ですが、以下のとおりです。うん簡単。
+gem install fog  で、簡単なサンプルとして以下のようなコードを書いてみました。
+#!/usr/bin/ruby require &#39;rubygems&#39; require &#39;fog&#39; compute = Fog::Compute.new({ :provider =&amp;gt; &#39;AWS&#39;, :aws_access_key_id =&amp;gt; &#39;WKy3rMzOWPouVOxK1p3Ar1C2uRBwa2FBXnCw&#39;, :aws_secret_access_key =&amp;gt; &#39;yxXm3RXPl97GPRSpWrHJduejS323WqZL0Mw&#39;, :endpoint =&amp;gt; &#39;http://172.16.34.10:8773/services/Eucalyptus&#39;, :region =&amp;gt; &#39;Eucalyptus&#39;, }) puts compute.servers.inspect  で、これを実行すると以下のような結果がびろびろ～んと出てきます。
+ &amp;lt;Fog::Compute::AWS::Servers filters={} [ &amp;lt;Fog::Compute::AWS::Server id=&amp;quot;i-4997090C&amp;quot;, ami_launch_index=0, availability_zone=&amp;quot;amesha-spenta&amp;quot;, block_device_mapping=[], network_interfaces=[], client_token=nil, dns_name=&amp;quot;172.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十六日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-16.eucalyptus-adventcalendar-2012-jp-day-16/</link>
+      <pubDate>Sun, 16 Dec 2012 01:17:32 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-16.eucalyptus-adventcalendar-2012-jp-day-16/</guid>
+      <description> 祝って頂きありがとうございます。 はい、誕生日です。ありがとうございます。誕生日なのですが前日は夫婦共に DVD 100枚を焼き焼き刷り刷りし、当日は妻を家に置いて OSC 2012.Cloud に参加して2つ発表し、DVD 100枚を配布するという、恐らく一般的な平民としては終っているような人間ですが、オープンソース教の信者なのでごめんなさい。パトラッシュ1が尻尾を振り振りヨダレだらだらで駆けよってきてますが、Advent Calendar の更新を頑張ります。2
+いつもはちょっと自虐的だったり自暴自棄的な書きっぷりですが、今日はさすがに皆さんへの感謝が溢れ出ているので、読んだ結果ジンマシンが出ても責任は取れません。あしからず。
+OSC 2012.Cloud の報告 そう、今日 12&amp;frasl;16 は OSC 2012.Cloud でした。OSC 初のクラウドに特化したイベントです。来場者の合計は 300 名だそうです。へー、すごいですね。
+冒頭でも書きましたが、この日に配布するために Silvereye 3.2 β2 の DVD を 100 枚焼いて持っていきました。
+で、10:00 ～のセッション「オープンソースで作るプライベートクラウド環境」で Silvereye について約 10 分ほど紹介をしました。日曜の朝 10:00 からのセッションにもかかわらず、実に 80 名以上の人が聞きにきてくださいました。
+そしてそのセッションの終了後に配布したり、展示スペースで配布したりで、結果 96 枚が配布できました。配布に積極的に協力して頂いた前佛さんと日本 OpenStack ユーザ会とその女子部の皆さん、どうもありがとうございました。僕独りではうまく配布できないところを、皆さんがガンガン配布してくれたおかげで、来場者の実に三分の一の人達の手に渡ったことになります。すごい。感激です。皆さんの協力が何よりの誕生日プレゼントになりました。本当にありがとうです。
+クリスマスまであと9日です ✌(՞ਊ ՞)✌
+ 紛らわしい書き方をしましたが「眠気が襲ってくる」という意味で使いました。我が家のお犬様の名前は「プーチン」です [return] 「頑張ります」って、自分で好きでやってんだから「頑張る」のは当然ですね (；´Д`A [return]   </description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十五日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-15.eucalyptus-adventcalendar-2012-jp-day-15/</link>
+      <pubDate>Sat, 15 Dec 2012 01:17:27 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-15.eucalyptus-adventcalendar-2012-jp-day-15/</guid>
+      <description>前説 さて、明日はいよいよオープンソースカンファレンス 2012.Cloud ですね。皆さん準備は進んでますか～？僕はまだ 1mm もできてませんよ～。やっほ～。
+以前、海外の論文だかで「子供のときに計画的に──例えば夏休みの宿題などを片付けられなかった人は、大人になっても計画的に物事を進めたり、物事をやりきることができない人になる」っていう発表があったらしく、論文とか小難しいものを読まないアーパーな僕でもすごく納得した気がします。まぁ、そんな計画的に物事を進められる聖なる紳士淑女の皆さんにはきっと僕のようなカツオ・のび太型人間の苦悩を計り知ることは難しいかもしれませんが、これを書いている今、我が家のお犬様が僕の臭い足をペロペロと舐めてお掃除してくれていて、僕の苦悩って何だっけ？と忘れちゃうぐらいどうでもよい悩みだということがわりました。
+インスタンスに VNC 接続 さて、インスタンスに VNC 接続する方法ですが、NC の /etc/eucalyptus/libvirt.xsl を見ると 290 行目に以下のように記述がありますが、
+ 287: &amp;lt;console type=&amp;quot;pty&amp;quot;/&amp;gt; 288: &amp;lt;/xsl:when&amp;gt; 289: &amp;lt;/xsl:choose&amp;gt; 290: &amp;lt;!-- &amp;lt;graphics type=&#39;vnc&#39; port=&#39;-1&#39; autoport=&#39;yes&#39; keymap=&#39;en-us&#39; listen=&#39;0.0.0.0&#39;/&amp;gt; --&amp;gt; 291: &amp;lt;/devices&amp;gt; 292: &amp;lt;/domain&amp;gt; 293: &amp;lt;/xsl:template&amp;gt;  これを以下のように &amp;lt;!&amp;ndash; /&amp;ndash;&amp;gt; を外してインスタンス起動すると、
+ 287: &amp;lt;console type=&amp;quot;pty&amp;quot;/&amp;gt; 288: &amp;lt;/xsl:when&amp;gt; 289: &amp;lt;/xsl:choose&amp;gt; 290: &amp;lt;graphics type=&#39;vnc&#39; port=&#39;-1&#39; autoport=&#39;yes&#39; keymap=&#39;en-us&#39; listen=&#39;0.0.0.0&#39;/&amp;gt; 291: &amp;lt;/devices&amp;gt; 292: &amp;lt;/domain&amp;gt; 293: &amp;lt;/xsl:template&amp;gt;  NC の TCP ポート 5900 以降が使われます。</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十四日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-14.eucalyptus-adventcalendar-2012-jp-day-14/</link>
+      <pubDate>Fri, 14 Dec 2012 01:17:14 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-14.eucalyptus-adventcalendar-2012-jp-day-14/</guid>
+      <description>ネットワークモードと構成に関する勘違い 花金をエンジョイしている聖なる紳士淑女の皆さんこんばんは。世の中悲しいことがたくさん降りかかってきますが、あなたが辛いときは誰かが幸せだったり、逆にあなたが幸せなときは他の誰かが辛かったり、つまり何が言いたいかっていうと、分かち合えるのは幸せな気分だけでなく、辛いときも分かち合えるので、幸せなときも辛いときも他人に報告するといいんじゃないかと思います。まぁなので今日1は僕は皆さんの幸せを祈ります。
+って言ってもこの Advent Calendar は辛さを独りで分かち合うという不思議体験ミラクルゾーンです。(嘘です、皆さんの協力に感謝してます。
+silvereye の腹ん中 えー、先日紹介した silvereye について、ちょっと気になったことを確認する回です。「手抜き」とか言ってはいけません、簡単にヘコむ子です。
+何かと言うと私は常々「マシン1台で Eucalyptus を動かすなら Eucalyptus のネットワークモードは SYSTEM か STATIC じゃないと駄目です」と豪語していました。が、先日紹介した silvereye は 1台のマシンにインストールして動かしたら MANAGED-NOVLAN でした。設定は以下な感じなんです。
+EUCALYPTUS=&amp;quot;/&amp;quot; EUCA_USER=&amp;quot;eucalyptus&amp;quot; CLOUD_OPTS=&amp;quot;&amp;quot; CREATE_SC_LOOP_DEVICES=&amp;quot;256&amp;quot; NC_PORT=&amp;quot;8775&amp;quot; CC_PORT=&amp;quot;8774&amp;quot; SCHEDPOLICY=&amp;quot;ROUNDROBIN&amp;quot; NODES=&amp;quot;172.31.252.1&amp;quot; NC_SERVICE=&amp;quot;axis2/services/EucalyptusNC&amp;quot; HYPERVISOR=&amp;quot;kvm&amp;quot; USE_VIRTIO_ROOT=&amp;quot;1&amp;quot; USE_VIRTIO_DISK=&amp;quot;1&amp;quot; USE_VIRTIO_NET=&amp;quot;0&amp;quot; INSTANCE_PATH=&amp;quot;/var/lib/eucalyptus/instances&amp;quot; VNET_MODE=&amp;quot;MANAGED-NOVLAN&amp;quot; VNET_PRIVINTERFACE=&amp;quot;br0&amp;quot; VNET_PUBINTERFACE=&amp;quot;eth1&amp;quot; VNET_BRIDGE=&amp;quot;br0&amp;quot; VNET_PUBLICIPS=&amp;quot;192.168.33.100-192.168.33.200&amp;quot; VNET_SUBNET=&amp;quot;10.0.0.0&amp;quot; VNET_NETMASK=&amp;quot;255.0.0.0&amp;quot; VNET_ADDRSPERNET=&amp;quot;256&amp;quot; VNET_DNS=&amp;quot;192.168.32.21&amp;quot; VNET_DHCPDAEMON=&amp;quot;/usr/sbin/dhcpd41&amp;quot;  で、前回のスクリーンショットは画像が荒くて設定値までは読み取れないと思いますが、「NC Bridge Network」っていう項目に 172.31.252.1 を指定しました。(デフォルト値がそうだったので)
+そんで ip コマンドで自分自身の IP を確認すると確かに NC Bridge Network で指定した値が設定されています。
+# ip addr show br0 7: br0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue state UNKNOWN link/ether fe:0d:d6:e2:40:82 brd ff:ff:ff:ff:ff:ff inet 169.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十三日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-13.eucalyptus-adventcalendar-2012-jp-day-13/</link>
+      <pubDate>Thu, 13 Dec 2012 01:43:14 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-13.eucalyptus-adventcalendar-2012-jp-day-13/</guid>
+      <description>見た目大事 13日目です。去年まで「Advent Calendar なんて他の国のリア充どもがやってんだろうなぁ～」ってぐらいしか思ってなかったんですが、まさか自分が当事者になるとは思いませんでした。まぁ、「1人1ネタぐらいで持ち寄って皆でワイワイやったら楽しいなぁ～ほわわぁぁん」とか思ってたのは 11&amp;frasl;30 までで、いざ始まってみると結構マゾいんすね Advent Calendar って。そんなマゾい Advent Calendar をやっている聖なる紳士淑女の皆さん元気ですか？こんばんは。
+で、Advent Calendar って 10 分で考えて 5 分で書くということを先日知ったんですが、僕の場合は 10 秒ぐらいしか考えずに、やりながら書いているので、ここを 12&amp;frasl;01 から読んでいる皆さんは僕がどんだけ毎回ドタバタしながら失敗しているかよくわかっていると思いますけど、まぁ、その今日もほとんど考えなしに走ります。
+とりあえずイジってみる さて、あまり話題にしたことなかったんですが、今日は Eucalyptus の Web 管理画面の見た目を変更してみる話です。え～、Eucalyptus の Web 管理画面は /var/lib/eucalyptus/webapps/root.war というファイルにまとめられていて、/var/run/eucalyptus/webapp/ に展開されています。で、画面自体は GWT (Google Web Toolkit) で作られているようです。まぁ、僕がちゃんとしていたらここで颯爽と eclipse を立ち上げて華麗にイジり方などを解説するところですが、残念ながらちゃんとしていないので、そんな高等なことできません。
+じゃー今日のネタは何すんのさー？と思われたそこの旦那さま、何も難しいことありません、/var/lib/eucalyptus/webapp/root.war をイジイジして /etc/init.d/eucalyptus-cloud を restart するだけで、あら不思議、Web 管理画面の見た目が簡単に変わりましたよ的な結果が得られます。やっぱずぅ～っとインフラやってると、たまには陽の光があたる暖い場所へ出てみたくなりますよね？なりませんか？
+で、まず以下を実行して、元ファイルを展開します。
+# cd /var/lib/eucalyptus/webapp/ # mv root.war root.war.orig # mkdir -p root # cd root # unzip ../root.war.orig  で、展開されたファイルを適宜変更します。例えば今回は themes/{active,eucalyptus}/ 配下にある logo.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十二日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-12.eucalyptus-adventcalendar-2012-jp-day-12/</link>
+      <pubDate>Wed, 12 Dec 2012 01:17:04 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-12.eucalyptus-adventcalendar-2012-jp-day-12/</guid>
+      <description>JEUG 版 LiveDVD の作り方 今日は 2012/12/12 です。「いぇ～い、ゾロ目～」とかって言いながら非公営ギャンブルに勤しんでいるクズい紳士淑女の皆さんこんばんは、人生是博打な羽深です。スマイルしてますか～？今日は JEUG 版 LiveDVD の作り方をネタにします。
+「JEUG 版 LiveDVD って何かしら？」と思ったそこのあなた、「Eucalyptus LiveDVD」と検索したらいいですよ。見つかるかどうかは知りませんけどね。
+で、需要がないのは重々承知で、知っている稀有な方にのみ送ります。あぁ、CentOS 5.x な環境を用意してくださいね。本当はこれ Gentoo な LiveDVD を目指していたんですが、ちょっと色々と色気を出しすぎてまだ完成していないので、未だに「簡単に LiveDVD を作れる CentOS」となっています。CentOS 万歳♪ RHEL 万歳♪
+ちなみに参考情報として CentOS の LiveCD の作り方 を読んでおくと幸せになれます。
+まず、以下の内容で「/etc/yum.repos.d/centos-livecd.repo」というファイルを作ります。
+[livecd] name = CentOS $releasever - LiveCD baseurl = http://www.nanotechnologies.qc.ca/propos/linux/centos-live/$basearch/live enabled=1 protect=0 gpgkey = http://www.nanotechnologies.qc.ca/propos/linux/RPM-GPG-KEY-PGuay2010  次に、以下を実行して LiveDVD を作る環境を整えます
+# yum install livecd-tools syslinux anaconda-runtime  そして、github から JEUG 版 LiveDVD に必要なファイル類をゲットします。
+# wget --no-check-certificate -O eucalyquitous.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 十一日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-11.eucalyptus-adventcalendar-2012-jp-day-11/</link>
+      <pubDate>Tue, 11 Dec 2012 01:16:53 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-11.eucalyptus-adventcalendar-2012-jp-day-11/</guid>
+      <description> クッキー 11日目です。
+えーと、画像ネタに植物ネタと他の IaaS 系 AdventCalendar とは違って、マジメっぷりが全然ないネタばかりで申し訳ないのですが、今日は食べ物ネタです。
+ちなみに今日は本当は CloudStack Advent Calendar の 12&amp;frasl;11 も担当していたのですが、力不足により @opt_Hohenheim さんに交代してもらいました。この場をお借りして……ってここ俺の日記だった。
+おまけに Eucalyptus Adevent Calendar のほうはネタが二転三転し、結局こうなりました。1 「で、これ何ですか？」っていう話ですが、日本Eucalyptusユーザ会のマスコットキャラクター「ぷたとす～」の「ぷた」と私の顔2のクッキーでして、妻の力作になります。
+ 更にこれ書いている途中で自宅のネットワークが重くなり、4Kbps という素敵な回線速度です… [return] ご存じだとは思いすが、当人の顔は「松竹梅」で言うと「灰」レベルの酷さです [return]   </description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 九日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-09.eucalyptus-adventcalendar-2012-jp-day-9/</link>
+      <pubDate>Sun, 09 Dec 2012 01:16:43 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-09.eucalyptus-adventcalendar-2012-jp-day-9/</guid>
+      <description>ヨウ化銀？違うよ silvereye だよ え～と「何の話さ？」と思われるかもしれませんが、今日は silvereye というプロジェクトおよびツール？について紹介します。
+無駄話的な前説 で、野鳥友の会のかたならばご存知かと思いますが、この silvereye は日本語ではハイムネメジロという名前の鳥のことを示します。写真で見るとカワイイ眼をしてますが、残念ながら私は直接見たことも撮影したこともないので、ここでは写真をお見せできませんので、皆さん各自でググってください。で、このハイムネメジロちゃんはオーストラリアとニュージーランドにおられるようですが、日本名があるってことは日本にも在住しているのかな？かな？
+本題に戻しますね。この silvereye は物理マシンに Eucalyptus をインストールするインストーラです。iso ファイルをダウンロードして DVD に焼くか、もしくはスクリプト「iso-to-usb.sh」を使って USB メモリに焼いて、物理マシンをそこから起動すると CentOS 6.3 のインストーラをカスタマイズした silvereye インストーラが起動します。 CentOS ラブっ子ならば 90% は何も考えずに使えるという優れものです。CentOS に詳しくない人でも RHEL ラブっ子ならば 89% は何も考えずに使えます。もちろん、CentOS や RHEL に詳しくなくても Scientific Linux ラブっ…ごめんなさい、しつこいですね。
+まぁ、僕の駄文なんて読みたくも嗅ぎたくもないっていう紳士淑女はさっさと silvereye の ISO ファイル をダウンロードして DVD なり USB メモリにバーニングして起動してみたらいいんじゃないでしょうか？ あぁ、そうそう、この日記を書いている時点ではまだβ版なので覚悟してね。ふふふっ。
+さぁ、以下はとてもとても退屈なスクリーンショットによる懇切丁寧極まりない愚直な説明です。目ん玉見開いて見開きすぎてこぼれ落ちて silvereye どころじゃなくなるほど刮目しちゃってくださいよ。ちなみに以下は1つのマシンに全てのコンポーネントをインストールする場合の説明です。それ意外のインストールパターンはクラウド Watch での私の連載「ユーカリプタス入門」で扱う予定です。え？あぁ、そうですね、大人ってそーゆーもんですよ。うんうん。
+silvereye を使ったインストール 起動画面 DVD なり USB メモリで起動したら grub の画面が表示されるので「Install CentOS 6 with Eucalyptus Cloud-in-a-box」を選択します。「Install a minimal CentOS 6 without Eucalyptus」は選んでもいいですが、Eucalyptus はインストールされません。どうしてもそれを選びたい人は CentOS 6 のインストーラを使ったらいいよ。っていうか、そんな人はこんな日記読んでいる場合じゃないですよ？大丈夫？心配になっちゃうよ。</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 四日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-04.eucalyptus-adventcalendar-2012-jp-day-4/</link>
+      <pubDate>Tue, 04 Dec 2012 01:16:28 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-04.eucalyptus-adventcalendar-2012-jp-day-4/</guid>
+      <description>また枯らしちゃった
+えーと、Eucalyptus Advent Calendar 2012 JP 4日目です。今日は我が家の Eucalyptus の話です。
+とは言っても、我が家は現在 hp compaq t5000 という i686 なシンクライアントを無理矢理ファイルサーバとして使っているだけの寂しい環境になってしまい、Eucalyptus をインストールできるマシンは冬眠中なのです。
+なので、植物の Eucalyptus についてです。(決してネタが尽きたわけじゃないんです、どうしても今日じゃないとこの話が活きないのです…T&amp;amp;T)
+初代グニー えーと、うちの妻が戸越銀座や武蔵小山でお買い物していたときに Eucalyptus Gunnii の小鉢を発見し、買ってきてくれました。この子が我が家に来るほんのちょっと前に──写真の背景にも写っていますが──ぷたとす～が羽深妻画伯の手によって産まれました。
+で、この Gunnii ですが、結構強いと聞いたのですが我が家の放置プレイ気味な育て方が駄目だったらしく、途中で元気が無くなったりうどん粉病っぽい感じで葉っぱが白く粉を吹いた状態になり、最終的には葉が硬くなり枯れてしまいました。
+二代目グニー で、しばらくしてから今年の夏にまた Gunnii に巡り会うことができ、妻に買ってきてもらって再挑戦したのですが、現在、また葉っぱが硬くなり、どうやら枯れてきてしまいました…。ということで、導入するのは簡単なのですが、ちゃんと運用しようとすると面倒を観ないと駄目なのはクラウドも植物も同じようです…。ごめんね、グニー ｡ﾟ(ﾟ´Д｀ﾟ)゜｡</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 三日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</link>
+      <pubDate>Mon, 03 Dec 2012 01:16:23 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</guid>
+      <description>Euca Monkey を使ってみたよ？ さて、Eucalyptus Advent Calendar 2012 JP の三日目です。初日がどうやら一部で「うわっ飛ばしすぎじゃね？」とか心配されたようなので、3日目は大人し目にいきたいと思います。
+で、「大人し目って何だ？」って考えてみたんですが、大人しい == ドタバタしない系だと思い、つまり何か仕掛けたら放置プレイでいいんじゃね？となるようなものをターゲットにしようってことになり、協議の結果 Euca Monkey を扱おうという結論に達しました。で、この Euca Monkey ってのは Eucalyptus のストレステストツールでして、README とかを読んでると Eutester っていうテストフレームワークを使うそうです。でもここでいきなりこのテストフレームワークの使い方を説明しだすと、また皆さんを置いてけぼりな展開になるので、ここはぐっと我慢して Euca Monkey を使う方法に徹します。
+ちなみに Euca Monkey の作者は Eucalyptus 社のソフトウェアデザイナ の Kyo Lee さんで、詳しくは彼のブログで紹介されています。
+環境の準備 で、何はともあれ Eucalyptus の環境を作らないと話ははじまらないんですが、初日のときみたいに nightly build に手をだして本筋から外れるのも何なので、今回は日和って Eucalyptus 3.1 の環境でやります。ステーブルサイコー！
+ちなみに Eucalyptus 3.1 の環境の作り方は OSPN Press の「オープンソース」を使ってみよう (第26回 dodai-deploy編)を参考にしてください。
+あぁ、一応聖なる紳士淑女のために説明をしますが、ちゃんとメモリを 16GB も積んだマシン2台構成で1台はフロントエンド (CLC/CC) で、もう1台はノードとしました。で、CLC/CC の eucalyptus.conf は以下のように変更しています。
+# diff -u eucalyptus.conf.orig eucalyptus.conf --- eucalyptus.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 一日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-12-01.eucalyptus-adventcalendar-2012-jp-day-1/</link>
+      <pubDate>Sat, 01 Dec 2012 01:16:17 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-12-01.eucalyptus-adventcalendar-2012-jp-day-1/</guid>
+      <description>Walrus だけ使ってみたよ Eucalyptus Advent Calendar 2012 JP の一日目なので、内容はライトでキャワワな方向で行きます。
+いきなり初日からこいつぁ Geek 臭プンプン匂うぜぇ的な内容だと読む人も参加する人もドン引きでしょうから、「Eucalyptus 3.2 の nightly ビルドを入れて Walrus だけ使ってみたぜぇ？」って感じの内容にします。
+前説 Eucalyptus には AWS の S3 互換機能を提供する Walrus という名のコンポーネントがあります。この Walrus くん、辞書で索くとセイウチのことだそうです。EC2 互換機能およびソフトウェア名が Eucalyptus なのに何でここでいきなり海の生き物なんですかね？全然関連性がないですよね？
+「全然関係ない」と言えば、AWS の API 操作ライブラリの boto、この boto ですが、Wikipedia によるとアマゾンカワイルカの別名らしいです。まぁ、ホント全然関係ないですけどね。(ﾉ´*ω*｀)ﾉ
+で、この Walrus、S3 互換なので「大規模分散オブジェクトストア」じゃないけど一応「オブジェクトストア」の末席に居まして、ってことは「S3 っぽく使っていいんじゃね？」とムクムクとスケベ心が出てくるわけですよ。やったねホーリーナイト！ ってことで、「Walrus だけ使ってみるの巻」です。
+パッケージのインストール じゃーさっそく Walrus のインストール。本当は難しいこと全然ないし、Advent Calendar 向けのポストなので細かいことは省いてサクサク書くつもりだったんですが、ちょいちょいハマる可能性があるので、聖なる紳士淑女のために一応実行したコマンドも書きますね。(あ、ntp のインストールと設定は省きますね)
+ ## まずはレポジトリ情報をぶち込みます # rpm -Uvh http://downloads.eucalyptus.com/software/euca2ools/2.1/centos/5/x86_64/euca2ools-release-2.1.noarch.rpm # rpm -Uvh http://downloads.eucalyptus.com/software/eucalyptus/nightly/3.2/centos/5/x86_64/eucalyptus-release-3.2.0.noarch.rpm # rpm -Uvh http://downloads.eucalyptus.com/software/eucalyptus/nightly/3.2/centos/5/x86_64/epel-release-5.noarch.rpm ## で Walrus のパッケージをインストールします。やったねたえちゃん！ # yum install eucalyptus-walrus Loaded plugins: fastestmirror, security Loading mirror speeds from cached hostfile * base: ftp.</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2012 JP 前夜祭</title>
+      <link>http://blog.osamu.habuka.jp/post/2012-11-30.eucalyptus-adventcalendar-2012-jp/</link>
+      <pubDate>Fri, 30 Nov 2012 01:09:11 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2012-11-30.eucalyptus-adventcalendar-2012-jp/</guid>
+      <description>明日から Eucalyptus Advent Calendar 2012 JP が始まります
+北瀬さんが CloudStack Advent Calendar jp: 2012 をやると聞いて、「んじゃぁ、うちもやってみよう。だけど CloudStack と違って人気がないから独りで細々とやろう」と気軽に考えて立ち上げた Eucalyptus Advent Calendar 2012 JP ですが、11/30 の時点でなんと 11 人の参加者となっていました。素直に驚きです。
+ちなみに、その CloudStack Advent Calendar jp: 2012 は前日の時点で 19 名の参加者で、OpenStack Advent Calendar 2012 JP は 14 人の参加者となっており、さすがに二大巨頭(？)と言えども 25 人は揃わなかったようです。(難しいですね…f^^;)
+で、「前夜祭」というタイトルなので何かひとネタと考えていたのですが、実はこれを書いているうちに寝落ちしてたので、今日はこのぐらいで。あ、ちなにみに、誰も参加してくれなかったとき用に 25 日分のネタを考えておいたのですが、折角なので以下にその一覧を。
+ euca-monkey を使ってみる eutester を使ってみる se34euca を使ってみる image-configs を使ってみる silvereye を使ってみる bodega を使ってみる JEUG版 Live-DVD の作り方 doctor-euca を使ってみる nagios 連携を試してみる faststart を使ってみる 1.6.2, 2.0.3, 3.</description>
+    </item>
+    
+    <item>
+      <title>ぷた &amp; す～</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-10-22-puta-and-su/</link>
+      <pubDate>Sat, 22 Oct 2011 00:57:42 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-10-22-puta-and-su/</guid>
+      <description>先日の第2回自作プライベートクラウド勉強会で浜田さんに言われたので、私のiPhoneの壁紙を貼ります。(あっ、 右腕の色を塗り忘れてる…)</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptus 2.0.3 で DeleteVolume できなくなる件</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-06-20-unable-to-delete-volume-in-eucalyptus-2.0.3/</link>
+      <pubDate>Mon, 20 Jun 2011 01:13:20 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-06-20-unable-to-delete-volume-in-eucalyptus-2.0.3/</guid>
+      <description>ということで、突如 DeleteVolume ができなくなった我が家の Eucalyptus ですが、以下のような感じです。
+DescribeVolume の結果は特に問題なし
+ [root@eucalyptus ~]# euca-describe-volumes VOLUME vol-58C70625 1 cluster0 available 2011-06-09T04:25:15.757Z VOLUME vol-592B061A 2 cluster0 available 2011-06-09T04:25:28.287Z  DeleteVolumeを実施
+ [root@eucalyptus ~]# euca-delete-volume vol-58C70625 VOLUME vol-58C70625  でも消えてない…
+ [root@eucalyptus ~]# euca-describe-volumes VOLUME vol-58C70625 1 cluster0 available 2011-06-09T04:25:15.757Z VOLUME vol-592B061A 2 cluster0 available 2011-06-09T04:25:28.287Z  /var/log/messages には LVM の lv がないというログが…
+ Jun 20 02:01:20 eucalyptus tgtd: backed_file_open(92) Could not open /dev/vg-1iOYfw../lv-CdT28w.., No such file or directory  ちなみに DB には問題なさげ…</description>
+    </item>
+    
+    <item>
+      <title>Eucalyptusではじめるプライベートクラウド構築</title>
+      <link>http://blog.osamu.habuka.jp/post/2011-05-25.deploying-private-cloud-with-eucalyptus/</link>
+      <pubDate>Wed, 25 May 2011 01:10:42 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2011-05-25.deploying-private-cloud-with-eucalyptus/</guid>
+      <description>ということで、各方面の皆様のご協力を得て無事に発売することができました。皆様お疲れさまでした。 自分で書いた本が本屋に置かれているのを見ると何か不思議と浮かれてしまいますね…f^^;
+ </description>
     </item>
     
   </channel>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/dns/index.xml</link>
-    <description>Recent content on hablog</description>
+    <title>Dns on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/dns/</link>
+    <description>Recent content in Dns on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <atom:link href="http://blog.osamu.habuka.jp/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Dec 2015 04:49:39 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>SkyDNSのプチ性能調査</title>
@@ -18,72 +21,7 @@
 
 &lt;p&gt;16日目のエントリなのに 16 日に公開できなくてごめんなさい…orz&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;このエントリでは SkyDNS の簡単な性能調査をしてみようと思います。&lt;/p&gt;
-
-&lt;p&gt;性能計測パターンは1台と3台の2構成で計測してみます。(本当はもっと台数を線形に増やしてみたいんですが、ちょっと時間的に辛いので、日和って3台までで…)&lt;/p&gt;
-
-&lt;p&gt;以下、簡単な環境情報です。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AMI: Amazon Linux AMI 2015.09.1 (HVM), SSD Volume Type - ami-383c1956&lt;/li&gt;
-&lt;li&gt;SkyDNS の Instance Type: t2.micro&lt;/li&gt;
-&lt;li&gt;負荷をかける側の Instance Type: t2.medium&lt;/li&gt;
-&lt;li&gt;SkyDNS:&lt;/li&gt;
-&lt;li&gt;etcd:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;1台構成時も3台構成時も1台のインスタンスに etcd と SkyDNS がそれぞれ配置されます。図にすると以下のような構成になります。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/DNS.adventcalendar.2015.1216-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;賢明な諸兄は「え？この構成なら何台構成になっても同じじゃね？」と気付いたと思いますが、まぁ何事もやってみないとわからないってことで、まずは1台構成から測定してみます。測定環境はこんな感じです。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.osamu.habuka.jp/images/DNS.adventcalendar.2015.1216-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;蛇足かもしれませんが、Amazon Linux 上に SkyDNS 環境を構築する手順が以下になります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# yum install git
-# cd /usr/local/src/
-# wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
-# tar -xzf go1.5.2.linux-amd64.tar.gz 
-# mv go /opt/
-# export GOPATH=/usr/local/go
-# export GOROOT=/opt/go
-# export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-# mkdir -p $GOPATH
-# go get github.com/coreos/etcd
-# cd $GOPATH/src/github.com/coreos/etcd/etcdctl
-# go install
-# go get github.com/skynetservices/skydns
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;一方、Amazon Linux 上に dnsperf をインストールする手順は以下です。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# yum --enablerepo=epel install dnsperf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;では早速 SkyDNS を起動させます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# etcd &amp;amp;
-# skydns -addr 0.0.0.0:53 &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;次に SkyDNS に今回の性能調査のためのデータを以下のように手抜きで投入します。(SkyDNS が起動しているホストで実行)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# for i in `seq 1 10000`; do echo $i | md5sum | sed -e &amp;quot;s|\([0-9a-f]*\)\s.*$|etcdctl set /skydns/local/skydns/\1 `printf &amp;quot;&#39;{\\&amp;quot;host\\&amp;quot;:\\&amp;quot;192.168.%d.%d\\&amp;quot;}&#39;&amp;quot; $(( ($i &amp;gt;&amp;gt; 8) &amp;amp; 0xff )) $(( $i &amp;amp; 0xff ))`|&amp;quot; | sh; done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;次に投入したデータを dnsperf で索くためのクエリを以下のように作成します。(dnsperf をインストールしたホストで実行)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# for i in `seq 1 10000`; do echo $i | md5sum | sed -e &amp;quot;s|\([0-9a-f]*\)\s.*$|\1.local.\tA|&amp;quot;; done &amp;gt; /tmp/queryfile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ちゃんと索けるかどうかを確認します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# dig @172.30.2.34 a `head -n 1 /tmp/queryfile`
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

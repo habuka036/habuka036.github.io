@@ -1,50 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/asakusasatellite/index.xml</link>
-    <description>Recent content on hablog</description>
+    <title>Asakusasatellite on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/asakusasatellite/</link>
+    <description>Recent content in Asakusasatellite on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <atom:link href="http://blog.osamu.habuka.jp/tags/asakusasatellite/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Apr 2011 01:05:29 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/asakusasatellite/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>AsakusaSatellite の WebSocket</title>
-      <link>http://blog.osamu.habuka.jp/post/2011-04-27-AsakusaSatellite/</link>
+      <link>http://blog.osamu.habuka.jp/post/2011-04-27-asakusasatellite/</link>
       <pubDate>Wed, 27 Apr 2011 01:05:29 +0900</pubDate>
       
-      <guid>http://blog.osamu.habuka.jp/post/2011-04-27-AsakusaSatellite/</guid>
-      <description>&lt;p&gt;CentOS 5.5 に入れた AsakusaSatellite で WebSocket を起動してシェルから抜けると WebSocket が終了しちゃうので、daemontools で起動することにした。って、本当はどうやるのがベストなんだろう？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; # AsakusaSatellite のパスは適宜読み替えてください
- cd /var/opt/AsakusaSatellite
- 
- # daemontools 用のディレクトリを作成
- mkdir -p ./daemontools/log
- 
- # WebSocket を起動するスクリプトの設置
- cat &amp;lt;&amp;lt;EOF&amp;gt; ./daemontools/run
- #!/bin/bash
- exec 2&amp;gt;&amp;amp;1
- exec setuidgid apache /usr/bin/ruby /var/opt/AsakusaSatellite/websocket/server.rb
- EOF
- 
- # ロガーを起動するスクリプトの設置
- cat &amp;lt;&amp;lt;EOF&amp;gt; ./daemontools/log/run
- #!/bin/sh
- exec setuidgid apache multilog t ./main
- EOF
- 
- # パーミッションの設定
- chown -R apache:apache ./daemontools/
- chmod +x ./daemontools/run
- chmod +x ./daemontools/log/run
- 
- # daemontools の監視対象に設定
- cd /service/
- ln -sf /var/opt/AsakusaSatellite/daemontools as_websock
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://blog.osamu.habuka.jp/post/2011-04-27-asakusasatellite/</guid>
+      <description>CentOS 5.5 に入れた AsakusaSatellite で WebSocket を起動してシェルから抜けると WebSocket が終了しちゃうので、daemontools で起動することにした。って、本当はどうやるのがベストなんだろう？
+ # AsakusaSatellite のパスは適宜読み替えてください cd /var/opt/AsakusaSatellite # daemontools 用のディレクトリを作成 mkdir -p ./daemontools/log # WebSocket を起動するスクリプトの設置 cat &amp;lt;&amp;lt;EOF&amp;gt; ./daemontools/run #!/bin/bash exec 2&amp;gt;&amp;amp;1 exec setuidgid apache /usr/bin/ruby /var/opt/AsakusaSatellite/websocket/server.rb EOF # ロガーを起動するスクリプトの設置 cat &amp;lt;&amp;lt;EOF&amp;gt; ./daemontools/log/run #!/bin/sh exec setuidgid apache multilog t ./main EOF # パーミッションの設定 chown -R apache:apache ./daemontools/ chmod +x ./daemontools/run chmod +x ./daemontools/log/run # daemontools の監視対象に設定 cd /service/ ln -sf /var/opt/AsakusaSatellite/daemontools as_websock  </description>
     </item>
     
   </channel>

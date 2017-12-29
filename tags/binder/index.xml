@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hablog</title>
-    <link>http://blog.osamu.habuka.jp/tags/binder/index.xml</link>
-    <description>Recent content on hablog</description>
+    <title>Binder on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/binder/</link>
+    <description>Recent content in Binder on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <atom:link href="http://blog.osamu.habuka.jp/tags/binder/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Aug 2014 00:51:57 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/binder/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>ブロックストレージサービスで車輪の再開発(5)</title>
@@ -18,15 +21,7 @@
 
 &lt;p&gt;今日はブログを更新する代わりにこの「ブロックストレージサービスで車輪の再開発」の成果物を入れるプロジェクトを github に作りました。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/habuka036/binder&#34;&gt;https://github.com/habuka036/binder&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;プロジェクトの名前は「binder」です。べ、別に cinder を意識したんじゃないんだからねっξﾟ⊿ﾟ)ξ&lt;/p&gt;
-
-&lt;p&gt;etcd を利用するコードまわりは SkyDNS のコードを丸コピ…もとい参考にさせてもらってます。&lt;/p&gt;
-
-&lt;p&gt;ということで今日はブログの更新なしです。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -39,59 +34,7 @@
 
 &lt;p&gt;今更ですが「車輪の再開発」じゃなくて「車輪の再発明」ですよね…(// ▽ //)&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;当初は勉強をかねて Elixir で書こうと思っていたんですが、会社の同僚(若者)が「Go どうよ？」「これからツールとかユーティリティ書くなら Go 楽じゃね？」「あー、でもデーモンとかは Go 辛くね？」と、満足にプログラミング一つできない老害な僕に囁いてきたので、なんか時代に乗り遅れてるとか哀れんだ目で見られないように、ちょっと今回は Go で行こうかと思います。&lt;/p&gt;
-
-&lt;p&gt;そして折角 Go を使うので、設定やデータは etcd に放り込むことにします。あと WebAPI を実装するために martini を使います。&lt;/p&gt;
-
-&lt;h2 id=&#34;webapi&#34;&gt;WebAPI&lt;/h2&gt;
-
-&lt;p&gt;「そろそろ実装しながら」とか言いながらまだ一行もコード書いてなくてすみません。&lt;/p&gt;
-
-&lt;p&gt;とりあえず API は以下のようにします。(初めて書く Go とはいえ、もうちょっとそれなりなものを書けよと自分に言いたい…orz)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
-
-import (
-    &amp;quot;github.com/go-martini/martini&amp;quot;
-)
-
-func main() {
-   m := martini.Classic()
-   m.Group(&amp;quot;/volume&amp;quot;, func(r martini.Router) {
-      r.Get(&amp;quot;/(:id)*&amp;quot;, list_volume)
-      r.Post(&amp;quot;/&amp;quot;, create_volume)
-      r.Delete(&amp;quot;/:id&amp;quot;, delete_volume)
-   })
-   m.Run()
-}
-func list_volume(params martini.Params) {
-   println(&amp;quot;list_volume() invoked&amp;quot;)
-   if &amp;quot;&amp;quot; != params[&amp;quot;id&amp;quot;] {
-      println(&amp;quot;list_volume(): id =&amp;quot;, params[&amp;quot;id&amp;quot;])
-   }
-}
-
-func create_volume(params martini.Params) {
-   println(&amp;quot;create_volume() invoked&amp;quot;)
-
-}
-
-func delete_volume(params martini.Params) {
-   println(&amp;quot;delete_volume() invoked&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、とりあえずこれを実行すると、127.0.0.1:3000 で起動するので、以下のように叩くとログに吐かれます&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl http://127.0.0.1:3000/volume/
-curl http://127.0.0.1:3000/volume/1
-curl -X POST -H &amp;quot;Content-type: application/json&amp;quot; -d &#39;{&amp;quot;volume_size&amp;quot;:1,&amp;quot;volume_name&amp;quot;:&amp;quot;volume1&amp;quot;}&#39; http://127.0.0.1:3000/volume/
-curl -X DELETE http://127.0.0.1:3000/volume/1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;本当は自分で書いたコードにたいして「こーゆーつもりで書いたんですよ」とか恥を晒し…もとい説明しながら進めるべきなんですが、ちょっとコードがスッカスカすぎて何も説明することがないので、とりあえず今日はこれまで。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -100,149 +43,10 @@ curl -X DELETE http://127.0.0.1:3000/volume/1
       <pubDate>Mon, 18 Aug 2014 01:05:40 +0900</pubDate>
       
       <guid>http://blog.osamu.habuka.jp/post/2014-08-28-reinvention-of-the-wheel-with-block-storage-service-vol-dot-03/</guid>
-      <description>
-
-&lt;h2 id=&#34;外部コマンド叩く話のつづき2&#34;&gt;外部コマンド叩く話のつづき2&lt;/h2&gt;
-
-&lt;p&gt;さて、今日は _create_qcow2_file() の部分です。&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L240-L246&#34;&gt;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L240-L246&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;qemu-img コマンドを叩かない方法はどうしたらいいんだろう？と思い、とりあえず qemu-img でイメージを生成してみました。すると以下のように一部のヘッダ部分だけ値の入っている 193KB 程度のファイルが生成されます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ xxd ~/test.img |grep -v &amp;quot;: 0000 0000 0000 0000 0000 0000 0000 0000  ................&amp;quot;
-0000000: 5146 49fb 0000 0003 0000 0000 0000 0000  QFI.............
-0000010: 0000 0000 0000 0010 0000 0000 4000 0000  ............@...
-0000020: 0000 0000 0000 0002 0000 0000 0003 0000  ................
-0000030: 0000 0000 0001 0000 0000 0001 0000 0000  ................
-0000060: 0000 0004 0000 0068 0000 0000 0000 0000  .......h........
-0010000: 0000 0000 0002 0000 0000 0000 0000 0000  ................
-0020000: 0001 0001 0001 0001 0000 0000 0000 0000  ................
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、このヘッダ部分を生成しているのが、Qemu の block/qcow2.c の qcow2_create2() の以下の部分(かな？)と思い、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;    /* Write the header */
-    QEMU_BUILD_BUG_ON((1 &amp;lt;&amp;lt; MIN_CLUSTER_BITS) &amp;lt; sizeof(*header));
-    header = g_malloc0(cluster_size);
-    *header = (QCowHeader) {
-        .magic                      = cpu_to_be32(QCOW_MAGIC),
-        .version                    = cpu_to_be32(version),
-        .cluster_bits               = cpu_to_be32(cluster_bits),
-        .size                       = cpu_to_be64(0),
-        .l1_table_offset            = cpu_to_be64(0),
-        .l1_size                    = cpu_to_be32(0),
-        .refcount_table_offset      = cpu_to_be64(cluster_size),
-        .refcount_table_clusters    = cpu_to_be32(1),
-        .refcount_order             = cpu_to_be32(3 + REFCOUNT_SHIFT),
-        .header_length              = cpu_to_be32(sizeof(*header)),
-    };
-
-    if (flags &amp;amp; BLOCK_FLAG_ENCRYPT) {
-        header-&amp;gt;crypt_method = cpu_to_be32(QCOW_CRYPT_AES);
-    } else {
-        header-&amp;gt;crypt_method = cpu_to_be32(QCOW_CRYPT_NONE);
-    }
-
-    if (flags &amp;amp; BLOCK_FLAG_LAZY_REFCOUNTS) {
-        header-&amp;gt;compatible_features |=
-            cpu_to_be64(QCOW2_COMPAT_LAZY_REFCOUNTS);
-    }
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;「じゃぁ、これを Python で書けば」……(ヾﾉ･∀･`)ナイナイ&lt;/p&gt;
-
-&lt;p&gt;書きません。そこまでして「コマンド叩くの好きじゃない」とか言い張るほど強い主張はないです。
-っていうことで、コマンド叩く実装のほうがトータルコストが低いなら、コマンドでもいいんじゃないですかね？と思い直しました。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;run-as-root-trueの謎&#34;&gt;run_as_root=Trueの謎&lt;/h2&gt;
-
-&lt;p&gt;1回目のときに「何で run_as_root=True で叩いているんだろう？」って書いちゃったので、全く觝れないわけにはいかないと思い、ちょっぴり觝れます。&lt;/p&gt;
-
-&lt;p&gt;とりあえず、Cinder のボリュームが格納されているところを見てみました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ LANG=C sudo ls -al /var/lib/cinder/volumes/
-total 12
-drwxr-xr-x 2 cinder cinder 4096 May 29  2013 .
-drwx------ 3 cinder cinder 4096 May 29  2013 ..
--rw-r--r-- 1 cinder cinder  228 Mar 11 22:57 volume-5b519288-53a4-48fc-8ccf-eb5accea7001
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うーん、ディレクトリの権限やはり Cinder ユーザの権限で作成できますよね…。わざわざ root で叩く必要性がわからないですが、もっとちゃんと見ていけば理由がわかるかもしれませんが、そこまで OpenStack のコードを追いたくないので諦めます。&lt;/p&gt;
-
-&lt;h2 id=&#34;どんな機能にするかの話&#34;&gt;どんな機能にするかの話&lt;/h2&gt;
-
-&lt;p&gt;やっと本題です。もうサクっと作ってしまおうかと思い、とりあえず機能をザックリと決めたいと思います。&lt;/p&gt;
-
-&lt;p&gt;まず最初に最低限実装しておきたい機能は以下です。なお、今後実装する段階で、削ったり盛ったりします。(行き当たりばったりなのでσ^^:)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ボリュームの一覧  &amp;ndash; 現在作成されているボリュームの一覧を表示する機能
-
-&lt;ul&gt;
-&lt;li&gt;インプット: ボリューム ID(任意)&lt;/li&gt;
-&lt;li&gt;アウトプット: ボリューム ID、ボリュームサイズ、ボリューム作成日、NFS の共有パス&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;ボリュームの作成 &amp;ndash; ボリュームを作成する機能
-
-&lt;ul&gt;
-&lt;li&gt;インプット: ボリュームのサイズ(必須)、ボリュームの名称(必須)、NFS のオプション(任意)&lt;/li&gt;
-&lt;li&gt;アウトプット: ボリューム作成の成否、ボリューム ID、ボリュームのサイズ、ボリュームの作成日、NFSの共有パス&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;ボリュームの削除
-
-&lt;ul&gt;
-&lt;li&gt;インプット: ボリューム ID(必須)&lt;/li&gt;
-&lt;li&gt;アウトプット: ボリュームの削除の成否&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;なお、上記の3機能のそれぞれの処理概要は以下になります。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ボリュームの一覧&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;インプットでボリューム ID が指定されていれば該当するボリュームを表示し、指定されていなければ全てのボリュームを表示&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ボリュームの作成&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;インプットに指定されたボリュームの名称が存在すれば既に同じ名前のボリュームが存在する旨を返答し終了&lt;/li&gt;
-&lt;li&gt;インプットに指定されたボリュームのサイズでスパースファイルを作成&lt;/li&gt;
-&lt;li&gt;作成したボリュームファイルを何らかのファイルシステムでフォーマット(ファイルシステムは後で検討する)&lt;/li&gt;
-&lt;li&gt;ボリュームファイルをマウント&lt;/li&gt;
-&lt;li&gt;/etc/exports を変更し、exportfs を叩いて変更を反映させる&lt;/li&gt;
-&lt;li&gt;NFSの共有パスなどのボリュームに対する情報をアウトプット&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ボリュームの削除&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;インプットに指定されたボリュームの ID が無ければエラーをアウトプット&lt;/li&gt;
-&lt;li&gt;当該ボリュームに該当する設定を /etc/exports から削除し、exportfs を叩いて変更を反映させる&lt;/li&gt;
-&lt;li&gt;ボリュームファイルをアンマウント&lt;/li&gt;
-&lt;li&gt;ボリュームファイルを削除&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;こんなザックリした感じで進めていこうと思います。今日はこれまで。明日から少しづつ実装していくお話。ちなみに言語はまだ決めてません。&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;ただし、lvm コマンドをバシバシ叩きまくるのはイケてないです。そんなに lvm は叩かれることを想定してないと思うので…&amp;rsquo;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <description>外部コマンド叩く話のつづき2 さて、今日は _create_qcow2_file() の部分です。
+https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L240-L246
+qemu-img コマンドを叩かない方法はどうしたらいいんだろう？と思い、とりあえず qemu-img でイメージを生成してみました。すると以下のように一部のヘッダ部分だけ値の入っている 193KB 程度のファイルが生成されます。
+$ xxd ~/test.img |grep -v &amp;quot;: 0000 0000 0000 0000 0000 0000 0000 0000 ................&amp;quot; 0000000: 5146 49fb 0000 0003 0000 0000 0000 0000 QFI............. 0000010: 0000 0000 0000 0010 0000 0000 4000 0000 ............@... 0000020: 0000 0000 0000 0002 0000 0000 0003 0000 ................ 0000030: 0000 0000 0001 0000 0000 0001 0000 0000 ................ 0000060: 0000 0004 0000 0068 0000 0000 0000 0000 .</description>
     </item>
     
     <item>
@@ -255,107 +59,7 @@ drwx------ 3 cinder cinder 4096 May 29  2013 ..
 
 &lt;p&gt;前回は truncate コマンドを叩くよりシステムコールの truncate を呼んだほうが実行時のコストが低いんじゃないかという話をしましたが、今回は Ciner の NFS ドライバーにある _create_regular_file() が dd コマンドを叩いていることについて考えたいと思います。コード的には以下の部分です。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L227-L238&#34;&gt;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L227-L238&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;で、dd コマンドの代わりに何を呼べばいいかと coreutils の dd.c を読むと最終的にはシステムコール read と write を呼んでます。じゃぁ、python でも /dev/zero を read() で読み込んで write() で書き出せばいいのかと思いがちですが…&lt;/p&gt;
-
-&lt;p&gt;ちょっと待ってください、nfs.py では空のボリュームファイルを作るためにコマンド叩いているので /dev/zero から読み取るようになっていますが、システムコールを叩く方式を考えるなら何もわざわざ /dev/zero から読み込まなくても null (0x00) を write() で書けばいいということになると思います。&lt;/p&gt;
-
-&lt;p&gt;で、相変わらずの拙いコードですが、以下のようになります。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
-
-import subprocess
-from benchmarker import Benchmarker
-
-def execute(*cmd):
-    _PIPE = subprocess.PIPE
-    p = subprocess.Popen(cmd, stdin=_PIPE, stdout=_PIPE, close_fds=True,
-                         shell=False)
-    (stdin, stdout, stderr) = (p.stdin, p.stdout, p.stderr)
-
-
-def create_regular_file_by_command(path):
-
-    Ki = 1024
-    Mi = 1024 ** 2
-    Gi = 1024 ** 3    
-
-    block_size_mb = 1
-    block_count = 1 * Gi / (block_size_mb * Mi)
-    
-    execute(&#39;/bin/dd&#39;, &#39;if=/dev/zero&#39;, &#39;of=%s&#39; % path,
-            &#39;bs=%dM&#39; % block_size_mb,
-            &#39;count=%d&#39; % block_count,)
-
-def create_regular_file_by_syscall_write(path):
-    size = 1024 ** 3
-    count = size / 4096
-    null_4k = &amp;quot;\0&amp;quot; * 4096
-    file = open(path, &#39;w&#39;)
-    for i in xrange(count):
-        file.write(null_4k)
-    file.close()
-
-loop = 5
-with Benchmarker() as bm:
-    with bm(&#39;syscall_write&#39;):
-        for i in xrange(loop):
-            create_regular_file_by_syscall_write(&#39;/mnt/sda6/test/sys_write_createfile%s.img&#39; % i)
-
-    with bm(&#39;command&#39;):
-        for i in xrange(loop):
-            create_regular_file_by_command(&#39;/mnt/sda6/test/cmd_createfile%s.img&#39; % i)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そして実行結果は以下になりました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ python ~/create_regular_file.py
-## benchmarker:       release 3.0.1 (for python)
-## python platform:   linux2 [GCC 4.8.2]
-## python version:    2.7.6
-## python executable: /usr/bin/python
-
-##                                 user       sys     total      real
-syscall_write                    1.2300    7.3600    8.5900   20.8038
-command                          0.0000    0.0000    0.0000    0.0190
-
-## Ranking                         real
-command                          0.0190 (100.0%) *************************
-syscall_write                   20.8038 (  0.1%)
-
-## Ratio Matrix                    real      [01]      [02]
-[01] command                     0.0190    100.0% 109281.1%
-[02] syscall_write              20.8038      0.1%    100.0%
-
-1024+0 records in
-1024+0 records out
-1073741824 bytes (1.1 GB) copied, 45.8355 s, 23.4 MB/s
-1024+0 records in
-1024+0 records out
-1073741824 bytes (1.1 GB) copied, 46.7574 s, 23.0 MB/s
-1024+0 records in
-1024+0 records out
-1073741824 bytes (1.1 GB) copied, 47.6069 s, 22.6 MB/s
-1024+0 records in
-1024+0 records out
-1073741824 bytes (1.1 GB) copied, 47.6249 s, 22.5 MB/s
-1024+0 records in
-1024+0 records out
-1073741824 bytes (1.1 GB) copied, 49.6295 s, 21.6 MB/s
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うーん、コマンドのほうは subprocess.Popen() なので並列に実行されていますが、write() のほうは特に何もしてないので直列に実行されててベンチマークでの比較ができない感じでした。&lt;/p&gt;
-
-&lt;p&gt;まー、ベンチマーク終了後の出力には 1 ファイルあたり 45〜50 秒ほどかかっている計算になりますので、仮に上記のように 5 ファイル作成するのであれば、dd コマンドより write() のほうが半分ぐらいの速度で終ると言ってもいいような気がします。&lt;/p&gt;
-
-&lt;p&gt;ちなみに write() だけじゃなく mmap() も試そうと思ったのですが、スキル不足のため断念しましたσ^^;&lt;/p&gt;
-
-&lt;p&gt;個人的には完全に直列はアレですが、せめて少し並列化させて write() を呼ぶほうが良いように思えます。&lt;/p&gt;
-
-&lt;p&gt;では今日はここまで。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -372,140 +76,7 @@ syscall_write                   20.8038 (  0.1%)
 
 &lt;p&gt;「だったら Cinder 使うなりイジるなりすればいいじゃん」っていう声が聴こえてきますが、宗教上の理由で OpenStack は扱えないので自分で再開発することにします。(じゃないとブログのネタにならない)&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;nfs-を-rest-api-で触りたい&#34;&gt;NFS を Rest API で触りたい&lt;/h2&gt;
-
-&lt;p&gt;えーと、何で NFS かと言うと、Cinder がまだ Cinder として Nova から分化する以前、「NFS も EBS みたいに切り出せたらいいのに」っていう話が OpenStack の開発とは全然関係ない、とある場所で出てまして、その要望に応えるために Rest API で NFS を払い出す仕組みを作ろうとしてました。で設計も終わって実装していたけれど色々な事情で途中で停止してしまい、気付いたら Cindar にそんな感じの機能が備わってました。&lt;/p&gt;
-
-&lt;p&gt;で、どう実装されているかとても気になったので、Cindar のコードを見ているうちに「あれ？これってブログのネタにならないかしら？」と思った次第です。&lt;/p&gt;
-
-&lt;p&gt;ちなみに今日見てた中で一番気になったのは以下の部分でした。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L222-L246&#34;&gt;https://github.com/openstack/cinder/blob/master/cinder/volume/drivers/nfs.py#L222-L246&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;何が気になったのかと言うと、&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;恥しながら、truncate というコマンドとシステムコールを今頃知りました。 &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Eucalyptus でも言えることですが、実装コストを軽くするためとは言え、外部コマンドを叩く方法はあまり好きになれない。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;何で run_as_root=True で叩いているんだろう？ cinder ユーザに権限を与えさえすれば別にスーパーユーザで叩くことも無いんじゃないかしら？何か理由があるんだろうか？&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;という点が気になりました。&lt;/p&gt;
-
-&lt;h2 id=&#34;truncate-とスパースファイル&#34;&gt;truncate とスパースファイル&lt;/h2&gt;
-
-&lt;p&gt;で、まず一点目の「truncate」ですが、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ truncate -s 1G truncate.img
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;なんていう風に実行するだけで、指定したサイズでスパースファイルを作ってくれます。これは便利。&lt;/p&gt;
-
-&lt;p&gt;というのも今まで僕はスパースファイルを作るときは&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ dd if=/dev/zero of=dd.count0.img bs=1 count=0 seek=$(( 1 * 1024 * 1024 * 1024 ))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;なんていう風に実行していました。&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;あ、話が脱線しますが、dd でスパースファイルを作るときに稀に以下のように実行している人が居るんですが、count=1 にする理由って何でなんでしょう？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ dd if=/dev/zero of=dd.count1.img bs=1 count=1 seek=1G
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;count=1 にすると以下に示すとおり、指定したサイズより bs * count 分だけ大きいファイルが作られてしまうんですが意図して指定しているんでしょうか…？&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls -sl
-total 3076
-1024 -rw-r--r-- 1 root root 1073741824 Aug 16 12:02 dd.count0.img
-1028 -rw-r--r-- 1 root root 1073741825 Aug 16 12:02 dd.count1.img
-1024 -rw-r--r-- 1 root root 1073741824 Aug 16 11:13 truncate.img
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;えー、話が脱線しましたが、今度からはスパースファイルを作る際には truncate コマンドを使うようにします。ありがとう Cinder。&lt;/p&gt;
-
-&lt;h2 id=&#34;外部コマンド叩く話&#34;&gt;外部コマンド叩く話&lt;/h2&gt;
-
-&lt;p&gt;で、二点目の「外部コマンドを叩く方法はあまり好きになれない」について。&lt;/p&gt;
-
-&lt;p&gt;上でもちょっぴり書きましたが、truncate はコマンドでもありますがシステムコールもあります。というか、truncate コマンドは ftruncate というシステムコールを叩いてます。&lt;/p&gt;
-
-&lt;p&gt;で、折角システムコールがあるのに何でコマンド叩くんだろう？と思い、僕は python 書けませんが何とかコマンドを叩いてみた場合とシステムコールを呼んでみた場合とで計測してみることにしました。ちなみに計測用に書いた拙いコードは以下です。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
-
-import subprocess
-from benchmarker import Benchmarker
-
-def execute(*cmd):
-    _PIPE = subprocess.PIPE
-    p = subprocess.Popen(cmd, stdin=_PIPE, stdout=_PIPE, close_fds=True,
-                         shell=False)
-    (stdin, stdout, stderr) = (p.stdin, p.stdout, p.stderr)
-
-
-def create_sparsed_file_by_command(path):
-    execute(&#39;/usr/bin/truncate&#39;, &#39;-s&#39;, &#39;1G&#39;, path)
-
-def create_sparsed_file_by_syscall(path):
-    file = open(path, &#39;w&#39;)
-    file.truncate(1 * 1024 * 1024 * 1024)
-    file.close()
-
-loop = 1000
-with Benchmarker() as bm:
-    with bm(&#39;command&#39;):
-        for i in xrange(loop):
-            create_sparsed_file_by_command(&#39;/tmp/test/cmd_truncate%s.img&#39; % i)
-
-    with bm(&#39;syscall&#39;):
-        for i in xrange(loop):
-            create_sparsed_file_by_syscall(&#39;/tmp/test/sys_truncate%s.img&#39; % i)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、実行結果が以下。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ python ~/create_sparsed_file.py 
-## benchmarker:       release 3.0.1 (for python)
-## python platform:   linux2 [GCC 4.8.2]
-## python version:    2.7.6
-## python executable: /usr/bin/python
-
-##                                 user       sys     total      real
-command                          0.3300    0.4000    0.7300    2.2077
-syscall                          0.0100    0.0200    0.0300    0.0283
-
-## Ranking                         real
-syscall                          0.0283 (100.0%) *************************
-command                          2.2077 (  1.3%) 
-
-## Ratio Matrix                    real    [01]    [02]
-[01] syscall                     0.0283  100.0% 7790.9%
-[02] command                     2.2077    1.3%  100.0%
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;うーん、truncate に限った話であれば truncate コマンド叩くよりシステムコール呼んだほうが速いと言えると思うんですが…。まぁ、でも他の dd や qemu-img のほうと足並み揃えたほうがコードのメンテナンス性とか良いんでしょうかね。ちょっと俄にやってみただけの身だと「ほら、システムコールのほうがいいでしょ？」とは断言できないですねσ^^;&lt;/p&gt;
-
-&lt;p&gt;とりあえず今日はここまで。&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;@enakai00 先生の講義で教えて頂いていたらごめんなさい…&amp;gt;&amp;lt;&amp;rsquo;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;もちろん他にも理由あるとは思いますが…
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;ちなみに「seek に1Gっていう風に単位つきで値を渡せたらいいのに…」とか思ってたんですが、実は指定できたんですね、これも知りませんでした…orz
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

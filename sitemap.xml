@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/</loc>
-    <lastmod>2016-12-11T09:23:47+09:00</lastmod>
+    <loc>http://blog.osamu.habuka.jp/post/2017-12-15.unacha/</loc>
+    <lastmod>2017-12-15T01:23:45+09:00</lastmod>
   </url>
   
   <url>
@@ -227,142 +228,142 @@
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2014-04-23/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2014-04-23.do-ceph-with-gentoo/</loc>
     <lastmod>2014-04-23T22:06:56+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-12-14/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-12-14.adventcalendar-day-14/</loc>
     <lastmod>2013-12-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-12-08/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-12-08.adventcalendar-day-8/</loc>
     <lastmod>2013-12-08T01:11:57+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-12-07/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-12-07.adventcalendar-day-7/</loc>
     <lastmod>2013-12-07T01:11:46+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-12-05/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-12-05.adventcalendar-day-5/</loc>
     <lastmod>2013-12-05T01:11:41+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-12-04/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-12-04.adventcalendar-day-4/</loc>
     <lastmod>2013-12-04T01:11:29+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-12-02/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-12-02.adventcalendar-day-2/</loc>
     <lastmod>2013-12-02T01:11:25+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-12-01/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-12-01.adventcalendar-day-1/</loc>
     <lastmod>2013-12-01T01:11:06+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-09-19/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-09-19.github-clone/</loc>
     <lastmod>2013-09-19T00:08:45+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-08-28/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-08-28.anthropomorphism/</loc>
     <lastmod>2013-08-28T00:29:35+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2013-02-21/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2013-02-21.stroller/</loc>
     <lastmod>2013-02-21T00:48:34+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-25/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-25.eucalyptus-adventcalendar-2012-jp-day-25/</loc>
     <lastmod>2012-12-25T01:19:21+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-24/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-24.eucalyptus-adventcalendar-2012-jp-day-24/</loc>
     <lastmod>2012-12-24T01:19:16+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-21/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-21.eucalyptus-adventcalendar-2012-jp-day-21/</loc>
     <lastmod>2012-12-21T01:19:04+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-20/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-20.eucalyptus-adventcalendar-2012-jp-day-20/</loc>
     <lastmod>2012-12-20T01:17:57+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-18/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-18.eucalyptus-adventcalendar-2012-jp-day-18/</loc>
     <lastmod>2012-12-18T01:17:50+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-17/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-17.eucalyptus-adventcalendar-2012-jp-day-17/</loc>
     <lastmod>2012-12-17T01:17:44+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-16/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-16.eucalyptus-adventcalendar-2012-jp-day-16/</loc>
     <lastmod>2012-12-16T01:17:32+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-15/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-15.eucalyptus-adventcalendar-2012-jp-day-15/</loc>
     <lastmod>2012-12-15T01:17:27+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-14/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-14.eucalyptus-adventcalendar-2012-jp-day-14/</loc>
     <lastmod>2012-12-14T01:17:14+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-13/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-13.eucalyptus-adventcalendar-2012-jp-day-13/</loc>
     <lastmod>2012-12-13T01:43:14+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-12/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-12.eucalyptus-adventcalendar-2012-jp-day-12/</loc>
     <lastmod>2012-12-12T01:17:04+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-11/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-11.eucalyptus-adventcalendar-2012-jp-day-11/</loc>
     <lastmod>2012-12-11T01:16:53+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-09/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-09.eucalyptus-adventcalendar-2012-jp-day-9/</loc>
     <lastmod>2012-12-09T01:16:43+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-04/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-04.eucalyptus-adventcalendar-2012-jp-day-4/</loc>
     <lastmod>2012-12-04T01:16:28+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-03/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-03.eucalyptus-adventcalendar-2012-jp-day-3/</loc>
     <lastmod>2012-12-03T01:16:23+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-12-01/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-12-01.eucalyptus-adventcalendar-2012-jp-day-1/</loc>
     <lastmod>2012-12-01T01:16:17+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2012-11-30/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2012-11-30.eucalyptus-adventcalendar-2012-jp/</loc>
     <lastmod>2012-11-30T01:09:11+09:00</lastmod>
   </url>
   
@@ -372,17 +373,17 @@
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2011-06-20-unable-to-delete-volume-in-eucalyptus-2/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2011-06-20-unable-to-delete-volume-in-eucalyptus-2.0.3/</loc>
     <lastmod>2011-06-20T01:13:20+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2011-05-25/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2011-05-25.deploying-private-cloud-with-eucalyptus/</loc>
     <lastmod>2011-05-25T01:10:42+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.osamu.habuka.jp/post/2011-04-27-AsakusaSatellite/</loc>
+    <loc>http://blog.osamu.habuka.jp/post/2011-04-27-asakusasatellite/</loc>
     <lastmod>2011-04-27T01:05:29+09:00</lastmod>
   </url>
   
@@ -394,6 +395,179 @@
   <url>
     <loc>http://blog.osamu.habuka.jp/post/2002-07-23-abdominal-wind/</loc>
     <lastmod>2002-07-23T04:50:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/adventaalendar/</loc>
+    <lastmod>2015-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/adventcalendar/</loc>
+    <lastmod>2017-12-15T01:23:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/asakusasatellite/</loc>
+    <lastmod>2011-04-27T01:05:29+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/aws/</loc>
+    <lastmod>2015-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/binder/</loc>
+    <lastmod>2014-08-20T00:51:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/ceph/</loc>
+    <lastmod>2014-04-23T22:06:56+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/cloudstack/</loc>
+    <lastmod>2012-12-24T01:19:16+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/conoha/</loc>
+    <lastmod>2015-12-16T06:15:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/dns/</loc>
+    <lastmod>2015-12-17T04:49:39+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/elixir/</loc>
+    <lastmod>2014-08-15T13:12:23+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/empire/</loc>
+    <lastmod>2015-12-02T23:21:20+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/eucalyptus/</loc>
+    <lastmod>2015-12-05T05:05:37+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/gentoo/</loc>
+    <lastmod>2014-04-23T22:06:56+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/gitbucket/</loc>
+    <lastmod>2013-09-19T00:08:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/mcdonalds/</loc>
+    <lastmod>2016-06-26T04:43:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/openstack/</loc>
+    <lastmod>2016-12-11T09:23:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/paas/</loc>
+    <lastmod>2015-12-02T23:21:20+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/post/</loc>
+    <lastmod>2017-12-15T01:23:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/</loc>
+    <lastmod>2015-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/wakame-vdc/</loc>
+    <lastmod>2015-12-16T06:15:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/</loc>
+    <lastmod>2017-12-15T01:23:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/%E3%82%A2%E3%83%B3%E3%82%BF%E3%83%83%E3%83%81%E3%83%A3%E3%83%96%E3%83%AB/</loc>
+    <lastmod>2013-02-21T00:48:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC/</loc>
+    <lastmod>2013-02-21T00:48:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/%E5%A4%A2/</loc>
+    <lastmod>2011-04-22T01:04:39+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/%E5%AD%90%E9%80%A3%E3%82%8C%E7%8B%BC/</loc>
+    <lastmod>2013-02-21T00:48:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/%E6%93%AC%E4%BA%BA%E5%8C%96/</loc>
+    <lastmod>2013-08-28T00:29:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/%E8%82%B2%E5%85%90/</loc>
+    <lastmod>2013-02-21T00:48:34+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/%E9%B0%BB/</loc>
+    <lastmod>2017-12-15T01:23:45+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
