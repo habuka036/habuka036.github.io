@@ -40,6 +40,20 @@
     </item>
     
     <item>
+      <title>Henchman Advent Calendar 2017 1日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2017-12-01.henchman/</link>
+      <pubDate>Fri, 01 Dec 2017 05:08:53 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2017-12-01.henchman/</guid>
+      <description>これは何？ これは Henchman Advent Calendar 2017 の1日目のエントリーです。
+日本 Henchman 使ってみる会 日本 Henchman 使ってみる会 っていうサイトを2017年7月に作ってみたんですが、まぁ作ったっきりで特に何も活動しておらず、自分のケツを叩く意味でもAdvent Calendarを立ててみたわけですが、本家のIssueにIs this project dead?っていうチケットが作られてて、まぁ簡単に言うと「もうこのプロジェクトに積極的に貢献している人は居ないよ。まぁ好きにフォークしてくれよ」的なことが書かれてて、「え？じゃぁ、この使ってみる会は何やんの？」って思うわけなんですが、まぁ、僕が興味を持ったOSSのプロジェクトが終息するのは今に始まったことじゃないので、もう我が道を進むって感じでこの終息したプロジェクトを勝手に盛り上げていきます。
+ということで「Feel free to fork the project」って言うからフォークしてみました。
+https://github.com/henchman-ja/henchman
+あと、ついでに他にフォークした人達がどうしているかもこの Advent Calendar で追ってみたいと思います。
+以上。</description>
+    </item>
+    
+    <item>
       <title>パパ、OpenStack のロゴって鰻で出来てるの？</title>
       <link>http://blog.osamu.habuka.jp/post/2016-12-11-openstack-logo/</link>
       <pubDate>Sun, 11 Dec 2016 09:23:47 +0900</pubDate>

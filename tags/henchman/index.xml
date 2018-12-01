@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Henchman on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/henchman/</link>
+    <description>Recent content in Henchman on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Fri, 01 Dec 2017 05:08:53 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/henchman/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Henchman Advent Calendar 2017 1日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2017-12-01.henchman/</link>
+      <pubDate>Fri, 01 Dec 2017 05:08:53 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2017-12-01.henchman/</guid>
+      <description>これは何？ これは Henchman Advent Calendar 2017 の1日目のエントリーです。
+日本 Henchman 使ってみる会 日本 Henchman 使ってみる会 っていうサイトを2017年7月に作ってみたんですが、まぁ作ったっきりで特に何も活動しておらず、自分のケツを叩く意味でもAdvent Calendarを立ててみたわけですが、本家のIssueにIs this project dead?っていうチケットが作られてて、まぁ簡単に言うと「もうこのプロジェクトに積極的に貢献している人は居ないよ。まぁ好きにフォークしてくれよ」的なことが書かれてて、「え？じゃぁ、この使ってみる会は何やんの？」って思うわけなんですが、まぁ、僕が興味を持ったOSSのプロジェクトが終息するのは今に始まったことじゃないので、もう我が道を進むって感じでこの終息したプロジェクトを勝手に盛り上げていきます。
+ということで「Feel free to fork the project」って言うからフォークしてみました。
+https://github.com/henchman-ja/henchman
+あと、ついでに他にフォークした人達がどうしているかもこの Advent Calendar で追ってみたいと思います。
+以上。</description>
+    </item>
+    
+  </channel>
+</rss>

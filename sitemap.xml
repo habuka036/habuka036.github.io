@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>http://blog.osamu.habuka.jp/post/2017-12-01.henchman/</loc>
+    <lastmod>2017-12-01T05:08:53+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.osamu.habuka.jp/post/2016-12-11-openstack-logo/</loc>
     <lastmod>2016-12-11T09:23:47+09:00</lastmod>
   </url>
@@ -488,6 +493,12 @@
   <url>
     <loc>http://blog.osamu.habuka.jp/tags/gitbucket/</loc>
     <lastmod>2013-09-19T00:08:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.osamu.habuka.jp/tags/henchman/</loc>
+    <lastmod>2017-12-01T05:08:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
