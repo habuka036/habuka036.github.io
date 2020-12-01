@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ponzu on hablog</title>
+    <link>http://blog.osamu.habuka.jp/tags/ponzu/</link>
+    <description>Recent content in Ponzu on hablog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Tue, 12 Dec 2017 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.osamu.habuka.jp/tags/ponzu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>おばあちゃんと Ponzu</title>
+      <link>http://blog.osamu.habuka.jp/post/2017-12-xx.ponzu/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2017-12-xx.ponzu/</guid>
+      <description>これは何？ これは 鰻 Advent Calendar 2017 のX日目のエントリーです。
+主な登場人物 あべ　りあ: ドラ○もんで言うところののび太くん的役割。どうやら世間の作品の主人公は中学二年生が成功の秘訣らしいので、中学二年生という設定 あべ　まき: ド○えもんで言うところの猫型ロボット的な役割。あべりあの祖母。72歳。 しまと　ねりこ: あべ家の隣に住む老婦。あべまきの茶飲み友達。80歳。 おおむら　さき: りあの同級生。 あべ　な: りあの母親。 あべ　なりうす: りあの父親 アベ　ルモスクス・ツベロースス: あべ家のご先祖さま。
+今日から Ponzu りあ: おばあちゃん、おばあちゃん！ まき: おや？なんだい？ ねりこ: りあさん、まずは「ただいま」でしょう？ りあ: あっ、ねりこちゃん、こんちゃーっす。 ねりこ: これっ目上の人に「ちゃん」付けしない、挨拶はちゃんとする。「こんちゃーっす」って何ですかそれ、もう… まき: まぁまぁ、ねりこちゃん、私が「ねりこちゃん」なんて呼ぶからいけないんですよ。 ねりこ: もぅ、まきさんったら…りあちゃんに甘いんだから… まき: で、どうしたんだい？ りあ: それがね、それがね、今日学校でパソコンの授業をやったんだけど、わーるどぷろれす？ってやつを構築する授業だったんだけどね、まじ大変だったの。 まき: おやまぁ、それは大変だったねぇ。お約束だから言うけど、わーるどぷろれすじゃなくて WordPress ね。 まき: WordPress の構築は別に難しくないでしょう？先生の説明をちゃんと聴いてたのかい？ りあ: ぜんぜーん。だって何言ってるのかさっぱりわかんないのー。 ねりこ: りあさん、先生のお話はちゃんと聞きなさい。そして分からないことはその場で質問しなさい。 りあ: はーい… まき: じゃぁお父さんが帰ってきたら WordPress の構築を教えてもらいなさいな。 りあ: え〜？やだよぉ、お父さんパソコン詳しくないんだもん。 まき: お父さんだって WordPress の構築ぐらいできるわよ。ちょっと不器用なだけですよ。 りあ: 不器用っていうレベルじゃないよ、あれ。この前だって Mac OS 9 と OS-9 の違いがわかってなかったし… まき: でも、どちらも PowerPC で動くわよ。 りあ: そーゆー問題じゃなくて… りあ: わたしはおばあちゃんに教わりたいの！ねー、なんか簡単に構築できるやつ教えてよ〜 まき:</description>
+    </item>
+    
+  </channel>
+</rss>

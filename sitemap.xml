@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.osamu.habuka.jp/post/2020-12-01.eucalyptus-advent-calendar/</loc>
+    <lastmod>2020-12-01T23:42:33+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.osamu.habuka.jp/post/2017-12-16.unamen/</loc>
     <lastmod>2017-12-16T01:23:45+09:00</lastmod>
   </url>
@@ -415,7 +420,7 @@
   
   <url>
     <loc>http://blog.osamu.habuka.jp/tags/adventcalendar/</loc>
-    <lastmod>2017-12-16T01:23:45+09:00</lastmod>
+    <lastmod>2020-12-01T23:42:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -480,7 +485,7 @@
   
   <url>
     <loc>http://blog.osamu.habuka.jp/tags/eucalyptus/</loc>
-    <lastmod>2015-12-05T05:05:37+09:00</lastmod>
+    <lastmod>2020-12-01T23:42:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -522,7 +527,7 @@
   
   <url>
     <loc>http://blog.osamu.habuka.jp/post/</loc>
-    <lastmod>2017-12-16T01:23:45+09:00</lastmod>
+    <lastmod>2020-12-01T23:42:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -540,7 +545,7 @@
   
   <url>
     <loc>http://blog.osamu.habuka.jp/</loc>
-    <lastmod>2017-12-16T01:23:45+09:00</lastmod>
+    <lastmod>2020-12-01T23:42:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   

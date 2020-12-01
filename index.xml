@@ -6,10 +6,36 @@
     <description>Recent content on hablog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 16 Dec 2017 01:23:45 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 23:42:33 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.osamu.habuka.jp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Eucalyptus Advent Calendar 2020 JP 一日目</title>
+      <link>http://blog.osamu.habuka.jp/post/2020-12-01.eucalyptus-advent-calendar/</link>
+      <pubDate>Tue, 01 Dec 2020 23:42:33 +0900</pubDate>
+      
+      <guid>http://blog.osamu.habuka.jp/post/2020-12-01.eucalyptus-advent-calendar/</guid>
+      <description>はーい、なんだろうね、これ。
+うん、いや、まぁ、Eucalyptus Advent Calendar 2020 の一日目っすよ。
+え？生きてたの？あはは、あなたは老害ですね？
+え？なにこれ聞いたことないよ？うん、あなたはナウでヤングなエンジニアですね？
+なんで、こんなことやってるのかっていうと…まぁ、知合いが…いや、ソウルメイトがね、12月1日も終わろうとしている頃にこんなこと言うんですよ。
+黒幕X「あれ？これって…そーゆーこと？」
+そう、つまりハメられたんすわー。もうね、ネタなんてとうの昔に尽きたし、精も根も尽き果ててるのに、今頃「新進気鋭のプライベートクラウド構築基盤ソフトウェアだよ☆ミ」とか言わなきゃいけないとか、誰も正視できないっすよ、こんなの。初日からネタ切れのアドベントカレンダーとか、もうね…あ、ここで 12&amp;frasl;02 を迎えてやんの、やーい、やーい。
+とりあえず、もうね、こうなったら、心機一転、とことん「新しいもの」として紹介してやる。後悔しろ俺。泣いて泣いて、咽び泣け、こんちきしょうめ。
+初日なので軽く紹介して寝る。寝てやる。 えーと、たぶん誰も知らないでしょうけど、 Eucalyptus っていう名前のプライベートクラウド構築基盤ソフトウェア…あれ？プライベートクラウド基盤構築ソフトウェア？ うん、ややこしい、つまり、 AWS みたいなもんをオンプレにプライベートクラウドとして構築したいっていう奇特な人のためにあるソフトウェアです。
+え？オンプレに AWS みたいなものが欲しいなら AWS Outposts を使えばいいって？
+機能紹介 気にしたってしょうがない。カツオだって泳ぐのやめたら死んじゃうんだからぁ…。
+っていうか、こんなブログ見てないで、公式サイト を見たらいいんじゃないかな？うん。
+Compute はい、EC2 と AutoScaling と ELB の機能を持ってますよ。
+Storage S3 と EBS の機能を持ってますよ。つーか、「ストレージ」って…まとめすぎだろ。
+Management IAM と CloudFormation の…え？うそ？ CloudFormation も？いつの間に？ Terraform でいいじゃん…あっ…Terraform に Eucalyptus の Provider 無いんだった。なんせ、出来立てホヤホヤだからなっ！
+Monitoring あれよ、CloudWatch の機能よ。CloudWatch Events とか CloudWatch Logs とか Insight とかもあるのかって？
+こっちだって数年ぶりだっつーの、浦島太郎も腰抜かすレベルで…あいや、ごめん、これ新進気鋭のプライベートクラウド作っちゃうソフトウェアだったわ。うん、ごめん。
+さーて、1日目で終わって「やっぱ、あいつ、出オチしか芸ねーのな」って言われないよう頑張るぞ！</description>
+    </item>
     
     <item>
       <title>うなめん</title>
